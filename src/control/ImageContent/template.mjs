@@ -87,7 +87,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 100%;
   height: 100%;
   min-height: 600px;
-  padding: 40px;
+  padding: 40px 40px 40px 0px;
   background-color: ${vars.bg.asVar()};
   box-sizing: border-box;
 }
@@ -99,13 +99,20 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
 }
 
+.${clss.ROOT_CLASS} > ul
+{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 .${clss.ROOT_CLASS} > span
 {
   display: flex;
   align-items: center;
   justify-content: center;
   height: calc(100% - 80px);
-  width: calc(100% - 80px);
+  width: calc(100% - 280px);
   padding: 0 10px;
   box-sizing: border-box;
   flex-shrink: 0;
