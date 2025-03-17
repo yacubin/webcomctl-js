@@ -99,14 +99,14 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
 }
 
-.${clss.ROOT_CLASS} > ul
+.${clss.ROOT_CLASS} > i > ul
 {
   display: block;
   margin: 0;
   padding: 0;
 }
 
-.${clss.ROOT_CLASS} > li
+.${clss.ROOT_CLASS} > i > ul > li
 {
   list-style-type: none;
 }
