@@ -32,6 +32,22 @@ const vars = mk.newCSSVariableMap({
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}" draggable="false">
+  <i>
+    <ul>
+      <li>
+        <div>Height</div>
+        <div>854 px</div>
+        <div>Chroma bpp</div>
+        <div>8</div>
+        <div>Alpha channel</div>
+        <div>No</div>
+        <div>Premul alpha</div>
+        <div>No</div>
+        <div>Primary</div>
+        <div>Yes</div>
+      </li>
+    </ul>
+  </i>
   <div>
     <div class="${clss.LEFT_CLICK}">
       <div></div>
@@ -74,6 +90,13 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 40px;
   background-color: ${vars.bg.asVar()};
   box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS} > i
+{
+  display: block;
+  width: 200px;
+  height: 100%;
 }
 
 .${clss.ROOT_CLASS} > span
