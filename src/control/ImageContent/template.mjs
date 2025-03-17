@@ -37,12 +37,20 @@ mk.newHTML('ROOT_HTML', `
       <li>
         <div>Height</div>
         <div>854 px</div>
+      </li>
+      <li>
         <div>Chroma bpp</div>
         <div>8</div>
+      </li>
+      <li>
         <div>Alpha channel</div>
         <div>No</div>
+      </li>
+      <li>
         <div>Premul alpha</div>
         <div>No</div>
+      </li>
+      <li>
         <div>Primary</div>
         <div>Yes</div>
       </li>
@@ -103,12 +111,16 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > i > ul
 {
   display: block;
+  width: inherit;
+  height: inherit;
   margin: 0;
   padding: 0;
 }
 
 .${clss.ROOT_CLASS} > i > ul > li
 {
+  display: flex
+  height: inherit;
   list-style-type: none;
 }
 
