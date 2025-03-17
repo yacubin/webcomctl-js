@@ -97,6 +97,7 @@ ${DARKMODE_SELECTOR_VALUE}
   display: block;
   width: 200px;
   height: 100%;
+  flex-shrink: 0;
 }
 
 .${clss.ROOT_CLASS} > i > ul
@@ -156,8 +157,8 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
-.${clss.BUTT_LEFT_CLASS}> div:first-child > div,
-.${clss.BUTT_RIGHT_CLASS} > div + span + div > div
+.${clss.BUTT_LEFT_CLASS} > i + div > div,
+.${clss.BUTT_RIGHT_CLASS} > i + div + span + div > div
 {
   width: 40px;
   transition: width 0.3s;
@@ -186,7 +187,7 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} > div:first-child > div > div
+.${clss.ROOT_CLASS} > i + div > div
 {
   transform: scaleX(-1);
   margin-right: 2px;
