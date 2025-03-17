@@ -120,7 +120,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > i > ul > li
 {
   display: flex
-  height: inherit;
+  width: inherit;
   list-style-type: none;
 }
 
@@ -240,8 +240,8 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${vars.quantum.asVar()};
 }
 
-.${clss.BUTT_LEFT_CLASS}  > s > div,
-.${clss.BUTT_RIGHT_CLASS}  > s > div
+.${clss.BUTT_LEFT_CLASS} > s > div,
+.${clss.BUTT_RIGHT_CLASS} > s > div
 {
   height: 20px;
   transition: height 0.3s;
