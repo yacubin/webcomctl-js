@@ -106,6 +106,11 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
 }
 
+.${clss.ROOT_CLASS} > li
+{
+  list-style-type: none;
+}
+
 .${clss.ROOT_CLASS} > span
 {
   display: flex;
