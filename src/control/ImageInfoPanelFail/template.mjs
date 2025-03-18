@@ -58,6 +58,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 200px;
   height: 100%;
   font-family: Open Sans, Arial, sans-serif;
+  font-style: normal;
   flex-shrink: 0;
 }
 
