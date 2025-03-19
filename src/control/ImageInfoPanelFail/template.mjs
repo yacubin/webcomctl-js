@@ -56,6 +56,7 @@ ${DARKMODE_SELECTOR_VALUE}
   display: block;
   width: inherit;
   height: 100%;
+  padding: 10px 25px 10px 10px;
   font-family: Open Sans, Arial, sans-serif;
   font-style: normal;
   color: ${vars.Foncol.asVar()};
