@@ -9,8 +9,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 const vars = mk.newCSSVariableMap({
-  menuCol: [ '', '' ],
-  titleCol: [ '', '' ],
+  Foncol: [ 'black', '#b8b4b4' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -59,6 +58,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   font-family: Open Sans, Arial, sans-serif;
   font-style: normal;
+  color: ${vars.Foncol.asVar()};
   flex-shrink: 0;
 }
 
@@ -66,9 +66,9 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   display: table;
   width: inherit;
-  height: inherit;
   margin: 0;
   padding: 0;
+  border-spacing: 5px;
 }
 
 .${clss.ROOT_CLASS} > ul > li
