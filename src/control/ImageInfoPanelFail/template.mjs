@@ -81,11 +81,12 @@ ${DARKMODE_SELECTOR_VALUE}
   display: table-row-group;
   width: inherit;
   list-style-type: none;
+  background-color: #7a7a7a29;
 }
 
 .${clss.ROOT_CLASS} > ul > li:nth-child(2n)
 {
-  background-color: #7a7a7a29;
+  background-color: transparent;
 }
 
 .${clss.ROOT_CLASS} > ul > li > div
@@ -94,13 +95,15 @@ ${DARKMODE_SELECTOR_VALUE}
   vertical-align: middle;
   padding: 3px 0 3px 10px;
   min-width: 50px;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .${clss.ROOT_CLASS} > ul > li > div:nth-child(2n)
 {
   width: 100%;
   min-width: auto;
+  white-space: normal;
+  word-break: break-all;
 }
 `);
 
