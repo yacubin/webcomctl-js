@@ -71,7 +71,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 100%;
   height: 100%;
   min-height: 600px;
-  padding: 40px;
+  padding: 40px 40px 40px 0px;
   background-color: ${vars.bg.asVar()};
   box-sizing: border-box;
 }
@@ -82,7 +82,7 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: center;
   justify-content: center;
   height: calc(100% - 80px);
-  width: calc(100% - 80px);
+  width: calc(100% - 280px);
   padding: 0 10px;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -121,8 +121,8 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
-.${clss.BUTT_LEFT_CLASS}> div:first-child > div,
-.${clss.BUTT_RIGHT_CLASS} > div + span + div > div
+.${clss.BUTT_LEFT_CLASS} > i + div > div,
+.${clss.BUTT_RIGHT_CLASS} > i + div + span + div > div
 {
   width: 40px;
   transition: width 0.3s;
@@ -151,7 +151,7 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} > div:first-child > div > div
+.${clss.ROOT_CLASS} > i + div > div
 {
   transform: scaleX(-1);
   margin-right: 2px;
@@ -192,8 +192,8 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${vars.quantum.asVar()};
 }
 
-.${clss.BUTT_LEFT_CLASS}  > s > div,
-.${clss.BUTT_RIGHT_CLASS}  > s > div
+.${clss.BUTT_LEFT_CLASS} > s > div,
+.${clss.BUTT_RIGHT_CLASS} > s > div
 {
   height: 20px;
   transition: height 0.3s;
