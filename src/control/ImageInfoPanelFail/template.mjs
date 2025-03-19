@@ -54,7 +54,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   display: block;
-  width: 200px;
+  width: inherit;
   height: 100%;
   font-family: Open Sans, Arial, sans-serif;
   font-style: normal;
@@ -68,7 +68,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: inherit;
   margin: 0;
   padding: 0;
-  border-spacing: 5px;
+  border-spacing: 0 5px;
 }
 
 .${clss.ROOT_CLASS} > ul > li
@@ -78,9 +78,24 @@ ${DARKMODE_SELECTOR_VALUE}
   list-style-type: none;
 }
 
+.${clss.ROOT_CLASS} > ul > li:nth-child(2n)
+{
+  background-color: #7a7a7a29;
+}
+
 .${clss.ROOT_CLASS} > ul > li > div
 {
   display: table-cell;
+  vertical-align: middle;
+  padding: 3px 0 3px 10px;
+  min-width: 50px;
+  word-break: break-all;
+}
+
+.${clss.ROOT_CLASS} > ul > li > div:nth-child(2n)
+{
+  width: 100%;
+  min-width: auto;
 }
 `);
 
