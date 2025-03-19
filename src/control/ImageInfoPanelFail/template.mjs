@@ -64,7 +64,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > ul
 {
-  display: block;
+  display: table;
   width: inherit;
   height: inherit;
   margin: 0;
@@ -73,9 +73,14 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > ul > li
 {
-  display: flex;
+  display: table-row-group;
   width: inherit;
   list-style-type: none;
+}
+
+.${clss.ROOT_CLASS} > ul > li > div
+{
+  display: table-cell;
 }
 `);
 
