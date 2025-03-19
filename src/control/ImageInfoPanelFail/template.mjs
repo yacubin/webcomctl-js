@@ -62,6 +62,11 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
+}
+
 .${clss.ROOT_CLASS} > ul
 {
   display: table;
