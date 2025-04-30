@@ -30,7 +30,7 @@ const clss = mk.newClassNameMap([
 
 const DOWNLOAD_IMG = await mk.loadSvgAsCssUrl('./download.svg');
 const PROPERTIES_IMG = await mk.loadSvgAsCssUrl('./properties.svg');
-const PROP_IMG = await mk.loadSvgAsCssUrl('./prop.svg');
+const PROP_IMG = await mk.loadSvgAsCssUrl('./Prop.svg');
 
 const BS1_VAR = 'rgba(0,0,0,0.13)';
 const BS2_VAR = 'rgba(0,0,0,0.11)';
