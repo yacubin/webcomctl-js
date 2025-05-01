@@ -1,17 +1,14 @@
 import path from 'node:path';
+import fs from 'node:fs';
 import url from 'node:url';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default (env, argv) => {
-
   const config = {
     target: 'node',
-    entry: {
-      CntButtBRed: './src/control/CntButtBRed/template.mjs',
-      CntSmUploadButton: './src/control/CntSmUploadButton/template.mjs',
-    },
+    entry: {},
     mode: 'production',
     output: {
       chunkFormat: 'module',
@@ -26,6 +23,11 @@ export default (env, argv) => {
       outputModule: true,
     },
   };
+
+  const controlDir = path.posix.join(__dirname, "src/control");
+  for (const iter of fs.readdirSync(controlDir)) {
+    config.entry[iter] = path.posix.join(controlDir, iter, "template.mjs");
+  }
 
   if (argv.mode === 'development') {
     config.mode = argv.mode;

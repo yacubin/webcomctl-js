@@ -1,17 +1,14 @@
 import path from 'node:path';
+import fs from 'node:fs';
 import url from 'node:url';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default (env, argv) => {
-
   const config = {
     target: 'web',
-    entry: {
-      CntButtBRed: './src/control/CntButtBRed/index.mjs',
-      CntSmUploadButton: './src/control/CntSmUploadButton/index.mjs',
-    },
+    entry: {},
     mode: 'production',
     resolveLoader: {
       alias: {
@@ -35,6 +32,11 @@ export default (env, argv) => {
       "webnetq-js": "webnetq-js",
     },
   };
+
+  const controlDir = path.posix.join(__dirname, "src/control");
+  for (const iter of fs.readdirSync(controlDir)) {
+    config.entry[iter] = path.posix.join(controlDir, iter, "index.mjs");
+  }
 
   if (argv.mode === 'development') {
     config.mode = argv.mode;
