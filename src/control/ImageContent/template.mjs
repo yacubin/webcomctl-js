@@ -151,7 +151,7 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} .${clss.RIGHT_CLICK}
+.${clss.ROOT_CLASS} .${clss.LEFT_CLICK}
 {
   transform: scaleX(-1);
   margin-right: 2px;
