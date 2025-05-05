@@ -162,7 +162,7 @@ ${DARKMODE_SELECTOR_VALUE}
   margin-left: 2px;
 }
 
-.${clss.ROOT_CLASS} .${clss.RIGHT_CLICK}
+.${clss.ROOT_CLASS} > div + span + div
 {
   justify-content: flex-end;
 }
