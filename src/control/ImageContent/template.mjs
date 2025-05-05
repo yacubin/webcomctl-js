@@ -71,7 +71,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 100%;
   height: 100%;
   min-height: 600px;
-  padding: 40px 40px 40px 0px;
+  padding: 40px 40px 40px 40px;
   background-color: ${vars.bg.asVar()};
   box-sizing: border-box;
 }
