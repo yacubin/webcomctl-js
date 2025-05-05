@@ -121,8 +121,8 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
-.${clss.BUTT_LEFT_CLASS} > i + div > div,
-.${clss.BUTT_RIGHT_CLASS} > i + div + span + div > div
+.${clss.BUTT_LEFT_CLASS} .${clss.LEFT_CLICK},
+.${clss.BUTT_RIGHT_CLASS} .${clss.RIGHT_CLICK}
 {
   width: 40px;
   transition: width 0.3s;
@@ -151,18 +151,18 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} > i + div > div
+.${clss.ROOT_CLASS} .${clss.RIGHT_CLICK}
 {
   transform: scaleX(-1);
   margin-right: 2px;
 }
 
-.${clss.ROOT_CLASS} > div + span + div > div > div
+.${clss.ROOT_CLASS} .${clss.RIGHT_CLICK} > div > div
 {
   margin-left: 2px;
 }
 
-.${clss.ROOT_CLASS} > div + span + div
+.${clss.ROOT_CLASS} .${clss.RIGHT_CLICK}
 {
   justify-content: flex-end;
 }

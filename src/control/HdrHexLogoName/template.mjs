@@ -55,7 +55,7 @@ ${DARKMODE_SELECTOR_VALUE}
   .${clss.ROOT_CLASS}
   {
    width: 210px;
-    background-size: 360px;
+    background-size: 310px;
   }
 }
 `);
