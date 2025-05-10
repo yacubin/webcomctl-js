@@ -7,15 +7,19 @@ import { TOOLBAR_FONT_MONOSPACE } from '../../lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('HexContent', import.meta.url);
 
-export const ROOT_CLASS = mk.newClassName("Root");
-export const CONTENT_CLASS = mk.newClassName("Content");
-export const OFSLIST_CLASS = mk.newClassName("Ofslist");
-export const BINLIST_CLASS = mk.newClassName("Binlist");
-export const TXTLIST_CLASS = mk.newClassName("Txtlist");
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "CONTENT_CLASS",
+  "OFSLIST_CLASS",
+  "BINLIST_CLASS",
+  "TXTLIST_CLASS",
+  "SCROLL_MAIN_CLASS",
+  "SCROLL_BAR_CLASS",
+  "SCROLL_THUMB_CLASS",
+]);
 
-export const SCROLL_MAIN_CLASS = mk.newClassName("ScrollMain");
-export const SCROLL_BAR_CLASS = mk.newClassName("ScrollBar");
-export const SCROLL_THUMB_CLASS = mk.newClassName("ScrollThumb");
+const vars = mk.newCSSVariableMap({
+});
 
  // TODO: Remove extra classes
 const OFFSET_CLASS = mk.newClassName("Offset");
@@ -25,37 +29,37 @@ const TEXT_CLASS = mk.newClassName("Text");
 const OFFSET_STR = "Offset";
 const TEXT_STR = "Text";
 
-export const ROOT_HTML = `
- <div class="${ROOT_CLASS}">
-    <div class="${CONTENT_CLASS}">
+mk.newHTML('ROOT_HTML', `
+ <div class="${clss.ROOT_CLASS}">
+    <div class="${clss.CONTENT_CLASS}">
       <div class="${OFFSET_CLASS}">
         <h3>${OFFSET_STR}</h3>
         <ul>
-          <div class="${OFSLIST_CLASS}"></div>
+          <div class="${clss.OFSLIST_CLASS}"></div>
         </ul>
       </div>
       <div class="${BINARY_CLASS}">
         <h3><span>00 01 02 03 04 05 06 07  08 09 0A 0B 0C 0D 0E 0F</span></h3>
         <div>
-          <div class="${BINLIST_CLASS}"></div>
+          <div class="${clss.BINLIST_CLASS}"></div>
         </div>
       </div>
       <div class="${TEXT_CLASS}">
         <h3>${TEXT_STR}</h3>
         <ul>
-          <div class="${TXTLIST_CLASS}"></div>
+          <div class="${clss.TXTLIST_CLASS}"></div>
         </ul>
       </div>
     </div>
-    <div class="${SCROLL_MAIN_CLASS}">
-      <div class="${SCROLL_BAR_CLASS}">
-        <div class="${SCROLL_THUMB_CLASS}"></div>
+    <div class="${clss.SCROLL_MAIN_CLASS}">
+      <div class="${clss.SCROLL_BAR_CLASS}">
+        <div class="${clss.SCROLL_THUMB_CLASS}"></div>
       </div>
     </div>
   </div>
-`;
+`);
 
-export const CSS = `
+mk.newCSS('CSS', `
 :root
 {
   --uic-hex-rootcol: black;
@@ -87,7 +91,7 @@ ${DARKMODE_SELECTOR_VALUE}
   --whex-hex-offcolttl: #20477a;
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
   position: relative;
   display: flex;
@@ -99,24 +103,24 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
-.${ROOT_CLASS} *
+.${clss.ROOT_CLASS} *
 {
   box-sizing: border-box;
 }
 
-.${ROOT_CLASS} s
+.${clss.ROOT_CLASS} s
 {
   text-decoration: none;
 }
 
-.${ROOT_CLASS} h3
+.${clss.ROOT_CLASS} h3
 {
   margin: 0px;
   font-size: 1em;
   font-weight: 400;
 }
 
-.${CONTENT_CLASS}
+.${clss.CONTENT_CLASS}
 {
   display: flex;
   justify-content: flex-start;
@@ -134,7 +138,7 @@ ${DARKMODE_SELECTOR_VALUE}
 }
 
 .${BINARY_CLASS} > h3 > span,
-.${CONTENT_CLASS} h3
+.${clss.CONTENT_CLASS} h3
 {
   display: flex;
   align-items: center;
@@ -142,7 +146,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 25px;
 }
 
-.${CONTENT_CLASS} h3
+.${clss.CONTENT_CLASS} h3
 {
   padding: 0px 10px;
   font-size: 1em;
@@ -219,28 +223,28 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width < 550px)
 {
-  .${CONTENT_CLASS}
+  .${clss.CONTENT_CLASS}
   {
     font-size: 20px;
     line-height: inherit;
   }
 }
 
-.${SCROLL_MAIN_CLASS}
+.${clss.SCROLL_MAIN_CLASS}
 {
   height: 100%;
   width: 10px;
   overflow: visible;
 }
 
-.${SCROLL_MAIN_CLASS} > h3
+.${clss.SCROLL_MAIN_CLASS} > h3
 {
   display: block;
   height: 25px;
   padding: 0px;
 }
 
-.${SCROLL_MAIN_CLASS} > div
+.${clss.SCROLL_MAIN_CLASS} > div
 {
   position: absolute;
   right: 0px;
@@ -248,7 +252,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
 }
 
-.${SCROLL_MAIN_CLASS} > div > div
+.${clss.SCROLL_MAIN_CLASS} > div > div
 {
   display: block;
   position: relative;
@@ -257,17 +261,22 @@ ${DARKMODE_SELECTOR_VALUE}
   background-color: var(--whex-scroll-sthmbg1);
 }
 
-.${SCROLL_MAIN_CLASS} > div > div:hover
+.${clss.SCROLL_MAIN_CLASS} > div > div:hover
 {
   background-color: var(--whex-scroll-sthmbg2);
 }
 
 @media (width < 830px)
 { 
-  div.${SCROLL_MAIN_CLASS}
+  div.${clss.SCROLL_MAIN_CLASS}
   {
     position: sticky;
     right: 0px;
   }
 }
-`;
+`);
+
+export async function buildComponent()
+{
+  return mk.buildComponent();
+}
