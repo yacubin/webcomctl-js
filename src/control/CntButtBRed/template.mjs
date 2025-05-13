@@ -109,7 +109,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   user-select: none;
   cursor: pointer;
-  font-family: ${vars.TOOLBAR_FONT_SANS.asVar()};
+  font-family: ${TOOLBAR_FONT_SANS};
 }
 
 .${clss.LOAD_CLASS} .${clss.LABEL_CLASS}

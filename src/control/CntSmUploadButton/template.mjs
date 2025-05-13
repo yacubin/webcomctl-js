@@ -6,8 +6,8 @@ import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('CntSmUploadButton', import.meta.url);
 
 const clss = mk.newClassNameMap([
-"ROOT_CLASS",
-"LOAD_CLASS",
+  "ROOT_CLASS",
+  "LOAD_CLASS",
 ]);
 
 const LOAD_IMG = await mk.loadSvgAsCssUrl('./load.svg');
