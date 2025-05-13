@@ -5,21 +5,24 @@ import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('CntSmUploadButton', import.meta.url);
 
-const ROOT_CLASS = mk.newClassName("ROOT_CLASS");
-const LOAD_CLASS = mk.newClassName("LOAD_CLASS");
-
-const DBG_VAR = mk.newCSSVariable("DBG_VAR", [ '#ffffff', '#472f2f42' ]);
-const HBG_VAR = mk.newCSSVariable("HBG_VAR", [ '#f5eaea', '#ba8f8f29' ]);
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "LOAD_CLASS",
+]);
 
 const LOAD_IMG = await mk.loadSvgAsCssUrl('./load.svg');
 
-const COLOR = '#c50000';
-const BORDER_COLOR = COLOR;
-const LD_COLOR = '#c5000078';
-const LD_BORDER_COLOR = LD_COLOR;
+const vars = mk.newCSSVariableMap({
+  DBG_VAR: [ '#ffffff', '#472f2f42' ],
+  HBG_VAR: [ '#f5eaea', '#ba8f8f29' ],
+  COLOR: [ '#c50000', '#c50000' ],
+  BORDER_COLOR: [ '#c50000', '#c50000' ],
+  LD_COLOR: [ '#c5000078', '#c5000078' ],
+  LD_BORDER_COLOR : [ '#c5000078', '#c5000078' ],
+});
 
 mk.newHTML('ROOT_HTML', `
-<div class="${ROOT_CLASS}">
+<div class="${clss.ROOT_CLASS}">
   <span></span>
   <label class="notranslate" translate="no">Upload</label>
 </div>
@@ -28,22 +31,20 @@ mk.newHTML('ROOT_HTML', `
 mk.newCSS('CSS', `
 :root
 {
-  ${DBG_VAR.toString(0)};
-  ${HBG_VAR.toString(0)};
+  ${vars.toString(0)};
 }
 
 ${DARKMODE_SELECTOR_VALUE}
 {
-  ${DBG_VAR.toString(1)};
-  ${HBG_VAR.toString(1)};
+  ${vars.toString(1)};
 }
 
-.${ROOT_CLASS} input
+.${clss.ROOT_CLASS} input
 {
     display: none;
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
   display: flex;
   align-items: center;
@@ -55,20 +56,20 @@ ${DARKMODE_SELECTOR_VALUE}
   float: right;
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
-  background-color: ${DBG_VAR.asVar()};
-  color: ${COLOR};
-  border: 2px solid ${BORDER_COLOR};
+  background-color: ${vars.DBG_VAR.asVar()};
+  color: ${vars.COLOR.asVar()};
+  border: 2px solid ${vars.BORDER_COLOR.asVar()};
   cursor: pointer;
 }
 
-.${ROOT_CLASS}:hover 
+.${clss.ROOT_CLASS}:hover 
 {
-  background-color: ${HBG_VAR.asVar()};
+  background-color: ${vars.HBG_VAR.asVar()};
 }
 
-.${ROOT_CLASS} > label
+.${clss.ROOT_CLASS} > label
 {
   display: grid;
   justify-content: center;
@@ -79,16 +80,16 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
-.${LOAD_CLASS}
+.${clss.LOAD_CLASS}
 {
-  background-color: ${HBG_VAR.asVar()};
-  color: ${LD_COLOR};
-  border: 2px solid ${LD_BORDER_COLOR};
+  background-color: ${vars.HBG_VAR.asVar()};
+  color: ${vars.LD_COLOR.asVar()};
+  border: 2px solid ${vars.LD_BORDER_COLOR.asVar()};
   cursor: no-drop;
   pointer-events: none;
 }
 
-.${LOAD_CLASS} > span
+.${clss.LOAD_CLASS} > span
 {
   position: relative;
   left: 39%;
@@ -103,7 +104,7 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
-.${LOAD_CLASS} label
+.${clss.LOAD_CLASS} label
 {
   position: relative;
   right: 33px;
@@ -111,7 +112,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width < ${COMMON_MOBILE_DEVICE_WIDTH})
 {
-  .${ROOT_CLASS}
+  .${clss.ROOT_CLASS}
   {
     width: 280px;
     height: 64px;
@@ -119,11 +120,11 @@ ${DARKMODE_SELECTOR_VALUE}
     font-size: 48px;
     margin-top: 10px;
   }
-  .${LOAD_CLASS} span
+  .${clss.LOAD_CLASS} span
   {
     width: 66px;
   }
-  .${LOAD_CLASS} label
+  .${clss.LOAD_CLASS} label
   {
     right: 66px;
   }
