@@ -13,7 +13,7 @@ const clss = mk.newClassNameMap([
 const LOAD_IMG = await mk.loadSvgAsCssUrl('./load.svg');
 
 const vars = mk.newCSSVariableMap({
-  HBG_VAR: [ '#ffffff', '#472f2f42' ],
+  DBG_VAR: [ '#ffffff', '#472f2f42' ],
   HBG_VAR: [ '#f5eaea', '#ba8f8f29' ],
   COLOR: [ '#c50000', '#c50000' ],
   BORDER_COLOR: [ '#c50000', '#c50000' ],
