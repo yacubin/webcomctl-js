@@ -39,7 +39,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  border: 1px solid ${vars.HEADER_FONT_COLOR.asVar()};
+  border: 1px solid ${HEADER_FONT_COLOR};
   box-sizing: border-box;
 }
 
