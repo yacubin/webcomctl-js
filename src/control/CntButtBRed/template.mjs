@@ -8,44 +8,47 @@ const mk = new ControlMaker('CntButtBRed', import.meta.url);
 
 const WATER_IMG = await mk.loadSvgAsCssUrl('./water.svg');
 
-const ROOT_CLASS = mk.newClassName("ROOT_CLASS");
-const LOAD_CLASS = mk.newClassName("LOAD_CLASS");
-const LABEL_CLASS = mk.newClassName("LABEL_CLASS");
-const HEIGHT_CLASS = mk.newClassName("HEIGHT_CLASS");
+const clss = mk.newClassNameMap([
+"ROOT_CLASS",
+"LOAD_CLASS",
+"LABEL_CLASS",
+"HEIGHT_CLASS",
+]);
 
-const HOVBG_VAR = mk.newCSSVariable("HOVBG_VAR", [ '#f5eaea', '#5841414f' ]);
-
-const DEF_COLOR = '#c50000';
-const DEF_BORDER_COLOR = DEF_COLOR;
-const ACT_COLOR = '#a72f2f';
-const ACT_BORDER_COLOR = ACT_COLOR;
+const vars = mk.newCSSVariableMap({
+  HOVBG_VAR: [ '#f5eaea', '#5841414f' ],
+  DEF_COLOR: [ '#c50000', '#c50000' ],
+  DEF_BORDER_COLOR: [ '#c50000', '#c50000' ],
+  ACT_COLOR : [ '#a72f2f', '#a72f2f' ],
+  ACT_BORDER_COLOR: [ '#a72f2f', '#a72f2f' ],
+});
 
 mk.newHTML('ROOT_HTML', `
-<div class="${ROOT_CLASS}">
-  <div><div class="${HEIGHT_CLASS}"></div></div>
-  <label class="${LABEL_CLASS}">Upload</label>
+<div class="${clss.ROOT_CLASS}">
+  <div><div class="${clss.HEIGHT_CLASS}"></div></div>
+  <label class="${clss.LABEL_CLASS}">Upload</label>
 </div>
 `);
 
 mk.newCSS('CSS', `
 :root
 {
-  ${HOVBG_VAR.toString(0)};
+  ${vars.toString(0)};
 }
 
 ${DARKMODE_SELECTOR_VALUE}
 {
-  ${HOVBG_VAR.toString(1)};
+  ${vars.toString(1)};
 }
 
-.${ROOT_CLASS} > div > div,
-.${LABEL_CLASS} > input
+.${clss.ROOT_CLASS} > div > div,
+.${clss.LABEL_CLASS} > input
 {
   display:none;
 }
 
-.${ROOT_CLASS},
-.${LOAD_CLASS}
+.${clss.ROOT_CLASS},
+.${clss.LOAD_CLASS}
 {
   display: flex;
   align-items: center;
@@ -57,29 +60,29 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
-  color: ${DEF_COLOR};
-  border: 3px solid ${DEF_BORDER_COLOR};
+  color: ${vars.DEF_COLOR.asVar()};
+  border: 3px solid ${vars.DEF_BORDER_COLOR.asVar()};
 }
 
-.${ROOT_CLASS}:hover
+.${clss.ROOT_CLASS}:hover
 {
-  background-color: ${HOVBG_VAR.asVar()};
+  background-color: ${vars.HOVBG_VAR.asVar()};
 }
 
-.${LOAD_CLASS}
+.${clss.LOAD_CLASS}
 {
   justify-items: center;
   flex-direction: column-reverse;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  border: 3px solid ${ACT_BORDER_COLOR};
-  color: ${ACT_COLOR};
+  border: 3px solid ${vars.ACT_BORDER_COLOR.asVar()};
+  color: ${vars.ACT_COLOR.asVar()};
   cursor: no-drop;
 }
 
-.${LOAD_CLASS} > div
+.${clss.LOAD_CLASS} > div
 {
   display: flex;
   justify-content: flex-start;
@@ -88,7 +91,7 @@ ${DARKMODE_SELECTOR_VALUE}
   min-width: 100%;
 }
 
-.${LOAD_CLASS} > div > div
+.${clss.LOAD_CLASS} > div > div
 {
   width: 100%;
   background-image: ${WATER_IMG};
@@ -96,7 +99,7 @@ ${DARKMODE_SELECTOR_VALUE}
   background-size: 120%;
 }
 
-.${LABEL_CLASS}
+.${clss.LABEL_CLASS}
 {
   display: flex;
   justify-content: center;
@@ -106,10 +109,10 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   user-select: none;
   cursor: pointer;
-  font-family: ${TOOLBAR_FONT_SANS};
+  font-family: ${vars.TOOLBAR_FONT_SANS.asVar()};
 }
 
-.${LOAD_CLASS} .${LABEL_CLASS}
+.${clss.LOAD_CLASS} .${clss.LABEL_CLASS}
 {
   position: relative;
   z-index: 1;
@@ -119,8 +122,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width < ${COMMON_MOBILE_DEVICE_WIDTH})
 {
-  .${ROOT_CLASS},
-  .${LOAD_CLASS}
+  .${clss.ROOT_CLASS},
+  .${clss.LOAD_CLASS}
   {
     width: 542px;
     height: 120px;

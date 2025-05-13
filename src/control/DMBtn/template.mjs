@@ -6,52 +6,51 @@ import { HEADER_FONT_COLOR } from '../../lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('DMBtn', import.meta.url);
 
-const ROOT_CLASS = mk.newClassName("ROOT_CLASS");
-const TOGGLE_CLASS = mk.newClassName("TOGGLE_CLASS");
-
-const MOON_IMG = await mk.loadSvgAsCssUrl('./moon.svg');
-const SUN_IMG = await mk.loadSvgAsCssUrl('./sun.svg');
-
-const IMG_VAR = mk.newCSSVariable("IMG_VAR", [ MOON_IMG, SUN_IMG ]);
-const BG_VAR = mk.newCSSVariable("BG_VAR", [ '#7b7b7b21', '#ffffff21' ]);
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "TOGGLE_CLASS",
+  ]);
+  
+  const vars = mk.newCSSVariableMap({
+  IMG_VAR: [ './sun.svg', './sun.svg' ],
+  BG_VAR: [ '#7b7b7b21', '#ffffff21' ],
+  });
 
 mk.newHTML('ROOT_HTML', `
-<div class="${ROOT_CLASS}">
-  <span class="${TOGGLE_CLASS}"></span>
+<div class="${clss.ROOT_CLASS}">
+  <span class="${clss.TOGGLE_CLASS}"></span>
 </div>
 `);
 
 mk.newCSS('CSS', `
 :root
 {
-  ${IMG_VAR.toString(0)};
-  ${BG_VAR.toString(0)};
+  ${vars.toString(0)};
 }
 
 ${DARKMODE_SELECTOR_VALUE}
 {
-  ${IMG_VAR.toString(1)};
-  ${BG_VAR.toString(1)};
+  ${vars.toString(1)};
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
   display: block;
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  border: 1px solid ${HEADER_FONT_COLOR};
+  border: 1px solid ${vars.HEADER_FONT_COLOR.asVar()};
   box-sizing: border-box;
 }
 
-.${ROOT_CLASS}:hover
+.${clss.ROOT_CLASS}:hover
 {
-  background-color: ${BG_VAR.asVar()};
+  background-color: ${vars.BG_VAR.asVar()};
 }
 
-.${TOGGLE_CLASS}
+.${clss.TOGGLE_CLASS}
 {
-  background-image: ${IMG_VAR.asVar()};
+  background-image: ${vars.IMG_VAR.asVar()};
   display: block;
   height: 100%;
   width: 100%;
@@ -64,7 +63,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
 {
-  .${ROOT_CLASS}
+  .${clss.ROOT_CLASS}
   {
     width: 60px;
     height: 60px;
