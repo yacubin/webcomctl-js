@@ -11,8 +11,11 @@ const clss = mk.newClassNameMap([
   "TOGGLE_CLASS",
   ]);
   
+  const sun = await mk.loadSvgAsCssUrl('./sun.svg');
+  const moon = await mk.loadSvgAsCssUrl('./moon.svg');
+
   const vars = mk.newCSSVariableMap({
-  IMG_VAR: [ './sun.svg', './sun.svg' ],
+  IMG_VAR: [ sun, moon ],
   BG_VAR: [ '#7b7b7b21', '#ffffff21' ],
   });
 
