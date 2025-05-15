@@ -4,10 +4,12 @@ import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 
 const mk = new ControlMaker('DMBtn2', import.meta.url);
 
-const ROOT_CLASS = mk.newClassName("ROOT_CLASS");
-
 const MOON_IMG = await mk.loadSvgAsCssUrl('./moon.svg');
 const SUN_IMG = await mk.loadSvgAsCssUrl('./sun.svg');
+
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+]);
 
 const vars = mk.newCSSVariableMap({
   img:   [ MOON_IMG,  SUN_IMG   ],
@@ -18,26 +20,18 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML('ROOT_HTML', `
-<div class="${ROOT_CLASS}"></div>
+<div class="${clss.ROOT_CLASS}"></div>
 `);
 
 mk.newCSS('CSS', `
 :root
 {
-  ${vars.img.toString(0)};
-  ${vars.bgHov.toString(0)};
-  ${vars.bsHov.toString(0)};
-  ${vars.bor.toString(0)};
-  ${vars.bs.toString(0)};
+  ${vars.toString(0)};
 }
 
 ${DARKMODE_SELECTOR_VALUE}
 {
-  ${vars.img.toString(1)};
-  ${vars.bgHov.toString(1)};
-  ${vars.bsHov.toString(1)};
-  ${vars.bor.toString(1)};
-  ${vars.bs.toString(1)};
+  ${vars.toString(1)};
 }
 
 .${ROOT_CLASS}
