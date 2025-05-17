@@ -15,12 +15,13 @@ const clss = mk.newClassNameMap([
 "HEIGHT_CLASS",
 ]);
 
+const DEF_COLOR = '#c50000';
+const DEF_BORDER_COLOR = '#c50000';
+const ACT_COLOR = '#a72f2f';
+const ACT_BORDER_COLOR = '#a72f2f';
+
 const vars = mk.newCSSVariableMap({
   HOVBG_VAR: [ '#f5eaea', '#5841414f' ],
-  DEF_COLOR: [ '#c50000', '#c50000' ],
-  DEF_BORDER_COLOR: [ '#c50000', '#c50000' ],
-  ACT_COLOR : [ '#a72f2f', '#a72f2f' ],
-  ACT_BORDER_COLOR: [ '#a72f2f', '#a72f2f' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -62,8 +63,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  color: ${vars.DEF_COLOR.asVar()};
-  border: 3px solid ${vars.DEF_BORDER_COLOR.asVar()};
+  color: ${DEF_COLOR};
+  border: 3px solid ${DEF_BORDER_COLOR};
 }
 
 .${clss.ROOT_CLASS}:hover
@@ -77,8 +78,8 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-direction: column-reverse;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  border: 3px solid ${vars.ACT_BORDER_COLOR.asVar()};
-  color: ${vars.ACT_COLOR.asVar()};
+  border: 3px solid ${ACT_BORDER_COLOR};
+  color: ${ACT_COLOR};
   cursor: no-drop;
 }
 
