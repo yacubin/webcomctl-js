@@ -2,12 +2,13 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 const mk = new ControlMaker('DBCContent', import.meta.url);
 
+const rpanel_brate = '#aeaeae8f';
+const rpanel_bor = '#aeaeae8f';
+
 const vars = mk.newCSSVariableMap({
-    rpanel_col: ['black', '#eeeeee'],
-    rpanel_bg: ['white', 'rgb(23, 23, 26)',],
-    rpanel_bor: ['#aeaeae8f', '#aeaeae8f'],
-    rpanel_bs: ['0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)', '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)'],
-    rpanel_brate: ['#aeaeae8f', '#aeaeae8f'],
+  rpanel_col: ['black', '#eeeeee'],
+  rpanel_bg: ['white', 'rgb(23, 23, 26)',],
+  rpanel_bs: ['0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)', '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)'],
   
 });
 
@@ -272,7 +273,7 @@ div.${clss.group} b,
 div.${clss.group} > ul,
 .${clss.dbc_new_symbols} > s > div
 {
-  border: 1px solid ${vars.rpanel_bor.asVar()};
+  border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
@@ -418,7 +419,7 @@ div.${clss.ROOT_CLASS} s h6 + span
   padding: 10px 20px 10px 20px;
   width: max-content;
   border-radius: 5px;
-  border: 1px solid ${vars.rpanel_brate.asVar()};
+  border: 1px solid ${rpanel_brate};
   overflow: hidden;
   box-shadow: none;
 }

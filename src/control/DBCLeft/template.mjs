@@ -2,17 +2,17 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 const mk = new ControlMaker('DBCLeft', import.meta.url);
 
+const mes_pseudo_hov_bg = '#f3e9e9';
+const left_on_sc = 'transparent';
+const button_bg = '#dddddd40';
+const dbc_split_norm = await mk.loadSvgAsCssUrl('./splitter.svg');
+const dbc_split_hov = await mk.loadSvgAsCssUrl('./splitter-hover.svg');
+const left_but_img = await mk.loadSvgAsCssUrl('./left-but.svg');
+const left_but_hov_img = await mk.loadSvgAsCssUrl('./left-but-hover.svg');
+
 const vars = mk.newCSSVariableMap({
-  left_on_sc: ['transparent'],
-  dbc_split_norm: ['url(/dbc-online/splitter.svg)'],
-  dbc_split_hov: ['url(/dbc-online/splitter-hover.svg)'],
-  left_but_img: ['url(/dbc-online/left-but.svg)'],
-  left_but_hov_img: ['url(/dbc-online/left-but-hover.svg)'],
   sep_bg: ['linear-gradient(to bottom,transparent 0%, #bcbcbc30 35% 85%, transparent 100%)'],
   sep_hov_bg: ['linear-gradient(to bottom,transparent 0%, #7d7d7d30 35% 85%, transparent 100%)'],
-  button_bg: ['#dddddd40'],
-  mes_pseudo_hov_bg: ['#f3e9e9'],
-
   left_sc_th_bg: ['#3a3a3a', '#3e3e43'],
   left_col: ['#494949','#ffffff9e'],
   left_bg: ['#ffffff','rgb(23, 23, 26)'],
@@ -75,7 +75,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height:10px;
   width:10px;
-  background-color: ${vars.left_on_sc.asVar()};
+  background-color: ${left_on_sc};
 }
 
 .${clss.ROOT_CLASS} > nav::-webkit-scrollbar-thumb
@@ -151,12 +151,12 @@ div.${clss.ROOT_CLASS} > nav + div > div
   background-repeat: no-repeat;
   background-position: center;
   background-size: 8px;
-  background-image: ${vars.dbc_split_norm.asVar()};
+  background-image: ${dbc_split_norm};
 }
 
 div.${clss.ROOT_CLASS} > nav + div:hover > div
 {
-  background-image: ${vars.dbc_split_hov.asVar()};
+  background-image: ${dbc_split_hov};
 }
 
 .${clss.ROOT_CLASS} > s
@@ -186,7 +186,7 @@ div.${clss.ROOT_CLASS} > nav + div:hover > div
 {
   width: 20px;
   height: 20px;
-  background-image: ${vars.left_but_img.asVar()};
+  background-image: ${left_but_img};
   background-size: contain;
   background-origin: padding-box;
   background-repeat: no-repeat;
@@ -195,12 +195,12 @@ div.${clss.ROOT_CLASS} > nav + div:hover > div
 
 .${clss.ROOT_CLASS} > s > div:hover
 {
-  background-color: ${vars.button_bg.asVar()};
+  background-color: ${button_bg};
 }
 
 .${clss.ROOT_CLASS} > s > div:hover > div
 {
-  background-image: ${vars.left_but_hov_img.asVar()};
+  background-image: ${left_but_hov_img};
   transition: background-image 0.5s;
 }
 

@@ -3,13 +3,14 @@ import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCLink', import.meta.url);
 
+const OpS = '#85858526';
+const dbc_col = '#5063b1';
+
 const vars = mk.newCSSVariableMap({
-  OpS: ['#85858526'],
-  dbc_col: ['#5063b1'],
 });
 
 const clss = mk.newClassNameMap([
-  "ROOT_CLASS",,
+  "ROOT_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -32,7 +33,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   display: block;
-  color: ${vars.dbc_col.asVar()};
+  color: ${dbc_col};
   width: auto;
   height: 25px;
   margin: 0 0 0 5px;
@@ -47,7 +48,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}:hover
 {
-  background-color: ${vars.OpS.asVar()};
+  background-color: ${OpS};
 }
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})

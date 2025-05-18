@@ -12,13 +12,14 @@ const clss = mk.newClassNameMap([
 
 const LOAD_IMG = await mk.loadSvgAsCssUrl('./load.svg');
 
+const COLOR = '#c50000';
+const BORDER_COLOR = '#c50000';
+const LD_COLOR = '#c5000078';
+const LD_BORDER_COLOR = '#c5000078';
+
 const vars = mk.newCSSVariableMap({
   DBG_VAR: [ '#ffffff', '#472f2f42' ],
   HBG_VAR: [ '#f5eaea', '#ba8f8f29' ],
-  COLOR: [ '#c50000', '#c50000' ],
-  BORDER_COLOR: [ '#c50000', '#c50000' ],
-  LD_COLOR: [ '#c5000078', '#c5000078' ],
-  LD_BORDER_COLOR : [ '#c5000078', '#c5000078' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -59,8 +60,8 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   background-color: ${vars.DBG_VAR.asVar()};
-  color: ${vars.COLOR.asVar()};
-  border: 2px solid ${vars.BORDER_COLOR.asVar()};
+  color: ${COLOR};
+  border: 2px solid ${BORDER_COLOR};
   cursor: pointer;
 }
 
@@ -83,8 +84,8 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.LOAD_CLASS}
 {
   background-color: ${vars.HBG_VAR.asVar()};
-  color: ${vars.LD_COLOR.asVar()};
-  border: 2px solid ${vars.LD_BORDER_COLOR.asVar()};
+  color: ${LD_COLOR};
+  border: 2px solid ${LD_BORDER_COLOR};
   cursor: no-drop;
   pointer-events: none;
 }

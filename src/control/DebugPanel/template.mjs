@@ -19,12 +19,13 @@ const clss = mk.newClassNameMap([
   "sideClick",
 ]);
 
+const hovBut = '#417cc8';
+
 const vars = mk.newCSSVariableMap({
   bor: [ '#d0dbe9', '#35383c' ],
   bg:  [ '#fdfdfd', 'rgb(43 43 45)' ],
   control: [ ' #efefef', '#2f2f2f' ],
   defBut: [ '#488ee9', '#2d5b96' ],
-  hovBut: '#417cc8',
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -149,7 +150,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.CONTROL_CLASS} > *:hover
 {
-  background-color: ${vars.hovBut.asVar()};
+  background-color: ${hovBut};
 }
 
 .${clss.CONTROL_CLASS} > div > div,
