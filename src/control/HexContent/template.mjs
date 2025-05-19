@@ -16,7 +16,10 @@ const clss = mk.newClassNameMap([
   "SCROLL_MAIN_CLASS",
   "SCROLL_BAR_CLASS",
   "SCROLL_THUMB_CLASS",
+  "TEXT_CLASS",
 ]);
+
+const SCROLL_STHMBG2 = '#959595';
 
 const vars = mk.newCSSVariableMap({
   ROOTCOL: [ "black", "#b8b4b4" ],
@@ -24,14 +27,8 @@ const vars = mk.newCSSVariableMap({
   TTLCL1: [ "#646464", "#7c7c7c" ],
   TTLCL2: [ "#0058ff", "#2160b0" ],
   SCROLL_STHMBG1: [ "darkgray", "#454545" ],
-  SCROLL_STHMBG2: "#959595",
   OFFCOLTTL: [ "#4b7ec0", "#20477a" ],
 });
-
- // TODO: Remove extra classes
-const OFFSET_CLASS = mk.newClassName("Offset");
-const BINARY_CLASS = mk.newClassName("Binary");
-const TEXT_CLASS = mk.newClassName("Text");
 
 const OFFSET_STR = "Offset";
 const TEXT_STR = "Text";
@@ -39,19 +36,19 @@ const TEXT_STR = "Text";
 mk.newHTML('ROOT_HTML', `
  <div class="${clss.ROOT_CLASS}">
     <div class="${clss.CONTENT_CLASS}">
-      <div class="${OFFSET_CLASS}">
+      <div class="${clss.OFFSET_CLASS}">
         <h3>${OFFSET_STR}</h3>
         <ul>
           <div class="${clss.OFSLIST_CLASS}"></div>
         </ul>
       </div>
-      <div class="${BINARY_CLASS}">
+      <div class="${clss.BINARY_CLASS}">
         <h3><span>00 01 02 03 04 05 06 07  08 09 0A 0B 0C 0D 0E 0F</span></h3>
         <div>
           <div class="${clss.BINLIST_CLASS}"></div>
         </div>
       </div>
-      <div class="${TEXT_CLASS}">
+      <div class="${clss.TEXT_CLASS}">
         <h3>${TEXT_STR}</h3>
         <ul>
           <div class="${clss.TXTLIST_CLASS}"></div>
@@ -123,7 +120,7 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${BINARY_CLASS} > h3 > span,
+.${clss.BINARY_CLASS} > h3 > span,
 .${clss.CONTENT_CLASS} h3
 {
   display: flex;
@@ -140,65 +137,65 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
-.${OFFSET_CLASS},
-.${TEXT_CLASS},
-.${BINARY_CLASS},
-.${OFFSET_CLASS} > ul > div,
-.${TEXT_CLASS} > ul > div,
-.${BINARY_CLASS} > div > div
+.${clss.OFFSET_CLASS},
+.${clss.TEXT_CLASS},
+.${clss.BINARY_CLASS},
+.${clss.OFFSET_CLASS} > ul > div,
+.${clss.TEXT_CLASS} > ul > div,
+.${clss.BINARY_CLASS} > div > div
 {
   height: 100%;
 }
 
-.${OFFSET_CLASS} > ul,
-.${TEXT_CLASS} > ul,
-.${BINARY_CLASS} > div
+.${clss.OFFSET_CLASS} > ul,
+.${clss.TEXT_CLASS} > ul,
+.${clss.BINARY_CLASS} > div
 {
   height: calc(100% - 40px);
 }
 
-.${OFFSET_CLASS}
+.${clss.OFFSET_CLASS}
 {
   width: auto;
 }
 
-.${OFFSET_CLASS}
+.${clss.OFFSET_CLASS}
 {
   color: ${vars.TTLCL2.asVar()};
 }
 
-.${OFFSET_CLASS} > h3
+.${clss.OFFSET_CLASS} > h3
 {
   color: ${vars.OFFCOLTTL.asVar()};
 }
 
-.${OFFSET_CLASS} > ul,
-.${TEXT_CLASS} > ul
+.${clss.OFFSET_CLASS} > ul,
+.${clss.TEXT_CLASS} > ul
 {
   list-style-type: none;
   padding: 5px 10px 10px 10px;
   margin: 0px;
 }
 
-.${TEXT_CLASS} > ul li
+.${clss.TEXT_CLASS} > ul li
 {
   white-space: pre;
   word-spacing: normal;
 }
 
-.${BINARY_CLASS}
+.${clss.BINARY_CLASS}
 {
   text-align: left;
   flex-shrink: 0;
 }
 
-.${BINARY_CLASS} > div
+.${clss.BINARY_CLASS} > div
 {
   padding: 5px 10px 10px 10px;
 }
 
-.${BINARY_CLASS} > h3,
-.${BINARY_CLASS} > div > div
+.${clss.BINARY_CLASS} > h3,
+.${clss.BINARY_CLASS} > div > div
 {
   display: grid;
   grid-template-columns: auto;
@@ -249,7 +246,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.SCROLL_MAIN_CLASS} > div > div:hover
 {
-  background-color: ${vars.SCROLL_STHMBG2.asVar()};
+  background-color: ${SCROLL_STHMBG2};
 }
 
 @media (width < 830px)

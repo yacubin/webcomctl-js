@@ -8,20 +8,22 @@ import { TOOLBAR_FONT_MATH } from '../../lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('StartupUpload', import.meta.url);
 
-export const ROOT_CLASS = mk.newClassName("Root");
-export const FDROP_CLASS = mk.newClassName("FDrop");
-export const DSHOW_CLASS = mk.newClassName("DShow");
-export const DHIDE_CLASS = mk.newClassName("DHide");
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "FDROP_CLASS",
+  "DSHOW_CLASS",
+  "DHIDE_CLASS",
+]);
 
 const UPLOAD1_IMG = await mk.loadSvgAsCssUrl('./up-file.svg');
 const UPLOAD2_IMG = await mk.loadSvgAsCssUrl('./up-file-hover.svg');
 const SEARCH_IMG = await mk.loadSvgAsCssUrl('./search.svg');
 
 export const ROOT_HTML = `
-<div class="${ROOT_CLASS}" align="center">
+<div class="${clss.ROOT_CLASS}" align="center">
   <h2>Drop your file</h2>
   <h2>Upload your file</h2>
-  <div class="${FDROP_CLASS} ${DHIDE_CLASS}">
+  <div class="${clss.FDROP_CLASS} ${clss.DHIDE_CLASS}">
     <div>
       <div></div>
       <span>
@@ -57,18 +59,18 @@ ${DARKMODE_SELECTOR_VALUE}
   --uic-strupl-dhide-bg: transparent;
 }
 
-.${FDROP_CLASS} > div > span > label > input,
-.${ROOT_CLASS} > h2 + h2
+.${clss.FDROP_CLASS} > div > span > label > input,
+.${clss.ROOT_CLASS} > h2 + h2
 {
   display: none;
 }
 
-.${ROOT_CLASS} *
+.${clss.ROOT_CLASS} *
 {
   box-sizing: border-box;
 }
 
-.${FDROP_CLASS}
+.${clss.FDROP_CLASS}
 {
   align-self: center;
   width: 100%;
@@ -78,7 +80,7 @@ ${DARKMODE_SELECTOR_VALUE}
   user-select: none;
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
   display: flex;
   justify-content: center;
@@ -92,7 +94,7 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
-.${ROOT_CLASS} > h2 
+.${clss.ROOT_CLASS} > h2 
 {
   margin: 0px 0px 20px 0px;
   font-size: 2.81em;
@@ -102,12 +104,12 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${TOOLBAR_FONT_MATH};
 }
 
-.${DHIDE_CLASS}
+.${clss.DHIDE_CLASS}
 {
   background-color: var(--uic-strupl-dhide-bg);
 }
 
-.${DSHOW_CLASS} > div > div
+.${clss.DSHOW_CLASS} > div > div
 {
   width: 100%;
   transform: scale(1.1);
@@ -116,7 +118,7 @@ ${DARKMODE_SELECTOR_VALUE}
   transition-delay: 0.2s;
 }
 
-.${FDROP_CLASS} > div
+.${clss.FDROP_CLASS} > div
 {
   height: 100%;
   border-image-source: repeating-linear-gradient(45deg, var(--uic-strupl-fdrop-borImg) 0% 2%, var(--uic-strupl-fdrop-borImg2) 2% 4%,var(--uic-strupl-fdrop-borImg) 4% 6%,var(--uic-strupl-fdrop-borImg2) 6% 8%);
@@ -126,7 +128,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 30px;
 }
 
-.${FDROP_CLASS} > div > div
+.${clss.FDROP_CLASS} > div > div
 {
   height: 300px;
   background-repeat: no-repeat;
@@ -136,12 +138,12 @@ ${DARKMODE_SELECTOR_VALUE}
   border: 15px solid var(--uic-strupl-bor);
 }
 
-.${DSHOW_CLASS} > div > div + div
+.${clss.DSHOW_CLASS} > div > div + div
 {
   opacity: 0.3;
 }
 
-.${FDROP_CLASS} > div > span
+.${clss.FDROP_CLASS} > div > span
 {
   display: flex;
   align-items: center;
@@ -152,7 +154,7 @@ ${DARKMODE_SELECTOR_VALUE}
   pointer-events: auto;
 }
 
-.${FDROP_CLASS} > div > span > label
+.${clss.FDROP_CLASS} > div > span > label
 {
   display: flex;
   align-items: center;
@@ -168,12 +170,12 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-shrink: 0;
 }
 
-.${FDROP_CLASS} > div > span > label:hover
+.${clss.FDROP_CLASS} > div > span > label:hover
 {
   background-color: var(--uic-strupl-fdbtn-hov);
 }
 
-.${FDROP_CLASS} > div > span > label > span
+.${clss.FDROP_CLASS} > div > span > label > span
 {
   display: block;
   width: 40px;
@@ -187,28 +189,28 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width <= 550px)
 {
-  .${ROOT_CLASS}
+  .${clss.ROOT_CLASS}
   {
     display: flex;
     justify-content: center;
     min-height: 680px;
   }
-  .${FDROP_CLASS}
+  .${clss.FDROP_CLASS}
   {
     height: 100%;
     max-height: 1100px;
   }
-  .${FDROP_CLASS} > div
+  .${clss.FDROP_CLASS} > div
   {
     display: flex;
     flex-direction: column;
     height: 100%;
   }
-  .${FDROP_CLASS} > div > div
+  .${clss.FDROP_CLASS} > div > div
   {
     height: calc(100% - 75px);
   }
-  .${FDROP_CLASS} > div > span
+  .${clss.FDROP_CLASS} > div > span
   {
     height: auto;
   }
@@ -216,20 +218,20 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width <= 300px)
 {
-  .${FDROP_CLASS}
+  .${clss.FDROP_CLASS}
   {
     width: auto;
     height: auto;
   }
-  .${FDROP_CLASS} > div
+  .${clss.FDROP_CLASS} > div
   {
     width: auto;
   }
-  .${FDROP_CLASS} > div > div
+  .${clss.FDROP_CLASS} > div > div
   {
     display: none;
   }
-  .${FDROP_CLASS} > div > div + div
+  .${clss.FDROP_CLASS} > div > div + div
   {
     display: block;
   }
@@ -243,11 +245,11 @@ ${DARKMODE_SELECTOR_VALUE}
     width: 80px;
     height: 80px;
   }
-  .${ROOT_CLASS} > h2
+  .${clss.ROOT_CLASS} > h2
   {
     display: none;
   }
-  .${ROOT_CLASS} > h2 + h2
+  .${clss.ROOT_CLASS} > h2 + h2
   {
     display: block;
     font-size: 4.81em;
