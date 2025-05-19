@@ -15,9 +15,10 @@ const clss = mk.newClassNameMap([
   "SHOW_BUTT2_CLASS",
 ]);
 
+const imgbg =  '#f3f3f3';
+
 const vars = mk.newCSSVariableMap({
   viewbg: [ 'rgb(172 172 172 / 80%)' ],
-  imgbg: [ '#f3f3f3' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -146,7 +147,7 @@ ${clss.SHOW_BUTT_CLASS},
   max-width: 100%;
   max-height: 100%;
   border: 2px solid;
-  border-color: ${vars.imgbg.asVar()};
+  border-color: ${imgbg};
   user-select: none;
   flex-shrink: 0;
 }

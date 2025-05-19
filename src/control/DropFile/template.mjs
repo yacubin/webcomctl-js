@@ -9,8 +9,9 @@ const clss = mk.newClassNameMap([
 
 const UPFILE_IMG = await mk.loadSvgAsCssUrl('./up-file.svg');
 
+const BG_COLOR = '#1e1e1ecf';
+
 const vars = mk.newCSSVariableMap({
-  BG_COLOR: [ '#1e1e1ecf', '#1e1e1ecf' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -35,7 +36,7 @@ mk.newCSS('CSS', `
   left: 0;
   right: 0;
   min-height: 555px;
-  background-color: ${vars.BG_COLOR.asVar()};
+  background-color: ${BG_COLOR};
   z-index: 3;
 }
 

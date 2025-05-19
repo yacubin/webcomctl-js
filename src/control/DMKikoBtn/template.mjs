@@ -11,10 +11,11 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
+const IMAGE_BORDER_COLOR = 'transparent';
+const BORDER_COLOR = '#6a6a6a';
+
 const vars = mk.newCSSVariableMap({
   img: [ MOON_IMG,  SUN_IMG ],
-  IMAGE_BORDER_COLOR: [ 'transparent', 'transparent' ],
-  BORDER_COLOR: [ '#6a6a6a', '#6a6a6a' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -38,7 +39,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   width: 50px;
   height: 50px;
-  border: 2px solid ${vars.BORDER_COLOR.asVar()};
+  border: 2px solid ${BORDER_COLOR};
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
@@ -51,7 +52,7 @@ ${DARKMODE_SELECTOR_VALUE}
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border: 4px solid ${vars.IMAGE_BORDER_COLOR.asVar()};
+  border: 4px solid ${IMAGE_BORDER_COLOR};
   background-image: ${vars.img.asVar()};
 }
 `);

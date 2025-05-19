@@ -2,8 +2,10 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 
 const mk = new ControlMaker('HorizontalBlock', import.meta.url);
 
-export const ROOT_CLASS = mk.newClassName("Root");
-export const PORT_CLASS = mk.newClassName("Port");
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "PORT_CLASS",
+]);
 
 export const ROOT_HTML = `
 <div class="${ROOT_CLASS} ${PORT_CLASS}"></div>
