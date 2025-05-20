@@ -80,7 +80,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > nav::-webkit-scrollbar-thumb
 {
-  background-color: ${vars.left_on_sc.asVar()};
+  background-color: ${left_on_sc};
   border-radius: 10px;
 }
 
