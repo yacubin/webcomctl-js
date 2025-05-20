@@ -8,11 +8,11 @@ const clss = mk.newClassNameMap([
 ]);
 
 export const ROOT_HTML = `
-<div class="${ROOT_CLASS} ${PORT_CLASS}"></div>
+<div class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}"></div>
 `;
 
 export const CSS = `
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
   display: flex;
   flex-direction: column;
