@@ -34,7 +34,7 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-.${ROOT_CLASS}
+.${clss.ROOT_CLASS}
 {
   height: 32px;
   width: 32px;
@@ -47,7 +47,7 @@ ${DARKMODE_SELECTOR_VALUE}
   box-shadow: inset 0px 0px 3px 0px ${vars.bs.asVar()};
 }
 
-.${ROOT_CLASS}:hover
+.${clss.ROOT_CLASS}:hover
 {
   background-color: ${vars.bgHov.asVar()};
   box-shadow: inset 0px 0px 6px 0px ${vars.bsHov.asVar()};
