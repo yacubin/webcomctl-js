@@ -19,7 +19,7 @@ const UPLOAD1_IMG = await mk.loadSvgAsCssUrl('./up-file.svg');
 const UPLOAD2_IMG = await mk.loadSvgAsCssUrl('./up-file-hover.svg');
 const SEARCH_IMG = await mk.loadSvgAsCssUrl('./search.svg');
 
-export const ROOT_HTML = `
+mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}" align="center">
   <h2>Drop your file</h2>
   <h2>Upload your file</h2>
@@ -34,9 +34,9 @@ export const ROOT_HTML = `
     </div>
   </div>
 </div>
-`;
+`);
 
-export const CSS = `
+mk.newCSS('CSS', `
 :root
 {
   --uic-strupl-rootbg: ${UIC_START_BACKGROUND_COLOR};
@@ -258,4 +258,9 @@ ${DARKMODE_SELECTOR_VALUE}
     margin: 0px 0px 20px 0px;
   }
 }
-`;
+`);
+
+export function buildComponent()
+{
+  return mk.buildComponent();
+}

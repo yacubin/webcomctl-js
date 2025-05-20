@@ -34,18 +34,18 @@ const vars = mk.newCSSVariableMap({
 });
 
 
-export const ROOT_HTML = `
+mk.newHTML('ROOT_HTML', `
 <s class="${clss.ROOT_CLASS}"></s>
-`;
+`);
 
-export const ITEM_HTML = `
+mk.newHTML('ITEM_HTML', `
 <div class="${clss.FOCUS_CLASS}" draggable="true">
   <span class="${clss.TEXT_CLASS}"></span>
   <div class="${clss.CLOSE_CLASS}" title="Close"><div></div></div>
 </div>
-`;
+`);
 
-export const CSS = `
+mk.newCSS('CSS', `
 :root 
 {
   ${vars.toString(0)};
@@ -177,4 +177,9 @@ div.${clss.FOCUS_CLASS},
     height: 20px;
   }
 }
-`;
+`);
+
+export function buildComponent()
+{
+  return mk.buildComponent();
+}

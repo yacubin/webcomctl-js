@@ -1,5 +1,5 @@
 import { BaseControl, Random, NQDOM } from 'webnetq-js';
-import { ITEM_HTML, FOCUS_CLASS, CLOSE_CLASS, TEXT_CLASS, LOADING_CLASS } from 'module-loader!./template.mjs';
+import { ITEM_HTML, FOCUS_CLASS, CLOSE_CLASS, TEXT_CLASS, LOADING_CLASS } from 'uictmplt-loader!./template.mjs';
 
 class TabItemControl {
   _name;

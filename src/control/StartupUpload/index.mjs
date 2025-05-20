@@ -1,5 +1,5 @@
 import { NQDOM, BaseControl, Random } from 'webnetq-js';
-import { DHIDE_CLASS, DSHOW_CLASS, FDROP_CLASS } from 'module-loader!./template.mjs';
+import { DHIDE_CLASS, DSHOW_CLASS, FDROP_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const UPLOAD_EVENT = 'upload';
 
