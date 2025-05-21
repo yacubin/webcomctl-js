@@ -33,7 +33,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: 0;
   box-sizing: border-box;
 }
 
@@ -46,8 +46,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.TOP_CLASS}
 {
-  top: 0;
-  bottom: auto;
+  bottom: 0;
+  top: auto;
 }
 `);
 
