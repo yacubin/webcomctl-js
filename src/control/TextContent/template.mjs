@@ -31,7 +31,8 @@ const SCROLLBAR_TRACK_COLOR = 'transparent';
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
   <ul class="${clss.NUMBERS}"></ul>
-  <div class="${clss.CONTENT}"></div>
+  <div class="${clss.CONTENT}">
+  </div>
 </div>
 `);
 

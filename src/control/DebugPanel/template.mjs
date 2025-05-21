@@ -24,7 +24,7 @@ const hovBut = '#417cc8';
 const vars = mk.newCSSVariableMap({
   bor: [ '#d0dbe9', '#35383c' ],
   bg:  [ '#fdfdfd', 'rgb(43 43 45)' ],
-  control: [ ' #efefef', '#2f2f2f' ],
+  control: [ '#efefef', '#2f2f2f' ],
   defBut: [ '#488ee9', '#2d5b96' ],
 });
 
@@ -233,7 +233,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.LIST_CLASS} > div:hover
 {
-  background-color: ${vars.hovBut.asVar()};
+  background-color: ${hovBut};
 }
 `);
 

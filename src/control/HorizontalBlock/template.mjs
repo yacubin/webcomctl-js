@@ -7,15 +7,21 @@ const clss = mk.newClassNameMap([
   "PORT_CLASS",
 ]);
 
-export const ROOT_HTML = `
-<div class="${ROOT_CLASS} ${PORT_CLASS}"></div>
-`;
+mk.newHTML('ROOT_HTML', `
+<div class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}"></div>
+`);
 
-export const CSS = `
-.${ROOT_CLASS}
+mk.newHTML('CSS', `
+.${clss.ROOT_CLASS}
 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-`;
+`);
+
+export function buildComponent()
+{
+  return mk.buildComponent();
+}
+
