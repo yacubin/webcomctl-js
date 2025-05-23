@@ -22,6 +22,7 @@ const vars = mk.newCSSVariableMap({
 
 const SCROLLBAR_THUMB_COLOR = '#b5b5b5c7';
 const SCROLLBAR_TRACK_COLOR = 'transparent';
+const LIST_BG = '#7a7a7a29';
 
 mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
@@ -154,7 +155,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.LIST_CLASS} > span:nth-child(2n)
 {
-  background-color: #7a7a7a29;
+  background-color: ${LIST_BG};
 }
 `);
 

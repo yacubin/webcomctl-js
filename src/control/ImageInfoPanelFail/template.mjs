@@ -8,6 +8,9 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
+const TABE_BG = '#7a7a7a29';
+const TABE_BG_N2 = 'transparent';
+
 const vars = mk.newCSSVariableMap({
   Foncol: [ 'black', '#b8b4b4' ],
 });
@@ -82,12 +85,12 @@ ${DARKMODE_SELECTOR_VALUE}
   display: table-row-group;
   width: inherit;
   list-style-type: none;
-  background-color: #7a7a7a29;
+  background-color: ${TABE_BG};
 }
 
 .${clss.ROOT_CLASS} > ul > li:nth-child(2n)
 {
-  background-color: transparent;
+  background-color: ${TABE_BG_N2};
 }
 
 .${clss.ROOT_CLASS} > ul > li > div
