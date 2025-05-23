@@ -6,6 +6,12 @@ const DONOT_IMG = await mk.loadSvgAsCssUrl('./donot_load.svg');
 const vars = mk.newCSSVariableMap({
 });
 
+const SCROLL_THUMB = '#b5b5b5c7';
+const SCROLL_T = 'transparent';
+const BGC = '#fbfbfb';
+const BS = '#89898945';
+const TEXT = '#8f8f8f';
+
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "text"
@@ -54,14 +60,14 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
 {
-  background-color: #b5b5b5c7;
+  background-color: ${SCROLL_THUMB};
   border-radius: 10px;
 }
 
 .${clss.ROOT_CLASS}::-webkit-scrollbar-track,
 .${clss.ROOT_CLASS}::-webkit-scrollbar-corner
 {
-  background-color: transparent;
+  background-color: ${SCROLL_T};
 }
 
 .${clss.ROOT_CLASS} > div
@@ -75,8 +81,8 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: flex-start;
   padding: 5px;
   border-radius: 5px;
-  background-color: #fbfbfb;
-  box-shadow: 0px 0px 4px 1px #89898945;
+  background-color: ${BGC};
+  box-shadow: 0px 0px 4px 1px ${BS};
 }
 
 .${clss.ROOT_CLASS} span
@@ -96,7 +102,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height: max-content;
   font-size: 25px;
-  color: #8f8f8f;
+  color: ${TEXT};
   font-family: system-ui;
   flex-shrink: 0;
 }

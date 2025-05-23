@@ -10,6 +10,12 @@ const clss = mk.newClassNameMap([
   "PORT_CLASS",
 ]);
 
+const vars = mk.newCSSVariableMap({
+  uic_mhdr_bg: ['#f9f9f9', '#101010',],
+  uic_mhdr_bor: ['#c2c2c2', '#5f5f5f8f'],
+  
+});
+
 mk.newHTML('ROOT_HTML', `
 <header class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}" draggable="false"></header>
 `);
@@ -17,14 +23,12 @@ mk.newHTML('ROOT_HTML', `
 mk.newCSS('CSS', `
 :root
 {
-  --uic-mhdr-bg: #f9f9f9;
-  --uic-mhdr-bor: #c2c2c2;
+  ${vars.toString(0)};
 }
 
 ${DARKMODE_SELECTOR_VALUE}
 {
-  --uic-mhdr-bg: #101010;
-  --uic-mhdr-bor: #5f5f5f8f;
+  ${vars.toString(1)};
 }
 
 .${clss.ROOT_CLASS}
@@ -34,8 +38,8 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 43px;
   padding: 5px 10px;
   z-index: 1;
-  border-bottom: 1px solid var(--uic-mhdr-bor);
-  background-color: var(--uic-mhdr-bg);
+  border-bottom: 1px solid ${vars.uic_mhdr_bor.asVar()};
+  background-color: ${vars.uic_mhdr_bg.asVar()};
   overflow: hidden;
   user-select: none;
   box-sizing: border-box;

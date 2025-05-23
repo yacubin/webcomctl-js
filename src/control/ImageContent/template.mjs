@@ -17,6 +17,8 @@ const clss = mk.newClassNameMap([
   "RIGHT_CLICK",
 ]);
 
+const img_b_c = '#f3f3f3';
+
 const vars = mk.newCSSVariableMap({
   img: [
     await mk.loadSvgAsCssUrl('./play.svg'),
@@ -95,7 +97,7 @@ ${DARKMODE_SELECTOR_VALUE}
   max-width: 100%;
   max-height: 100%;
   border: 1px solid;
-  border-color: #f3f3f3;
+  border-color: ${img_b_c};
   box-sizing: border-box;
 }
 
