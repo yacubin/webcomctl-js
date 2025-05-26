@@ -32,6 +32,7 @@ mk.newCSS('CSS', `
   position: relative;
   height: 100%;
   width: 100%;
+  overflow: auto;
 }
 
 .${clss.ROOT_CLASS} > span
