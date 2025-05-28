@@ -1,5 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('WALXDataDev', import.meta.url);
 
 const clss = mk.newClassNameMap([
@@ -97,6 +98,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height: calc(100% - 240px);
   padding: 10px;
+  font-family:${TOOLBAR_FONT_SANS};
 }
 
 .${clss.ROOT_CLASS} > ul
