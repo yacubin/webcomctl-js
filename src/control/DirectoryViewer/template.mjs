@@ -28,7 +28,7 @@ mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}" align="center">
     <ul>
       <li class="${clss.pic}">
-        <div>Nema</div>
+        <div>Name</div>
         <div>Type</div>
         <div>Size</div>
         <div>Date</div>
