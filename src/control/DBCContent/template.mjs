@@ -14,14 +14,14 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "dbc_new_symbols",
+  "new_symbols",
   "signal",
   "document",
   "message",
   "attribute",
   "group",
   "dbc_title_document",
-  "dbc_doc_version",
+  "doc_version",
   "dbc_doc_protocol",
   "dbc_title_message",
   "dbc_title_signal",
@@ -41,7 +41,7 @@ mk.newHTML('ROOT_HTML', `
     <h4>Document:<u class="${clss.dbc_title_document}"></u></h4>
     
       <b>
-        <h4>Version:<u id="${clss.dbc_doc_version}"></u></h4>
+        <h4>Version:<u id="${clss.doc_version}"></u></h4>
         <h4>Protocol:<u id="${clss.dbc_doc_protocol}"></u></h4>
                             
         <s id="dbc-bittiming">
@@ -55,7 +55,7 @@ mk.newHTML('ROOT_HTML', `
 
       </b>
 
-      <div id="dbc-new-symbols-root" class="${clss.dbc_new_symbols}">
+      <div id="dbc-new-symbols-root" class="${clss.new_symbols}">
         <s>
           <h5>New Symbols</h5>
           <div id="dbc-doc-nsymlist"></div>
@@ -271,7 +271,7 @@ div.${clss.message} b,
 div.${clss.signal} b,
 div.${clss.group} b,
 div.${clss.group} > ul,
-.${clss.dbc_new_symbols} > s > div
+.${clss.new_symbols} > s > div
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
@@ -356,7 +356,7 @@ div.${clss.group} b h4 > u
 .${clss.ROOT_CLASS} > div > div > h5,
 .${clss.ROOT_CLASS} > div > h5,
 .${clss.ROOT_CLASS} > b > h5,
-.${clss.dbc_new_symbols} > s > h5
+.${clss.new_symbols} > s > h5
 {
   line-height: 15px;
   font-size: 1.13em;
@@ -383,7 +383,7 @@ div.${clss.group} b h4 > u
   font-weight: 400;
 }
 
-.${clss.dbc_new_symbols} > s > div
+.${clss.new_symbols} > s > div
 {
   display: grid;
   grid-template-columns: auto auto auto auto;
