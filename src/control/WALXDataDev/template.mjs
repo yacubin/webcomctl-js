@@ -10,7 +10,7 @@ const clss = mk.newClassNameMap([
   "pic_file",
 ]);
 
-const PAPKA = await mk.loadSvgAsCssUrl('./papka.svg');
+const PAPKA = await mk.loadSvgAsCssUrl('./folder.svg');
 const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
