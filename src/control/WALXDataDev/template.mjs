@@ -4,7 +4,6 @@ const mk = new ControlMaker('WALXDataDev', import.meta.url);
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "PORT_CLASS",
   "pic_papka",
   "pic",
   "pic_file",
