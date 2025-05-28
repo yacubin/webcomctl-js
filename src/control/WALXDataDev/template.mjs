@@ -11,7 +11,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 const PAPKA = await mk.loadSvgAsCssUrl('./papka.svg');
-const FILE = await mk.loadSvgAsCssUrl('./file.svg)');
+const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
