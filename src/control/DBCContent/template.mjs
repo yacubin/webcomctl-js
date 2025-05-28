@@ -21,7 +21,7 @@ const clss = mk.newClassNameMap([
   "attribute",
   "group",
   "dbc_title_document",
-  "dbc_doc_version",
+  "doc_version",
   "dbc_doc_protocol",
   "dbc_title_message",
   "dbc_title_signal",
@@ -41,7 +41,7 @@ mk.newHTML('ROOT_HTML', `
     <h4>Document:<u class="${clss.dbc_title_document}"></u></h4>
     
       <b>
-        <h4>Version:<u id="${clss.dbc_doc_version}"></u></h4>
+        <h4>Version:<u id="${clss.doc_version}"></u></h4>
         <h4>Protocol:<u id="${clss.dbc_doc_protocol}"></u></h4>
                             
         <s id="dbc-bittiming">
