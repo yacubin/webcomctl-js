@@ -1,16 +1,16 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
-const mk = new ControlMaker('WALXDataDev', import.meta.url);
+const mk = new ControlMaker('DirectoryViewer', import.meta.url);
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "pic_papka",
+  "pic_folder",
   "pic",
   "pic_file",
 ]);
 
-const PAPKA = await mk.loadSvgAsCssUrl('./folder.svg');
+const FOLDER = await mk.loadSvgAsCssUrl('./folder.svg');
 const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
@@ -33,9 +33,9 @@ mk.newHTML('ROOT_HTML', `
         <div>Size</div>
         <div>Date</div>
       </li>
-      <li class="${clss.pic_papka}">
+      <li class="${clss.pic_folder}">
         <span></span>
-        <div><a href=".html">papka</a></div>
+        <div><a href=".html">folder</a></div>
         <div>folder</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
@@ -47,9 +47,9 @@ mk.newHTML('ROOT_HTML', `
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
-      <li class="${clss.pic_papka}">
+      <li class="${clss.pic_folder}">
         <span></span>
-        <div><a href=".html">papka</a></div>
+        <div><a href=".html">folder</a></div>
         <div>folder</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
@@ -150,9 +150,9 @@ body.walx_data_dev div ul li[class*=pic] span
   margin: 0px 5px;
 }
 
-li.${clss.pic_papka} span
+li.${clss.pic_folder} span
 {
-  background-image: ${PAPKA};
+  background-image: ${FOLDER};
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
