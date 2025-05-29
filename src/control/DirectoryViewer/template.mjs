@@ -116,23 +116,31 @@ ${DARKMODE_SELECTOR_VALUE}
    overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} > ul li[class*=pic]
+.${clss.ROOT_CLASS} > ul li.${clss.pic},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}
 {
   list-style-type: none;
   height: 35px;
 }
 
-.${clss.ROOT_CLASS} > ul li[class*=pic]:nth-child(1n+2):hover
+.${clss.ROOT_CLASS} > ul li.${clss.pic}:nth-child(1n+2):hover,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:nth-child(1n+2):hover,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}:nth-child(1n+2):hover
 {
   background-color: ${walx_data_dev_pic_nth2_hov};
 }
 
-.${clss.ROOT_CLASS} > ul li[class*=pic]:last-child
+.${clss.ROOT_CLASS} > ul li.${clss.pic}:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}:last-child
 {
   border-bottom:none;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic]
+.${clss.ROOT_CLASS} > ul li.${clss.pic},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}
 {
   border-bottom: 1px solid ${walx_data_dev_pic_bor};
   display: flex;
@@ -145,7 +153,9 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 30%;
 }
 
-body.walx_data_dev div ul li[class*=pic] span
+.${clss.ROOT_CLASS} > ul li.${clss.pic} span,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} span,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} span
 {
   margin: 0px 5px;
 }
@@ -161,7 +171,9 @@ li.${clss.pic_folder} span
   min-width: 18px;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div
 {
   margin: 0px;
   height: auto;
@@ -169,30 +181,40 @@ li.${clss.pic_folder} span
   min-width: 100px;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div a
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div a,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a
 {
   text-decoration: none;
   color: ${walx_pic_link_col};
 
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div a:visited
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div a:visited,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:visited,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:visited
 {
   color: ${walx_pic_link_vis};
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div a:hover
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div a:hover,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:hover,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:hover
 {
   text-decoration: underline;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div:last-child
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div:last-child
 {
   min-width: 100px;
   width: auto;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div:first-letter
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div:first-letter,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div:first-letter,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div:first-letter
 {
   margin-left: 5px;
 }
