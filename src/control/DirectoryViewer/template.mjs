@@ -118,10 +118,18 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 65%;
   height: inherit;
   margin: 0px;
-  padding: 20px 10px 10px 10px;
-  text-align: left;
+  padding: 20px 0 10px 0;
   min-width: 470px;
+  border-radius: 3px;
+  background: #fbfeff;
+  box-shadow: 0px 0px 1px #d0d0d0;
+  text-align: left;
   overflow: hidden;
+}
+
+.${clss.ROOT_CLASS} > ul > li:first-child
+{
+  border-bottom: 1px solid #d0d0d0;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
@@ -152,7 +160,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   display: flex;
   align-items: center;
-  padding: 0 5px;
+  padding: 0 10px;
   border-bottom: 1px solid ${walx_data_dev_pic_bor};
 }
 
@@ -205,13 +213,6 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:visited
 {
   color: ${walx_pic_link_vis};
-}
-
-.${clss.ROOT_CLASS} > ul li.${clss.pic} div a:hover,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:hover,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:hover
-{
-  text-decoration: underline;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic} div:last-child,
