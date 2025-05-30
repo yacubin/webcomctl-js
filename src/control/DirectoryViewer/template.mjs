@@ -117,7 +117,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 65%;
   height: inherit;
   margin: 0px;
-  padding: 20px 0 10px 0;
+  padding: 0;
   min-width: 470px;
   border-radius: 3px;
   background: #fbfeff;
