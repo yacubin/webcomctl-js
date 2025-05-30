@@ -150,9 +150,10 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file}
 {
-  border-bottom: 1px solid ${walx_data_dev_pic_bor};
   display: flex;
   align-items: center;
+  padding: 0 5px;
+  border-bottom: 1px solid ${walx_data_dev_pic_bor};
 }
 
 .${clss.pic} div:first-child
@@ -165,7 +166,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder} span,
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} span
 {
-  margin: 0px 5px;
+  margin: 0px 5px 0 0;
 }
 
 li.${clss.pic_folder} span
