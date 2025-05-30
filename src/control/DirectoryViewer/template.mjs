@@ -128,7 +128,8 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul > li:first-child
 {
   border-bottom: 1px solid #e9e9e9;
-  background: #fbfeff;
+  background: #4b4b4b;
+  color: #bababa;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
