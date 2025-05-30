@@ -34,29 +34,39 @@ mk.newHTML('ROOT_HTML', `
         <div>Date</div>
       </li>
       <li class="${clss.pic_folder}">
-        <span></span>
-        <div><a href=".html">folder</a></div>
+        <div>
+          <span></span>
+          <a href=".html">folder</a>
+        </div>
         <div>folder</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_file}">
-        <span></span>
-        <div><a href=".html">file</a></div>
+        <div>
+          <span></span>
+          <a href=".html">file</a>
+        </div>
         <div>file</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_folder}">
         <span></span>
-        <div><a href=".html">folder</a></div>
+        <div>
+          <span></span>
+          <a href=".html">folder</a>
+        </div>
         <div>folder</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_file}">
         <span></span>
-        <div><a href=".html">file</a></div>
+        <div>
+          <span></span>
+          <a href=".html">file</a>
+        </div>
         <div>file</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
