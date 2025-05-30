@@ -52,7 +52,6 @@ mk.newHTML('ROOT_HTML', `
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_folder}">
-        <span></span>
         <div>
           <span></span>
           <a href=".html">folder</a>
@@ -62,7 +61,6 @@ mk.newHTML('ROOT_HTML', `
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_file}">
-        <span></span>
         <div>
           <span></span>
           <a href=".html">file</a>
@@ -185,6 +183,7 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div,
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div
 {
+  display: flex
   margin: 0px;
   height: auto;
   width: 33%;
