@@ -117,8 +117,8 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   width: 65%;
   height: inherit;
-  padding: 0px;
-  margin: 20px 10px 10px 10px;
+  margin: 0px;
+  padding: 20px 10px 10px 10px;
   text-align: left;
   min-width: 470px;
   overflow: hidden;
