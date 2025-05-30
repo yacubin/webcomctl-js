@@ -120,7 +120,6 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
   min-width: 470px;
   border-radius: 3px;
-  background: #fbfeff;
   box-shadow: 0px 0px 1px #b8b8b8;
   text-align: left;
   overflow: hidden;
@@ -129,6 +128,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul > li:first-child
 {
   border-bottom: 1px solid #e9e9e9;
+  background: #fbfeff;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
