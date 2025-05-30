@@ -108,6 +108,11 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family:${TOOLBAR_FONT_SANS};
 }
 
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
+}
+
 .${clss.ROOT_CLASS} > ul
 {
   width: 65%;
