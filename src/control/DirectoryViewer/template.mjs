@@ -183,7 +183,7 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div,
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div
 {
-  display: flex
+  display: flex;
   margin: 0px;
   height: auto;
   width: 33%;
