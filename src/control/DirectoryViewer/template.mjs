@@ -121,7 +121,7 @@ ${DARKMODE_SELECTOR_VALUE}
   min-width: 470px;
   border-radius: 3px;
   background: #fbfeff;
-  box-shadow: 0px 0px 1px #d0d0d0;
+  box-shadow: 0px 0px 1px #b8b8b8;
   text-align: left;
   overflow: hidden;
 }
