@@ -15,7 +15,6 @@ const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
-const walx_data_dev_bor = '#afa9a9';
 const walx_data_dev_pic_nth2_hov = '#e7e7e7';
 const walx_data_dev_pic_bor = '#afa9a9';
 const walx_pic_link_vis = 'black';
@@ -104,24 +103,20 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  height: calc(100% - 240px);
+  height: inherit;
   padding: 10px;
   font-family:${TOOLBAR_FONT_SANS};
 }
 
 .${clss.ROOT_CLASS} > ul
 {
-   padding: 0px;
-   margin: 20px 10px 10px 10px;
-   text-align: left;
-   border: 1px solid ${walx_data_dev_bor};
-   width: 65%;
-   min-width: 470px;
-   border-top-left-radius: 10px;
-   border-top-right-radius: 10px;
-   border-bottom-right-radius: 0px;
-   border-bottom-left-radius: 0px;
-   overflow: hidden;
+  width: 65%;
+  height: inherit;
+  padding: 0px;
+  margin: 20px 10px 10px 10px;
+  text-align: left;
+  min-width: 470px;
+  overflow: hidden;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
