@@ -15,9 +15,7 @@ const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
-const walx_data_dev_bor = '#afa9a9';
-const walx_data_dev_pic_nth2_hov = '#e7e7e7';
-const walx_data_dev_pic_bor = '#afa9a9';
+const walx_data_dev_pic_nth2_hov = '#4b4b4b';
 const walx_pic_link_vis = 'black';
 const walx_pic_link_col = 'black';
 
@@ -34,29 +32,37 @@ mk.newHTML('ROOT_HTML', `
         <div>Date</div>
       </li>
       <li class="${clss.pic_folder}">
-        <span></span>
-        <div><a href=".html">folder</a></div>
+        <div>
+          <span></span>
+          <a href=".html">folder</a>
+        </div>
         <div>folder</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_file}">
-        <span></span>
-        <div><a href=".html">file</a></div>
+        <div>
+          <span></span>
+          <a href=".html">file</a>
+        </div>
         <div>file</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_folder}">
-        <span></span>
-        <div><a href=".html">folder</a></div>
+        <div>
+          <span></span>
+          <a href=".html">folder</a>
+        </div>
         <div>folder</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
       </li>
       <li class="${clss.pic_file}">
-        <span></span>
-        <div><a href=".html">file</a></div>
+        <div>
+          <span></span>
+          <a href=".html">file</a>
+        </div>
         <div>file</div>
         <div>1500 m/bytes</div>
         <div>19.02.2023</div>
@@ -96,47 +102,64 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  height: calc(100% - 240px);
+  height: inherit;
   padding: 10px;
   font-family:${TOOLBAR_FONT_SANS};
 }
 
-.${clss.ROOT_CLASS} > ul
+.${clss.ROOT_CLASS} *
 {
-   padding: 0px;
-   margin: 20px 10px 10px 10px;
-   text-align: left;
-   border: 1px solid ${walx_data_dev_bor};
-   width: 65%;
-   min-width: 470px;
-   border-top-left-radius: 10px;
-   border-top-right-radius: 10px;
-   border-bottom-right-radius: 0px;
-   border-bottom-left-radius: 0px;
-   overflow: hidden;
+  box-sizing: border-box;
 }
 
-.${clss.ROOT_CLASS} > ul li[class*=pic]
+.${clss.ROOT_CLASS} > ul
+{
+  width: 65%;
+  height: inherit;
+  margin: 0px;
+  padding: 0;
+  min-width: 470px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 1px #b8b8b8;
+  text-align: left;
+  overflow: hidden;
+}
+
+.${clss.ROOT_CLASS} > ul > li:first-child
+{
+  background: ${walx_data_dev_pic_nth2_hov};
+  color: #bababa;
+}
+
+.${clss.ROOT_CLASS} > ul li.${clss.pic},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}
 {
   list-style-type: none;
   height: 35px;
 }
 
-.${clss.ROOT_CLASS} > ul li[class*=pic]:nth-child(1n+2):hover
+.${clss.ROOT_CLASS} > ul li.${clss.pic}:nth-child(1n+2):hover,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:nth-child(1n+2):hover,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}:nth-child(1n+2):hover
 {
   background-color: ${walx_data_dev_pic_nth2_hov};
 }
 
-.${clss.ROOT_CLASS} > ul li[class*=pic]:last-child
+.${clss.ROOT_CLASS} > ul li.${clss.pic}:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}:last-child
 {
   border-bottom:none;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic]
+.${clss.ROOT_CLASS} > ul li.${clss.pic},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file}
 {
-  border-bottom: 1px solid ${walx_data_dev_pic_bor};
   display: flex;
   align-items: center;
+  padding: 0 10px;
 }
 
 .${clss.pic} div:first-child
@@ -145,9 +168,11 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 30%;
 }
 
-body.walx_data_dev div ul li[class*=pic] span
+.${clss.ROOT_CLASS} > ul li.${clss.pic} span,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} span,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} span
 {
-  margin: 0px 5px;
+  margin: 0px 5px 0 0;
 }
 
 li.${clss.pic_folder} span
@@ -161,38 +186,44 @@ li.${clss.pic_folder} span
   min-width: 18px;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div
 {
+  display: flex;
   margin: 0px;
   height: auto;
   width: 33%;
   min-width: 100px;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div a
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div a,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a
 {
   text-decoration: none;
   color: ${walx_pic_link_col};
 
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div a:visited
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div a:visited,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:visited,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:visited
 {
   color: ${walx_pic_link_vis};
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div a:hover
-{
-  text-decoration: underline;
-}
-
-.${clss.ROOT_CLASS} li[class*=pic] div:last-child
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div:last-child,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div:last-child
 {
   min-width: 100px;
   width: auto;
 }
 
-.${clss.ROOT_CLASS} li[class*=pic] div:first-letter
+.${clss.ROOT_CLASS} > ul li.${clss.pic} div:first-letter,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div:first-letter,
+.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div:first-letter
 {
   margin-left: 5px;
 }
