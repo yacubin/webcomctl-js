@@ -20,7 +20,7 @@ const walx_pic_link_col = 'black';
 
 const vars = mk.newCSSVariableMap({
 walx_data_dev_col: ['#1f2328', '#9198a1'],
-walx_data_dev_pic_bor: ['#d8d7d7', '#151b23'],
+walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
 walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
 });
 
