@@ -118,7 +118,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
   min-width: 470px;
   border-radius: 3px;
-  box-shadow: 0px 0px 1px #b8b8b8;
+  border: 1px solid #d8d7d7;
   text-align: left;
   overflow: hidden;
 }
@@ -130,7 +130,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
 {
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid #d8d7d7;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
