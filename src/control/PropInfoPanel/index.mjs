@@ -21,19 +21,23 @@ export default class PropInfoPanel extends BaseControl {
 
   setItem(name, value) {
     let valueElm = this._valueElmMap[name];
-    if (this._valueElmMap[name]) {
-      valueElm.textContent = value;
-    }
+    if (valueElm)
+      valueElm.textContent = NQDOM.escapeHTML(value);
     else if (this._listElm) {
       const itemElm = NQDOM.createElement(ITEM_HTML);
       const nameElm = NQDOM.getElementByClassName(itemElm, LIST_NAME);
       valueElm = NQDOM.getElementByClassName(itemElm, LIST_VALUE);
       if (valueElm) {
         this._valueElmMap[name] = valueElm;
-        valueElm.textContent = value;
-        nameElm && (nameElm.textContent = name);
+        valueElm.textContent = NQDOM.escapeHTML(value);
+        nameElm && (nameElm.textContent = NQDOM.escapeHTML(name));
         this._listElm.appendChild(itemElm);
       }
     }
+  }
+
+  clearItems() {
+    this._valueElmMap = {};
+    this._listElm.innerHTML = "";
   }
 };

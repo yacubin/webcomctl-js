@@ -1,5 +1,8 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
-import { MENU_ITEM_HTML, PSNT_ITEM_HTML, CODETYPE_CLASS, DOWNLOAD_CLASS, MENULIST_CLASS, PSNTLIST_CLASS, CTSHOW_CLASS, PSNTACTV_CLASS, MENUTEXT_CLASS, PSNTTEXT_CLASS, PERENTMENU_CLASS, MENUNAME_CLASS, MENU_LIST_HTML, MENUSTYLE1_CLASS, MENUSTYLE2_CLASS, MENUSTYLE3_CLASS, MENUSTYLE4_CLASS, PROPERTIES_CLASS, PROPERTIES_SHOW_CLASS } from 'uictmplt-loader!./template.mjs';
+import { MENU_ITEM_HTML, PSNT_ITEM_HTML, CODETYPE_CLASS, DOWNLOAD_CLASS, MENULIST_CLASS, PSNTLIST_CLASS,
+  CTSHOW_CLASS, PSNTACTV_CLASS, MENUTEXT_CLASS, PSNTTEXT_CLASS, PERENTMENU_CLASS, MENUNAME_CLASS, MENU_LIST_HTML,
+  MENUSTYLE1_CLASS, MENUSTYLE2_CLASS, MENUSTYLE3_CLASS, MENUSTYLE4_CLASS, PROPERTIES_CLASS, PROPERTIES2_CLASS,
+  PROPERTIES_SHOW_CLASS } from 'uictmplt-loader!./template.mjs';
 
 function typeToStyleClass(type)
 {
@@ -16,10 +19,12 @@ function typeToStyleClass(type)
   return MENUSTYLE1_CLASS;
 }
 
-export default class UIPagePanelControl extends BaseControl {
+export default class PagePanel extends BaseControl {
   _downloadElm;
   _psntlistElm;
   _parentMenuElm;
+  _infoButElm;
+  _propButElm;
 
   _init() {
     this._blob = null;
@@ -29,7 +34,8 @@ export default class UIPagePanelControl extends BaseControl {
     this._parentMenuElm = NQDOM.getElementByClassName(this.element, PERENTMENU_CLASS);
     this._downloadElm = NQDOM.getElementByClassName(this.element, DOWNLOAD_CLASS);
     this._psntlistElm = NQDOM.getElementByClassName(this.element, PSNTLIST_CLASS);
-    this._propertiesElm = NQDOM.getElementByClassName(this.element, PROPERTIES_CLASS);
+    this._infoButElm = NQDOM.getElementByClassName(this.element, PROPERTIES_CLASS);
+    this._propButElm = NQDOM.getElementByClassName(this.element, PROPERTIES2_CLASS);
 
     this._updateDownloadData();
   }
@@ -135,9 +141,24 @@ export default class UIPagePanelControl extends BaseControl {
   }
 
   setPropertiesClick(func) {
-    if (this._propertiesElm) {
-      this._propertiesElm.classList.add(PROPERTIES_SHOW_CLASS);
-      this._propertiesElm.addEventListener('click', func);
+    this.setButtonClick("info", func);
+  }
+
+  setButtonClick(type, func) {
+    if (type === "info") {
+      if (this._infoButElm) {
+        this._infoButElm.classList.add(PROPERTIES_SHOW_CLASS);
+        this._infoButElm.addEventListener('click', func);
+      }
+    }
+    else if (type === "prop") {
+      if (this._propButElm) {
+        this._propButElm.classList.add(PROPERTIES_SHOW_CLASS);
+        this._propButElm.addEventListener('click', func);
+      }
+    }
+    else {
+      console.warn(`Unknown type "${type}"`)
     }
   }
 };
