@@ -11,7 +11,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 const FOLDER = await mk.loadSvgAsCssUrl('./folder.svg');
-const FOLDER2 = await mk.loadSvgAsCssUrl('./folder.svg');
+const FOLDER2 = await mk.loadSvgAsCssUrl('./folder2.svg');
 const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 const FILE2 = await mk.loadSvgAsCssUrl('./file2.svg');
 
