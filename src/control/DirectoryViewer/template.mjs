@@ -119,7 +119,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
   min-width: 470px;
   border-radius: 3px;
-  border: ${walx_data_dev_pic};
+  border: 1px solid ${walx_data_dev_pic};
   text-align: left;
   overflow: hidden;
 }
