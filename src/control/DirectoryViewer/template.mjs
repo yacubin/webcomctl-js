@@ -119,7 +119,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
   min-width: 470px;
   border-radius: 3px;
-  border: 1px solid ${walx_data_dev_pic};
+  border: 1px solid ${vars.walx_data_dev_pic.asVar()};
   text-align: left;
   overflow: hidden;
 }
@@ -131,7 +131,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
 {
-  border-top: 1px solid ${walx_data_dev_pic};
+  border-top: 1px solid ${vars.walx_data_dev_pic.asVar()};
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
