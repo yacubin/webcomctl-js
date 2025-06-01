@@ -11,15 +11,19 @@ const clss = mk.newClassNameMap([
 ]);
 
 const FOLDER = await mk.loadSvgAsCssUrl('./folder.svg');
+const FOLDER2 = await mk.loadSvgAsCssUrl('./folder2.svg');
 const FILE = await mk.loadSvgAsCssUrl('./file.svg');
+const FILE2 = await mk.loadSvgAsCssUrl('./file2.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
-const walx_data_dev_pic_nth2_hov = '#4b4b4b';
-const walx_pic_link_vis = 'black';
-const walx_pic_link_col = 'black';
 
 const vars = mk.newCSSVariableMap({
+  walx_file_img: [FILE , FILE2],
+  walx_folder_img: [FOLDER , FOLDER2],
+  walx_data_dev_col: ['#1f2328', '#9198a1'],
+  walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
+  walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -102,8 +106,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  height: inherit;
   padding: 10px;
+  color: ${vars.walx_data_dev_col.asVar()};
   font-family:${TOOLBAR_FONT_SANS};
 }
 
@@ -115,20 +119,23 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul
 {
   width: 65%;
-  height: inherit;
   margin: 0px;
   padding: 0;
   min-width: 470px;
   border-radius: 3px;
-  box-shadow: 0px 0px 1px #b8b8b8;
+  border: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
   text-align: left;
   overflow: hidden;
 }
 
 .${clss.ROOT_CLASS} > ul > li:first-child
 {
-  background: ${walx_data_dev_pic_nth2_hov};
-  color: #bababa;
+  background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
+}
+
+.${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
+{
+  border-top: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
@@ -143,7 +150,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:nth-child(1n+2):hover,
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file}:nth-child(1n+2):hover
 {
-  background-color: ${walx_data_dev_pic_nth2_hov};
+  background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic}:last-child,
@@ -177,7 +184,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 li.${clss.pic_folder} span
 {
-  background-image: ${FOLDER};
+  background-image: ${vars.walx_folder_img.asVar()};
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -202,7 +209,7 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a
 {
   text-decoration: none;
-  color: ${walx_pic_link_col};
+  color: ${vars.walx_data_dev_col.asVar()};
 
 }
 
@@ -210,7 +217,7 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:visited,
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:visited
 {
-  color: ${walx_pic_link_vis};
+  color: ${vars.walx_data_dev_col.asVar()};
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic} div:last-child,
@@ -230,7 +237,7 @@ li.${clss.pic_folder} span
 
 li.${clss.pic_file} span
 {
-  background-image: ${FILE};
+  background-image: ${vars.walx_file_img.asVar()};
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;

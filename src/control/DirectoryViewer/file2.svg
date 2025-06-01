@@ -1,0 +1,127 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="102pt"
+    height="124pt"
+    viewBox="0 0 102 124">
+<defs/>
+
+<path id="shape0"
+  transform="matrix(1 0 0 0.959000061045643 7.39825348276888 4.38251697135775)" 
+  fill="none" 
+  stroke="#9198a1" 
+  stroke-width="4" 
+  stroke-linecap="square"
+  stroke-linejoin="bevel" 
+  d="M0.0315884 1.04688L0 120.026L85.9535 120.031L86.024 27.9698L61.9823 1.01136L60.9691 0L0.0441929 0.0169956C0.0441929 0.0169956 0.0399914 0.360289 0.0315884 1.04688Z" 
+  sodipodi:nodetypes="cccccccc"/>
+ 
+<path id="shape1"
+  transform="translate(64.9843758755558, 3.93029045485673)" 
+  fill="#9198a1" 
+  fill-rule="evenodd"
+  stroke="#9198a1" 
+  stroke-width="1.01"
+  stroke-linecap="square" 
+  stroke-linejoin="bevel" 
+  d="M0 0.0540848L0.0156253 29.0541L28.9844 29.0697L28.9844 27.101L3.02618 0L0 0.0540848" 
+  sodipodi:nodetypes="cccccc"/>
+ 
+<path id="shape2" 
+  transform="matrix(0.928819804489643 0 0 0.841938600824719 1.20487909987988 52.7450031446438)"
+  fill="#9198a1"
+  fill-rule="evenodd" 
+  stroke="#9198a1" 
+  stroke-width="1.01" 
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0 4L0.049503 44.0041L4.01562 47.9687L101 48L106 41.9375L105.984 5.98438L100.031 0.0156308L6.03125 0C6.03125 0 4.02083 1.33333 0 4Z" 
+  sodipodi:nodetypes="ccccccccc"/>
+ 
+<text id="shape0" 
+  krita:useRichText="true" 
+  krita:textVersion="2"
+  transform="matrix(0.66179931806577 0 0 0.581207796595678 7.44639241367985 86.4181530432083)"
+  fill="rgb(23, 23, 26)" 
+  stroke-opacity="0" 
+  stroke="#000000" 
+  stroke-width="0"
+  stroke-linecap="square" 
+  stroke-linejoin="bevel"
+  font-family="Cambria"
+  font-size="72" 
+  font-size-adjust="0.210526"
+  font-stretch="normal"
+  letter-spacing="0"
+  word-spacing="0">
+ 
+  <tspan x="0">f</tspan>
+ 
+</text>
+ 
+<text id="shape1" 
+  krita:useRichText="true" 
+  krita:textVersion="2" 
+  transform="matrix(0.576664186567917 0 0 0.576664186567917 30.2303416069042 86.2657905090807)"
+  fill="rgb(23, 23, 26)" 
+  stroke-opacity="0" 
+  stroke="#000000" 
+  stroke-width="0" 
+  stroke-linecap="square" 
+  stroke-linejoin="bevel" 
+  font-family="Cambria" 
+  font-size="72" 
+  font-size-adjust="0.210526" 
+  font-stretch="normal" 
+  letter-spacing="0" 
+  word-spacing="0">
+ 
+  <tspan x="0">i</tspan>
+ 
+</text>
+ 
+<text id="shape2" 
+  krita:useRichText="true"
+  krita:textVersion="2" 
+  transform="matrix(0.56048321683804 0 0 0.56048321683804 52.0004934351876 86.0191312056507)" 
+  fill="rgb(23, 23, 26)"
+  stroke-opacity="0"
+  stroke="#000000" 
+  stroke-width="0" 
+  stroke-linecap="square" 
+  stroke-linejoin="bevel"
+  font-family="Cambria"
+  font-size="72"
+  font-size-adjust="0.210526" 
+  font-stretch="normal" 
+  letter-spacing="0"
+  word-spacing="0">
+ 
+  <tspan x="0">l</tspan>
+ 
+</text>
+<text id="shape3"
+  krita:useRichText="true" 
+  krita:textVersion="2" 
+  transform="matrix(0.581650502050353 0 0 0.581650502050353 72.0388993186636 86.0425603261885)"
+  fill="rgb(23, 23, 26)"
+  stroke-opacity="0" 
+  stroke="#000000" 
+  stroke-width="0" 
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  font-family="Cambria"
+  font-size="72" 
+  font-size-adjust="0.210526" 
+  font-stretch="normal"
+  letter-spacing="0" 
+  word-spacing="0">
+ 
+ <tspan x="0">e</tspan>
+ 
+</text>
+</svg>
