@@ -15,7 +15,7 @@ const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
-const walx_data_dev_pic_nth2_hov = '#4b4b4b';
+const walx_data_dev_pic_nth2_hov = '#f2f2f2';
 const walx_pic_link_vis = 'black';
 const walx_pic_link_col = 'black';
 
@@ -125,10 +125,9 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} > ul > li:first-child
+.${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
 {
-  background: ${walx_data_dev_pic_nth2_hov};
-  color: #bababa;
+  border-top: 1px solid #f2f2f2;
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
