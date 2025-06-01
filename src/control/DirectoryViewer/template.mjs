@@ -20,7 +20,7 @@ const walx_pic_link_col = 'black';
 
 const vars = mk.newCSSVariableMap({
 walx_data_dev_col: ['#1f2328', '#9198a1'],
-walx_data_dev_pic: ['#d8d7d7', '#4b4b4b'],
+walx_data_dev_pic_bor: ['#d8d7d7', '#151b23'],
 walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
 });
 
@@ -105,7 +105,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   padding: 10px;
-  color: ${vars.walx_data_dev_col.asVar()}
+  color: ${vars.walx_data_dev_col.asVar()};
   font-family:${TOOLBAR_FONT_SANS};
 }
 
@@ -121,7 +121,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
   min-width: 470px;
   border-radius: 3px;
-  border: 1px solid ${vars.walx_data_dev_pic.asVar()};
+  border: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
   text-align: left;
   overflow: hidden;
 }
@@ -133,7 +133,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
 {
-  border-top: 1px solid ${vars.walx_data_dev_pic.asVar()};
+  border-top: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic},
