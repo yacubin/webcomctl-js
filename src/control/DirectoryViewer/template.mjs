@@ -15,13 +15,11 @@ const FILE = await mk.loadSvgAsCssUrl('./file.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
-const walx_pic_link_vis = 'black';
-const walx_pic_link_col = 'black';
 
 const vars = mk.newCSSVariableMap({
-walx_data_dev_col: ['#1f2328', '#9198a1'],
-walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
-walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
+ walx_data_dev_col: ['#1f2328', '#9198a1'],
+ walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
+ walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -207,7 +205,7 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a
 {
   text-decoration: none;
-  color: ${walx_pic_link_col};
+  color: ${vars.walx_data_dev_col.asVar()};
 
 }
 
@@ -215,7 +213,7 @@ li.${clss.pic_folder} span
 .${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:visited,
 .${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:visited
 {
-  color: ${walx_pic_link_vis};
+  color: ${vars.walx_data_dev_col.asVar()};
 }
 
 .${clss.ROOT_CLASS} > ul li.${clss.pic} div:last-child,
