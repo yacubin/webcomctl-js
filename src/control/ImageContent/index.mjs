@@ -1,7 +1,9 @@
 import { BaseControl, Util, NQDOM } from 'webnetq-js';
 import { CONTENT_CLASS, BUTT_LEFT_CLASS, BUTT_RIGHT_CLASS, IMAGE_POSITION, IMAGE_NUMBERS, LEFT_CLICK, RIGHT_CLICK } from 'uictmplt-loader!./template.mjs';
 
-export default class UIImageContentControl extends BaseControl {
+const IMAGECHANGED_EVENT = 'imageChanged';
+
+export default class ImageContent extends BaseControl {
   _imageElm;
   _posElm;
   _numsElm;
@@ -17,6 +19,8 @@ export default class UIImageContentControl extends BaseControl {
     leftElm && leftElm.addEventListener("click", event => this.onLeftClick(event));
     const rightElm = NQDOM.getElementByClassName(this.element, RIGHT_CLICK);
     rightElm && rightElm.addEventListener("click", event => this.onRightClick(event));
+
+    this.registerEvent(IMAGECHANGED_EVENT);
   }
 
   setContent(params) {
@@ -38,11 +42,16 @@ export default class UIImageContentControl extends BaseControl {
     this._images.push(item);
 
     if (this._currentIndex === -1) {
-      this._imageElm && (this._imageElm.src = item.url);
-      this._currentIndex = 0;
+      this.loadImageByIndex(0);
     }
 
     this.updateButtons();
+  }
+
+  loadImageByIndex(index) {
+    this._imageElm && (this._imageElm.src = this._images[index].url);
+    this._currentIndex = index;
+    this.dispatchEvent(IMAGECHANGED_EVENT, {index});
   }
 
   updateButtons() {
@@ -63,16 +72,14 @@ export default class UIImageContentControl extends BaseControl {
 
   onLeftClick(event) {
     if (this._currentIndex > 0) {
-      this._currentIndex--;
-      this._imageElm && (this._imageElm.src = this._images[this._currentIndex].url);
+      this.loadImageByIndex(this._currentIndex - 1);
       this.updateButtons();
     }
   }
 
   onRightClick(event) {
     if (this._currentIndex < (this._images.length - 1)) {
-      this._currentIndex++;
-      this._imageElm && (this._imageElm.src = this._images[this._currentIndex].url);
+      this.loadImageByIndex(this._currentIndex + 1);
       this.updateButtons();
     }
   }
