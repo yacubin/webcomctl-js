@@ -102,7 +102,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  height: inherit;
   padding: 10px;
   font-family:${TOOLBAR_FONT_SANS};
 }
@@ -115,7 +114,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > ul
 {
   width: 65%;
-  height: inherit;
   margin: 0px;
   padding: 0;
   min-width: 470px;
