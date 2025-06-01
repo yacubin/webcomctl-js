@@ -21,9 +21,8 @@ export default class PropInfoPanel extends BaseControl {
 
   setItem(name, value) {
     let valueElm = this._valueElmMap[name];
-    if (this._valueElmMap[name]) {
+    if (valueElm)
       valueElm.textContent = value;
-    }
     else if (this._listElm) {
       const itemElm = NQDOM.createElement(ITEM_HTML);
       const nameElm = NQDOM.getElementByClassName(itemElm, LIST_NAME);
@@ -35,5 +34,10 @@ export default class PropInfoPanel extends BaseControl {
         this._listElm.appendChild(itemElm);
       }
     }
+  }
+
+  clearItems() {
+    this._valueElmMap = {};
+    this._listElm.innerHTML = "";
   }
 };
