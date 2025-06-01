@@ -123,6 +123,11 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
+.${clss.ROOT_CLASS} > ul > li:first-child
+{
+  background-color: ${walx_data_dev_pic_nth2_hov};
+}
+
 .${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
 {
   border-top: 1px solid #f2f2f2;
