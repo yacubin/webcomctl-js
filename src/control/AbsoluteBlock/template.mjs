@@ -2,13 +2,13 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 
-const mk = new ControlMaker('AbsoluteBlock', import.meta.url);
+const mk = new ControlMaker("AbsoluteBlock", import.meta.url);
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
-  "TOP_CLASS",
   "RIGHT_CLASS",
+  "BOTTOM_CLASS",
 ]);
 
 const vars = mk.newCSSVariableMap({
@@ -44,7 +44,7 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: flex-end;
 }
 
-.${clss.TOP_CLASS}
+.${clss.BOTTOM_CLASS}
 {
   bottom: 0;
   top: auto;
