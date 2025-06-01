@@ -11,15 +11,19 @@ const clss = mk.newClassNameMap([
 ]);
 
 const FOLDER = await mk.loadSvgAsCssUrl('./folder.svg');
+const FOLDER2 = await mk.loadSvgAsCssUrl('./folder.svg');
 const FILE = await mk.loadSvgAsCssUrl('./file.svg');
+const FILE2 = await mk.loadSvgAsCssUrl('./file2.svg');
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
 
 const vars = mk.newCSSVariableMap({
- walx_data_dev_col: ['#1f2328', '#9198a1'],
- walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
- walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
+  walx_file_img: [FILE , FILE2],
+  walx_folder_img: [FOLDER , FOLDER2],
+  walx_data_dev_col: ['#1f2328', '#9198a1'],
+  walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
+  walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -180,7 +184,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 li.${clss.pic_folder} span
 {
-  background-image: ${FOLDER};
+  background-image: ${vars.walx_folder_img.asVar()};
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -233,7 +237,7 @@ li.${clss.pic_folder} span
 
 li.${clss.pic_file} span
 {
-  background-image: ${FILE};
+  background-image: ${vars.walx_file_img.asVar()};
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
