@@ -121,6 +121,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.pic}
 {
   height: 35px;
+  margin: 0;
   font-size: 16px;
   font-weight: 500;
   border-bottom: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
@@ -225,6 +226,7 @@ li.${clss.pic_folder} span
   color: ${vars.walx_data_dev_col.asVar()};
 }
 
+.${clss.ROOT_CLASS} .${clss.pic} div:last-child,
 .${clss.ROOT_CLASS} ul li.${clss.pic_folder} div:last-child,
 .${clss.ROOT_CLASS} ul li.${clss.pic_file} div:last-child
 {
@@ -232,6 +234,7 @@ li.${clss.pic_folder} span
   width: auto;
 }
 
+.${clss.ROOT_CLASS} .${clss.pic} div:first-letter,
 .${clss.ROOT_CLASS} ul li.${clss.pic_folder} div:first-letter,
 .${clss.ROOT_CLASS} ul li.${clss.pic_file} div:first-letter
 {
