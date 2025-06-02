@@ -138,7 +138,7 @@ ${DARKMODE_SELECTOR_VALUE}
   word-break: break-all;
 }
 
-.${clss.LIST_CLASS} > span:nth-child(2n + 3)
+.${clss.LIST_CLASS} > span:nth-child(2n + 1)
 {
   background-color: #7a7a7a29;
 }
