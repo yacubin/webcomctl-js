@@ -120,8 +120,10 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.pic}
 {
+  height: 35px;
   font-size: 16px;
   font-weight: 500;
+  border-bottom: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
 }
 
 .${clss.ROOT_CLASS} > div
