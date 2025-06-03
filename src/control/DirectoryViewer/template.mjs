@@ -28,13 +28,14 @@ const vars = mk.newCSSVariableMap({
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}" align="center">
+  <div>
+    <h2 class="${clss.pic}">
+      <div>Name</div>
+      <div>Type</div>
+      <div>Size</div>
+      <div>Date</div>
+    </h2>
     <ul>
-      <li class="${clss.pic}">
-        <div>Name</div>
-        <div>Type</div>
-        <div>Size</div>
-        <div>Date</div>
-      </li>
       <li class="${clss.pic_folder}">
         <div>
           <span></span>
@@ -73,6 +74,7 @@ mk.newHTML('ROOT_HTML', `
       </li>
     </ul>
   </div>
+</div>
 `);
 
 mk.newCSS('CSS', `
@@ -116,7 +118,16 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
-.${clss.ROOT_CLASS} > ul
+.${clss.pic}
+{
+  height: 35px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
+}
+
+.${clss.ROOT_CLASS} > div
 {
   width: 65%;
   margin: 0px;
@@ -128,56 +139,53 @@ ${DARKMODE_SELECTOR_VALUE}
   overflow: hidden;
 }
 
-.${clss.ROOT_CLASS} > ul > li:first-child
+.${clss.ROOT_CLASS} ul
+{
+  margin: 0px;
+  padding: 0;
+}
+
+.${clss.ROOT_CLASS} .${clss.pic}
 {
   background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
 }
 
-.${clss.ROOT_CLASS} > ul > li:nth-child(1n+2)
+.${clss.ROOT_CLASS} ul > li:nth-child(1n+2)
 {
   border-top: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic},
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file}
+.${clss.ROOT_CLASS} ul li.${clss.pic},
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder},
+.${clss.ROOT_CLASS} ul li.${clss.pic_file}
 {
   list-style-type: none;
   height: 35px;
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic}:nth-child(1n+2):hover,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:nth-child(1n+2):hover,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file}:nth-child(1n+2):hover
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder}:nth-child(1n+2):hover,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file}:nth-child(1n+2):hover
 {
   background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic}:last-child,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder}:last-child,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file}:last-child
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder}:last-child,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file}:last-child
 {
   border-bottom:none;
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic},
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder},
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file}
+.${clss.ROOT_CLASS} .${clss.pic},
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder},
+.${clss.ROOT_CLASS} ul li.${clss.pic_file}
 {
   display: flex;
   align-items: center;
   padding: 0 10px;
 }
 
-.${clss.pic} div:first-child
-{
-  margin-left: 40px;
-  width: 30%;
-}
-
-.${clss.ROOT_CLASS} > ul li.${clss.pic} span,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} span,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} span
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder} span,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file} span
 {
   margin: 0px 5px 0 0;
 }
@@ -193,9 +201,9 @@ li.${clss.pic_folder} span
   min-width: 18px;
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic} div,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div
+.${clss.ROOT_CLASS} .${clss.pic} div,
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file} div
 {
   display: flex;
   margin: 0px;
@@ -204,33 +212,31 @@ li.${clss.pic_folder} span
   min-width: 100px;
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic} div a,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div a,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file} div a
 {
   text-decoration: none;
   color: ${vars.walx_data_dev_col.asVar()};
 
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic} div a:visited,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div a:visited,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div a:visited
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div a:visited,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file} div a:visited
 {
   color: ${vars.walx_data_dev_col.asVar()};
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic} div:last-child,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div:last-child,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div:last-child
+.${clss.ROOT_CLASS} .${clss.pic} div:last-child,
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div:last-child,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file} div:last-child
 {
   min-width: 100px;
   width: auto;
 }
 
-.${clss.ROOT_CLASS} > ul li.${clss.pic} div:first-letter,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_folder} div:first-letter,
-.${clss.ROOT_CLASS} > ul li.${clss.pic_file} div:first-letter
+.${clss.ROOT_CLASS} .${clss.pic} div:first-letter,
+.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div:first-letter,
+.${clss.ROOT_CLASS} ul li.${clss.pic_file} div:first-letter
 {
   margin-left: 5px;
 }
