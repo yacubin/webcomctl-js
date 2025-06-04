@@ -1,13 +1,19 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+
 const mk = new ControlMaker('DirectoryViewer', import.meta.url);
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "pic_folder",
-  "pic",
-  "pic_file",
+  "ITEM_LIST",
+  "FOLDER_CLASS",
+  "FILE_CLASS",
+  "TITLE_CLASS",
+  "LINK_CLASS",
+  "TYPE_CLASS",
+  "SIZE_CLASS",
+  "DATE_CLASS",
 ]);
 
 const FOLDER = await mk.loadSvgAsCssUrl('./folder.svg');
@@ -29,52 +35,27 @@ const vars = mk.newCSSVariableMap({
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}" align="center">
   <div>
-    <h2 class="${clss.pic}">
+    <h2 class="${clss.TITLE_CLASS}">
       <div>Name</div>
       <div>Type</div>
       <div>Size</div>
       <div>Date</div>
     </h2>
-    <ul>
-      <li class="${clss.pic_folder}">
-        <div>
-          <span></span>
-          <a href=".html">folder</a>
-        </div>
-        <div>folder</div>
-        <div>1500 m/bytes</div>
-        <div>19.02.2023</div>
-      </li>
-      <li class="${clss.pic_file}">
-        <div>
-          <span></span>
-          <a href=".html">file</a>
-        </div>
-        <div>file</div>
-        <div>1500 m/bytes</div>
-        <div>19.02.2023</div>
-      </li>
-      <li class="${clss.pic_folder}">
-        <div>
-          <span></span>
-          <a href=".html">folder</a>
-        </div>
-        <div>folder</div>
-        <div>1500 m/bytes</div>
-        <div>19.02.2023</div>
-      </li>
-      <li class="${clss.pic_file}">
-        <div>
-          <span></span>
-          <a href=".html">file</a>
-        </div>
-        <div>file</div>
-        <div>1500 m/bytes</div>
-        <div>19.02.2023</div>
-      </li>
-    </ul>
+    <ul class="${clss.ITEM_LIST}"></ul>
   </div>
 </div>
+`);
+
+mk.newHTML('ITEM_HTML', `
+<li class="${clss.FOLDER_CLASS}">
+  <div>
+    <span></span>
+    <a class="${clss.LINK_CLASS}"></a>
+  </div>
+  <div class="${clss.TYPE_CLASS}"></div>
+  <div class="${clss.SIZE_CLASS}"></div>
+  <div class="${clss.DATE_CLASS}"></div>
+</li>
 `);
 
 mk.newCSS('CSS', `
@@ -118,7 +99,7 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
-.${clss.pic}
+.${clss.TITLE_CLASS}
 {
   height: 35px;
   margin: 0;
@@ -145,7 +126,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0;
 }
 
-.${clss.ROOT_CLASS} .${clss.pic}
+.${clss.ROOT_CLASS} .${clss.TITLE_CLASS}
 {
   background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
 }
@@ -155,42 +136,42 @@ ${DARKMODE_SELECTOR_VALUE}
   border-top: 1px solid ${vars.walx_data_dev_pic_bor.asVar()};
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.pic},
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder},
-.${clss.ROOT_CLASS} ul li.${clss.pic_file}
+.${clss.ROOT_CLASS} ul li.${clss.TITLE_CLASS},
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS},
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS}
 {
   list-style-type: none;
   height: 35px;
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder}:nth-child(1n+2):hover,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file}:nth-child(1n+2):hover
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS}:nth-child(1n+2):hover,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS}:nth-child(1n+2):hover
 {
   background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder}:last-child,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file}:last-child
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS}:last-child,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS}:last-child
 {
   border-bottom:none;
 }
 
-.${clss.ROOT_CLASS} .${clss.pic},
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder},
-.${clss.ROOT_CLASS} ul li.${clss.pic_file}
+.${clss.ROOT_CLASS} .${clss.TITLE_CLASS},
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS},
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS}
 {
   display: flex;
   align-items: center;
   padding: 0 10px;
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder} span,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file} span
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS} span,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS} span
 {
   margin: 0px 5px 0 0;
 }
 
-li.${clss.pic_folder} span
+li.${clss.FOLDER_CLASS} span
 {
   background-image: ${vars.walx_folder_img.asVar()};
   background-repeat: no-repeat;
@@ -201,9 +182,9 @@ li.${clss.pic_folder} span
   min-width: 18px;
 }
 
-.${clss.ROOT_CLASS} .${clss.pic} div,
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file} div
+.${clss.ROOT_CLASS} .${clss.TITLE_CLASS} div,
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS} div,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS} div
 {
   display: flex;
   margin: 0px;
@@ -212,36 +193,36 @@ li.${clss.pic_folder} span
   min-width: 100px;
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div a,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file} div a
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS} div a,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS} div a
 {
   text-decoration: none;
   color: ${vars.walx_data_dev_col.asVar()};
 
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div a:visited,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file} div a:visited
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS} div a:visited,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS} div a:visited
 {
   color: ${vars.walx_data_dev_col.asVar()};
 }
 
-.${clss.ROOT_CLASS} .${clss.pic} div:last-child,
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div:last-child,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file} div:last-child
+.${clss.ROOT_CLASS} .${clss.TITLE_CLASS} div:last-child,
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS} div:last-child,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS} div:last-child
 {
   min-width: 100px;
   width: auto;
 }
 
-.${clss.ROOT_CLASS} .${clss.pic} div:first-letter,
-.${clss.ROOT_CLASS} ul li.${clss.pic_folder} div:first-letter,
-.${clss.ROOT_CLASS} ul li.${clss.pic_file} div:first-letter
+.${clss.ROOT_CLASS} .${clss.TITLE_CLASS} div:first-letter,
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS} div:first-letter,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS} div:first-letter
 {
   margin-left: 5px;
 }
 
-li.${clss.pic_file} span
+li.${clss.FILE_CLASS} span
 {
   background-image: ${vars.walx_file_img.asVar()};
   background-repeat: no-repeat;
