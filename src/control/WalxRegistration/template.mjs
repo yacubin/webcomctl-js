@@ -369,7 +369,7 @@ ${DARKMODE_SELECTOR_VALUE}
   display: flex;
   justify-content: flex-end;
   font-size: 14px;
-  color: ${vars.form-txt-col.asVar()};
+  color: ${vars.form_txt_col.asVar()};
 }
 
 .${clss.ROOT_CLASS} form div > div:hover
