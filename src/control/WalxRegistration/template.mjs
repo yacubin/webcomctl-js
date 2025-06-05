@@ -1,9 +1,7 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 const mk = new ControlMaker("Registration", import.meta.url);
-
-const SCTHBG_CLR = '#b5b5b5c7';
-const SCTRBG_CLR = 'transparent';
+import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
@@ -118,24 +116,6 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-.${clss.ROOT_CLASS}::-webkit-scrollbar
-{
-  width: 10px;
-  height: 10px;
-}
-
-.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
-{
-  background-color: ${SCTHBG_CLR};
-  border-radius: 10px;
-}
-
-.${clss.ROOT_CLASS}::-webkit-scrollbar-track,
-.${clss.ROOT_CLASS}::-webkit-scrollbar-corner
-{
-  background-color: ${SCTRBG_CLR};
-}
-
 .${clss.ROOT_CLASS} input:-webkit-autofill 
 {
   box-shadow: inset 0 0 0 50px ${vars.input_autofill.asVar()};
@@ -158,7 +138,8 @@ ${DARKMODE_SELECTOR_VALUE}
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100% - 240px);
+  height: 100%;
+  font-family:${TOOLBAR_FONT_SANS};
 }
 
 .${clss.ROOT_CLASS} form
