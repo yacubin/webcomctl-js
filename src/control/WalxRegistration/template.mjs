@@ -46,6 +46,7 @@ const vars = mk.newCSSVariableMap({
   form_add_pas_txt_foc_bor: ['#1b74e4', '#1b74e4'],
   form_pt_hov_foc_car: ['#1b74e4', '#1b74e4'],
   form_pt_hov_foc_bor: ['#1b74e4', '#1b74e4'],
+  form_pt_hov_foc_bs: ['#e7f3ff', '#e7f3ff'],
   form_sign: ['gray', 'gray'],
   form_sign_hov: ['black', 'black'],
 });
