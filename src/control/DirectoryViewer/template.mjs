@@ -144,8 +144,8 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 35px;
 }
 
-.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS}:nth-child(1n+2):hover,
-.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS}:nth-child(1n+2):hover
+.${clss.ROOT_CLASS} ul li.${clss.FOLDER_CLASS}:hover,
+.${clss.ROOT_CLASS} ul li.${clss.FILE_CLASS}:hover
 {
   background-color: ${vars.walx_data_dev_pic_nth2_hov.asVar()};
 }
