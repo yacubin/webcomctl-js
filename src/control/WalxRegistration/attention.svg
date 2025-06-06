@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="16.776pt"
+    height="16.344pt"
+    viewBox="0 0 16.776 16.344">
+<defs/>
+<circle id="shape0" 
+transform="matrix(1.00000000840242 0 0 1.00000000840242 0.684000400660848 0.460324679939743)" 
+r="7.704" 
+cx="7.704" 
+cy="7.704" 
+fill="#ff0000" 
+fill-rule="evenodd" 
+stroke="#ff0000" 
+stroke-width="0.72072" 
+stroke-linecap="square" 
+stroke-linejoin="bevel"/>
+
+<rect id="shape01" 
+transform="matrix(1.00000000840242 0 0 1.00000000840242 7.27200045601597 3.24000002722383)" 
+fill="#ffffff" 
+fill-rule="evenodd" 
+stroke="#7f0000" 
+stroke-width="0.72072" 
+stroke-linecap="square" 
+stroke-linejoin="miter" 
+stroke-miterlimit="2.01600003242493" 
+width="2.304" 
+height="6.336"/>
+
+<rect id="shape1" 
+transform="matrix(1.00000000840242 0 0 1.00000000840242 7.200000455411 11.6640000980058)" 
+fill="#ffffff" 
+fill-rule="evenodd" 
+stroke="#7f0000" 
+stroke-width="0.72072" 
+stroke-linecap="square" 
+stroke-linejoin="miter" 
+stroke-miterlimit="2.01600003242493" 
+width="2.304" height="1.8"/>
+</svg>

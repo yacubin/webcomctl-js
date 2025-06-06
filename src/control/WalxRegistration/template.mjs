@@ -3,6 +3,8 @@ import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 const mk = new ControlMaker("Registration", import.meta.url);
 import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
 
+const IMG = await mk.loadSvgAsCssUrl('./attention.svg');
+
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "ENTER_REG",
@@ -61,7 +63,7 @@ mk.newHTML('ROOT_HTML', `
       <label for="fld-password">password</label>
     </span>
     <u id="attention-message" style="display: none">
-      <img src="attention.svg"/>
+      <img src="${IMG}"/>
       <div>Wrong password or email!</div>
     </u>
     <div>
@@ -90,7 +92,7 @@ mk.newHTML('ROOT_HTML', `
       <label for="password3">repeat password</label>
     </span>
     <u>
-      <img src="attention.svg"/>
+      <img src="${IMG}"/>
       <div>
         Wrong password or email !
       </div>
