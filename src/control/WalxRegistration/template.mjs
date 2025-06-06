@@ -11,8 +11,6 @@ const clss = mk.newClassNameMap([
   "ADD_DEV",
 ]);
 
-rgb(23, 23, 26)
-
 const vars = mk.newCSSVariableMap({
   walx_add_color: ['#1877f2', '#1877f2'],
   walx_add_color_hov: ['#0264e2', '#0264e2'],
