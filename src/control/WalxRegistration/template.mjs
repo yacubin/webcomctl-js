@@ -11,45 +11,45 @@ const clss = mk.newClassNameMap([
   "ADD_DEV",
 ]);
 
+  const form_sign = 'gray';
+  const form_sign_hov = 'black';
+  const form_warning = '#d93025';
+  const form_label_col = 'black';
+  const form_label_bg = 'white';
+  const form_label_col_hov = '#1a73e8';
+  const form_labe_off_col = 'grey';
+  const form_but_reg_bg_hov = '#36a420';
+  const form_pas_txt_foc_car = '#1b74e4';
+  const form_pas_txt_foc_col = '#1b74e4';
+  const form_pas_txt_foc_bs = '#e7f3ff';
+  const form_txt_col = 'gray';
+  const form_txt_col_hov = 'black';
+  const form_add_label_foc_col = '#1a73e8';
+  const form_add_inp_col = '#D9D9D9';
+  const form_add_but_col = 'white';
+  const form_add_but_bg_hov = '#0264e2c7';
+  const form_add_but2_bg_hov = '#f4f4f4';
+  const form_add_but2_bg = 'white';
+
 const vars = mk.newCSSVariableMap({
-  walx_add_color: ['#1877f2', '#1877f2'],
+  walx_add_color: ['#1877f2', '#1760bf'],
   walx_add_color_hov: ['#0264e2', '#0264e2'],
   input_window_bor: ['#D9D9D9', '#4a4c4e'],
   input_window_bg: ['white', '#17171a'],
   input_autofill: ['white', '#17171a'],
   input_autofill_foc: ['white', '#17171a'],
   form_bs: ['#d1d0d0', '#4a4c4e'],
-  form_warning: ['#d93025', '#d93025'],
-  form_label_col: ['black', 'black'],
-  form_label_bg: ['white', 'white'],
-  form_label_col_hov: ['#1a73e8', '#1a73e8'],
   form_labe_off_bg: ['white', '#17171a'],
-  form_labe_off_col: ['grey', 'grey'],
   form_labe_on_bg: ['white', '#17171a'],
   form_labe_on_col: ['#1a73e8', '#2265bc'],
   form_but_col: ['white', '#17171a'],
   form_delimiter: ['#dadde1', '#4a4c4e'],
-  form_but_reg_bg: ['#42b72a', '#42b72a'],
-  form_but_reg_bg_hov: ['#36a420', '#36a420'],
-  form_pas_txt_foc_car: ['#1b74e4', '#1b74e4'],
-  form_pas_txt_foc_col: ['#1b74e4', '#1b74e4'],
-  form_pas_txt_foc_bs:['#e7f3ff', '#e7f3ff'],
-  form_txt_col: ['gray', 'gray'],
-  form_txt_col_hov: ['black', 'black'],
-  form_add_label_foc_col: ['#1a73e8', '#1a73e8'],
-  form_add_label_foc_col: ['#D9D9D9', '#D9D9D9'],
-  form_add_inp_col: ['#D9D9D9', '#D9D9D9'],
-  form_add_but_col: ['white', 'white'],
-  form_add_but_bg_hov: ['#0264e2c7', '#0264e2c7'],
-  form_add_but2_bg_hov: ['#f4f4f4', '#f4f4f4'],
-  form_add_but2_bg: ['white', 'white'],
+  form_but_reg_bg: ['#42b72a', '#328f1f'],
   form_add_pas_txt_foc_car: ['#1b74e4', '#2265bc'],
   form_add_pas_txt_foc_bor: ['#1b74e4', '#2265bc'],
   form_pt_hov_foc_car: ['#1b74e4', '#2265bc'],
   form_pt_hov_foc_bor: ['#1b74e4', '#2265bc'],
   form_pt_hov_foc_bs: ['#e7f3ff', '#2a2c2e'],
-  form_sign: ['gray', 'gray'],
-  form_sign_hov: ['black', 'black'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -184,7 +184,7 @@ ${DARKMODE_SELECTOR_VALUE}
   bottom: 15px;
   left: 10px;
   font-size: 12px;
-  color: ${vars.form_warning.asVar()};
+  color: ${form_warning};
 }
 
 .${clss.ROOT_CLASS} form u > h1
@@ -222,15 +222,15 @@ ${DARKMODE_SELECTOR_VALUE}
   position: relative;
   bottom: 50px;
   left: 5px;
-  color: ${vars.form_label_col.asVar()};
-  background-color: ${vars.form_label_bg.asVar()};
+  color: ${form_label_col};
+  background-color: ${form_label_bg};
   user-select: none;
 }
 
 .${clss.ROOT_CLASS} form input:focus + label,
 .${clss.ROOT_CLASS} form input + label:focus
 {
-  color: ${vars.form_label_col_hov.asVar()};
+  color: ${form_label_col_hov};
 }
 
 .${clss.ROOT_CLASS} form input[data-hide-value=""] + label
@@ -243,7 +243,7 @@ ${DARKMODE_SELECTOR_VALUE}
   left: 10px;
   background-color: ${vars.form_labe_off_bg.asVar()};
   visibility: visible;
-  color: ${vars.form_labe_off_col.asVar()};
+  color: ${form_labe_off_col};
   cursor: text;
 }
 
@@ -330,15 +330,15 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} form input[name="pole4"]:hover
 {
-  background-color: ${vars.form_but_reg_bg_hov.asVar()};
+  background-color: ${form_but_reg_bg_hov};
 }
   
 .${clss.ROOT_CLASS} form input[type="password"]:focus,
 .${clss.ROOT_CLASS} form input[type="text"]:focus 
 {
-  caret-color: ${vars.form_pas_txt_foc_car.asVar()};
-  border-color: ${vars.form_pas_txt_foc_col.asVar()};
-  box-shadow: 0 0 0 2px ${vars.form_pas_txt_foc_bs.asVar()};
+  caret-color: ${form_pas_txt_foc_car};
+  border-color: ${form_pas_txt_foc_col};
+  box-shadow: 0 0 0 2px ${form_pas_txt_foc_bs};
 }
 
 .${clss.ROOT_CLASS} form input[type="text"]:focus-visible,
@@ -359,12 +359,12 @@ ${DARKMODE_SELECTOR_VALUE}
   display: flex;
   justify-content: flex-end;
   font-size: 14px;
-  color: ${vars.form_txt_col.asVar()};
+  color: ${form_txt_col};
 }
 
 .${clss.ROOT_CLASS} form div > div:hover
 {
-  color: ${vars.form_txt_col_hov.asVar()};
+  color: ${form_txt_col_hov};
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} > div
@@ -379,7 +379,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input:focus + label,
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input + label:focus
 {
-  color: ${vars.form_add_label_foc_col.asVar()};
+  color: ${form_add_label_foc_col};
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input[type="password"],
@@ -388,7 +388,7 @@ ${DARKMODE_SELECTOR_VALUE}
   display: block;
   height: 40px;
   border-radius: 2px;
-  border: 1px solid ${vars.form_add_inp_col.asVar()};
+  border: 1px solid ${form_add_inp_col};
   padding: 0px 10px;
   width: 330px;
 }
@@ -399,19 +399,19 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 45px;
   border-radius: 5px;
   border-style: none;
-  color: ${vars.form_add_but_col.asVar()};
+  color: ${form_add_but_col};
   font-size: 20px;
   cursor: pointer;
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input[name="pole4"]:hover
 {
-  background-color: ${vars.form_add_but_bg_hov.asVar()};
+  background-color: ${form_add_but_bg_hov};
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input[type="button"] + input[name="pole5"]:hover
 {
-  background-color: ${vars.form_add_but2_bg.asVar()};
+  background-color: ${form_add_but2_bg_hov};
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input[type="button"] + input[type="button"]
@@ -419,7 +419,7 @@ ${DARKMODE_SELECTOR_VALUE}
   border: 1px solid ${vars.walx_add_color.asVar()};
   outline: 1px solid ${vars.walx_add_color.asVar()};
   color: ${vars.walx_add_color.asVar()};
-  background-color: ${vars.form_add_but2_bg.asVar()};
+  background-color: ${form_add_but2_bg};
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} input[name="pole3"]
@@ -495,13 +495,13 @@ ${DARKMODE_SELECTOR_VALUE}
   display: flex;
   justify-content: flex-end;
   font-size: 14px;
-  color: ${vars.form_sign.asVar()};
+  color: ${form_sign};
   cursor: pointer;
 }
 
 .${clss.ROOT_CLASS} > form div > div:hover
 {
-  color: ${vars.form_sign_hov.asVar()};
+  color: ${form_sign_hov};
 }
 `);
 
