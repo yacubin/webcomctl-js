@@ -63,7 +63,7 @@ mk.newHTML('ROOT_HTML', `
       <label for="fld-password">password</label>
     </span>
     <u id="attention-message" style="display: none">
-      <img src="attention.svg"/>
+      <h1></h1>
       <div>Wrong password or email!</div>
     </u>
     <div>
@@ -92,7 +92,7 @@ mk.newHTML('ROOT_HTML', `
       <label for="password3">repeat password</label>
     </span>
     <u>
-      <img src="attention.svg"/>
+      <h1></h1>
       <div>
         Wrong password or email !
       </div>
@@ -186,11 +186,15 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${vars.form_warning.asVar()};
 }
 
-.${clss.ROOT_CLASS} form u > img
+.${clss.ROOT_CLASS} form u > h1
 {
   width: 14px;
   height: 14px;
   margin-right: 7px;
+  background-image: ${IMG};
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .${clss.ROOT_CLASS} form > span
