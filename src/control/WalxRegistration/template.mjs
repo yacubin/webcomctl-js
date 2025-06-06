@@ -14,7 +14,7 @@ const clss = mk.newClassNameMap([
 const vars = mk.newCSSVariableMap({
   walx_add_color: ['#1877f2', '#1877f2'],
   walx_add_color_hov: ['#0264e2', '#0264e2'],
-  input_window_bor: ['#D9D9D9', '#D9D9D9'],
+  input_window_bor: ['#D9D9D9', '#4a4c4e'],
   input_window_bg: ['white', '#17171a'],
   input_autofill: ['white', '#17171a'],
   input_autofill_foc: ['white', '#17171a'],
