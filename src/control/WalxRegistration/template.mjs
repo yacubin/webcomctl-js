@@ -63,7 +63,7 @@ mk.newHTML('ROOT_HTML', `
       <label for="fld-password">password</label>
     </span>
     <u id="attention-message" style="display: none">
-      <img src="./attention.svg"/>
+      <img src="attention.svg"/>
       <div>Wrong password or email!</div>
     </u>
     <div>
@@ -92,7 +92,7 @@ mk.newHTML('ROOT_HTML', `
       <label for="password3">repeat password</label>
     </span>
     <u>
-      <img src="./attention.svg"/>
+      <img src="attention.svg"/>
       <div>
         Wrong password or email !
       </div>
