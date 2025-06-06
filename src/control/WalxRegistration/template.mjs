@@ -11,18 +11,21 @@ const clss = mk.newClassNameMap([
   "ADD_DEV",
 ]);
 
+rgb(23, 23, 26)
+
 const vars = mk.newCSSVariableMap({
   walx_add_color: ['#1877f2', '#1877f2'],
   walx_add_color_hov: ['#0264e2', '#0264e2'],
   input_window_bor: ['#D9D9D9', '#D9D9D9'],
-  input_autofill: ['white', 'white'],
-  input_autofill_foc: ['white', 'white'],
+  input_window_bg: ['white', '#17171a'],
+  input_autofill: ['white', '#17171a'],
+  input_autofill_foc: ['white', '#17171a'],
   form_bs: ['#d1d0d0', '#d1d0d0'],
   form_warning: ['#d93025', '#d93025'],
   form_label_col: ['black', 'black'],
   form_label_bg: ['white', 'white'],
   form_label_col_hov: ['#1a73e8', '#1a73e8'],
-  form_labe_off_bg: ['white', 'white'],
+  form_labe_off_bg: ['white', '#17171a'],
   form_labe_off_col: ['grey', 'grey'],
   form_labe_on_bg: ['white', 'white'],
   form_labe_on_col: ['#1a73e8', '#1a73e8'],
@@ -288,6 +291,7 @@ ${DARKMODE_SELECTOR_VALUE}
   border: 1px solid ${vars.input_window_bor.asVar()};
   padding: 0px 10px;
   width: 330px;
+  background: ${vars.input_window_bg.asVar()};
 }
 
 .${clss.ROOT_CLASS} form input[type="button"]
