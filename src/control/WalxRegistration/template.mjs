@@ -12,7 +12,6 @@ const clss = mk.newClassNameMap([
 ]);
 
   const form_sign = 'gray';
-  const form_sign_hov = 'black';
   const form_warning = '#d93025';
   const form_label_col = 'black';
   const form_label_bg = 'white';
@@ -508,10 +507,6 @@ ${DARKMODE_SELECTOR_VALUE}
   cursor: pointer;
 }
 
-.${clss.ROOT_CLASS} > form div > div:hover
-{
-  color: ${form_sign_hov};
-}
 `);
 
 export function buildComponent()
