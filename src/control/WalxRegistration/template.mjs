@@ -27,7 +27,7 @@ const vars = mk.newCSSVariableMap({
   form_labe_off_col: ['grey', 'grey'],
   form_labe_on_bg: ['white', '#17171a'],
   form_labe_on_col: ['#1a73e8', '#1a73e8'],
-  form_but_col: ['white', '#1a73e8'],
+  form_but_col: ['white', '#17171a'],
   form_delimiter: ['#dadde1', '#dadde1'],
   form_but_reg_bg: ['#42b72a', '#42b72a'],
   form_but_reg_bg_hov: ['#36a420', '#36a420'],
