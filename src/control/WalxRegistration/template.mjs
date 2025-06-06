@@ -51,6 +51,7 @@ const vars = mk.newCSSVariableMap({
   form_pt_hov_foc_car: ['#1b74e4', '#2265bc'],
   form_pt_hov_foc_bor: ['#1b74e4', '#2265bc'],
   form_pt_hov_foc_bs: ['#e7f3ff', '#2a2c2e'],
+  form_txt_col_hov: ['black', '#a6a6a6'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -372,7 +373,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} form div > div:hover
 {
-  color: ${form_txt_col_hov};
+  color: ${vars.form_txt_col_hov.asVar()};
 }
 
 .${clss.ROOT_CLASS} form.${clss.ADD_DEV} > div
