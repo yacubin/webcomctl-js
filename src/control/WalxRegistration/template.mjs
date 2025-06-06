@@ -38,7 +38,7 @@ const vars = mk.newCSSVariableMap({
   input_window_bg: ['white', '#17171a'],
   input_autofill: ['white', '#17171a'],
   input_autofill_foc: ['white', '#17171a'],
-  input_col: ['black', 'white'],
+  input_col: ['black', 'gray'],
   form_bs: ['#d1d0d0', '#4a4c4e'],
   form_labe_off_bg: ['white', '#17171a'],
   form_labe_on_bg: ['white', '#17171a'],
@@ -292,9 +292,10 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px 10px;
   width: 330px;
   background: ${vars.input_window_bg.asVar()};
+  color: ${vars.input_col.asVar()}
 }
 
-input:-internal-autofill-selected 
+.${clss.ROOT_CLASS} input:-internal-autofill-selected 
 {
   color: ${vars.input_col.asVar()} !important;
 }
