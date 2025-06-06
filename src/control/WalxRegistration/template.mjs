@@ -38,6 +38,7 @@ const vars = mk.newCSSVariableMap({
   input_window_bg: ['white', '#17171a'],
   input_autofill: ['white', '#17171a'],
   input_autofill_foc: ['white', '#17171a'],
+  input_col: ['black', 'white'],
   form_bs: ['#d1d0d0', '#4a4c4e'],
   form_labe_off_bg: ['white', '#17171a'],
   form_labe_on_bg: ['white', '#17171a'],
@@ -123,6 +124,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   box-shadow: inset 0 0 0 50px ${vars.input_autofill.asVar()};
 }
+
 .${clss.ROOT_CLASS} > form input[type="password"]:-webkit-autofill:focus, 
 .${clss.ROOT_CLASS} > form input[type="text"]:-webkit-autofill:focus 
 {
@@ -290,6 +292,11 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px 10px;
   width: 330px;
   background: ${vars.input_window_bg.asVar()};
+}
+
+input:-internal-autofill-selected 
+{
+  color: ${vars.input_col.asVar()} !important;
 }
 
 .${clss.ROOT_CLASS} form input[type="button"]
