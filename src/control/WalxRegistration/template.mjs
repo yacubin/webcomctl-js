@@ -3,6 +3,7 @@ import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 const mk = new ControlMaker("Registration", import.meta.url);
 import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
 
+
 const IMG = await mk.loadSvgAsCssUrl('./attention.svg');
 
 const clss = mk.newClassNameMap([
@@ -22,7 +23,6 @@ const clss = mk.newClassNameMap([
   const form_pas_txt_foc_col = '#1b74e4';
   const form_pas_txt_foc_bs = '#e7f3ff';
   const form_txt_col = 'gray';
-  const form_txt_col_hov = 'black';
   const form_add_label_foc_col = '#1a73e8';
   const form_add_inp_col = '#D9D9D9';
   const form_add_but_col = 'white';
@@ -506,7 +506,6 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${form_sign};
   cursor: pointer;
 }
-
 `);
 
 export function buildComponent()
