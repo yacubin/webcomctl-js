@@ -19,7 +19,7 @@ const clss = mk.newClassNameMap([
 
 mk.newHTML('ROOT_HTML', `
   <a href="https://github.com/ykbin/dbc" class="${clss.ROOT_CLASS} notranslate" translate="no" target="_blank" draggable="false">
-    <div></div><span>(GitHub)</span>
+    <div></div><span>GitHub</span>
   </a>
 `);
 
