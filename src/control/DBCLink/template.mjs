@@ -33,7 +33,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  display: block;
+  display: flex;
+  align-items: center;
   color: ${dbc_col};
   width: auto;
   height: 25px;
