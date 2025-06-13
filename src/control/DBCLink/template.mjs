@@ -5,6 +5,7 @@ const mk = new ControlMaker('DBCLink', import.meta.url);
 
 const OpS = '#85858526';
 const dbc_col = '#5063b1';
+const dbc_col_hov ='#1e2955'
 const GitHub_IMG = await mk.loadSvgAsCssUrl('./GitHub.svg');
 
 const vars = mk.newCSSVariableMap({
@@ -51,6 +52,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}:hover
 {
   background-color: ${OpS};
+  color: ${dbc_col_hov};
 }
 
 .${clss.ROOT_CLASS} > div
