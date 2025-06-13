@@ -6,9 +6,11 @@ const mk = new ControlMaker('DBCLink', import.meta.url);
 const OpS = '#85858526';
 const dbc_col = '#5063b1';
 const GitHub_IMG = await mk.loadSvgAsCssUrl('./GitHub.svg');
+const GitHub_IMG2 = await mk.loadSvgAsCssUrl('./GitHub2.svg');
 
 const vars = mk.newCSSVariableMap({
   dbc_col_hov: [ '#1e2955', '#a0a5ba' ],
+  GitHub: [ GitHub_IMG, GitHub_IMG2 ],
 });
 
 const clss = mk.newClassNameMap([
@@ -63,7 +65,7 @@ ${DARKMODE_SELECTOR_VALUE}
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: ${GitHub_IMG};
+  background-image: ${vars.GitHub.asVar()};
 }
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
