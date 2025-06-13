@@ -5,6 +5,7 @@ const mk = new ControlMaker('DBCLink', import.meta.url);
 
 const OpS = '#85858526';
 const dbc_col = '#5063b1';
+const GitHub_IMG = await mk.loadSvgAsCssUrl('./GitHub.svg');
 
 const vars = mk.newCSSVariableMap({
 });
@@ -15,7 +16,7 @@ const clss = mk.newClassNameMap([
 
 mk.newHTML('ROOT_HTML', `
   <a href="https://github.com/ykbin/dbc" class="${clss.ROOT_CLASS} notranslate" translate="no" target="_blank" draggable="false">
-    Sources code <span>(GitHub)</span>
+    <div></div>Sources code <span>(GitHub)</span>
   </a>
 `);
 
@@ -49,6 +50,16 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}:hover
 {
   background-color: ${OpS};
+}
+
+.${clss.ROOT_CLASS} > div
+{
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: ${GitHub_IMG};
 }
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
