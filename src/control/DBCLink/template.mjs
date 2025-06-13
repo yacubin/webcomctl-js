@@ -8,7 +8,7 @@ const dbc_col = '#5063b1';
 const GitHub_IMG = await mk.loadSvgAsCssUrl('./GitHub.svg');
 
 const vars = mk.newCSSVariableMap({
-  dbc_col_hov: [ '#1e2955', '#707cad' ],
+  dbc_col_hov: [ '#1e2955', '#a0a5ba' ],
 });
 
 const clss = mk.newClassNameMap([
