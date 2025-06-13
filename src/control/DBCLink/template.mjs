@@ -16,7 +16,7 @@ const clss = mk.newClassNameMap([
 
 mk.newHTML('ROOT_HTML', `
   <a href="https://github.com/ykbin/dbc" class="${clss.ROOT_CLASS} notranslate" translate="no" target="_blank" draggable="false">
-    <div></div>Sources code <span>(GitHub)</span>
+    <div></div><span>(GitHub)</span>
   </a>
 `);
 
@@ -37,7 +37,7 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: center;
   color: ${dbc_col};
   width: auto;
-  height: 25px;
+  height: auto;
   margin: 0 0 0 5px;
   padding: 3px;
   border-radius: 5px;
@@ -57,6 +57,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height: 30px;
   width: 30px;
+  border: 4px solid transparent;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
