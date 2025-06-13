@@ -39,7 +39,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: auto;
   height: auto;
   margin: 0 0 0 5px;
-  padding: 3px;
+  padding: 3px 5px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
