@@ -17,6 +17,10 @@ const GitHub_IMG = await mk.loadSvgAsCssUrl('./GitHub.svg');
 const vars = mk.newCSSVariableMap({
   btnBg: [ HEADER_BACKGROUND_COLOR ],
   btnCol: [ HEADER_COLOR_HOVER, HEADER_COLOR_HOVER_DARK ],
+  image: [
+    await mk.loadSvgAsCssUrl('./GitHub_light_hover.svg'),
+    await mk.loadSvgAsCssUrl('./GitHub_dark_hover.svg'),
+  ],
 });
 
 const clss = mk.newClassNameMap([
