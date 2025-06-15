@@ -67,6 +67,11 @@ ${DARKMODE_SELECTOR_VALUE}
   transition: background-color 0.2s;
 }
 
+.${clss.ROOT_CLASS}:hover > div
+{
+  background-image: ${vars.image.asVar()};
+}
+
 .${clss.ROOT_CLASS} > div
 {
   display: block;
