@@ -67,8 +67,10 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: ${HEADER_FONT_SIZE};
   font-family: ${HEADER_FONT_FAMILY};
   cursor: pointer;
+  text-decoration: none;
   user-select: none;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .${clss.ROOT_CLASS} > div
