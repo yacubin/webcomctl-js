@@ -13,10 +13,8 @@ const mk = new ControlMaker('DBCLink', import.meta.url);
 
 const OpS = '#85858526';
 const GitHub_IMG = await mk.loadSvgAsCssUrl('./GitHub.svg');
-const GitHub_IMG2 = await mk.loadSvgAsCssUrl('./GitHub2.svg');
 
 const vars = mk.newCSSVariableMap({
-  GitHub: [ GitHub_IMG, GitHub_IMG2 ],
   btnBg: [ HEADER_BACKGROUND_COLOR ],
   btnCol: [ HEADER_COLOR_HOVER, HEADER_COLOR_HOVER_DARK ],
 });
@@ -71,7 +69,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: 40px;
   height: 30px;
   border: 4px solid transparent;
-  background-image: ${vars.GitHub.asVar()};
+  background-image: ${GitHub_IMG};
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
