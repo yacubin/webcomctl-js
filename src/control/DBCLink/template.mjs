@@ -51,7 +51,6 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${HEADER_FONT_FAMILY};
   font-size: ${HEADER_FONT_SIZE};
   margin: 0 0 0 5px;
-  padding: 3px 5px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
