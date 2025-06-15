@@ -47,11 +47,11 @@ ${DARKMODE_SELECTOR_VALUE}
   display: flex;
   width: min-content;
   height: min-content;
+  padding-right: 5px;
+  margin: 0 0 0 5px;
   color: ${HEADER_FONT_COLOR};
   font-family: ${HEADER_FONT_FAMILY};
   font-size: ${HEADER_FONT_SIZE};
-  margin: 0 0 0 5px;
-  border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
   flex-shrink: 0;
