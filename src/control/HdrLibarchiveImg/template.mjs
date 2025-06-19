@@ -8,7 +8,7 @@ export async function buildComponent() {
       await mk.loadSvgAsCssUrl('./favicon1.svg'),
       await mk.loadSvgAsCssUrl('./favicon2.svg'),
     ],
-    width: 56,
+    width: 35,
   });
   return mk.buildComponent();
 }
