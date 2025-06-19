@@ -77,6 +77,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > div
 {
+  display: block;
   width: 40px;
   height: 30px;
   border: 4px solid transparent;
@@ -95,7 +96,7 @@ ${DARKMODE_SELECTOR_VALUE}
     width: 60px;
     height: 55px;
   }
-  .${clss.ROOT_CLASS} > span
+  .${clss.ROOT_CLASS}
   {
     font-size: 60px;
   }
