@@ -38,6 +38,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height: 32px;
   width: 32px;
+  margin-left: 3px;
   border-radius: 50%;
   border: 1px solid ${vars.bor.asVar()};
   background-image: ${vars.img.asVar()};

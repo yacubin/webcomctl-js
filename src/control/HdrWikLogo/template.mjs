@@ -45,7 +45,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   display: flex;
-  width: 100%;
+  width: auto;
   height: 100%;
   box-sizing: border-box;
 }
@@ -67,7 +67,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   width: 90px;
   height: 100%;
-  margin: 0px;
+  margin: 0 15px 0 0;
   background-image: ${vars.header.asVar()};
   background-size: contain;
   background-repeat: no-repeat;
