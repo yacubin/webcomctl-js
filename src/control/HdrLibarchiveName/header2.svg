@@ -89,7 +89,8 @@
   
 <path id="shape7"
   transform="matrix(1.04166685247185 0 0 1.0312499474234 48.253598046835 15.4676920604296)"
-  fill="#afafaf" fill-rule="evenodd"
+  fill="#afafaf"
+  fill-rule="evenodd"
   stroke-opacity="0"
   stroke="#afafaf"
   stroke-width="0"
@@ -106,10 +107,7 @@
   fill="#afafaf"
   fill-rule="evenodd"
   stroke-opacity="0"
-  stroke="#afafaf"
-  stroke-width="0"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"/>
+  stroke="#afafaf" stroke-width="0" stroke-linecap="square" stroke-linejoin="bevel"/>
   
 <path id="shape9"
   transform="translate(71.1225, 2.7675)"
