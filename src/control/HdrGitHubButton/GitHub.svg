@@ -7,16 +7,6 @@
     height="230.4pt"
     viewBox="0 0 230.4 230.4">
 <defs/>
-<path id="shape0"
-  transform="translate(10.842499506776, 13.8862492754736)"
-  fill="#ffffff"
-  fill-rule="evenodd"
-  stroke-opacity="0"
-  stroke="#6a6a6a"
-  stroke-width="0"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"
-  d="M203.198 102.226C203.198 39.8779 164.575 3.77476e-15 102.443 0C40.3105 -3.77476e-15 7.54952e-15 39.2704 0 101.618C0.0035756 151.884 24.8393 189.423 69.1566 208.831C80.0285 212.342 91.6223 214.239 103.658 214.239C115.313 214.239 126.555 212.46 137.128 209.158C177.487 192.381 198.558 151.552 203.198 102.226Z"/>
   
 <path id="shape01"
   transform="translate(2, 2.43749998353438)"
