@@ -1,9 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { UIC_CONTENT_BACKGROUND_COLOR } from '../../lib/WickedTheme.mjs';
-import { UIC_CONTENT_BACKGROUND_COLOR_DARK } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_FONT_MONOSPACE } from '../../lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('LiarchiveContent', import.meta.url);
 
