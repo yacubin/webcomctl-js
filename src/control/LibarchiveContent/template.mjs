@@ -61,7 +61,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} ul
 {
-  padding: 0 20px;
+  padding: 0;
+  list-style-type: none;
 }
 
 .${clss.ROOT_CLASS} ul > li
