@@ -75,11 +75,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 @media (device-width < 550px)
 {
-  .${clss.CONTENT_CLASS}
-  {
-    font-size: 20px;
-    line-height: inherit;
-  }
 }
 `);
 
