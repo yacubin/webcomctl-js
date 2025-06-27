@@ -70,6 +70,11 @@ ${DARKMODE_SELECTOR_VALUE}
   margin-bottom: 10px;
 }
 
+.${clss.ROOT_CLASS} ul > li::first-letter
+{
+  text-indent: 5px;
+}
+
 @media (device-width < 550px)
 {
 }
