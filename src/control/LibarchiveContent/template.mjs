@@ -72,7 +72,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} ul > li::first-letter
 {
-  text-indent: 5px;
+  padding-left: 5px;
 }
 
 @media (device-width < 550px)
