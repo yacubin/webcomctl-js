@@ -67,7 +67,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} ul > li
 {
-  padding-left: 10px;
   margin-bottom: 10px;
 }
 
