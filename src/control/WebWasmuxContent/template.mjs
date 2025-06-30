@@ -9,6 +9,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 const vars = mk.newCSSVariableMap({
+  color: ['#353535','#dcdcdc'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -40,6 +41,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+  color: ${vars.color.asVar()};
 }
 
 .${clss.ROOT_CLASS} *
