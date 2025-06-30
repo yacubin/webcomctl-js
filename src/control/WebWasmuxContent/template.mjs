@@ -14,7 +14,7 @@ const vars = mk.newCSSVariableMap({
 
 mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
-    <h2>libarchive</h2>
+    <h2>Wasmux</h2>
     <ul>
       <li>Stable release: 3.8.0 (May 20, 2025) tar.xz tar.gz zip</li>
       <li>Stable release: 3.8.0 (May 20, 2025) tar.xz tar.gz zip</li>
