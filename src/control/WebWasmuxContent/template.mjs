@@ -2,18 +2,19 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 
-const mk = new ControlMaker('LiarchiveContent', import.meta.url);
+const mk = new ControlMaker('WebWasmuxContent', import.meta.url);
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
 const vars = mk.newCSSVariableMap({
+  color: ['#353535','#dcdcdc'],
 });
 
 mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
-    <h2>libarchive</h2>
+    <h2>Wasmux</h2>
     <ul>
       <li>Stable release: 3.8.0 (May 20, 2025) tar.xz tar.gz zip</li>
       <li>Stable release: 3.8.0 (May 20, 2025) tar.xz tar.gz zip</li>
@@ -40,6 +41,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+  color: ${vars.color.asVar()};
 }
 
 .${clss.ROOT_CLASS} *

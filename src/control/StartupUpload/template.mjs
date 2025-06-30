@@ -125,7 +125,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height: 100%;
   border-image-source: repeating-linear-gradient(45deg, ${uic_strupl_fdrop_borImg} 0% 2%, ${uic_strupl_fdrop_borImg2} 2% 4%, ${uic_strupl_fdrop_borImg} 4% 6%, ${uic_strupl_fdrop_borImg2} 6% 8%);
-  border-width: 4px;
+  border-width: 3px;
   border-image-slice: 4;
   border-style: solid;
   padding: 30px;
