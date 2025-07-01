@@ -8,6 +8,8 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
+const color_a = '#0969da';
+
 const vars = mk.newCSSVariableMap({
   color: ['#353535','#dcdcdc'],
 });
@@ -56,6 +58,11 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   padding: 20px 0;
   font-size: 40px;
+}
+
+.${clss.ROOT_CLASS} > a
+{
+  color: ${color_a};
 }
 
 .${clss.ROOT_CLASS} ul
