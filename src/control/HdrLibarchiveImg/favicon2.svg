@@ -56,44 +56,4 @@ transform="matrix(1 -0.00641025648559629 0 0.971590816979622 18.6002895542705 22
   stroke-linecap="square"
   stroke-linejoin="bevel"
   d="M1.69846 0L80.2922 0.09375C85.4994 3.7179 82.8928 5.99907 80.2922 8.28125L1.71408 7.42187C-0.566141 5.66263 -0.571348 3.18867 1.69846 0Z"/>
-  
-<path id="shape01"
-  transform="matrix(0.612243966180983 0 0 0.503271079720905 35.4000799154744 52.6499981767592)"
-  fill="#3c3c3c"
-  fill-rule="evenodd"
-  stroke="#17171a"
-  stroke-width="1"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"
-  d="M1.547 9.8437L12.703 9.8437L12.703 17.625L1.547 17.625L1.547 9.8437M0 0L14.343 0L14.343 85L0 85L0 0"/>
-  
-<path id="shape1"
-  transform="matrix(0.612243966180983 0 0 0.503271079720905 45.5977678165112 52.6735890070952)"
-  fill="#3c3c3c"
-  fill-rule="evenodd"
-  stroke="#17171a"
-  stroke-width="1"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"
-  d="M1.547 9.8437L12.703 9.8437L12.703 17.625L1.547 17.625L1.547 9.8437M0 0L14.343 0L14.343 85L0 85L0 0"/>
-  
-<path id="shape2"
-  transform="matrix(0.612243966180983 0 0 0.503271079720905 55.9102527287244 52.6814526593902)"
-  fill="#3c3c3c"
-  fill-rule="evenodd"
-  stroke="#17171a"
-  stroke-width="1"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"
-  d="M1.547 9.8437L12.703 9.8437L12.703 17.625L1.547 17.625L1.547 9.8437M0 0L14.343 0L14.343 85L0 85L0 0"/>
-  
-<path id="shape3"
-  transform="matrix(0.584008644625001 -0.151072452349994 0.183784050255264 0.480061343813855 64.8094050497924 55.1232368910736)"
-  fill="#3c3c3c"
-  fill-rule="evenodd"
-  stroke="#17171a"
-  stroke-width="1"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"
-  d="M1.547 9.8437L12.703 9.8437L12.703 17.625L1.547 17.625L1.547 9.8437M0 0L14.343 0L14.343 85L0 85L0 0"/>
 </svg>

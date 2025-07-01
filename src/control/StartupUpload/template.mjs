@@ -28,7 +28,7 @@ const uic_strupl_fdbtn_col = '#a6a6a6';
 const uic_strupl_fdbtn_bor = '#c1c1c1';
 
 const vars = mk.newCSSVariableMap({
-  uic_strupl_fdbtn_hov: ['#45454540', '#4545450f',],
+  uic_strupl_fdbtn_hov: ['#4545450f','#45454540',],
   uic_strupl_dhide_bg: ['#fafafa', 'transparent'],
   uic_strupl_rootbg: [ UIC_START_BACKGROUND_COLOR, UIC_START_BACKGROUND_COLOR_DARK ],
   uic_strupl_img: [ UPLOAD1_IMG, UPLOAD2_IMG ],
