@@ -60,7 +60,7 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 40px;
 }
 
-.${clss.ROOT_CLASS} > a
+.${clss.ROOT_CLASS} a
 {
   color: ${color_a};
 }
