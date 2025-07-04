@@ -31,6 +31,7 @@ function classNameFromType(classname) {
     return GROUP_TYPE;
   }
 }
+
 export default class DBCContentControl extends BaseControl {
   _type;
 
@@ -39,7 +40,7 @@ export default class DBCContentControl extends BaseControl {
 
   setViewType(type) {
     if (type !== this._type) {
-      this._type && this.element.classList.remove(classNameFromType(this._type));
+      this._type && this.element.classList.remove(typeToClassName(this._type));
       const className = typeToClassName(type);
       className && this.element.classList.add(className);
       this._type = className ? type : undefined;
