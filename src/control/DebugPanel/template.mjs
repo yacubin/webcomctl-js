@@ -15,8 +15,8 @@ const clss = mk.newClassNameMap([
   "TOP_CLASS",
   "RIGHT_CLASS",
   "DOWN_CLASS",
-  "hideClick",
-  "sideClick",
+  "HIDE_CLASS",
+  "SIDE_CLASS",
 ]);
 
 const hovBut = '#417cc8';
@@ -31,8 +31,8 @@ const vars = mk.newCSSVariableMap({
 mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
     <div class="${clss.CONTROL_CLASS}">
-      <span><div class="${clss.hideClick}"></div></span>
-      <div><div class="${clss.sideClick}"></div></div>
+      <span><div class="${clss.HIDE_CLASS}"></div></span>
+      <div><div class="${clss.SIDE_CLASS}"></div></div>
       <s><div></div></s>
     </div>
     <div class="${clss.LIST_CLASS}"></div>
