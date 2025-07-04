@@ -36,6 +36,10 @@ export default class DBCContentControl extends BaseControl {
   _type;
 
   _init() {
+    this.element.classList.remove(dbc_view_document);
+    this.element.classList.remove(dbc_view_message);
+    this.element.classList.remove(dbc_view_signal);
+    this.element.classList.remove(dbc_view_group);
   }
 
   setViewType(type) {
