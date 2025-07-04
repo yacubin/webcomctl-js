@@ -33,8 +33,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 mk.newHTML('ROOT_HTML', `
-
-<div id="dbc-right-panel" class="${clss.ROOT_CLASS}">
+<div class="${clss.ROOT_CLASS}">
 
   <div class="${clss.document}">
 
@@ -169,16 +168,16 @@ mk.newHTML('ROOT_HTML', `
 
   </div>
 
+  <div class="${clss.group}">
+    <h4>Group:<u class="${clss.dbc_title_group}"></u></h4>
+    <ul id="dbc-group-signals"></ul>
+  </div>
+
   <div id="dbc-attributes-root" class="${clss.attribute}">
     <h5>Attributes</h5>
     <div>
       <span id="dbc-attributes-list"></span>
     </div>
-  </div>
-
-  <div class="${clss.group}">
-    <h4>Group:<u class="${clss.dbc_title_group}"></u></h4>
-    <ul id="dbc-group-signals"></ul>
   </div>
 
   <b id="dbc-comment-root">
