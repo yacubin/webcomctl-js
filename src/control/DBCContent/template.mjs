@@ -226,6 +226,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: inherit;
   min-width: 450px;
   padding: 0px 15px 15px 15px;
+  color: ${vars.rpanel_col.asVar()};
   font-family: "Roboto","Arial","monospace";
   font-size: 0.94em;
   box-sizing: border-box;
