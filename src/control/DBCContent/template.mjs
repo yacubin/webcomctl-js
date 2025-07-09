@@ -209,11 +209,11 @@ ${DARKMODE_SELECTOR_VALUE}
 }
 
 .${clss.ROOT_CLASS} b,
-div.${clss.dbc_view_document} div.${clss.document},
-div.${clss.dbc_view_message} div.${clss.message},
-div.${clss.dbc_view_signal} div.${clss.signal},
-div.${clss.dbc_view_group} div.${clss.group},
-.${clss.ROOT_CLASS} > b > div span,
+.${clss.dbc_view_document} .${clss.document},
+.${clss.dbc_view_message} .${clss.message},
+.${clss.dbc_view_signal} .${clss.signal},
+.${clss.dbc_view_group} .${clss.group},
+.${clss.ROOT_CLASS} > b > div span
 {
   display: block;
 }
@@ -226,6 +226,7 @@ div.${clss.dbc_view_group} div.${clss.group},
   height: inherit;
   min-width: 450px;
   padding: 0px 15px 15px 15px;
+  color: ${vars.rpanel_col.asVar()};
   font-family: "Roboto","Arial","monospace";
   font-size: 0.94em;
   box-sizing: border-box;
