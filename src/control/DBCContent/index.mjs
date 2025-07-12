@@ -34,13 +34,17 @@ function classNameFromType(classname) {
 
 export default class DBCContentControl extends BaseControl {
   _type;
+  _commentRootElement;
+  _commentTextElement;
 
   _init() {
-
     this.element.classList.remove(dbc_view_document);
     this.element.classList.remove(dbc_view_message);
     this.element.classList.remove(dbc_view_signal);
     this.element.classList.remove(dbc_view_group);
+
+    this._commentRootElement = NQDOM.getElementByClassName(this.element, dbc_comment_root);
+    this._commentTextElement = NQDOM.getElementByClassName(this.element, dbc_comment_text);
   }
 
   setViewType(type) {
@@ -53,11 +57,9 @@ export default class DBCContentControl extends BaseControl {
   }
 
   setComment(text) {
-    this._commentRootElement = NQDOM.getElementByClassName(this.element, dbc_comment_root);
     if (this._commentRootElement) {
       this._commentRootElement.style.display = text ? "" : "none";
     }
-    this._commentTextElement = NQDOM.getElementByClassName(this.element, dbc_comment_text);
     if (this._commentTextElement) {
       this._commentTextElement.innerHTML = "";
       text && text.split("\n").forEach((iter) => {
