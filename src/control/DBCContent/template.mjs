@@ -30,6 +30,8 @@ const clss = mk.newClassNameMap([
   "dbc_view_message",
   "dbc_view_signal",
   "dbc_view_group",
+  "dbc_comment_root",
+  "dbc_comment_text",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -180,9 +182,9 @@ mk.newHTML('ROOT_HTML', `
     </div>
   </div>
 
-  <b id="dbc-comment-root">
+  <b class="${clss.dbc_comment_root}">
     <h5>Comment</h5>
-    <div id="dbc-comment-text"></div>
+    <div class="${clss.dbc_comment_text}"></div>
   </b>
 
 </div>

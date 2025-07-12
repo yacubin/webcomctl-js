@@ -29,13 +29,14 @@ const clss = mk.newClassNameMap([
   "dbc_state_none",
   "dbc_node_document",
   "dbc_node_message_pseudo",
+  "dbc_state_click",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
   <div class="${clss.dbc_node_document} ${clss.dbc_state_expand} ${clss.dbc_tree_active}">
     <s>
-      <b class="dbc_state_click">
+      <b class="${clss.dbc_state_click}">
         <div></div>
       </b>
       <h2 class="dbc_showcase_click">

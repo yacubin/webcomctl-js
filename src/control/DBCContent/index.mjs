@@ -1,5 +1,5 @@
-import { BaseControl } from 'webnetq-js';
-import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from 'webnetq-js';
+import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text } from 'uictmplt-loader!./template.mjs';
 
 const DOCUMENT_TYPE = "document";
 const MESSAGE_TYPE = "message";
@@ -34,12 +34,17 @@ function classNameFromType(classname) {
 
 export default class DBCContentControl extends BaseControl {
   _type;
+  _commentRootElement;
+  _commentTextElement;
 
   _init() {
     this.element.classList.remove(dbc_view_document);
     this.element.classList.remove(dbc_view_message);
     this.element.classList.remove(dbc_view_signal);
     this.element.classList.remove(dbc_view_group);
+
+    this._commentRootElement = NQDOM.getElementByClassName(this.element, dbc_comment_root);
+    this._commentTextElement = NQDOM.getElementByClassName(this.element, dbc_comment_text);
   }
 
   setViewType(type) {
@@ -48,6 +53,20 @@ export default class DBCContentControl extends BaseControl {
       const className = typeToClassName(type);
       className && this.element.classList.add(className);
       this._type = className ? type : undefined;
+    }
+  }
+
+  setComment(text) {
+    if (this._commentRootElement) {
+      this._commentRootElement.style.display = text ? "" : "none";
+    }
+    if (this._commentTextElement) {
+      this._commentTextElement.innerHTML = "";
+      text && text.split("\n").forEach((iter) => {
+        const element = document.createElement('span');
+        element.textContent = iter;
+        this._commentTextElement.appendChild(element);
+      });
     }
   }
 };
