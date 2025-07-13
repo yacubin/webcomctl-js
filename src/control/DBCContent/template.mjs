@@ -14,7 +14,7 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "new_symbols",
+  "NEW_SYMBOLS",
   "signal",
   "document",
   "message",
@@ -32,6 +32,8 @@ const clss = mk.newClassNameMap([
   "dbc_view_group",
   "dbc_comment_root",
   "dbc_comment_text",
+  "dbc_attributes_root",
+  "dbc_attributes_list",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -56,7 +58,7 @@ mk.newHTML('ROOT_HTML', `
 
       </b>
 
-      <div id="dbc-new-symbols-root" class="${clss.new_symbols}">
+      <div id="dbc-new-symbols-root" class="${clss.NEW_SYMBOLS}">
         <s>
           <h5>New Symbols</h5>
           <div id="dbc-doc-nsymlist"></div>
@@ -103,7 +105,7 @@ mk.newHTML('ROOT_HTML', `
 
   </div>
 
-  <div class="${clss.signal}">
+  <div class="${clss.SIGNAL}">
 
     <h4>Signal:<u class="${clss.dbc_title_signal}"></u></h4>
 
@@ -175,10 +177,10 @@ mk.newHTML('ROOT_HTML', `
     <ul id="dbc-group-signals"></ul>
   </div>
 
-  <div id="dbc-attributes-root" class="${clss.attribute}">
+  <div class="${clss.dbc_attributes_root} ${clss.attribute}">
     <h5>Attributes</h5>
     <div>
-      <span id="dbc-attributes-list"></span>
+      <span class="${clss.dbc_attributes_list}"></span>
     </div>
   </div>
 
@@ -204,7 +206,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.document},
 .${clss.message},
-.${clss.signal},
+.${clss.SIGNAL},
 .${clss.group}
 {
   display: none;
@@ -213,7 +215,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} b,
 .${clss.dbc_view_document} .${clss.document},
 .${clss.dbc_view_message} .${clss.message},
-.${clss.dbc_view_signal} .${clss.signal},
+.${clss.dbc_view_signal} .${clss.SIGNAL},
 .${clss.dbc_view_group} .${clss.group},
 .${clss.ROOT_CLASS} > b > div span
 {
@@ -257,7 +259,7 @@ ${DARKMODE_SELECTOR_VALUE}
 }
 
 div.${clss.document},
-div.${clss.signal},
+div.${clss.SIGNAL},
 div.${clss.message},
 div.${clss.group}
 {
@@ -267,13 +269,13 @@ div.${clss.group}
 .${clss.ROOT_CLASS} > div,
 .${clss.ROOT_CLASS} > div.${clss.attribute} > div,
 .${clss.ROOT_CLASS} > b > div,
-.${clss.ROOT_CLASS} > div.${clss.signal} > div,
+.${clss.ROOT_CLASS} > div.${clss.SIGNAL} > div,
 div.${clss.document} b,
 div.${clss.message} b,
-div.${clss.signal} b,
+div.${clss.SIGNAL} b,
 div.${clss.group} b,
 div.${clss.group} > ul,
-.${clss.new_symbols} > s > div
+.${clss.NEW_SYMBOLS} > s > div
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
@@ -283,11 +285,11 @@ div.${clss.group} > ul,
 .${clss.ROOT_CLASS} > div.${clss.document},
 .${clss.ROOT_CLASS} > div.${clss.attribute},
 .${clss.ROOT_CLASS} > div.${clss.message},
-.${clss.ROOT_CLASS} > div.${clss.signal},
+.${clss.ROOT_CLASS} > div.${clss.SIGNAL},
 .${clss.ROOT_CLASS} > div.${clss.group},
 .${clss.ROOT_CLASS} div.${clss.document} b > span,
 .${clss.ROOT_CLASS} div.${clss.message} b > span,
-.${clss.ROOT_CLASS} div.${clss.signal} b > span,
+.${clss.ROOT_CLASS} div.${clss.SIGNAL} b > span,
 .${clss.ROOT_CLASS} div.${clss.group} b > span
 {
   border: none;
@@ -306,7 +308,7 @@ div.${clss.document} > b > h4 + h4
 
 div.${clss.document} b h4,
 div.${clss.message} b h4,
-div.${clss.signal} b h4,
+div.${clss.SIGNAL} b h4,
 div.${clss.group} b h4
 {
   margin: 0px;
@@ -317,11 +319,11 @@ div.${clss.group} b h4
 
 div.${clss.document} b h4,
 div.${clss.message} b h4,
-div.${clss.signal} b h4,
+div.${clss.SIGNAL} b h4,
 div.${clss.group} b h4,
 div.${clss.document} b span h5,
 div.${clss.message} b span h5,
-div.${clss.signal} b span h5,
+div.${clss.SIGNAL} b span h5,
 div.${clss.group} b span h5
 {
   font-weight: 400;
@@ -329,7 +331,7 @@ div.${clss.group} b span h5
 
 div.${clss.document} b h4 > u,
 div.${clss.message} b h4 > u,
-div.${clss.signal} b h4 > u,
+div.${clss.SIGNAL} b h4 > u,
 div.${clss.group} b h4 > u
 {
   padding-left: 5px;
@@ -358,7 +360,7 @@ div.${clss.group} b h4 > u
 .${clss.ROOT_CLASS} > div > div > h5,
 .${clss.ROOT_CLASS} > div > h5,
 .${clss.ROOT_CLASS} > b > h5,
-.${clss.new_symbols} > s > h5
+.${clss.NEW_SYMBOLS} > s > h5
 {
   line-height: 15px;
   font-size: 1.13em;
@@ -385,7 +387,7 @@ div.${clss.group} b h4 > u
   font-weight: 400;
 }
 
-.${clss.new_symbols} > s > div
+.${clss.NEW_SYMBOLS} > s > div
 {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -498,7 +500,7 @@ div.${clss.ROOT_CLASS} s h6 + span
 
 .${clss.ROOT_CLASS} > div.${clss.document} > span > span,
 .${clss.ROOT_CLASS} > div.${clss.message} > span,
-.${clss.ROOT_CLASS} > div.${clss.signal} > span
+.${clss.ROOT_CLASS} > div.${clss.SIGNAL} > span
 {
   gap: 5px 25px;
 }
