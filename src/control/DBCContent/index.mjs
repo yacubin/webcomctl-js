@@ -1,5 +1,5 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
-import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text } from 'uictmplt-loader!./template.mjs';
+import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text, dbc_attributes_root, dbc_attributes_list } from 'uictmplt-loader!./template.mjs';
 
 const DOCUMENT_TYPE = "document";
 const MESSAGE_TYPE = "message";
@@ -36,6 +36,8 @@ export default class DBCContentControl extends BaseControl {
   _type;
   _commentRootElement;
   _commentTextElement;
+  _attrRootElement;
+  _attrListElement;
 
   _init() {
     this.element.classList.remove(dbc_view_document);
@@ -45,6 +47,9 @@ export default class DBCContentControl extends BaseControl {
 
     this._commentRootElement = NQDOM.getElementByClassName(this.element, dbc_comment_root);
     this._commentTextElement = NQDOM.getElementByClassName(this.element, dbc_comment_text);
+
+    this._attrRootElement = NQDOM.getElementByClassName(this.element, dbc_attributes_root);
+    this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
   }
 
   setViewType(type) {
@@ -69,4 +74,28 @@ export default class DBCContentControl extends BaseControl {
       });
     }
   }
+
+  setAttributes(attributes) {
+  if (this._attrRootElement) {
+    this._attrRootElement.style.display = attributes ? "" : "none";
+  }
+  if (this._attrListElement) {
+    this._attrListElement.innerHTML = "";
+    if (attributes) {
+      for (const key of Object.keys(attributes).sort()) {
+        const element = document.createElement("div");
+
+        const keyElm = document.createElement("h5");
+        keyElm.textContent = key + ":";
+        element.appendChild(keyElm);
+
+        const valElem = document.createElement("u");
+        valElem.textContent = attributes[key];
+        element.appendChild(valElem);
+        
+        this._attrListElement.appendChild(element);
+      }
+    }
+  }
+}
 };

@@ -32,6 +32,8 @@ const clss = mk.newClassNameMap([
   "dbc_view_group",
   "dbc_comment_root",
   "dbc_comment_text",
+  "dbc_attributes_root",
+  "dbc_attributes_list",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -175,10 +177,10 @@ mk.newHTML('ROOT_HTML', `
     <ul id="dbc-group-signals"></ul>
   </div>
 
-  <div id="dbc-attributes-root" class="${clss.attribute}">
+  <div class="${clss.dbc_attributes_root} ${clss.attribute}">
     <h5>Attributes</h5>
     <div>
-      <span id="dbc-attributes-list"></span>
+      <span class="${clss.dbc_attributes_list}"></span>
     </div>
   </div>
 
