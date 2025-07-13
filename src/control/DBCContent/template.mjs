@@ -105,7 +105,7 @@ mk.newHTML('ROOT_HTML', `
 
   </div>
 
-  <div class="${clss.signal}">
+  <div class="${clss.SIGNAL}">
 
     <h4>Signal:<u class="${clss.dbc_title_signal}"></u></h4>
 
@@ -206,7 +206,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.document},
 .${clss.message},
-.${clss.signal},
+.${clss.SIGNAL},
 .${clss.group}
 {
   display: none;
@@ -215,7 +215,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} b,
 .${clss.dbc_view_document} .${clss.document},
 .${clss.dbc_view_message} .${clss.message},
-.${clss.dbc_view_signal} .${clss.signal},
+.${clss.dbc_view_signal} .${clss.SIGNAL},
 .${clss.dbc_view_group} .${clss.group},
 .${clss.ROOT_CLASS} > b > div span
 {
@@ -259,7 +259,7 @@ ${DARKMODE_SELECTOR_VALUE}
 }
 
 div.${clss.document},
-div.${clss.signal},
+div.${clss.SIGNAL},
 div.${clss.message},
 div.${clss.group}
 {
@@ -269,10 +269,10 @@ div.${clss.group}
 .${clss.ROOT_CLASS} > div,
 .${clss.ROOT_CLASS} > div.${clss.attribute} > div,
 .${clss.ROOT_CLASS} > b > div,
-.${clss.ROOT_CLASS} > div.${clss.signal} > div,
+.${clss.ROOT_CLASS} > div.${clss.SIGNAL} > div,
 div.${clss.document} b,
 div.${clss.message} b,
-div.${clss.signal} b,
+div.${clss.SIGNAL} b,
 div.${clss.group} b,
 div.${clss.group} > ul,
 .${clss.NEW_SYMBOLS} > s > div
@@ -285,11 +285,11 @@ div.${clss.group} > ul,
 .${clss.ROOT_CLASS} > div.${clss.document},
 .${clss.ROOT_CLASS} > div.${clss.attribute},
 .${clss.ROOT_CLASS} > div.${clss.message},
-.${clss.ROOT_CLASS} > div.${clss.signal},
+.${clss.ROOT_CLASS} > div.${clss.SIGNAL},
 .${clss.ROOT_CLASS} > div.${clss.group},
 .${clss.ROOT_CLASS} div.${clss.document} b > span,
 .${clss.ROOT_CLASS} div.${clss.message} b > span,
-.${clss.ROOT_CLASS} div.${clss.signal} b > span,
+.${clss.ROOT_CLASS} div.${clss.SIGNAL} b > span,
 .${clss.ROOT_CLASS} div.${clss.group} b > span
 {
   border: none;
@@ -308,7 +308,7 @@ div.${clss.document} > b > h4 + h4
 
 div.${clss.document} b h4,
 div.${clss.message} b h4,
-div.${clss.signal} b h4,
+div.${clss.SIGNAL} b h4,
 div.${clss.group} b h4
 {
   margin: 0px;
@@ -319,11 +319,11 @@ div.${clss.group} b h4
 
 div.${clss.document} b h4,
 div.${clss.message} b h4,
-div.${clss.signal} b h4,
+div.${clss.SIGNAL} b h4,
 div.${clss.group} b h4,
 div.${clss.document} b span h5,
 div.${clss.message} b span h5,
-div.${clss.signal} b span h5,
+div.${clss.SIGNAL} b span h5,
 div.${clss.group} b span h5
 {
   font-weight: 400;
@@ -331,7 +331,7 @@ div.${clss.group} b span h5
 
 div.${clss.document} b h4 > u,
 div.${clss.message} b h4 > u,
-div.${clss.signal} b h4 > u,
+div.${clss.SIGNAL} b h4 > u,
 div.${clss.group} b h4 > u
 {
   padding-left: 5px;
@@ -500,7 +500,7 @@ div.${clss.ROOT_CLASS} s h6 + span
 
 .${clss.ROOT_CLASS} > div.${clss.document} > span > span,
 .${clss.ROOT_CLASS} > div.${clss.message} > span,
-.${clss.ROOT_CLASS} > div.${clss.signal} > span
+.${clss.ROOT_CLASS} > div.${clss.SIGNAL} > span
 {
   gap: 5px 25px;
 }
