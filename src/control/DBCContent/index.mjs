@@ -3,7 +3,7 @@ import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, d
 
 const DOCUMENT_TYPE = "document";
 const MESSAGE_TYPE = "message";
-const SIGNAL_TYPE = "SIGNAL";
+const SIGNAL_TYPE = "signal";
 const GROUP_TYPE = "group";
 
 function typeToClassName(type) {
