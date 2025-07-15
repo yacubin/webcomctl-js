@@ -22,47 +22,47 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "NODE_SIGNAL",
-  "DBC_TREE_ACTIVE",
-  "DBC_PANEL_SEPARATOR",
-  "DBC_STATE_COLLAPSE",
-  "DBC_STATE_EXPAND",
-  "DBC_STATE_NONE",
-  "DBC_NODE_DOCUMENT",
-  "DBC_NODE_MESSAGE_PSEUDO",
-  "DBC_STATE_CLICK",
-  "DBC_SHOWCASE_CLICK",
+  "SHOWCASE_CLICK",
+  "PANEL_SEPARATOR",
+  "STATE_COLLAPSE",
+  "STATE_EXPAND",
+  "STATE_NONE",
+  "NODE_DOCUMENT",
+  "NODE_MESSAGE_PSEUDO",
+  "STATE_CLICK",
+  "SHOWCASE_CLICK",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
-  <div class="${clss.DBC_NODE_DOCUMENT} ${clss.DBC_STATE_EXPAND} ${clss.DBC_TREE_ACTIVE}">
+  <div class="${clss.NODE_DOCUMENT} ${clss.STATE_EXPAND} ${clss.SHOWCASE_CLICK}">
     <s>
-      <b class="${clss.DBC_STATE_CLICK}">
+      <b class="${clss.STATE_CLICK}">
         <div></div>
       </b>
-      <h2 class="${clss.DBC_SHOWCASE_CLICK}">
+      <h2 class="${clss.SHOWCASE_CLICK}">
         <s></s>
         <div>20160525_RMS_PM_CAN_DB</div>
       </h2>
     </s>
     <span>
-      <div class="${clss.DBC_NODE_MESSAGE_PSEUDO} ${clss.DBC_STATE_COLLAPSE}">
+      <div class="${clss.NODE_MESSAGE_PSEUDO} ${clss.STATE_COLLAPSE}">
           <s>
-            <b class="${clss.DBC_STATE_CLICK}">
+            <b class="${clss.STATE_CLICK}">
               <div></div>
             </b>
-            <h2 class="${clss.DBC_SHOWCASE_CLICK}">
+            <h2 class="${clss.SHOWCASE_CLICK}">
               <s></s>
               <div>20160525_RMS_PM_CAN_DB</div>
             </h2>
           </s>
           <span>
-            <div class="${clss.DBC_STATE_NONE} ${clss.NODE_SIGNAL} ${clss.DBC_STATE_COLLAPSE}">
+            <div class="${clss.STATE_NONE} ${clss.NODE_SIGNAL} ${clss.STATE_COLLAPSE}">
               <s>
-                <b class="${clss.DBC_STATE_CLICK}">
+                <b class="${clss.STATE_CLICK}">
                   <div></div>
                 </b>
-                <h2 class="${clss.DBC_SHOWCASE_CLICK}">
+                <h2 class="${clss.SHOWCASE_CLICK}">
                   <s></s>
                   <div>20160525_RMS_PM_CAN_DB</div>
                 </h2>
@@ -72,12 +72,12 @@ mk.newHTML('ROOT_HTML', `
           </span>
       </div>
     </span>
-    <div class="${clss.DBC_NODE_MESSAGE_PSEUDO} ${clss.DBC_STATE_COLLAPSE}">
+    <div class="${clss.NODE_MESSAGE_PSEUDO} ${clss.STATE_COLLAPSE}">
       <s>
-        <b class="${clss.DBC_STATE_CLICK}">
+        <b class="${clss.STATE_CLICK}">
           <div></div>
         </b>
-        <h2 class="${clss.DBC_SHOWCASE_CLICK}">
+        <h2 class="${clss.SHOWCASE_CLICK}">
           <s></s>
           <div>20160525_RMS_PM_CAN_DB</div>
         </h2>
@@ -140,7 +140,7 @@ div.${clss.ROOT_CLASS} div > s > h2 > s
   flex-shrink: 0;
 }
 
-.${clss.DBC_NODE_DOCUMENT}  > s > h2 > s
+.${clss.NODE_DOCUMENT}  > s > h2 > s
 {
   background-image: ${vars.dbc_doc_icon.asVar()};
 }
@@ -150,17 +150,17 @@ div.${clss.ROOT_CLASS} div > s > h2 > s
   background-image: ${vars.dbc_mes_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_NODE_MESSAGE_PSEUDO} > s > h2 > s
+div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} > s > h2 > s
 {
   background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_NODE_MESSAGE_PSEUDO} div.${clss.NODE_SIGNAL} > s > h2 > s
+div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} div.${clss.NODE_SIGNAL} > s > h2 > s
 {
   background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_NODE_MESSAGE_PSEUDO} s h2:hover 
+div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s h2:hover 
 {
   background-color: ${vars.mes_pseudo_hov_bg.asVar()};
 }
@@ -182,14 +182,14 @@ div.${clss.ROOT_CLASS} div > s > h2 > div
   padding-right: 5px;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_TREE_ACTIVE} > s > h2 > div
+div.${clss.ROOT_CLASS} div.${clss.SHOWCASE_CLICK} > s > h2 > div
 {
   color: ${vars.tree_act_col.asVar()};
   font-weight: 600;
   padding: 0px;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_NODE_MESSAGE_PSEUDO} s > h2 > div
+div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s > h2 > div
 {
   color: ${vars.mes_pseudo_list_col.asVar()};
 }
@@ -218,7 +218,7 @@ div.${clss.ROOT_CLASS} div s b
   flex-shrink: 0;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_STATE_NONE} > s b
+div.${clss.ROOT_CLASS} div.${clss.STATE_NONE} > s b
 {
   pointer-events: none;
   visibility: hidden;
@@ -233,17 +233,17 @@ div.${clss.ROOT_CLASS} div s b div
   border-left: 1px solid;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_STATE_EXPAND} > s b div
+div.${clss.ROOT_CLASS} div.${clss.STATE_EXPAND} > s b div
 {
   transform: rotate(315deg);
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_STATE_COLLAPSE} > s b div
+div.${clss.ROOT_CLASS} div.${clss.STATE_COLLAPSE} > s b div
 {
   transform: rotate(228deg);
 }
 
-div.${clss.ROOT_CLASS} div.${clss.DBC_NODE_MESSAGE_PSEUDO} > s b div
+div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} > s b div
 {
   border-color: ${vars.mes_pseudo_list_bor.asVar()};
 }

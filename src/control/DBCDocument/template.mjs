@@ -14,22 +14,22 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "document",
-  "dbc_title_document",
-  "dbc_doc_version",
-  "dbc_doc_protocol",
-  "dbc_new_symbols",
+  "DOCUMENT",
+  "TITLE_DOCUMENT",
+  "DOC_VERSION",
+  "DOC_PROTOCOL",
+  "NEW_SYMBOLS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
-  <div class="${clss.document} ${clss.ROOT_CLASS}">
+  <div class="${clss.DOCUMENT} ${clss.ROOT_CLASS}">
 
-    <h4>Document:<u class="${clss.dbc_title_document}"></u></h4>
+    <h4>Document:<u class="${clss.TITLE_DOCUMENT}"></u></h4>
     
       <b>
-        <h4>Version:<u id="${clss.dbc_doc_version}"></u></h4>
-        <h4>Protocol:<u id="${clss.dbc_doc_protocol}"></u></h4>
+        <h4>Version:<u id="${clss.DOC_VERSION}"></u></h4>
+        <h4>Protocol:<u id="${clss.DOC_PROTOCOL}"></u></h4>
                             
         <s id="dbc-bittiming">
         <h6>Bit Timing</h6>
@@ -42,7 +42,7 @@ mk.newHTML('ROOT_HTML', `
 
       </b>
 
-      <div id="dbc-new-symbols-root" class="${clss.dbc_new_symbols}">
+      <div id="dbc-new-symbols-root" class="${clss.NEW_SYMBOLS}">
         <s>
           <h5>New Symbols</h5>
           <div id="dbc-doc-nsymlist">
@@ -111,37 +111,37 @@ ${DARKMODE_SELECTOR_VALUE}
   font-weight: 400;
 }
 
-.${clss.document}
+.${clss.DOCUMENT}
 {
   padding-top: 15px;
 }
 
-.${clss.document} b,
-.${clss.dbc_new_symbols} > s > div
+.${clss.DOCUMENT} b,
+.${clss.NEW_SYMBOLS} > s > div
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
 
-.${clss.document},
-.${clss.document} b > span
+.${clss.DOCUMENT},
+.${clss.DOCUMENT} b > span
 {
   border: none;
   box-shadow: none;
 }
 
-.${clss.document} b
+.${clss.DOCUMENT} b
 {
   padding: 15px;
 }
 
-div.${clss.document} > b > h4 + h4
+div.${clss.DOCUMENT} > b > h4 + h4
 {
   margin: 10px 0px 5px 0px;
 }
 
-.${clss.document} b h4
+.${clss.DOCUMENT} b h4
 {
   margin: 0px;
   padding-left: 20px;
@@ -149,18 +149,18 @@ div.${clss.document} > b > h4 + h4
   text-overflow: ellipsis;
 }
 
-.${clss.document} b h4,
-.${clss.document} b span h5
+.${clss.DOCUMENT} b h4,
+.${clss.DOCUMENT} b span h5
 {
   font-weight: 400;
 }
 
-.${clss.document} b h4 > u
+.${clss.DOCUMENT} b h4 > u
 {
   padding-left: 5px;
 }
 
-.${clss.dbc_new_symbols} > s > h5
+.${clss.NEW_SYMBOLS} > s > h5
 {
   line-height: 15px;
   font-size: 1.13em;
@@ -174,13 +174,13 @@ div.${clss.document} > b > h4 + h4
   background-color: ${vars.rpanel_bg.asVar()};
 }
 
-.${clss.document} b
+.${clss.DOCUMENT} b
 {
   display: block;
   font-weight: 400;
 }
 
-.${clss.dbc_new_symbols} > s > div
+.${clss.NEW_SYMBOLS} > s > div
 {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -189,12 +189,12 @@ div.${clss.document} > b > h4 + h4
   font-size: 0.80em;
 }
 
-.${clss.document} span
+.${clss.DOCUMENT} span
 {
   gap: 5px 15px;
 }
 
-.${clss.document} > span > span
+.${clss.DOCUMENT} > span > span
 {
   gap: 5px 25px;
 }
