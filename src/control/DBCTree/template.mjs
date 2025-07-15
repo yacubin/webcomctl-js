@@ -22,7 +22,7 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "NODE_SIGNAL",
-  "SHOWCASE_CLICK",
+  "TREE_ACTIVE",
   "PANEL_SEPARATOR",
   "STATE_COLLAPSE",
   "STATE_EXPAND",
@@ -35,7 +35,7 @@ const clss = mk.newClassNameMap([
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
-  <div class="${clss.NODE_DOCUMENT} ${clss.STATE_EXPAND} ${clss.SHOWCASE_CLICK}">
+  <div class="${clss.NODE_DOCUMENT} ${clss.STATE_EXPAND} ${clss.TREE_ACTIVE}">
     <s>
       <b class="${clss.STATE_CLICK}">
         <div></div>
@@ -182,7 +182,7 @@ div.${clss.ROOT_CLASS} div > s > h2 > div
   padding-right: 5px;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.SHOWCASE_CLICK} > s > h2 > div
+div.${clss.ROOT_CLASS} div.${clss.TREE_ACTIVE} > s > h2 > div
 {
   color: ${vars.tree_act_col.asVar()};
   font-weight: 600;
