@@ -37,9 +37,9 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
-  "dbc_bn_nav",
-  "dbc_tree",
-  "dbc_panel_separator",
+  "BN_NAV",
+  "TREE",
+  "PANEL_SEPARATOR",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -47,13 +47,13 @@ mk.newHTML('ROOT_HTML', `
 
   <s>
     <div>
-      <div class="${clss.dbc_bn_nav}"></div>
+      <div class="${clss.BN_NAV}"></div>
     </div>
   </s>
 
-  <nav class="${clss.dbc_tree} ${clss.PORT_CLASS}"></nav>
+  <nav class="${clss.TREE} ${clss.PORT_CLASS}"></nav>
 
-  <div class="${clss.dbc_panel_separator}"><div></div></div>
+  <div class="${clss.PANEL_SEPARATOR}"><div></div></div>
 
   <span><div></div></span>
 

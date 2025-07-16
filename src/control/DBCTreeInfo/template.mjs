@@ -8,9 +8,9 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
-  "dbc_tree_off",
-  "left_on",
-  "dbc_right_panel"
+  "TREE_OFF",
+  "LEFT_ON",
+  "RIGHT_PANEL"
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -42,24 +42,24 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
-div.${clss.dbc_tree_off} > div.${clss.ROOT_CLASS} > nav,
-div.${clss.dbc_tree_off}  > div.${clss.ROOT_CLASS} > nav + div,
-div.${clss.dbc_tree_off}  > div.${clss.ROOT_CLASS} > nav + div + span
+div.${clss.TREE_OFF} > div.${clss.ROOT_CLASS} > nav,
+div.${clss.TREE_OFF}  > div.${clss.ROOT_CLASS} > nav + div,
+div.${clss.TREE_OFF}  > div.${clss.ROOT_CLASS} > nav + div + span
 {
   display: none;
 }
 
-div.${clss.dbc_tree_off}  > .${clss.dbc_right_panel} 
+div.${clss.TREE_OFF}  > .${clss.RIGHT_PANEL} 
 {
   padding: 0px 15px 15px 75px;
 }
 
-div.${clss.dbc_tree_off} 
+div.${clss.TREE_OFF} 
 {
   grid-template-areas: 'right right';
 }
 
-div.${clss.dbc_tree_off}  > div.${clss.left_on}
+div.${clss.TREE_OFF}  > div.${clss.LEFT_ON}
 {
   display: block;
   grid-area: right;
@@ -74,26 +74,26 @@ div.${clss.dbc_tree_off}  > div.${clss.left_on}
   max-width: initial;
 }
 
-div.${clss.dbc_tree_off}  > div.${clss.ROOT_CLASS} > s > div > div
+div.${clss.TREE_OFF}  > div.${clss.ROOT_CLASS} > s > div > div
 {
   width: 35px;
   height: 30px;
   transition: width 0.250s, height 0.250s;
 }
 
-div.${clss.dbc_tree_off}  > div.${clss.left_on} > s > div
+div.${clss.TREE_OFF}  > div.${clss.LEFT_ON} > s > div
 {
   width: inherit;
   height: initial;
   margin: 0;
 }
 
-div.${clss.dbc_tree_off}  div.${clss.left_on} > s > div:hover
+div.${clss.TREE_OFF}  div.${clss.LEFT_ON} > s > div:hover
 {
   border-radius: 20px;
 }
 
-div.${clss.dbc_tree_off}  > div.${clss.left_on} > s
+div.${clss.TREE_OFF}  > div.${clss.LEFT_ON} > s
 {
   height: inherit;
   width: inherit;
