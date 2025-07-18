@@ -1,5 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCContent', import.meta.url);
 
 const rpanel_brate = '#aeaeae8f';
@@ -15,11 +16,12 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "NEW_SYMBOLS",
-  "signal",
+  "SIGNA",
   "document",
   "message",
   "attribute",
   "group",
+  "dbc_group_signals",
   "dbc_title_document",
   "doc_version",
   "dbc_doc_protocol",
@@ -174,7 +176,7 @@ mk.newHTML('ROOT_HTML', `
 
   <div class="${clss.group}">
     <h4>Group:<u class="${clss.dbc_title_group}"></u></h4>
-    <ul id="dbc-group-signals"></ul>
+    <ul class="${clss.dbc_group_signals}"></ul>
   </div>
 
   <div class="${clss.dbc_attributes_root} ${clss.attribute}">
@@ -231,7 +233,7 @@ ${DARKMODE_SELECTOR_VALUE}
   min-width: 450px;
   padding: 0px 15px 15px 15px;
   color: ${vars.rpanel_col.asVar()};
-  font-family: "Roboto","Arial","monospace";
+  font-family:${TOOLBAR_DBC_FONT_SANS};
   font-size: 0.94em;
   box-sizing: border-box;
 }

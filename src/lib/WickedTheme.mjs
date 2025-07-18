@@ -10,6 +10,7 @@ export const HEADER_BORDER_RADIUS_HOVER = '5px';
 export const TOOLBAR_FONT_FAMALY = 'Helvetica, Arial, sans-serif';
 export const TOOLBAR_FONT_MONOSPACE = 'monospace';
 export const TOOLBAR_FONT_SANS = 'Open Sans,Arial,sans-serif';
+export const TOOLBAR_DBC_FONT_SANS = '"Roboto","Arial","monospace"';
 export const TOOLBAR_FONT_SYSTEM = 'system-ui';
 export const TOOLBAR_FONT_MATH = 'math';
 export const UIC_CONTENT_BACKGROUND_COLOR = 'white';

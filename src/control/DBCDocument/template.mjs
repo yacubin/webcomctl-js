@@ -1,5 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCDocument', import.meta.url);
 
 const rpanel_brate = '#aeaeae8f';
@@ -113,6 +114,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.DOCUMENT}
 {
+  font-family:${TOOLBAR_DBC_FONT_SANS};
   padding-top: 15px;
 }
 

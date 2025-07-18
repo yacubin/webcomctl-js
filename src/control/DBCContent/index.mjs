@@ -1,5 +1,5 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
-import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text, dbc_attributes_root, dbc_attributes_list } from 'uictmplt-loader!./template.mjs';
+import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text, dbc_attributes_root, dbc_attributes_list, dbc_group_signals } from 'uictmplt-loader!./template.mjs';
 
 const DOCUMENT_TYPE = "document";
 const MESSAGE_TYPE = "message";
@@ -50,6 +50,8 @@ export default class DBCContentControl extends BaseControl {
 
     this._attrRootElement = NQDOM.getElementByClassName(this.element, dbc_attributes_root);
     this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
+
+    this._signalListElm = NQDOM.getElementByClassName(this.element, dbc_group_signals);
   }
 
   setViewType(type) {
@@ -76,26 +78,37 @@ export default class DBCContentControl extends BaseControl {
   }
 
   setAttributes(attributes) {
-  if (this._attrRootElement) {
-    this._attrRootElement.style.display = attributes ? "" : "none";
-  }
-  if (this._attrListElement) {
-    this._attrListElement.innerHTML = "";
-    if (attributes) {
-      for (const key of Object.keys(attributes).sort()) {
-        const element = document.createElement("div");
+    if (this._attrRootElement) {
+      this._attrRootElement.style.display = attributes ? "" : "none";
+    }
+    if (this._attrListElement) {
+      this._attrListElement.innerHTML = "";
+      if (attributes) {
+        for (const key of Object.keys(attributes).sort()) {
+          const element = document.createElement("div");
 
-        const keyElm = document.createElement("h5");
-        keyElm.textContent = key + ":";
-        element.appendChild(keyElm);
+          const keyElm = document.createElement("h5");
+          keyElm.textContent = key + ":";
+          element.appendChild(keyElm);
 
-        const valElem = document.createElement("u");
-        valElem.textContent = attributes[key];
-        element.appendChild(valElem);
-        
-        this._attrListElement.appendChild(element);
+          const valElem = document.createElement("u");
+          valElem.textContent = attributes[key];
+          element.appendChild(valElem);
+            
+          this._attrListElement.appendChild(element);
+        }
       }
     }
   }
-}
+
+  setSignals = (signals) => {
+    if (this._signalListElm) {
+      this._signalListElm.textContent = "";
+      signals.forEach((signal) => {
+        const item = document.createElement('li');
+        item.textContent = signal;
+        this._signalListElm.appendChild(item);
+      });
+    }
+  };
 };
