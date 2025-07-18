@@ -106,7 +106,7 @@ export default class DBCContentControl extends BaseControl {
       this._signalListElm.textContent = "";
       signals.forEach((signal) => {
         const item = document.createElement('li');
-        item.textContent = signal.name;
+        item.textContent = signal;
         this._signalListElm.appendChild(item);
       });
     }
