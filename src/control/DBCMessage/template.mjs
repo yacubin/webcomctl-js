@@ -15,42 +15,53 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "message",
-  "dbc_title_message",
+  "title_message",
+  "message_idx",
+  "message_size",
+  "message_pseudo",
+  "message_transmitters",
+  "message_cycletime",
+  "message_pdu_root",
+  "message_pdu_format",
+  "message_pdu_pgn",
+  "message_pdu_priority",
+  "message_pdu_da",
+  "message_pdu_sa",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
-<div class="${clss.message}">
+<div class="${clss.ROOT_CLASS} ${clss.message}">
 
-  <h4>Massage:<u class="${clss.dbc_title_message}"></u></h4>
+  <h4>Massage:<u class="${clss.title_message}"></u></h4>
 
     <b>
       <span>
         <div>
-          <h5>ID:</h5><u id="dbc-message-idx"></u>
+          <h5>ID:</h5><u class="${clss.message_idx}"></u>
         </div>
         <div>
-          <h5>DLC:</h5><u id="dbc-message-size"></u>
+          <h5>DLC:</h5><u class="${clss.message_size}"></u>
         </div>
         <div>
-          <h5>Pseudo:</h5><u id="dbc-message-pseudo"></u>
+          <h5>Pseudo:</h5><u class="${clss.message_pseudo}"></u>
         </div>
         <div>
-          <h5>Senders:</h5><u id="dbc-message-transmitters"></u>
+          <h5>Senders:</h5><u class="${clss.message_transmitters}"></u>
         </div>
         <div>
-          <h5>Cycle time:</h5><u id="dbc-message-cycletime"></u>
+          <h5>Cycle time:</h5><u class="${clss.message_cycletime}"></u>
         </div>
       </span>
 
-      <s id="dbc-message-pdu-root">
+      <s class="${clss.message_pdu_root}">
         <h6>Protocol data unit</h6>
         <span>
-          <span>Format:</span><span id="dbc-message-pdu-format"></span>
-          <span>PGN:</span><span id="dbc-message-pdu-pgn"></span>
-          <span>Priority:</span><span id="dbc-message-pdu-priority"></span>
-          <span>Destination:</span><span id="dbc-message-pdu-da"></span>
-          <span>Source:</span><span id="dbc-message-pdu-sa"></span>
+          <span>Format:</span><span class="${clss.message_pdu_format}"></span>
+          <span>PGN:</span><span class="${clss.message_pdu_pgn}"></span>
+          <span>Priority:</span><span class="${clss.message_pdu_priority}"></span>
+          <span>Destination:</span><span class="${clss.message_pdu_da}"></span>
+          <span>Source:</span><span class="${clss.message_pdu_sa}"></span>
         </span>
       </s>
 
@@ -83,11 +94,6 @@ ${DARKMODE_SELECTOR_VALUE}
   display: block;
 }
 
-.${clss.ROOT_CLASS}
-{
-
-}
-
 .${clss.ROOT_CLASS} *
 {
   box-sizing: border-box;
@@ -110,28 +116,27 @@ ${DARKMODE_SELECTOR_VALUE}
   font-weight: 400;
 }
 
-div.${clss.message}
+.${clss.ROOT_CLASS}
 {
   padding-top: 15px;
 }
 
-.${clss.ROOT_CLASS} > div,
-.${clss.ROOT_CLASS} > b > div,
-div.${clss.message} b
+.${clss.ROOT_CLASS},
+div.${clss.ROOT_CLASS} b
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
 
-.${clss.ROOT_CLASS} > div.${clss.message},
-.${clss.ROOT_CLASS} div.${clss.message} b > span,
+div.${clss.ROOT_CLASS},
+div.${clss.ROOT_CLASS} b > span,
 {
   border: none;
   box-shadow: none;
 }
 
-div.${clss.message} b h4
+div.${clss.ROOT_CLASS} b h4
 {
   margin: 0px;
   padding-left: 20px;
@@ -139,19 +144,18 @@ div.${clss.message} b h4
   text-overflow: ellipsis;
 }
 
-div.${clss.message} b h4,
-div.${clss.message} b span h5
+div.${clss.ROOT_CLASS} b h4,
+div.${clss.ROOT_CLASS} b span h5
 {
   font-weight: 400;
 }
 
-div.${clss.message} b h4 > u
+div.${clss.ROOT_CLASS} b h4 > u
 {
   padding-left: 5px;
 }
 
-.${clss.ROOT_CLASS} > div > h4,
-.${clss.ROOT_CLASS} > b > h4
+.${clss.ROOT_CLASS} > h4,
 {
   font-size: 1.67em;
   font-weight: 600;
@@ -162,17 +166,15 @@ div.${clss.message} b h4 > u
   margin-bottom: 10px;
 }
 
-.${clss.ROOT_CLASS} > div > h4 > u,
-.${clss.ROOT_CLASS} > b > h4 > u
+.${clss.ROOT_CLASS} > h4 > u
 {
   text-decoration: none;
   padding-left: 5px;
   text-overflow: ellipsis;
 }
 
-.${clss.ROOT_CLASS} > div > div > h5,
 .${clss.ROOT_CLASS} > div > h5,
-.${clss.ROOT_CLASS} > b > h5
+.${clss.ROOT_CLASS} > h5
 {
   line-height: 15px;
   font-size: 1.13em;
@@ -186,14 +188,7 @@ div.${clss.message} b h4 > u
   background-color: ${vars.rpanel_bg.asVar()};
 }
 
-.${clss.ROOT_CLASS} > b > div
-{
-  display: block;
-  padding: 20px 30px 20px 30px;
-  font-weight: 400;
-}
-
-.${clss.ROOT_CLASS} > div b s > h4
+.${clss.ROOT_CLASS} b s > h4
 {
   position: relative;
   top: 8px;
@@ -210,7 +205,7 @@ div.${clss.message} b h4 > u
   padding:0px 20px 0px 20px;
 }
 
-div.${clss.ROOT_CLASS} s h6 + span
+.${clss.ROOT_CLASS} s h6 + span
 {
   display: grid;
   grid-template-columns: minmax(30px,auto) minmax(30px,auto);
@@ -251,25 +246,25 @@ div.${clss.ROOT_CLASS} s h6 + span
   margin-top: 10px;
 }
 
-.${clss.ROOT_CLASS} > div span
+.${clss.ROOT_CLASS} span
 {
   display: table;
   border-spacing: 0px 5px;
   padding: 20px 30px 20px 30px;
 }
 
-.${clss.ROOT_CLASS} > div span div
+.${clss.ROOT_CLASS} span div
 {
   display: table-row-group;
 }
 
-.${clss.ROOT_CLASS} > div span div h5,
-.${clss.ROOT_CLASS} > div span div u
+.${clss.ROOT_CLASS} span div h5,
+.${clss.ROOT_CLASS} span div u
 {
   display: table-cell;
 }
 
-.${clss.ROOT_CLASS} > div span div u
+.${clss.ROOT_CLASS} span div u
 {
   padding-left: 15px;
 }
@@ -290,18 +285,13 @@ div.${clss.ROOT_CLASS} s h6 + span
   padding: 0px 10px 0px 0px;
 }
 
-.${clss.ROOT_CLASS} > div.${clss.document} span
-{
-  gap: 5px 15px;
-}
-
-.${clss.ROOT_CLASS} > div.${clss.message} > span
+.${clss.ROOT_CLASS} > span
 {
   gap: 5px 25px;
 }
 
-.${clss.ROOT_CLASS} > div span span,
-.${clss.ROOT_CLASS} > div > b > span span
+.${clss.ROOT_CLASS} span span,
+..${clss.ROOT_CLASS} > b > span span
 {
   margin: 0px;
   border: none;
@@ -309,7 +299,7 @@ div.${clss.ROOT_CLASS} s h6 + span
   padding: 0px;
 }
 
-.${clss.ROOT_CLASS} > div > div > span h5
+.${clss.ROOT_CLASS} > div > span h5
 {
   font-weight: 400;
 }
