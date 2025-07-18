@@ -1,5 +1,5 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
-import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text, dbc_attributes_root, dbc_attributes_list, SIGNA } from 'uictmplt-loader!./template.mjs';
+import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text, dbc_attributes_root, dbc_attributes_list, dbc_group_signals } from 'uictmplt-loader!./template.mjs';
 
 const DOCUMENT_TYPE = "document";
 const MESSAGE_TYPE = "message";
@@ -51,7 +51,7 @@ export default class DBCContentControl extends BaseControl {
     this._attrRootElement = NQDOM.getElementByClassName(this.element, dbc_attributes_root);
     this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
 
-    this._signalListElm = NQDOM.getElementByClassName(this.element, SIGNA);
+    this._signalListElm = NQDOM.getElementByClassName(this.element, dbc_group_signals);
   }
 
   setViewType(type) {

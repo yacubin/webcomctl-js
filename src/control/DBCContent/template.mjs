@@ -20,6 +20,7 @@ const clss = mk.newClassNameMap([
   "message",
   "attribute",
   "group",
+  "dbc_group_signals",
   "dbc_title_document",
   "doc_version",
   "dbc_doc_protocol",
@@ -174,7 +175,7 @@ mk.newHTML('ROOT_HTML', `
 
   <div class="${clss.group}">
     <h4>Group:<u class="${clss.dbc_title_group}"></u></h4>
-    <ul id="dbc-group-signals"></ul>
+    <ul class="${clss.dbc_group_signals}"></ul>
   </div>
 
   <div class="${clss.dbc_attributes_root} ${clss.attribute}">
