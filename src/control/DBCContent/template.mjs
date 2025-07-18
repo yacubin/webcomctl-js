@@ -1,5 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCContent', import.meta.url);
 
 const rpanel_brate = '#aeaeae8f';
@@ -232,7 +233,7 @@ ${DARKMODE_SELECTOR_VALUE}
   min-width: 450px;
   padding: 0px 15px 15px 15px;
   color: ${vars.rpanel_col.asVar()};
-  font-family: "Roboto","Arial","monospace";
+  font-family:${TOOLBAR_DBC_FONT_SANS};
   font-size: 0.94em;
   box-sizing: border-box;
 }
