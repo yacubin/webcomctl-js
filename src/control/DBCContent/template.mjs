@@ -15,7 +15,7 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "NEW_SYMBOLS",
-  "signal",
+  "SIGNA",
   "document",
   "message",
   "attribute",
