@@ -536,6 +536,36 @@ div.${clss.group} > ul > li:last-child
   margin-bottom: 0px;
 }
 
+.${clss.ROOT_CLASS} .${clss.document} .${clss.NEW_SYMBOLS}
+{
+  container-name: sidebar;
+  container-type: inline-size;
+}
+
+@container sidebar (width < 900px)
+{
+  .${clss.ROOT_CLASS} div div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto auto  auto;
+  }
+}
+
+@container sidebar (width < 750px)
+{
+  .${clss.ROOT_CLASS} div div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@container sidebar (width < 600px)
+{
+  .${clss.ROOT_CLASS} div div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto;
+  }
+}
+
 `);
 
 export function buildComponent()
