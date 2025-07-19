@@ -90,6 +90,24 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+.${clss.ROOT_CLASS} u,
+.${clss.ROOT_CLASS} s,
+.${clss.ROOT_CLASS} b
+{
+  text-decoration: none;
+  font-weight: 400;
+}
+
+
+.${clss.ROOT_CLASS} h4,
+.${clss.ROOT_CLASS} h5,
+.${clss.ROOT_CLASS} h6
+{
+  font-size: 1em;
+  margin: 0px;
+  padding: 0px;
+}
+
 .${clss.ROOT_CLASS}
 {
   color: ${vars.rpanel_col.asVar()};
@@ -109,23 +127,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} *
 {
   box-sizing: border-box;
-}
-
-.${clss.ROOT_CLASS} h4,
-.${clss.ROOT_CLASS} h5,
-.${clss.ROOT_CLASS} h6
-{
-  font-size: 1em;
-  margin: 0px;
-  padding: 0px;
-}
-
-.${clss.ROOT_CLASS} u,
-.${clss.ROOT_CLASS} s,
-.${clss.ROOT_CLASS} b
-{
-  text-decoration: none;
-  font-weight: 400;
 }
 
 .${clss.DOCUMENT}
