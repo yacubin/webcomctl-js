@@ -90,6 +90,11 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+.${clss.ROOT_CLASS}
+{
+  color: ${vars.rpanel_col.asVar()};
+}
+
 .${clss.ROOT_CLASS} *
 {
   box-sizing: border-box;
