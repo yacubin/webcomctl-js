@@ -226,6 +226,36 @@ div.${clss.DOCUMENT} > b > h4 + h4
   background-color: ${vars.rpanel_bg.asVar()};
   width: max-content;
 }
+
+.${clss.DOCUMENT} .${clss.NEW_SYMBOLS}
+{
+  container-name: sidebar;
+  container-type: inline-size;
+}
+
+@container sidebar (width < 900px)
+{
+  .${clss.DOCUMENT} div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto auto  auto;
+  }
+}
+
+@container sidebar (width < 750px)
+{
+  .${clss.DOCUMENT} div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@container sidebar (width < 600px)
+{
+  .${clss.DOCUMENT} div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto;
+  }
+}
 `);
 
 export function buildComponent()

@@ -565,7 +565,6 @@ div.${clss.group} > ul > li:last-child
     grid-template-columns: auto auto;
   }
 }
-
 `);
 
 export function buildComponent()
