@@ -19,7 +19,7 @@ function typeToStyleClass(type)
   return MENUSTYLE1_CLASS;
 }
 
-export default class PagePanel extends BaseControl {
+export class PagePanel extends BaseControl {
   _downloadElm;
   _psntlistElm;
   _parentMenuElm;

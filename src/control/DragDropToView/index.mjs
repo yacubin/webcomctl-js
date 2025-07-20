@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIDragDropToViewControl extends BaseControl {
+export class DragDropToView extends BaseControl {
   _init() {
     this.registerEvent("dragenter", "dragleave", "drop");
 

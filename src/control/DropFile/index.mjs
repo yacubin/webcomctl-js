@@ -1,7 +1,7 @@
 import { BaseControl } from "webnetq-js";
 import { SHOW_CLASS } from 'uictmplt-loader!./template.mjs';
 
-export default class UIDropFileControl extends BaseControl {
+export class DropFile extends BaseControl {
   _visible;
 
   _init() {

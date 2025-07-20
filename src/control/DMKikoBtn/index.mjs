@@ -9,7 +9,7 @@ if (hasDocument && document.documentElement) {
   document.documentElement.dataset.theme = setting.getTheme();
 }
 
-export default class UIDMKikoBtnControl extends BaseControl {
+export class DMKikoBtn extends BaseControl {
   _init() {
     this.element.addEventListener("click", (event) => {
       const setting = Setting.getInstance();

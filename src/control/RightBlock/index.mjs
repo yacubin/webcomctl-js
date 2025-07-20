@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIRightBlockControl extends BaseControl {
+export class RightBlock extends BaseControl {
 };

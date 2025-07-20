@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class ImgFailContent extends BaseControl {
+export class ImgFailContent extends BaseControl {
 };

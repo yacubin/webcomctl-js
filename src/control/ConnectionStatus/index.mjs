@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
 import { SIGNAL_STATE_TEXT, SIGNAL_STATE_ON, SIGNAL_STATE_OFF } from 'uictmplt-loader!./template.mjs';
 
-export default class UIConnectionStatusControl extends BaseControl {
+export class ConnectionStatus extends BaseControl {
   _valueElm;
   _textElm;
 

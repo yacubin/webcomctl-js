@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
 import { TITLE, ITEM_HTML, LIST_CLASS, LIST_NAME, LIST_VALUE } from 'uictmplt-loader!./template.mjs';
 
-export default class PropInfoPanel extends BaseControl {
+export class PropInfoPanel extends BaseControl {
   _titleElm;
   _listElm;
   _valueElmMap = {};

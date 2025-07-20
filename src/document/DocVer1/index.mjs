@@ -1,2 +1,2 @@
-export default class UIDocVer1Document {
+export class DocVer1 {
 };

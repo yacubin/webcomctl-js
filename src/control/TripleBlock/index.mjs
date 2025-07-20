@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UITripleBlockControl extends BaseControl {
+export class TripleBlock extends BaseControl {
 };

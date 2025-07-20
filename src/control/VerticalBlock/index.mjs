@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIVerticalBlockControl extends BaseControl {
+export class VerticalBlock extends BaseControl {
 };

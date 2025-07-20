@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
 import { STATE_EXPAND, STATE_CLICK } from 'uictmplt-loader!./template.mjs';
 
-export default class DBCTreeControl extends BaseControl {
+export class DBCTree extends BaseControl {
   _init() {
     const stateElm = NQDOM.getElementByClassName(this.element, STATE_CLICK);
     console.log("Hey", stateElm)

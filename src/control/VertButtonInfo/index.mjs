@@ -3,7 +3,7 @@ import { CLICK } from 'uictmplt-loader!./template.mjs';
 
 const CLICK_EVENT = "click";
 
-export default class UIVertButtonInfoControl extends BaseControl {
+export class VertButtonInfo extends BaseControl {
   _init() {
     const clicknElm = NQDOM.getElementByClassName(this.element, CLICK);
     if (clicknElm) {

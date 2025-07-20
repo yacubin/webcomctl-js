@@ -3,7 +3,7 @@ import { NUMBERS, CONTENT, OFFSET } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, numPad) => value.toString(16).toUpperCase().padStart(numPad, '0');
 
-export default class UITextContentControl extends BaseControl {
+export class TextContent extends BaseControl {
   _init() {
     this._numbersElm = null;
     this._contentElm = null;

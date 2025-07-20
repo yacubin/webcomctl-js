@@ -1,7 +1,7 @@
 import { BaseControl } from "webnetq-js";
 import { SHOW_CLASS } from 'uictmplt-loader!./template.mjs';
 
-export default class UILoadingControl extends BaseControl {
+export class Loading extends BaseControl {
   _visible;
 
   _init() {
