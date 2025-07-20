@@ -90,10 +90,14 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-.${clss.ROOT_CLASS} *
+.${clss.ROOT_CLASS} u,
+.${clss.ROOT_CLASS} s,
+.${clss.ROOT_CLASS} b
 {
-  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 400;
 }
+
 
 .${clss.ROOT_CLASS} h4,
 .${clss.ROOT_CLASS} h5,
@@ -104,12 +108,25 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px;
 }
 
-.${clss.ROOT_CLASS} u,
-.${clss.ROOT_CLASS} s,
-.${clss.ROOT_CLASS} b
+.${clss.ROOT_CLASS}
 {
+  color: ${vars.rpanel_col.asVar()};
+}
+
+.${clss.ROOT_CLASS} > h4
+{
+  font-size: 1.67em;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 400;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+  contain: paint;
+  margin-bottom: 10px;
+}
+
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
 }
 
 .${clss.DOCUMENT}
@@ -225,6 +242,36 @@ div.${clss.DOCUMENT} > b > h4 + h4
   color: ${vars.rpanel_col.asVar()};
   background-color: ${vars.rpanel_bg.asVar()};
   width: max-content;
+}
+
+.${clss.DOCUMENT} .${clss.NEW_SYMBOLS}
+{
+  container-name: sidebar;
+  container-type: inline-size;
+}
+
+@container sidebar (width < 900px)
+{
+  .${clss.DOCUMENT} div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto auto  auto;
+  }
+}
+
+@container sidebar (width < 750px)
+{
+  .${clss.DOCUMENT} div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@container sidebar (width < 600px)
+{
+  .${clss.DOCUMENT} div.${clss.NEW_SYMBOLS} s > div
+  {
+    grid-template-columns: auto auto;
+  }
 }
 `);
 
