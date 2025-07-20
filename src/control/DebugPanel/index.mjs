@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
 import { ITEM_HTML, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from 'uictmplt-loader!./template.mjs';
 
-export default class UIDebugPanelControl extends BaseControl {
+export class DebugPanel extends BaseControl {
   _init() {
     const hideClickElm = NQDOM.getElementByClassName(this.element, HIDE_CLASS);
     hideClickElm && hideClickElm.addEventListener("click", (event) => {

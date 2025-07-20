@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class MainHeader extends BaseControl {
+export class MainHeader extends BaseControl {
 };

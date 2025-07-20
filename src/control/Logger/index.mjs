@@ -12,7 +12,7 @@ const createMessage = (level, title, text) => {
   return element;
 };
 
-export default class UILoggerControl extends BaseControl {
+export class Logger extends BaseControl {
   _init() {
     const log = (title, level, logFunc, ...args) => {
       logFunc.apply(null, [ title, "-", ...args ]);

@@ -10,7 +10,7 @@ if (hasDocument && document.documentElement) {
   document.documentElement.dataset.theme = setting.getTheme();
 }
 
-export default class UIDMBtnControl extends BaseControl {
+export class DMBtn extends BaseControl {
   _toggleElm;
 
   _init() {

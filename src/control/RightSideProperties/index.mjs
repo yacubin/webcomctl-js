@@ -1,7 +1,7 @@
 import { BaseControl } from 'webnetq-js';
 import { SHOW, ANIME } from 'uictmplt-loader!./template.mjs';
 
-export default class UIRightSidePropertiesControl extends BaseControl {
+export class RightSideProperties extends BaseControl {
   _visible;
   _animation;
 

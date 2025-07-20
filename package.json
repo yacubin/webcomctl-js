@@ -9,7 +9,11 @@
     "./document/*": "./src/document/*/index.mjs",
     "./document/*/template": "./src/document/*/template.mjs",
     "./control/*": "./src/control/*/index.mjs",
-    "./control/*/template": "./src/control/*/template.mjs"
+    "./control/*/template": "./src/control/*/template.mjs",
+    "./loader/cmake-loader": "./src/loader/CMakeLoader.mjs",
+    "./loader/module-loader": "./src/loader/ModuleLoader.mjs",
+    "./loader/uic-static-loader": "./src/loader/UICStaticLoader.mjs",
+    "./loader/uictmplt-loader": "./src/loader/UICTemplateLoader.mjs"
   },
   "scripts": {
     "build-node-debug": "webpack --config webpack.node.config.mjs --mode=development",
@@ -30,7 +34,7 @@
   },
   "homepage": "https://github.com/ykbin/webcomctl-js#readme",
   "dependencies": {
-    "webnetq-js": "github:ykbin/webnetq-js"
+    "webnetq-js": "github:ykbin/webnetq-js#20250720_ScriptNameExport"
   },
   "devDependencies": {
     "webpack": "^5.94.0",

@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIInfoContentControl extends BaseControl {
+export class InfoContent extends BaseControl {
   _init() {
   }
 };

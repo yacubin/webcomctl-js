@@ -4,7 +4,7 @@ import { ADDRESSES_INPUT, ADDRESSES_LIST, ADDRESSES_DISABLED, ADDRESSES_SHOW, CO
 const STATECHANGED_EVENT = 'stateChanged';
 const URLCHANGED_EVENT = 'urlChanged';
 
-export default class UIURLFieldControl extends BaseControl {
+export class URLField extends BaseControl {
   _disableURL;
   _isShowURLs;
   _address = "";

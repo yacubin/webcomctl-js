@@ -3,7 +3,7 @@ import { LOAD_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const UPLOAD_EVENT = 'upload';
 
-export default class UICntSmUploadButtonControl  extends BaseControl {
+export class CntSmUploadButton extends BaseControl {
   _loadEnable = false;
 
   _init() {

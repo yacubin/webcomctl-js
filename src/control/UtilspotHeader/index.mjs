@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIWikHeaderControl extends BaseControl {
+export class UtilspotHeader extends BaseControl {
 };

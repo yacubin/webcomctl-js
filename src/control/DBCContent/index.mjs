@@ -32,7 +32,7 @@ function classNameFromType(classname) {
   }
 }
 
-export default class DBCContentControl extends BaseControl {
+export class DBCContent extends BaseControl {
   _type;
   _commentRootElement;
   _commentTextElement;

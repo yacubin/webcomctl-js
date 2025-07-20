@@ -3,7 +3,7 @@ import { ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from 'uictmplt-loader!./template
 
 const UPLOAD_EVENT = 'upload';
 
-export default class UICntButtBRedControl extends BaseControl {
+export class CntButtBRed extends BaseControl {
   _heightElm;
 
   _init() {

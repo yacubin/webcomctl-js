@@ -14,7 +14,7 @@ function isLocationEqual(href) {
   return false;
 }
 
-export default class UIMainFooterControl extends BaseControl {
+export class MainFooter extends BaseControl {
   _init() {
     const linkElm = this.element.querySelector(`a.${LINK_ON_CLASS}`);
     if (linkElm && isLocationEqual(linkElm.href)) {

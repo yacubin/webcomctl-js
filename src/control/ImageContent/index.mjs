@@ -3,7 +3,7 @@ import { CONTENT_CLASS, BUTT_LEFT_CLASS, BUTT_RIGHT_CLASS, IMAGE_POSITION, IMAGE
 
 const IMAGECHANGED_EVENT = 'imageChanged';
 
-export default class ImageContent extends BaseControl {
+export class ImageContent extends BaseControl {
   _imageElm;
   _posElm;
   _numsElm;

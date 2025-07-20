@@ -122,7 +122,7 @@ class TabItemControl {
 
 const EMPTY_EVENT = 'empty';
 
-export default class UIPageTabControl extends BaseControl {
+export class PageTab extends BaseControl {
   _items = [];
   _focusIndex = 0;
   _focusHistory = [];

@@ -15,7 +15,7 @@ function sydeTypeToClassName(sideType) {
   return null;
 };
 
-export default class UITipInfoBlockControl extends BaseControl {
+export class TipInfoBlock extends BaseControl {
   _closeElm;
   _visible;
   _sideType

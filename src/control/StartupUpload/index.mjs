@@ -3,7 +3,7 @@ import { DHIDE_CLASS, DSHOW_CLASS, FDROP_CLASS } from 'uictmplt-loader!./templat
 
 const UPLOAD_EVENT = 'upload';
 
-export default class UIStartupUploadControl extends BaseControl {
+export class StartupUpload extends BaseControl {
   _fdropElm;
   _inputElm;
 

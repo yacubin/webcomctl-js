@@ -3,7 +3,7 @@ import { HIDDEN_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const UPLOAD_EVENT = 'upload';
 
-export default class UIHdrUploadButtonControl extends BaseControl {
+export class HdrUploadButton extends BaseControl {
   _inputElm;
   _uploadVisible = false;
 

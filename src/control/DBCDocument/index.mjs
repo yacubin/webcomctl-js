@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class DBCContentControl extends BaseControl {
+export class DBCDocument extends BaseControl {
 };

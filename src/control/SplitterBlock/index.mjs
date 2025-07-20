@@ -39,7 +39,7 @@ SplitterType.toClassName = (sideType) => {
   }
 };
 
-export default class UISplitterBlockControl extends BaseControl {
+export class SplitterBlock extends BaseControl {
   _splitterType = SplitterType.NONE;
 
   _init() {

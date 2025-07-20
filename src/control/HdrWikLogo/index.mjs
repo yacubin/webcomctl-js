@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIHdrWikLogoControl extends BaseControl {
+export class HdrWikLogo extends BaseControl {
 };

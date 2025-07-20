@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
 import { ITEM_HTML, ITEM_LIST, FOLDER_CLASS, FILE_CLASS, LINK_CLASS, TYPE_CLASS, SIZE_CLASS, DATE_CLASS } from 'uictmplt-loader!./template.mjs';
 
-export default class DirectoryViewer extends BaseControl {
+export class DirectoryViewer extends BaseControl {
   _nameCounter = 0;
   _itemlistElm;
 

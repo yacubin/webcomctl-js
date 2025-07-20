@@ -65,7 +65,7 @@ SideType.toClassName = (sideType) => {
   }
 };
 
-export default class UIDropBlockControl  extends BaseControl {
+export class DropBlock  extends BaseControl {
   _sideSet = new Set();
   _sideType = SideType.NONE;
   _rectElm;

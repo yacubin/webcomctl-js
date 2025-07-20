@@ -168,7 +168,7 @@ function isElementVisible(element) {
   );
 }
 
-export default class UIHexContentControl extends BaseControl {
+export class HexContent extends BaseControl {
   _scroll;
   _chunkLoader = null;
 

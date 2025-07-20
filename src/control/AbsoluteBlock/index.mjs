@@ -36,7 +36,7 @@ SideType.toString = (sideType) => {
   return null;
 };
 
-export default class AbsoluteBlock extends BaseControl {
+export class AbsoluteBlock extends BaseControl {
   _sideType;
   _visible;
 

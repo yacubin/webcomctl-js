@@ -1,4 +1,4 @@
 import { BaseControl } from 'webnetq-js';
 
-export default class UIUtilspotLogoControl extends BaseControl {
+export class UtilspotLogo extends BaseControl {
 };
