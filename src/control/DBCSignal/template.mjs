@@ -112,6 +112,19 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family:${TOOLBAR_DBC_FONT_SANS};
 }
 
+.${clss.ROOT_CLASS} h5
+{
+  font-size: 1em;
+  margin: 0px;
+  padding: 0px;
+}
+
+.${clss.ROOT_CLASS} u
+{
+  text-decoration: none;
+  font-weight: 400;
+}
+
 .${clss.ROOT_CLASS} > h4 
 {
   font-size: 1.67em;
