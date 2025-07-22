@@ -179,19 +179,6 @@ ${DARKMODE_SELECTOR_VALUE}
   padding-left: 15px;
 }
 
-div.${clss.SIGNAL} > span
-{
-  gap: 5px 25px;
-}
-
-.${clss.ROOT_CLASS} > div span span
-{
-  margin: 0px;
-  border: none;
-  box-shadow: none;
-  padding: 0px;
-}
-
 .${clss.ROOT_CLASS} > div > span h5
 {
   font-weight: 400;
