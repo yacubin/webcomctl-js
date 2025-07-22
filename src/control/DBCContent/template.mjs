@@ -565,6 +565,14 @@ div.${clss.group} > ul > li:last-child
     grid-template-columns: auto auto;
   }
 }
+
+@media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
+{
+  .${clss.ROOT_CLASS}
+  {
+    font-size: 25px;
+  }
+}
 `);
 
 export function buildComponent()

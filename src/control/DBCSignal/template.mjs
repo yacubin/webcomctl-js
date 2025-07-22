@@ -2,7 +2,7 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
-const mk = new ControlMaker('DBCMessage', import.meta.url);
+const mk = new ControlMaker('DBCSignal', import.meta.url);
 
 const rpanel_brate = '#aeaeae8f';
 const rpanel_bor = '#aeaeae8f';
@@ -16,58 +16,76 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "message",
-  "title_message",
-  "message_idx",
-  "message_size",
-  "message_pseudo",
-  "message_transmitters",
-  "message_cycletime",
-  "message_pdu_root",
-  "message_pdu_format",
-  "message_pdu_pgn",
-  "message_pdu_priority",
-  "message_pdu_da",
-  "message_pdu_sa",
+  "SIGNAL",
+  "dbc_title_signal",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
-<div class="${clss.ROOT_CLASS} ${clss.message}">
+<div class="${clss.ROOT_CLASS} ${clss.SIGNAL}">
 
-  <h4>Massage:<u class="${clss.title_message}"></u></h4>
+    <h4>Signal:<u class="${clss.dbc_title_signal}"></u></h4>
 
-    <b>
+    <div>
+
       <span>
         <div>
-          <h5>ID:</h5><u class="${clss.message_idx}"></u>
+          <h5>Start Bit:</h5>
+          <u id="dbc-signal-startbit"></u>
         </div>
+
         <div>
-          <h5>DLC:</h5><u class="${clss.message_size}"></u>
+          <h5>Signal Size:</h5>
+          <u id="dbc-signal-sizeinbits"></u>
         </div>
+
+          <div>
+            <h5>Byte Order:</h5>
+            <u id="dbc-signal-byteorder"></u>
+          </div>
+
         <div>
-          <h5>Pseudo:</h5><u class="${clss.message_pseudo}"></u>
+          <h5>Value Type:</h5>
+          <u id="dbc-signal-valuetype"></u>
         </div>
+
         <div>
-          <h5>Senders:</h5><u class="${clss.message_transmitters}"></u>
+          <h5>Factor:</h5>
+          <u id="dbc-signal-factor"></u>
         </div>
+
         <div>
-          <h5>Cycle time:</h5><u class="${clss.message_cycletime}"></u>
+          <h5>Offset:</h5>
+          <u id="dbc-signal-offset"></u>
+        </div>
+
+        <div>
+          <h5>Minimum:</h5>
+          <u id="dbc-signal-minimum"></u>
+        </div>
+
+        <div>
+          <h5>Maximum:</h5>
+          <u id="dbc-signal-maximum"></u>
+        </div>
+
+        <div>
+          <h5>Unit:</h5>
+          <u id="dbc-signal-unit"></u>
+        </div>
+                            
+        <div>
+          <h5>Receivers:</h5>
+          <u id="dbc-signal-receivers"></u>
+        </div>
+
+        <div>
+          <h5>Start Value:</h5>
+          <u id="dbc-signal-start-value"></u>
         </div>
       </span>
-
-      <s class="${clss.message_pdu_root}">
-        <h6>Protocol data unit</h6>
-        <span>
-          <span>Format:</span><span class="${clss.message_pdu_format}"></span>
-          <span>PGN:</span><span class="${clss.message_pdu_pgn}"></span>
-          <span>Priority:</span><span class="${clss.message_pdu_priority}"></span>
-          <span>Destination:</span><span class="${clss.message_pdu_da}"></span>
-          <span>Source:</span><span class="${clss.message_pdu_sa}"></span>
-        </span>
-      </s>
-
-    </b>
+                    
+    </div>
 
   </div>
 
@@ -84,56 +102,27 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-.${clss.ROOT_CLASS} b,
-.${clss.ROOT_CLASS} > b > div span
-{
-  display: block;
-}
-
-.${clss.ROOT_CLASS} *
-{
-  box-sizing: border-box;
-}
-
-.${clss.ROOT_CLASS} h4,
-.${clss.ROOT_CLASS} h5,
-.${clss.ROOT_CLASS} h6
-{
-  font-size: 1em;
-  margin: 0px;
-  padding: 0px;
-}
-
-.${clss.ROOT_CLASS} u,
-.${clss.ROOT_CLASS} s,
-.${clss.ROOT_CLASS} b
-{
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.${clss.ROOT_CLASS}
+div.${clss.SIGNAL}
 {
   padding-top: 15px;
-  font-family: ${TOOLBAR_DBC_FONT_SANS};
 }
 
-.${clss.ROOT_CLASS},
-div.${clss.ROOT_CLASS} b
+div.${clss.SIGNAL} > div
+div.${clss.SIGNAL} b
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
 
-div.${clss.ROOT_CLASS},
-div.${clss.ROOT_CLASS} b > span,
+div.${clss.SIGNAL},
+div.${clss.SIGNAL} b > span,
 {
   border: none;
   box-shadow: none;
 }
 
-div.${clss.ROOT_CLASS} b h4
+div.${clss.SIGNAL} b h4
 {
   margin: 0px;
   padding-left: 20px;
@@ -141,18 +130,19 @@ div.${clss.ROOT_CLASS} b h4
   text-overflow: ellipsis;
 }
 
-div.${clss.ROOT_CLASS} b h4,
-div.${clss.ROOT_CLASS} b span h5
+div.${clss.SIGNAL} b h4,
+div.${clss.SIGNAL} b span h5
 {
   font-weight: 400;
 }
 
-div.${clss.ROOT_CLASS} b h4 > u
+div.${clss.SIGNAL} b h4 > u
 {
   padding-left: 5px;
 }
 
-.${clss.ROOT_CLASS} > h4,
+.${clss.ROOT_CLASS} > div > h4,
+.${clss.ROOT_CLASS} > b > h4
 {
   font-size: 1.67em;
   font-weight: 600;
@@ -163,15 +153,18 @@ div.${clss.ROOT_CLASS} b h4 > u
   margin-bottom: 10px;
 }
 
-.${clss.ROOT_CLASS} > h4 > u
+.${clss.ROOT_CLASS} > div > h4 > u,
+.${clss.ROOT_CLASS} > b > h4 > u
 {
   text-decoration: none;
   padding-left: 5px;
   text-overflow: ellipsis;
 }
 
+.${clss.ROOT_CLASS} > div > div > h5,
 .${clss.ROOT_CLASS} > div > h5,
-.${clss.ROOT_CLASS} > h5
+.${clss.ROOT_CLASS} > b > h5,
+.${clss.NEW_SYMBOLS} > s > h5
 {
   line-height: 15px;
   font-size: 1.13em;
@@ -185,7 +178,14 @@ div.${clss.ROOT_CLASS} b h4 > u
   background-color: ${vars.rpanel_bg.asVar()};
 }
 
-.${clss.ROOT_CLASS} b s > h4
+.${clss.ROOT_CLASS} > b > div
+{
+  display: block;
+  padding: 20px 30px 20px 30px;
+  font-weight: 400;
+}
+
+.${clss.ROOT_CLASS} > div b s > h4
 {
   position: relative;
   top: 8px;
@@ -202,7 +202,7 @@ div.${clss.ROOT_CLASS} b h4 > u
   padding:0px 20px 0px 20px;
 }
 
-.${clss.ROOT_CLASS} s h6 + span
+div.${clss.ROOT_CLASS} s h6 + span
 {
   display: grid;
   grid-template-columns: minmax(30px,auto) minmax(30px,auto);
@@ -243,25 +243,25 @@ div.${clss.ROOT_CLASS} b h4 > u
   margin-top: 10px;
 }
 
-.${clss.ROOT_CLASS} span
+.${clss.ROOT_CLASS} > div span
 {
   display: table;
   border-spacing: 0px 5px;
   padding: 20px 30px 20px 30px;
 }
 
-.${clss.ROOT_CLASS} span div
+.${clss.ROOT_CLASS} > div span div
 {
   display: table-row-group;
 }
 
-.${clss.ROOT_CLASS} span div h5,
-.${clss.ROOT_CLASS} span div u
+.${clss.ROOT_CLASS} > div span div h5,
+.${clss.ROOT_CLASS} > div span div u
 {
   display: table-cell;
 }
 
-.${clss.ROOT_CLASS} span div u
+.${clss.ROOT_CLASS} > div span div u
 {
   padding-left: 15px;
 }
@@ -282,13 +282,13 @@ div.${clss.ROOT_CLASS} b h4 > u
   padding: 0px 10px 0px 0px;
 }
 
-.${clss.ROOT_CLASS} > span
+div.${clss.SIGNAL} > span
 {
   gap: 5px 25px;
 }
 
-.${clss.ROOT_CLASS} span span,
-..${clss.ROOT_CLASS} > b > span span
+.${clss.ROOT_CLASS} > div span span,
+.${clss.ROOT_CLASS} > div > b > span span
 {
   margin: 0px;
   border: none;
@@ -296,7 +296,7 @@ div.${clss.ROOT_CLASS} b h4 > u
   padding: 0px;
 }
 
-.${clss.ROOT_CLASS} > div > span h5
+.${clss.ROOT_CLASS} > div > div > span h5
 {
   font-weight: 400;
 }

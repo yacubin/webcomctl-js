@@ -273,6 +273,14 @@ div.${clss.DOCUMENT} > b > h4 + h4
     grid-template-columns: auto auto;
   }
 }
+
+@media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
+{
+  .${clss.ROOT_CLASS}
+  {
+    font-size: 25px;
+  }
+}
 `);
 
 export function buildComponent()
