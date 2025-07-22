@@ -102,51 +102,17 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-div.${clss.ROOT_CLASS}
+.${clss.ROOT_CLASS} * 
+{
+  box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS}
 {
   font-family:${TOOLBAR_DBC_FONT_SANS};
 }
-div.${clss.SIGNAL}
-{
-  padding-top: 15px;
-}
 
-div.${clss.SIGNAL} > div
-div.${clss.SIGNAL} b
-{
-  border: 1px solid ${rpanel_bor};
-  box-shadow: ${vars.rpanel_bs.asVar()};
-  border-radius: 3px;
-}
-
-div.${clss.SIGNAL},
-div.${clss.SIGNAL} b > span,
-{
-  border: none;
-  box-shadow: none;
-}
-
-div.${clss.SIGNAL} b h4
-{
-  margin: 0px;
-  padding-left: 20px;
-  contain: paint;
-  text-overflow: ellipsis;
-}
-
-div.${clss.SIGNAL} b h4,
-div.${clss.SIGNAL} b span h5
-{
-  font-weight: 400;
-}
-
-div.${clss.SIGNAL} b h4 > u
-{
-  padding-left: 5px;
-}
-
-.${clss.ROOT_CLASS} > div > h4,
-.${clss.ROOT_CLASS} > b > h4
+.${clss.ROOT_CLASS} > h4 
 {
   font-size: 1.67em;
   font-weight: 600;
@@ -157,94 +123,23 @@ div.${clss.SIGNAL} b h4 > u
   margin-bottom: 10px;
 }
 
-.${clss.ROOT_CLASS} > div > h4 > u,
-.${clss.ROOT_CLASS} > b > h4 > u
+.${clss.SIGNAL}
+{
+  padding-top: 15px;
+}
+
+.${clss.SIGNAL} > div
+{
+  border: 1px solid ${rpanel_bor};
+  box-shadow: ${vars.rpanel_bs.asVar()};
+  border-radius: 3px;
+}
+
+.${clss.ROOT_CLASS} > h4 > u
 {
   text-decoration: none;
   padding-left: 5px;
   text-overflow: ellipsis;
-}
-
-.${clss.ROOT_CLASS} > div > div > h5,
-.${clss.ROOT_CLASS} > div > h5,
-.${clss.ROOT_CLASS} > b > h5,
-.${clss.NEW_SYMBOLS} > s > h5
-{
-  line-height: 15px;
-  font-size: 1.13em;
-  font-weight: 600;
-  position: relative;
-  top: 8px;
-  left: 20px;
-  width: max-content;
-  padding-top: 10px;
-  color: ${vars.rpanel_col.asVar()};
-  background-color: ${vars.rpanel_bg.asVar()};
-}
-
-.${clss.ROOT_CLASS} > b > div
-{
-  display: block;
-  padding: 20px 30px 20px 30px;
-  font-weight: 400;
-}
-
-.${clss.ROOT_CLASS} > div b s > h4
-{
-  position: relative;
-  top: 8px;
-  left: 32px;
-  padding: 0px;
-  width: max-content;
-  font-weight: 400;
-  color: ${vars.rpanel_col.asVar()};
-  background-color: ${vars.rpanel_bg.asVar()};
-}
-
-.${clss.ROOT_CLASS} s > div > div
-{
-  padding:0px 20px 0px 20px;
-}
-
-div.${clss.ROOT_CLASS} s h6 + span
-{
-  display: grid;
-  grid-template-columns: minmax(30px,auto) minmax(30px,auto);
-  justify-content: start;
-  grid-gap: 5px 10px;
-  margin: 0px 0px 30px 30px;
-  padding: 10px 20px 10px 20px;
-  width: max-content;
-  border-radius: 5px;
-  border: 1px solid ${rpanel_brate};
-  overflow: hidden;
-  box-shadow: none;
-}
-
-.${clss.ROOT_CLASS} s > h6
-{
-  font-weight: 400;
-  position: relative;
-  top: 8px;
-  left: 50px;
-  color: ${vars.rpanel_col.asVar()};
-  background-color: ${vars.rpanel_bg.asVar()};
-  width: max-content;
-}
-
-.${clss.ROOT_CLASS} s > span > span
-{
-  display: block;
-  padding: 0px 10px;
-  margin: 2px 0px;
-  border: none;
-  box-shadow: none;
-}
-
-.${clss.ROOT_CLASS} s > span > span:nth-child(1),
-.${clss.ROOT_CLASS} s > span > span:nth-child(2)
-{
-  margin-top: 10px;
 }
 
 .${clss.ROOT_CLASS} > div span
@@ -270,29 +165,12 @@ div.${clss.ROOT_CLASS} s h6 + span
   padding-left: 15px;
 }
 
-.${clss.ROOT_CLASS} s > span > span:nth-last-child(2),
-.${clss.ROOT_CLASS} s > span > span:nth-last-child(1)
-{
-  margin-bottom: 10px;
-}
-
-.${clss.ROOT_CLASS} s > span > span:nth-child(2n + 1)
-{
-  padding: 0px 0px 0px 10px;
-}
-
-.${clss.ROOT_CLASS} s > span > span:nth-child(2n)
-{
-  padding: 0px 10px 0px 0px;
-}
-
 div.${clss.SIGNAL} > span
 {
   gap: 5px 25px;
 }
 
-.${clss.ROOT_CLASS} > div span span,
-.${clss.ROOT_CLASS} > div > b > span span
+.${clss.ROOT_CLASS} > div span span
 {
   margin: 0px;
   border: none;
@@ -300,7 +178,7 @@ div.${clss.SIGNAL} > span
   padding: 0px;
 }
 
-.${clss.ROOT_CLASS} > div > div > span h5
+.${clss.ROOT_CLASS} > div > span h5
 {
   font-weight: 400;
 }
