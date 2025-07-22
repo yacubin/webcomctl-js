@@ -102,6 +102,10 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+div.${clss.ROOT_CLASS}
+{
+  font-family:${TOOLBAR_DBC_FONT_SANS};
+}
 div.${clss.SIGNAL}
 {
   padding-top: 15px;
