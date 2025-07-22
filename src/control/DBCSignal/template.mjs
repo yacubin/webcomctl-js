@@ -4,12 +4,10 @@ import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCSignal', import.meta.url);
 
-const rpanel_brate = '#aeaeae8f';
 const rpanel_bor = '#aeaeae8f';
 
 const vars = mk.newCSSVariableMap({
   rpanel_col: ['black', '#eeeeee'],
-  rpanel_bg: ['white', 'rgb(23, 23, 26)',],
   rpanel_bs: ['0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)', '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)'],
   
 });
@@ -110,6 +108,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   font-family:${TOOLBAR_DBC_FONT_SANS};
+  color: ${vars.rpanel_col.asVar()};
 }
 
 .${clss.ROOT_CLASS} h5
