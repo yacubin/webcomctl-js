@@ -111,6 +111,7 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${vars.rpanel_col.asVar()};
 }
 
+.${clss.ROOT_CLASS} h4,
 .${clss.ROOT_CLASS} h5
 {
   font-size: 1em;
