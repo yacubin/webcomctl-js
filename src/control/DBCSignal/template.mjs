@@ -107,6 +107,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
+  font-size: 16px;
   font-family:${TOOLBAR_DBC_FONT_SANS};
   color: ${vars.rpanel_col.asVar()};
 }
