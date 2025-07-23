@@ -1,5 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCMessage', import.meta.url);
 
@@ -300,6 +301,13 @@ div.${clss.ROOT_CLASS} b h4 > u
   font-weight: 400;
 }
 
+@media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
+{
+  .${clss.ROOT_CLASS}
+  {
+    font-size: 25px;
+  }
+}
 `);
 
 export function buildComponent()

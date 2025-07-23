@@ -1,5 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCContent', import.meta.url);
 
@@ -563,6 +564,14 @@ div.${clss.group} > ul > li:last-child
   .${clss.ROOT_CLASS} div div.${clss.NEW_SYMBOLS} s > div
   {
     grid-template-columns: auto auto;
+  }
+}
+
+@media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
+{
+  .${clss.ROOT_CLASS}
+  {
+    font-size: 25px;
   }
 }
 `);
