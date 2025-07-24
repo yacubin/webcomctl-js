@@ -60,6 +60,20 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px;
 }
 
+.${clss.ROOT_CLASS} > h5
+{
+  line-height: 15px;
+  font-size: 1.13em;
+  font-weight: 600;
+  position: relative;
+  top: 8px;
+  left: 20px;
+  width: max-content;
+  padding-top: 10px;
+  color: ${vars.rpanel_col.asVar()};
+  background-color: ${vars.rpanel_bg.asVar()};
+}
+
 .${clss.attribute} > div
 {
   border: 1px solid ${rpanel_bor};
