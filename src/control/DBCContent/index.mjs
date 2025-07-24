@@ -38,6 +38,7 @@ export class DBCContent extends BaseControl {
   _commentTextElement;
   _attrRootElement;
   _attrListElement;
+  _signalListElm;
 
   _init() {
     this.element.classList.remove(dbc_view_document);
