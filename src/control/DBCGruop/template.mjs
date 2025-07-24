@@ -58,6 +58,17 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px;
 }
 
+.${clss.ROOT_CLASS} > h4
+{
+  font-size: 1.67em;
+  font-weight: 600;
+  text-decoration: none;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+  contain: paint;
+  margin-bottom: 10px;
+}
+
 .${clss.ROOT_CLASS} u
 {
   text-decoration: none;
