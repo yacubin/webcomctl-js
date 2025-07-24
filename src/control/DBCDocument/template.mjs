@@ -9,7 +9,7 @@ const rpanel_bor = '#aeaeae8f';
 
 const vars = mk.newCSSVariableMap({
   rpanel_col: ['black', '#eeeeee'],
-  rpanel_bg: ['white', 'rgb(23, 23, 26)',],
+  rpanel_bg: ['white', 'rgb(23, 23, 26)'],
   rpanel_bs: ['0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)', '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)'],
   
 });
@@ -178,20 +178,6 @@ div.${clss.DOCUMENT} > b > h4 + h4
 .${clss.DOCUMENT} b h4 > u
 {
   padding-left: 5px;
-}
-
-.${clss.NEW_SYMBOLS} > s > h5
-{
-  line-height: 15px;
-  font-size: 1.13em;
-  font-weight: 600;
-  position: relative;
-  top: 8px;
-  left: 20px;
-  width: max-content;
-  padding-top: 10px;
-  color: ${vars.rpanel_col.asVar()};
-  background-color: ${vars.rpanel_bg.asVar()};
 }
 
 .${clss.DOCUMENT} b
