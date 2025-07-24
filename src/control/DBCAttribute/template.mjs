@@ -82,6 +82,13 @@ ${DARKMODE_SELECTOR_VALUE}
   border-radius: 3px;
 }
 
+.${clss.ROOT_CLASS} > div span 
+{
+    display: table;
+    border-spacing: 0px 5px;
+    padding: 20px 30px 20px 30px;
+}
+
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
 {
