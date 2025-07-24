@@ -7,6 +7,7 @@ const mk = new ControlMaker('DBCAttribute', import.meta.url);
 const rpanel_bor = '#aeaeae8f';
 
 const vars = mk.newCSSVariableMap({
+  rpanel_bg: ['white', 'rgb(23, 23, 26)'],
   rpanel_col: ['black', '#eeeeee'],
   rpanel_bs: ['0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)', '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)'],
   
