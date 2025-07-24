@@ -21,7 +21,7 @@ const clss = mk.newClassNameMap([
 
 mk.newHTML('ROOT_HTML', `
 
-<div class="${clss.dbc_attributes_root} ${clss.attribute}">
+<div class="${clss.ROOT_CLASS} ${clss.dbc_attributes_root} ${clss.attribute}">
   <h5>Attributes</h5>
   <div>
     <span class="${clss.dbc_attributes_list}"></span>
@@ -60,7 +60,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px;
 }
 
-${clss.attribute} > div
+.${clss.attribute} > div
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
