@@ -93,6 +93,11 @@ div.${clss.GROUP} > ul
   padding: 20px 30px 20px 30px;
 }
 
+.${clss.GROUP} li
+{
+    list-style-type: none;
+}
+
 div.${clss.GROUP} > ul > li
 {
   margin-bottom: 5px;
