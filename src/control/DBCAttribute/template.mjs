@@ -106,6 +106,16 @@ ${DARKMODE_SELECTOR_VALUE}
   display: table-cell;
 }
 
+.${clss.ROOT_CLASS}> div span div h5 
+{
+    font-weight: 400;
+}
+
+.${clss.ROOT_CLASS} > div span div u  
+{
+    padding-left: 15px;
+}
+
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
 {
   .${clss.ROOT_CLASS}
