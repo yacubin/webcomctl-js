@@ -28,6 +28,13 @@ export default (env, argv) => {
   for (const iter of fs.readdirSync(controlDir)) {
     config.entry[iter] = path.posix.join(controlDir, iter, "template.mjs");
   }
+  
+  const documentDir = path.posix.join(__dirname, "src/document");
+  for (const iter of fs.readdirSync(documentDir)) {
+    if (config.entry[iter])
+      throw new Error(`${iter} control already exists`);
+    config.entry[iter] = path.posix.join(documentDir, iter, "index.mjs");
+  }
 
   if (argv.mode === 'development') {
     config.mode = argv.mode;
