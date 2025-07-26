@@ -5,6 +5,16 @@ import url from 'node:url';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+async function detectScriptFile(filepath) {
+  for (const ext of [ ".ts", ".tsx", ".mjs", ".js" ]) {
+    try {
+      const asa = (await fs.promises.stat(filepath + ext)).isFile();
+      return path.basename(filepath) + ext;
+    } catch { }
+  }
+  throw new Error(`Script Not found ${filepath}`);
+}
+
 async function loadTemplate(filepath) {
   let templateModule = await import(url.pathToFileURL(filepath));
   if (typeof templateModule.buildComponent === 'function')
@@ -23,7 +33,8 @@ async function buildEntry() {
   const controlAbsoluteDir = path.resolve(__dirname, "../..", controlDir);
   const controls = await fs.promises.readdir(controlAbsoluteDir);
   for (const iter of controls) {
-    lines.push(`import { ${iter} } from "${controlDir}/${iter}/index.mjs";`);
+    const indexName = await detectScriptFile(`${controlAbsoluteDir}/${iter}/index`);
+    lines.push(`import { ${iter} } from "${controlDir}/${iter}/${indexName}";`);
     templates[iter] = await loadTemplate(`${controlAbsoluteDir}/${iter}/template.mjs`);
   }
 
@@ -33,7 +44,8 @@ async function buildEntry() {
   const documentAbsoluteDir = path.resolve(__dirname, "../..", documentDir);
   const documents = await fs.promises.readdir(path.resolve(__dirname, "../..", documentDir));
   for (const iter of documents) {
-    lines.push(`import { ${iter} } from "${documentDir}/${iter}/index.mjs";`);
+    const indexName = await detectScriptFile(`${documentAbsoluteDir}/${iter}/index`);
+    lines.push(`import { ${iter} } from "${documentDir}/${iter}/${indexName}";`);
     templates[iter] = await loadTemplate(`${documentAbsoluteDir}/${iter}/template.mjs`);
   }
   

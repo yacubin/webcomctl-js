@@ -1,7 +1,14 @@
+// @ts-ignore
 import { NQDOM, BaseControl } from "webnetq-js";
+// @ts-ignore
 import { ITEM_HTML, TITLE_CLASS, TEXT_CLASS, CLOSE_CLASS, INFO_CLASS, WARNING_CLASS, SUCCESS_CLASS, ERROR_CLASS } from 'uictmplt-loader!./template.mjs';
 
-const createMessage = (level, title, text) => {
+import { LOGGER_INFO_TITLE } from "@/lib/Logger";
+import { LOGGER_SUCCESS_TITLE } from "@/lib/Logger";
+import { LOGGER_WARNING_TITLE } from "@/lib/Logger";
+import { LOGGER_ERROR_TITLE } from "@/lib/Logger";
+
+const createMessage = (level: string, title: string, text: string) => {
   const element = NQDOM.createElement(ITEM_HTML);
   element.classList.add(level);
 
@@ -13,8 +20,8 @@ const createMessage = (level, title, text) => {
 };
 
 export class Logger extends BaseControl {
-  _init() {
-    const log = (title, level, logFunc, ...args) => {
+  _init(this: any) {
+    const log = (title: string, level: string, logFunc: Function, ...args: any) => {
       logFunc.apply(null, [ title, "-", ...args ]);
       const messageElm = createMessage(level, title, args.join(' '));
       while (this.element.children.length > 3) {
@@ -23,9 +30,9 @@ export class Logger extends BaseControl {
       this.element.appendChild(messageElm);
     };
 
-    this.info = log.bind(this, "Info", INFO_CLASS, console.info);
-    this.success = log.bind(this, "Success", SUCCESS_CLASS, console.log);
-    this.warning = log.bind(this, "Warning", WARNING_CLASS, console.warn);
-    this.error = log.bind(this, "Error", ERROR_CLASS, console.error);
+    this.info = log.bind(this, LOGGER_INFO_TITLE, INFO_CLASS, console.info);
+    this.success = log.bind(this, LOGGER_SUCCESS_TITLE, SUCCESS_CLASS, console.log);
+    this.warning = log.bind(this, LOGGER_WARNING_TITLE, WARNING_CLASS, console.warn);
+    this.error = log.bind(this, LOGGER_ERROR_TITLE, ERROR_CLASS, console.error);
   }
 };
