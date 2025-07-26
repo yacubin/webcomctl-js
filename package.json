@@ -13,11 +13,12 @@
     "./loader/cmake-loader": "./src/loader/CMakeLoader.mjs",
     "./loader/module-loader": "./src/loader/ModuleLoader.mjs",
     "./loader/uic-static-loader": "./src/loader/UICStaticLoader.mjs",
-    "./loader/uictmplt-loader": "./src/loader/UICTemplateLoader.mjs"
+    "./loader/uictmplt-loader": "./src/loader/UICTemplateLoader.mjs",
+    "./bundle.config.mjs": "./bundle.config.mjs"
   },
   "scripts": {
-    "build-bundle-debug": "webpack --config bundle.config.mjs --mode=development --output-path=123",
-    "build-bundle-release": "webpack --config bundle.config.mjs --mode=production --output-path=123",
+    "build-bundle-debug": "webpack --config bundle.config.mjs --mode=development --output-path=dist",
+    "build-bundle-release": "webpack --config bundle.config.mjs --mode=production --output-path=dist",
     "build-node-debug": "webpack --config webpack.node.config.mjs --mode=development",
     "build-node-release": "webpack --config webpack.node.config.mjs --mode=production",
     "build-web-debug": "webpack --config webpack.config.mjs --mode=development",

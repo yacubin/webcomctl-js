@@ -1,22 +1,48 @@
 import path from 'node:path';
 import fs from 'node:fs';
+import url from 'node:url';
 
-async function buildEntry(projectPath) {
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+async function loadTemplate(filepath) {
+  let templateModule = await import(url.pathToFileURL(filepath));
+  if (typeof templateModule.buildComponent === 'function')
+    templateModule = templateModule.buildComponent();
+  if (templateModule instanceof Promise)
+    templateModule = await templateModule;
+  return templateModule;
+}
+
+async function buildEntry() {
   const lines = [];
 
+  const templates = {};
+
   const controlDir = "./src/control";
-  const controls = await fs.promises.readdir(path.resolve(projectPath, controlDir));
+  const controlAbsoluteDir = path.resolve(__dirname, "../..", controlDir);
+  const controls = await fs.promises.readdir(controlAbsoluteDir);
   for (const iter of controls) {
     lines.push(`import { ${iter} } from "${controlDir}/${iter}/index.mjs";`);
+    templates[iter] = await loadTemplate(`${controlAbsoluteDir}/${iter}/template.mjs`);
+  }
+
+  lines.push("");
+
+  const documentDir = "./src/document";
+  const documentAbsoluteDir = path.resolve(__dirname, "../..", documentDir);
+  const documents = await fs.promises.readdir(path.resolve(__dirname, "../..", documentDir));
+  for (const iter of documents) {
+    lines.push(`import { ${iter} } from "${documentDir}/${iter}/index.mjs";`);
+    templates[iter] = await loadTemplate(`${documentAbsoluteDir}/${iter}/template.mjs`);
   }
   
   lines.push("");
 
-  const documentDir = "./src/document";
-  const documents = await fs.promises.readdir(path.resolve(projectPath, documentDir));
-  for (const iter of documents) {
-    lines.push(`import { ${iter} } from "${documentDir}/${iter}/index.mjs";`);
-  }
+  lines.push(`export const templates = {`);
+  for (const [key, val] of Object.entries(templates))
+    lines.push(`${key}: ${JSON.stringify(val, null, 2)},`);
+  lines.push(`};`);
   
   lines.push("");
 
@@ -31,9 +57,8 @@ async function buildEntry(projectPath) {
 }
 
 export default function(source) {
-  const projectPath = this._compiler.context;
   const callback = this.async();
 	(async () => {
-		return await buildEntry(projectPath);
+		return await buildEntry();
 	})().then((res) => callback(undefined, res), (err) => callback(err));
 }

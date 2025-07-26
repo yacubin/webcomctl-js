@@ -36,8 +36,9 @@ export default (env, argv) => {
 
   if (argv.mode === 'development') {
     config.mode = argv.mode;
-    config.devtool = 'source-map';
-    config.output.sourceMapFilename = 'index.map';
+    config.devtool = "inline-source-map";
+    // config.devtool = 'source-map';
+    // config.output.sourceMapFilename = 'index.map';
     process.env.WEBMAKE_BUILD_TYPE = 'Debug';
   }
 
