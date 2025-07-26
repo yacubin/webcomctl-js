@@ -1,7 +1,7 @@
 // @ts-ignore
 import { NQDOM, BaseControl } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, TITLE_CLASS, TEXT_CLASS, CLOSE_CLASS, INFO_CLASS, WARNING_CLASS, SUCCESS_CLASS, ERROR_CLASS } from 'uictmplt-loader!./template.mjs';
+import { ITEM_HTML, TITLE_CLASS, TEXT_CLASS, CLOSE_CLASS, INFO_CLASS, WARNING_CLASS, SUCCESS_CLASS, ERROR_CLASS } from 'uictmplt-loader!./template.ts';
 
 import { LOGGER_INFO_TITLE } from "@/lib/Logger";
 import { LOGGER_SUCCESS_TITLE } from "@/lib/Logger";

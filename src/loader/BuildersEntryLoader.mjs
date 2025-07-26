@@ -8,8 +8,8 @@ const __dirname = path.dirname(__filename);
 async function detectScriptFile(filepath) {
   for (const ext of [ ".ts", ".tsx", ".mjs", ".js" ]) {
     try {
-      const asa = (await fs.promises.stat(filepath + ext)).isFile();
-      return path.basename(filepath) + ext;
+      if ((await fs.promises.stat(filepath + ext)).isFile());
+        return path.basename(filepath) + ext;
     } catch { }
   }
   throw new Error(`Script Not found ${filepath}`);
@@ -27,15 +27,12 @@ async function loadTemplate(filepath) {
 async function buildEntry() {
   const lines = [];
 
-  const templates = {};
-
   const controlDir = "./src/control";
   const controlAbsoluteDir = path.resolve(__dirname, "../..", controlDir);
   const controls = await fs.promises.readdir(controlAbsoluteDir);
   for (const iter of controls) {
-    const indexName = await detectScriptFile(`${controlAbsoluteDir}/${iter}/index`);
-    lines.push(`import { ${iter} } from "${controlDir}/${iter}/${indexName}";`);
-    templates[iter] = await loadTemplate(`${controlAbsoluteDir}/${iter}/template.mjs`);
+    const templateName = await detectScriptFile(`${controlAbsoluteDir}/${iter}/template`);
+    lines.push(`import { buildComponent as ${iter} } from "${controlDir}/${iter}/${templateName}";`);
   }
 
   lines.push("");
@@ -44,17 +41,9 @@ async function buildEntry() {
   const documentAbsoluteDir = path.resolve(__dirname, "../..", documentDir);
   const documents = await fs.promises.readdir(path.resolve(__dirname, "../..", documentDir));
   for (const iter of documents) {
-    const indexName = await detectScriptFile(`${documentAbsoluteDir}/${iter}/index`);
-    lines.push(`import { ${iter} } from "${documentDir}/${iter}/${indexName}";`);
-    templates[iter] = await loadTemplate(`${documentAbsoluteDir}/${iter}/template.mjs`);
+    const templateName = await detectScriptFile(`${documentAbsoluteDir}/${iter}/template`);
+    lines.push(`import { buildComponent as ${iter} } from "${documentDir}/${iter}/${templateName}";`);
   }
-  
-  lines.push("");
-
-  lines.push(`export const templates = {`);
-  for (const [key, val] of Object.entries(templates))
-    lines.push(`${key}: ${JSON.stringify(val, null, 2)},`);
-  lines.push(`};`);
   
   lines.push("");
 

@@ -14,15 +14,20 @@
     "./loader/module-loader": "./src/loader/ModuleLoader.mjs",
     "./loader/uic-static-loader": "./src/loader/UICStaticLoader.mjs",
     "./loader/uictmplt-loader": "./src/loader/UICTemplateLoader.mjs",
-    "./bundle.config.mjs": "./bundle.config.mjs"
+    "./loader/template-loader": "./src/loader/TemplateLoader.mjs",
+    "./builders.config.mjs": "./builders.config.mjs",
+    "./templates.config.mjs": "./templates.config.mjs",
+    "./controls.config.mjs": "./controls.config.mjs"
   },
   "scripts": {
-    "build-bundle-debug": "webpack --config bundle.config.mjs --mode=development --output-path=dist",
-    "build-bundle-release": "webpack --config bundle.config.mjs --mode=production --output-path=dist",
-    "build-node-debug": "webpack --config webpack.node.config.mjs --mode=development",
-    "build-node-release": "webpack --config webpack.node.config.mjs --mode=production",
-    "build-web-debug": "webpack --config webpack.config.mjs --mode=development",
-    "build-web-release": "webpack --config webpack.config.mjs --mode=production"
+    "build-builders-debug": "webpack --config builders.config.mjs --mode=development --output-path=dist",
+    "build-builders-release": "webpack --config builders.config.mjs --mode=production --output-path=dist",
+    "build-templates-debug": "webpack --config templates.config.mjs --mode=development --output-path=dist",
+    "build-templates-release": "webpack --config templates.config.mjs --mode=production --output-path=dist",
+    "build-controls-debug": "webpack --config controls.config.mjs --mode=development --output-path=dist",
+    "build-controls-release": "webpack --config controls.config.mjs --mode=production --output-path=dist",
+    "build:debug": "npm run build-builders-debug && npm run build-templates-debug && npm run build-controls-debug",
+    "build:release":  "npm run build-builders-release && npm run build-templates-release && npm run build-controls-release"
   },
   "repository": {
     "type": "git",

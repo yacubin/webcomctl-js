@@ -1,11 +1,11 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+import ControlMaker from '@/lib/ControlMaker.mjs';
+import { TOOLBAR_FONT_SANS } from '@/lib/WickedTheme.mjs';
 
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
+import { COMMON_MOBILE_DEVICE_WIDTH } from '@/lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('Logger', import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "CLOSE_CLASS",
   "TITLE_CLASS",

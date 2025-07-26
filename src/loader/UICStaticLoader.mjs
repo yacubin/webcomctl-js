@@ -6,7 +6,7 @@ async function makeStaticRegisterScript(module, templates)
 
   let scriptContent = `import { ControlManager } from 'webnetq-js';\n\n`;
   for (const name in CTLS) {
-    scriptContent += `import { ${name} } from "${PKG}";\n`;
+    scriptContent += `import { ${name} } from "${PKG}/controls";\n`;
   };
   scriptContent += `\n`;
 
@@ -54,12 +54,11 @@ export default function(source) {
   const resourceUrl = url.pathToFileURL(this.resourcePath);
   const callback = this.async();
 	(async () => {
-    const templates = {};
-    for (const [key, val] of Object.entries(options.resolveAlias || {})) {
-      const module = await import(url.pathToFileURL(val));
-      templates[key] = module.templates;
+    const templatesEntries = {};
+    for (const [key, val] of Object.entries(options)) {
+      templatesEntries[key] = await import(val);
     }
     const module = await import(resourceUrl);
-		return await makeStaticRegisterScript(module, templates);
+		return await makeStaticRegisterScript(module, templatesEntries);
 	})().then((res) => callback(undefined, res), (err) => callback(err));
 }
