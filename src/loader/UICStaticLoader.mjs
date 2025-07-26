@@ -1,23 +1,19 @@
-import { pathToFileURL } from 'node:url';
+import url from 'node:url';
 
-async function makeStaticRegisterScript(module)
+async function makeStaticRegisterScript(module, templates)
 {
   const {PKG, CTLS} = module;
 
   let scriptContent = `import { ControlManager } from 'webnetq-js';\n\n`;
   for (const name in CTLS) {
-    scriptContent += `import { ${name} } from '${PKG}/control/${name}';\n`;
+    scriptContent += `import { ${name} } from "${PKG}/controls";\n`;
   };
   scriptContent += `\n`;
 
   scriptContent += `const manager = ControlManager.getInstance();\n\n`;
 
   for (const name in CTLS) {
-    let ctlModule = await import(`${PKG}/control/${name}/template`);
-    if (typeof ctlModule.buildComponent === 'function')
-      ctlModule = ctlModule.buildComponent();
-    if (ctlModule instanceof Promise)
-      ctlModule = await ctlModule;
+    const ctlModule = templates[PKG][name];
     for (const iter of ['ROOT_HTML', 'CSS', 'ROOT_CLASS']) {
       if (!(iter in ctlModule)) {
         throw `Can't find ${iter} for '${name}' control`;
@@ -30,7 +26,6 @@ async function makeStaticRegisterScript(module)
     const ctlParams = {
       name,
       rootHTML: ctlModule.ROOT_HTML,
-      // rootCSS: ctlModule.CSS,
       rootClass: ctlModule.ROOT_CLASS,
     };
     if (typeof ctlModule.PORT_CLASS === 'string') {
@@ -54,10 +49,16 @@ async function makeStaticRegisterScript(module)
 }
 
 export default function(source) {
-  const resourceUrl = pathToFileURL(this.resourcePath);
+  const options = this.getOptions();
+
+  const resourceUrl = url.pathToFileURL(this.resourcePath);
   const callback = this.async();
 	(async () => {
+    const templatesEntries = {};
+    for (const [key, val] of Object.entries(options)) {
+      templatesEntries[key] = await import(val);
+    }
     const module = await import(resourceUrl);
-		return await makeStaticRegisterScript(module);
+		return await makeStaticRegisterScript(module, templatesEntries);
 	})().then((res) => callback(undefined, res), (err) => callback(err));
 }
