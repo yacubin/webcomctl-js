@@ -43,6 +43,14 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
 }
 
+.${clss.ROOT_CLASS} h5
+{
+  font-size: 1em;
+  margin: 0px;
+  padding: 0px;
+}
+
+
 .${clss.ROOT_CLASS}
 {
   display: block;
