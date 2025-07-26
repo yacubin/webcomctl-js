@@ -62,8 +62,8 @@ ${DARKMODE_SELECTOR_VALUE}
   left: 20px;
   width: max-content;
   padding-top: 10px;
-  color: var(--rpanel-col);
-  background-color: var(--rpanel-bg);
+  color: ${vars.rpanel_col.asVar()};
+  background-color: ${vars.rpanel_bg.asVar()};
 }
 
 .${clss.ROOT_CLASS} > div
@@ -71,6 +71,9 @@ ${DARKMODE_SELECTOR_VALUE}
   display: block;
   padding: 20px 30px 20px 30px;
   font-weight: 400;
+  border: 1px solid ${rpanel_bor};
+  box-shadow: ${vars.rpanel_bs.asVar()};
+  border-radius: 3px;
 }
 
 .${clss.ROOT_CLASS} > div > span
