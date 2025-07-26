@@ -42,6 +42,12 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+.${clss.ROOT_CLASS} u
+{
+  text-decoration: none;
+  font-weight: 400;
+}
+
 .${clss.ROOT_CLASS} * 
 {
   box-sizing: border-box;
@@ -89,6 +95,26 @@ ${DARKMODE_SELECTOR_VALUE}
     padding: 20px 30px 20px 30px;
 }
 
+.${clss.ROOT_CLASS} > div span > div
+{
+    display: table-row-group;
+}
+
+.${clss.ROOT_CLASS} > div span div h5, 
+.${clss.ROOT_CLASS} > div span div u 
+{
+  display: table-cell;
+}
+
+.${clss.ROOT_CLASS}> div span div h5 
+{
+    font-weight: 400;
+}
+
+.${clss.ROOT_CLASS} > div span div u  
+{
+    padding-left: 15px;
+}
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
 {

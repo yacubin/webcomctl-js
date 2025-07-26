@@ -231,6 +231,20 @@ div.${clss.DOCUMENT} > b > h4 + h4
   width: max-content;
 }
 
+.${clss.NEW_SYMBOLS} > s > h5
+{
+  line-height: 15px;
+  font-size: 1.13em;
+  font-weight: 600;
+  position: relative;
+  top: 8px;
+  left: 20px;
+  width: max-content;
+  padding-top: 10px;
+  color: ${vars.rpanel_col.asVar()};
+  background-color: ${vars.rpanel_bg.asVar()};
+}
+
 .${clss.DOCUMENT} .${clss.NEW_SYMBOLS}
 {
   container-name: sidebar;

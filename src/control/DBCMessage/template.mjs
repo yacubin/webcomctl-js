@@ -116,6 +116,18 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   padding-top: 15px;
   font-family: ${TOOLBAR_DBC_FONT_SANS};
+  color: ${vars.rpanel_col.asVar()};
+}
+
+.${clss.ROOT_CLASS} > h4 
+{
+  font-size: 1.67em;
+  font-weight: 600;
+  text-decoration: none;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+  contain: paint;
+  margin-bottom: 10px;
 }
 
 .${clss.ROOT_CLASS},
