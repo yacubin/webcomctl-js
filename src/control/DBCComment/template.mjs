@@ -15,6 +15,7 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
+  "dbc_comment_root",
 ]);
 
 mk.newHTML('ROOT_HTML', `
