@@ -1,6 +1,10 @@
-import ControlMaker from '@/lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+
 import { DARKMODE_SELECTOR_VALUE } from '@/lib/DarkMode.mjs';
 import { TOOLBAR_FONT_SANS } from '@/lib/WickedTheme.mjs';
+
+import closeSvg from "./X.svg";
 
 const mk = new ControlMaker('TipInfoBlock', import.meta.url);
 
@@ -22,7 +26,7 @@ const vars = mk.newCSSVariableMap({
   menuTitleCol: [ '#272626', '#9b9b9b' ],
 });
 
-const CLOSE_IMG = await mk.loadSvgAsCssUrl('./X.svg');
+const CLOSE_IMG = convertSvgToCssUrl(closeSvg);
 const CLOSE_HOV_COL = '#80808042';
 
 mk.newHTML('ROOT_HTML', `

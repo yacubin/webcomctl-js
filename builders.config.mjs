@@ -32,7 +32,7 @@ export default async (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
+          test: /\.tsx?$/i,
           exclude: path.join(__dirname, "node_modules"),
           use: [
             {
@@ -43,16 +43,25 @@ export default async (env, argv) => {
             }
           ],
         },
+        {
+          test: /\.svg$/i,
+          use: "raw-loader",
+        },
       ],
     },
     output: {
-      chunkFormat: 'module',
+      chunkFormat: "module",
       library: {
-        type: 'module',
+        type: "module",
       },
+      module: true,
+      iife: false,
       path: outputPath,
       filename: 'builders.mjs',
       clean: true,
+    },
+    optimization: {
+        minimize: false,
     },
     experiments: {
       outputModule: true,

@@ -27,14 +27,15 @@
     "build-controls-debug": "webpack --config controls.config.mjs --mode=development --output-path=dist",
     "build-controls-release": "webpack --config controls.config.mjs --mode=production --output-path=dist",
     "build:debug": "npm run build-builders-debug && npm run build-templates-debug && npm run build-controls-debug",
-    "build:release":  "npm run build-builders-release && npm run build-templates-release && npm run build-controls-release"
+    "build:release": "npm run build-builders-release && npm run build-templates-release && npm run build-controls-release"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ykbin/webcomctl-js.git"
   },
   "keywords": [
-    "web", "node"
+    "web",
+    "node"
   ],
   "author": "Yurii Yakubin",
   "bugs": {
@@ -42,12 +43,13 @@
   },
   "homepage": "https://github.com/ykbin/webcomctl-js#readme",
   "dependencies": {
-    "webnetq-js": "github:ykbin/webnetq-js",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4",
+    "svgo": "^3.3.2",
+    "raw-loader": "^4.0.2",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
-    "svgo": "^3.3.2"
+    "webnetq-js": "github:ykbin/webnetq-js#20250721_types",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
   }

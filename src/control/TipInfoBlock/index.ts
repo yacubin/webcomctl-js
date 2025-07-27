@@ -1,5 +1,4 @@
-// @ts-ignore
-import { BaseControl, NQDOM } from 'webnetq-js';
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
 import { CLOSE_CLASS, PULL_OUT_ON, PULL_OUT_RIGHT, PULL_OUT_LEFT } from 'uictmplt-loader!./template.ts';
 
@@ -20,11 +19,11 @@ function sydeTypeToClassName(sideType: SideType) {
 };
 
 export class TipInfoBlock extends BaseControl {
-  _closeElm?: HTMLElement;
-  _visible = false;
-  _sideType = SideType.NONE_SIDE;
+  private _closeElm?: HTMLElement;
+  private _visible = false;
+  private _sideType = SideType.NONE_SIDE;
 
-  _init() {
+  protected _init() {
     const element = (this as any).element as HTMLElement; // FIXME
     this._visible = element.classList.contains(PULL_OUT_ON);
     if (element.classList.contains(PULL_OUT_RIGHT))
@@ -37,11 +36,11 @@ export class TipInfoBlock extends BaseControl {
     this._closeElm && this._closeElm.addEventListener("click", () => this.visible = false);
   }
 
-  get visible() {
+  public get visible() {
     return this._visible;
   }
 
-  set visible(value) {
+  public set visible(value) {
     const element = (this as any).element as HTMLElement; // FIXME
     if (this._visible != value) {
       const method = value ? 'add' : 'remove';
@@ -50,11 +49,11 @@ export class TipInfoBlock extends BaseControl {
     }
   }
 
-  get sideType() {
+  public get sideType() {
     return this._sideType;
   }
 
-  set sideType(value) {
+  public set sideType(value) {
     const element = (this as any).element as HTMLElement; // FIXME
     if (this._sideType != value) {
       this.visible = false;

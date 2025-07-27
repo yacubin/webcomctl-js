@@ -29,19 +29,24 @@ const htmlPlugins = [
   { name: 'removeViewBox', active: false },
 ];
 
-export async function loadSvgAsCssUrlAsync(metaUrl, filename) {
-  const currentFilename = fileURLToPath(metaUrl);
-  const currentDirname = path.dirname(currentFilename);
-  
-  const fname = path.resolve(currentDirname, filename);
-  const bytes = await readFile(fname, { encoding: 'utf8', flag: 'r' });
-  const optimizeSvg = svgo.optimize(bytes, { plugins: xmlCssPlugins });
+export function convertSvgToCssUrl(data) {
+  const optimizeSvg = svgo.optimize(data, { plugins: xmlCssPlugins });
   
   const svgUriData1 = 'data:image/svg+xml,' +  encodeURIComponent(optimizeSvg.data);
   const svgUriData2 = 'data:image/svg+xml;base64,' +  Buffer.from(optimizeSvg.data).toString('base64');
 
   const svgUriData = svgUriData1.length < svgUriData2.length ? svgUriData1 : svgUriData2;
   return `url("${svgUriData}")`;
+}
+
+export async function loadSvgAsCssUrlAsync(metaUrl, filename) {
+  const currentFilename = fileURLToPath(metaUrl);
+  const currentDirname = path.dirname(currentFilename);
+  
+  const fname = path.resolve(currentDirname, filename);
+  const bytes = await readFile(fname, { encoding: 'utf8', flag: 'r' });
+
+  return convertSvgToCssUrl(bytes);
 }
 
 export async function loadSvgAsHtmlAsync(metaUrl, filename) {
