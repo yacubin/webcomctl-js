@@ -1,5 +1,4 @@
-// @ts-ignore
-import { NQDOM, BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
 import { ITEM_HTML, TITLE_CLASS, TEXT_CLASS, CLOSE_CLASS, INFO_CLASS, WARNING_CLASS, SUCCESS_CLASS, ERROR_CLASS } from 'uictmplt-loader!./template.ts';
 
@@ -10,17 +9,33 @@ import { LOGGER_ERROR_TITLE } from "@/lib/Logger";
 
 const createMessage = (level: string, title: string, text: string) => {
   const element = NQDOM.createElement(ITEM_HTML);
+  if (!element)
+    return;
+
   element.classList.add(level);
 
-  NQDOM.getElementByClassName(element, TITLE_CLASS).textContent = title;
-  NQDOM.getElementByClassName(element, TEXT_CLASS).textContent = text;
-  NQDOM.getElementByClassName(element, CLOSE_CLASS).addEventListener("click", () => element.remove());
+  const titleElm = NQDOM.getElementByClassName(element, TITLE_CLASS);
+  if (titleElm)
+    titleElm.textContent = title;
+
+  const textElm = NQDOM.getElementByClassName(element, TEXT_CLASS)
+  if (textElm)
+    textElm.textContent = text;
+
+  const closeElm = NQDOM.getElementByClassName(element, CLOSE_CLASS);
+  if (closeElm)
+    closeElm.addEventListener("click", () => element.remove());
 
   return element;
 };
 
 export class Logger extends BaseControl {
-  _init(this: any) {
+  public info!: (...args: any[]) => void;
+  public success!: (...args: any[]) => void;
+  public warning!: (...args: any[]) => void;
+  public error!: (...args: any[]) => void;
+
+  protected _init(this: any) {
     const log = (title: string, level: string, logFunc: Function, ...args: any) => {
       logFunc.apply(null, [ title, "-", ...args ]);
       const messageElm = createMessage(level, title, args.join(' '));

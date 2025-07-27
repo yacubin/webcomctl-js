@@ -48,13 +48,18 @@ export default async (env, argv) => {
       ],
     },
     output: {
-      chunkFormat: 'module',
+      chunkFormat: "module",
       library: {
-        type: 'module',
+        type: "module",
       },
+      module: true,
+      iife: false,
       path: outputPath,
       filename: 'templates.mjs',
       // clean: true,
+    },
+    optimization: {
+        minimize: false,
     },
     experiments: {
       outputModule: true,

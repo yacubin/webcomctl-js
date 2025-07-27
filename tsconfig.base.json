@@ -12,6 +12,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "types": [
+      "./src/global.d.ts"
+    ],
     "paths": {
       "@/*": [
         "./src/*"

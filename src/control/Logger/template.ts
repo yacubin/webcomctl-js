@@ -1,7 +1,14 @@
 import ControlMaker from '@/lib/ControlMaker.mjs';
-import { TOOLBAR_FONT_SANS } from '@/lib/WickedTheme.mjs';
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
+import { TOOLBAR_FONT_SANS } from '@/lib/WickedTheme.mjs';
 import { COMMON_MOBILE_DEVICE_WIDTH } from '@/lib/WickedTheme.mjs';
+
+import levelErrorSvg from "./level-error.svg";
+import levelWarningSvg from "./level-warning.svg";
+import levelSuccessSvg from "./level-success.svg";
+import levelInfoSvg from "./level-info.svg";
+import closeSvg from "./close.svg";
 
 const mk = new ControlMaker('Logger', import.meta.url);
 
@@ -19,11 +26,11 @@ const clss: any = mk.newClassNameMap([
 const ANIME1 = mk.newAnimationName("Anime1");
 const ANIME2 = mk.newAnimationName("Anime2");
 
-const ERROR_IMG = await mk.loadSvgAsCssUrl('./level-error.svg');
-const WARNING_IMG = await mk.loadSvgAsCssUrl('./level-warning.svg');
-const SUCCESS_IMG = await mk.loadSvgAsCssUrl('./level-success.svg');
-const INFO_IMG = await mk.loadSvgAsCssUrl('./level-info.svg');
-const CLOSE_IMG = await mk.loadSvgAsCssUrl('./close.svg');
+const ERROR_IMG = convertSvgToCssUrl(levelErrorSvg);
+const WARNING_IMG = convertSvgToCssUrl(levelWarningSvg);
+const SUCCESS_IMG = convertSvgToCssUrl(levelSuccessSvg);
+const INFO_IMG = convertSvgToCssUrl(levelInfoSvg);
+const CLOSE_IMG = convertSvgToCssUrl(closeSvg);
 
 const ERROR_HOVER_COLOR = '#df8181d4';
 const WARNING_HOVER_COLOR = '#dfb881d4';
