@@ -1,7 +1,6 @@
 import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
 const mk = new ControlMaker('DBCContentBlock', import.meta.url);
 
 const vars = mk.newCSSVariableMap({
@@ -10,6 +9,15 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
+  "dbc_view_document",
+  "dbc_view_message",
+  "dbc_view_signal",
+  "dbc_view_group",
+  "dbc_comment_root",
+  "dbc_comment_text",
+  "dbc_attributes_root",
+  "dbc_attributes_list",
+  "dbc_group_signals", 
 ]);
 
 mk.newHTML('ROOT_HTML', `
