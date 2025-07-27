@@ -47,7 +47,7 @@
     "raw-loader": "^4.0.2",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
-    "webnetq-js": "github:ykbin/webnetq-js#20250721_types",
+    "webnetq-js": "github:ykbin/webnetq-js",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   },
