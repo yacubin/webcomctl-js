@@ -1,19 +1,24 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
 export class DBCMessage extends BaseControl {
   _idxElm;
+  _sizeElm;
 
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
+    this._sizeElm = NQDOM.getElementByClassName(this.element, SIZE_CLASS);
   }
 
   setValue(params) {
     if (this._idxElm) {
       this._idxElm.innerHTML = toHexString(params.id) + ` (${params.idBits}-bits)`;
+    }
+    if (this._sizeElm) {
+      this._sizeElm.innerHTML = params.size;
     }
     /*NQDOM.setTextContent(CONST.ID.SIZE, params.size);
     NQDOM.setTextContent(CONST.ID.PSEUDO, params.isPseudo ? "Yes" : "No");
