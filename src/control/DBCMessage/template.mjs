@@ -19,8 +19,8 @@ const clss = mk.newClassNameMap([
   "message",
   "title_message",
   "SIZE_CLASS",
-  "message_pseudo",
-  "message_transmitters",
+  "PSEUDO_CLASS",
+  "TRANSMITTERS_CLASS",
   "message_cycletime",
   "message_pdu_root",
   "message_pdu_format",
@@ -46,10 +46,10 @@ mk.newHTML('ROOT_HTML', `
           <h5>DLC:</h5><u class="${clss.SIZE_CLASS}"></u>
         </div>
         <div>
-          <h5>Pseudo:</h5><u class="${clss.message_pseudo}"></u>
+          <h5>Pseudo:</h5><u class="${clss.PSEUDO_CLASS}"></u>
         </div>
         <div>
-          <h5>Senders:</h5><u class="${clss.message_transmitters}"></u>
+          <h5>Senders:</h5><u class="${clss.TRANSMITTERS_CLASS}"></u>
         </div>
         <div>
           <h5>Cycle time:</h5><u class="${clss.message_cycletime}"></u>

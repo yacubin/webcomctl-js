@@ -1,16 +1,19 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
 export class DBCMessage extends BaseControl {
   _idxElm;
   _sizeElm;
+  _pseudoElm;
+  _transmittersElm;
 
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
     this._sizeElm = NQDOM.getElementByClassName(this.element, SIZE_CLASS);
+    this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
   }
 
   setValue(params) {
@@ -20,8 +23,13 @@ export class DBCMessage extends BaseControl {
     if (this._sizeElm) {
       this._sizeElm.innerHTML = params.size;
     }
-    /*NQDOM.setTextContent(CONST.ID.SIZE, params.size);
-    NQDOM.setTextContent(CONST.ID.PSEUDO, params.isPseudo ? "Yes" : "No");
+    if (this._pseudoElm) {
+      this._pseudoElm.innerHTML = params.isPseudo ? "Yes" : "No";
+    }
+    if (this._transmittersElm) {
+      this._transmittersElm.innerHTML = params.transmitters ? params.transmitters.join(", ") : "";
+    }
+    /*
     NQDOM.setTextContent(CONST.ID.TRANSMITTERS, params.transmitters ? params.transmitters.join(", ") : "");
     NQDOM.setTextContent(CONST.ID.CYCLETIME, params.cycleTime ? params.cycleTime + " ms" : "<null>");
     if (params.pdu) {
