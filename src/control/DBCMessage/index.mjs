@@ -1,4 +1,31 @@
 import { BaseControl } from 'webnetq-js';
+import { NQDOM } from "webnetq-js";
+import { IDX_CLASS } from 'uictmplt-loader!./template.mjs';
+
+const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
 export class DBCMessage extends BaseControl {
+  _idxElm;
+
+  _init() {
+    this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
+  }
+
+  setValue(params) {
+    if (this._idxElm) {
+      this._idxElm.innerHTML = toHexString(params.id) + ` (${params.idBits}-bits)`;
+    }
+    /*NQDOM.setTextContent(CONST.ID.SIZE, params.size);
+    NQDOM.setTextContent(CONST.ID.PSEUDO, params.isPseudo ? "Yes" : "No");
+    NQDOM.setTextContent(CONST.ID.TRANSMITTERS, params.transmitters ? params.transmitters.join(", ") : "");
+    NQDOM.setTextContent(CONST.ID.CYCLETIME, params.cycleTime ? params.cycleTime + " ms" : "<null>");
+    if (params.pdu) {
+      NQDOM.setTextContent(CONST.ID.PDU_FORMAT, "PDU" + params.pdu.version);
+      NQDOM.setTextContent(CONST.ID.PDU_PGN, toHexString(params.pdu.pgn, 5));
+      NQDOM.setTextContent(CONST.ID.PDU_PRIORITY, params.pdu.priority);
+      NQDOM.setTextContent(CONST.ID.PDU_SA, toHexString(params.pdu.sa, 2));
+      NQDOM.setTextContent(CONST.ID.PDU_DA, toHexString(params.pdu.da, 2));
+   }
+    setStyleDisplay(CONST.ID.PDU_ROOT, !!params.pdu);*/
+  }
 };
