@@ -60,7 +60,7 @@ mk.newHTML('ROOT_HTML', `
         <h6>Protocol data unit</h6>
         <span>
           <span>Format:</span><span class="${clss.PDU_FORMAT_CLASS}"></span>
-          <span>PGN:</span><span class="${clss.PDU_PGN}"></span>
+          <span>PGN:</span><span class="${clss.PDU_PGN_CLASS}"></span>
           <span>Priority:</span><span class="${clss.message_pdu_priority}"></span>
           <span>Destination:</span><span class="${clss.message_pdu_da}"></span>
           <span>Source:</span><span class="${clss.message_pdu_sa}"></span>
