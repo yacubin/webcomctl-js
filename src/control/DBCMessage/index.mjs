@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS, PDU_PGN_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
@@ -12,6 +12,7 @@ export class DBCMessage extends BaseControl {
   _cycletimeElm;
   _pduFormatElm;
   _pduPgnElm;
+  _pduPriorityElm;
 
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
@@ -21,6 +22,7 @@ export class DBCMessage extends BaseControl {
     this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS);
     this._pduFormatElm = NQDOM.getElementByClassName(this.element, PDU_FORMAT_CLASS);
     this._pduPgnElm = NQDOM.getElementByClassName(this.element, PDU_PGN_CLASS);
+    this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
   }
 
   setValue(params) {
@@ -46,10 +48,11 @@ export class DBCMessage extends BaseControl {
       if (this._pduPgnElm) {
         this._pduPgnElm.innerHTML = toHexString(params.pdu.pgn, 5);
       }
-
+      if (this._pduPriorityElm) {
+        this._pduPriorityElm.innerHTML = params.pdu.priority;
+      }
     }
       /*
-      NQDOM.setTextContent(CONST.ID.PDU_PGN, toHexString(params.pdu.pgn, 5));
       NQDOM.setTextContent(CONST.ID.PDU_PRIORITY, params.pdu.priority);
       NQDOM.setTextContent(CONST.ID.PDU_SA, toHexString(params.pdu.sa, 2));
       NQDOM.setTextContent(CONST.ID.PDU_DA, toHexString(params.pdu.da, 2));
