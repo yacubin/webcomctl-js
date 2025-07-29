@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
@@ -15,7 +15,7 @@ export class DBCMessage extends BaseControl {
     this._sizeElm = NQDOM.getElementByClassName(this.element, SIZE_CLASS);
     this._pseudoElm = NQDOM.getElementByClassName(this.element, PSEUDO_CLASS);
     this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
-    this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS_CLASS);
+    this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS);
   }
 
   setValue(params) {
