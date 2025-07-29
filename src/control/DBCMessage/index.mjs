@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
@@ -8,7 +8,9 @@ export class DBCMessage extends BaseControl {
   _idxElm;
   _sizeElm;
   _pseudoElm;
+  _transmittersElm;
   _cycletimeElm;
+  _pduFormatElm;
 
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
@@ -16,6 +18,7 @@ export class DBCMessage extends BaseControl {
     this._pseudoElm = NQDOM.getElementByClassName(this.element, PSEUDO_CLASS);
     this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
     this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS);
+    this._pduFormatElm = NQDOM.getElementByClassName(this.element, PDU_FORMAT_CLASS);
   }
 
   setValue(params) {
@@ -34,8 +37,13 @@ export class DBCMessage extends BaseControl {
     if (this._cycletimeElm) {
       this._cycletimeElm.innerHTML = params.cycleTime ? params.cycleTime + " ms" : "<null>";
     }
-    /*
     if (params.pdu) {
+      if (this._pduFormatElm) {
+        this._pduFormatElm.innerHTML = "PDU" + params.pdu.version;
+      }
+      
+    }
+      /*
       NQDOM.setTextContent(CONST.ID.PDU_FORMAT, "PDU" + params.pdu.version);
       NQDOM.setTextContent(CONST.ID.PDU_PGN, toHexString(params.pdu.pgn, 5));
       NQDOM.setTextContent(CONST.ID.PDU_PRIORITY, params.pdu.priority);

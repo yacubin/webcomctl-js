@@ -23,7 +23,7 @@ const clss = mk.newClassNameMap([
   "TRANSMITTERS_CLASS",
   "CYCLETIME_CLASS",
   "message_pdu_root",
-  "message_pdu_format",
+  "PDU_FORMAT_CLASS",
   "message_pdu_pgn",
   "message_pdu_priority",
   "message_pdu_da",
@@ -59,7 +59,7 @@ mk.newHTML('ROOT_HTML', `
       <s class="${clss.message_pdu_root}">
         <h6>Protocol data unit</h6>
         <span>
-          <span>Format:</span><span class="${clss.message_pdu_format}"></span>
+          <span>Format:</span><span class="${clss.PDU_FORMAT_CLASS}"></span>
           <span>PGN:</span><span class="${clss.message_pdu_pgn}"></span>
           <span>Priority:</span><span class="${clss.message_pdu_priority}"></span>
           <span>Destination:</span><span class="${clss.message_pdu_da}"></span>
