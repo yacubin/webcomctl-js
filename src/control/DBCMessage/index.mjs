@@ -11,6 +11,7 @@ export class DBCMessage extends BaseControl {
   _transmittersElm;
   _cycletimeElm;
   _pduFormatElm;
+  _pduPgnElm;
 
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
@@ -19,7 +20,7 @@ export class DBCMessage extends BaseControl {
     this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
     this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS);
     this._pduFormatElm = NQDOM.getElementByClassName(this.element, PDU_FORMAT_CLASS);
-    this._pduPgn = NQDOM.getElementByClassName(this.element, PDU_PGN_CLASS);
+    this._pduPgnElm = NQDOM.getElementByClassName(this.element, PDU_PGN_CLASS);
   }
 
   setValue(params) {
@@ -42,10 +43,10 @@ export class DBCMessage extends BaseControl {
       if (this._pduFormatElm) {
         this._pduFormatElm.innerHTML = "PDU" + params.pdu.version;
       }
-      if (_pduPgn) {
-        this._pduPgn.innerHTML = toHexString(params.pdu.pgn, 5);
+      if (this._pduPgnElm) {
+        this._pduPgnElm.innerHTML = toHexString(params.pdu.pgn, 5);
       }
-      
+
     }
       /*
       NQDOM.setTextContent(CONST.ID.PDU_PGN, toHexString(params.pdu.pgn, 5));
