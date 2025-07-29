@@ -13,6 +13,7 @@ export class DBCMessage extends BaseControl {
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
     this._sizeElm = NQDOM.getElementByClassName(this.element, SIZE_CLASS);
+    this._pseudoElm = NQDOM.getElementByClassName(this.element, PSEUDO_CLASS);
     this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
   }
 
