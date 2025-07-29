@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS, PDU_SA_CLASS, PDU_DA_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS, PDU_SA_CLASS, PDU_DA_CLASS, PDU_ROOT_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
@@ -10,6 +10,7 @@ export class DBCMessage extends BaseControl {
   _pseudoElm;
   _transmittersElm;
   _cycletimeElm;
+  _pduRootElm;
   _pduFormatElm;
   _pduPgnElm;
   _pduPriorityElm;
@@ -22,6 +23,7 @@ export class DBCMessage extends BaseControl {
     this._pseudoElm = NQDOM.getElementByClassName(this.element, PSEUDO_CLASS);
     this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
     this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS);
+    this._pduRootElm = NQDOM.getElementByClassName(this.element, PDU_ROOT_CLASS);
     this._pduFormatElm = NQDOM.getElementByClassName(this.element, PDU_FORMAT_CLASS);
     this._pduPgnElm = NQDOM.getElementByClassName(this.element, PDU_PGN_CLASS);
     this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
@@ -62,7 +64,8 @@ export class DBCMessage extends BaseControl {
         this._pduDaElm.innerHTML = toHexString(params.pdu.da, 2);
       }
     }
-    /*
-    setStyleDisplay(CONST.ID.PDU_ROOT, !!params.pdu);*/
+    if (this._pduRootElm) {
+      this._pduRootElm.style.display = params.pdu ? "" : "none";
+    }
   }
 };
