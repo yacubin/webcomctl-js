@@ -21,7 +21,7 @@ const clss = mk.newClassNameMap([
   "SIZE_CLASS",
   "PSEUDO_CLASS",
   "TRANSMITTERS_CLASS",
-  "message_cycletime",
+  "CYCLETIME_CLASS",
   "message_pdu_root",
   "message_pdu_format",
   "message_pdu_pgn",
@@ -52,7 +52,7 @@ mk.newHTML('ROOT_HTML', `
           <h5>Senders:</h5><u class="${clss.TRANSMITTERS_CLASS}"></u>
         </div>
         <div>
-          <h5>Cycle time:</h5><u class="${clss.message_cycletime}"></u>
+          <h5>Cycle time:</h5><u class="${clss.CYCLETIME_CLASS}"></u>
         </div>
       </span>
 
