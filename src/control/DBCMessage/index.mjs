@@ -31,8 +31,8 @@ export class DBCMessage extends BaseControl {
     if (this._transmittersElm) {
       this._transmittersElm.innerHTML = params.transmitters ? params.transmitters.join(", ") : "";
     }
-    if (this.__cycletimeElm) {
-      this._transmittersElm.innerHTML = params.cycleTime ? params.cycleTime + " ms" : "<null>";
+    if (this._cycletimeElm) {
+      this._cycletimeElm.innerHTML = params.cycleTime ? params.cycleTime + " ms" : "<null>";
     }
     /*
     if (params.pdu) {
