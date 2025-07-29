@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS, PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS, PDU_SA_CLASS, PDU_DA_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
@@ -13,6 +13,8 @@ export class DBCMessage extends BaseControl {
   _pduFormatElm;
   _pduPgnElm;
   _pduPriorityElm;
+  _pduSaElm;
+  _pduDaElm;
 
   _init() {
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
@@ -23,6 +25,8 @@ export class DBCMessage extends BaseControl {
     this._pduFormatElm = NQDOM.getElementByClassName(this.element, PDU_FORMAT_CLASS);
     this._pduPgnElm = NQDOM.getElementByClassName(this.element, PDU_PGN_CLASS);
     this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
+    this._pduSaElm = NQDOM.getElementByClassName(this.element, PDU_SA_CLASS);
+    this._pduDaElm = NQDOM.getElementByClassName(this.element, PDU_DA_CLASS);
   }
 
   setValue(params) {
@@ -51,12 +55,14 @@ export class DBCMessage extends BaseControl {
       if (this._pduPriorityElm) {
         this._pduPriorityElm.innerHTML = params.pdu.priority;
       }
+      if (this._pduSaElm) {
+        this._pduSaElm.innerHTML = toHexString(params.pdu.sa, 2);
+      }
+      if (this._pduDaElm) {
+        this._pduDaElm.innerHTML = toHexString(params.pdu.da, 2);
+      }
     }
-      /*
-      NQDOM.setTextContent(CONST.ID.PDU_PRIORITY, params.pdu.priority);
-      NQDOM.setTextContent(CONST.ID.PDU_SA, toHexString(params.pdu.sa, 2));
-      NQDOM.setTextContent(CONST.ID.PDU_DA, toHexString(params.pdu.da, 2));
-   }
+    /*
     setStyleDisplay(CONST.ID.PDU_ROOT, !!params.pdu);*/
   }
 };

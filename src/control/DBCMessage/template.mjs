@@ -26,8 +26,8 @@ const clss = mk.newClassNameMap([
   "PDU_FORMAT_CLASS",
   "PDU_PGN_CLASS",
   "PDU_PRIORITY_CLASS",
-  "message_pdu_da",
-  "message_pdu_sa",
+  "PDU_DA_CLASS",
+  "PDU_SA_CLASS",
   "IDX_CLASS",
 ]);
 
@@ -62,8 +62,8 @@ mk.newHTML('ROOT_HTML', `
           <span>Format:</span><span class="${clss.PDU_FORMAT_CLASS}"></span>
           <span>PGN:</span><span class="${clss.PDU_PGN_CLASS}"></span>
           <span>Priority:</span><span class="${clss.PDU_PRIORITY_CLASS}"></span>
-          <span>Destination:</span><span class="${clss.message_pdu_da}"></span>
-          <span>Source:</span><span class="${clss.message_pdu_sa}"></span>
+          <span>Destination:</span><span class="${clss.PDU_DA_CLASS}"></span>
+          <span>Source:</span><span class="${clss.PDU_SA_CLASS}"></span>
         </span>
       </s>
 
