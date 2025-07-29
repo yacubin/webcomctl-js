@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME } from 'uictmplt-loader!./template.mjs';
+import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS_CLASS } from 'uictmplt-loader!./template.mjs';
 
 const toHexString = (value, targetLength)  => "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 
