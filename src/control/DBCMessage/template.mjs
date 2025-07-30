@@ -18,17 +18,17 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "message",
   "title_message",
-  "message_idx",
-  "message_size",
-  "message_pseudo",
-  "message_transmitters",
-  "message_cycletime",
-  "message_pdu_root",
-  "message_pdu_format",
-  "message_pdu_pgn",
-  "message_pdu_priority",
-  "message_pdu_da",
-  "message_pdu_sa",
+  "SIZE_CLASS",
+  "PSEUDO_CLASS",
+  "TRANSMITTERS_CLASS",
+  "CYCLETIME_CLASS",
+  "PDU_ROOT_CLASS",
+  "PDU_FORMAT_CLASS",
+  "PDU_PGN_CLASS",
+  "PDU_PRIORITY_CLASS",
+  "PDU_DA_CLASS",
+  "PDU_SA_CLASS",
+  "IDX_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -40,30 +40,30 @@ mk.newHTML('ROOT_HTML', `
     <b>
       <span>
         <div>
-          <h5>ID:</h5><u class="${clss.message_idx}"></u>
+          <h5>ID:</h5><u class="${clss.IDX_CLASS}"></u>
         </div>
         <div>
-          <h5>DLC:</h5><u class="${clss.message_size}"></u>
+          <h5>DLC:</h5><u class="${clss.SIZE_CLASS}"></u>
         </div>
         <div>
-          <h5>Pseudo:</h5><u class="${clss.message_pseudo}"></u>
+          <h5>Pseudo:</h5><u class="${clss.PSEUDO_CLASS}"></u>
         </div>
         <div>
-          <h5>Senders:</h5><u class="${clss.message_transmitters}"></u>
+          <h5>Senders:</h5><u class="${clss.TRANSMITTERS_CLASS}"></u>
         </div>
         <div>
-          <h5>Cycle time:</h5><u class="${clss.message_cycletime}"></u>
+          <h5>Cycle time:</h5><u class="${clss.CYCLETIME_CLASS}"></u>
         </div>
       </span>
 
-      <s class="${clss.message_pdu_root}">
+      <s class="${clss.PDU_ROOT_CLASS}">
         <h6>Protocol data unit</h6>
         <span>
-          <span>Format:</span><span class="${clss.message_pdu_format}"></span>
-          <span>PGN:</span><span class="${clss.message_pdu_pgn}"></span>
-          <span>Priority:</span><span class="${clss.message_pdu_priority}"></span>
-          <span>Destination:</span><span class="${clss.message_pdu_da}"></span>
-          <span>Source:</span><span class="${clss.message_pdu_sa}"></span>
+          <span>Format:</span><span class="${clss.PDU_FORMAT_CLASS}"></span>
+          <span>PGN:</span><span class="${clss.PDU_PGN_CLASS}"></span>
+          <span>Priority:</span><span class="${clss.PDU_PRIORITY_CLASS}"></span>
+          <span>Destination:</span><span class="${clss.PDU_DA_CLASS}"></span>
+          <span>Source:</span><span class="${clss.PDU_SA_CLASS}"></span>
         </span>
       </s>
 
