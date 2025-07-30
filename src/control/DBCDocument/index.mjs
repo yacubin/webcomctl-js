@@ -31,13 +31,13 @@ export class DBCDocument extends BaseControl {
       this._protocolElm.innerHTML = params.protocol;
     }
     if (this._newSymbolsListElm) {
-      nsymList.innerHTML = "";
+      this._newSymbolsListElm.innerHTML = "";
       let isDisplay = (params.newSymbols && params.newSymbols.length != 0);
       if (isDisplay) {
         params.newSymbols.forEach((iter) => {
           const element = document.createElement('div');
           element.textContent = iter;
-          nsymList.appendChild(element);
+          this._newSymbolsListElm.appendChild(element);
         });
       }
       this._newSymbolsElm.style.display = isDisplay ? "" : "none";
