@@ -1,12 +1,15 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
+
+import attentionSvg from "./attention.svg";
+
+const IMG = convertSvgToCssUrl(attentionSvg);
+
 const mk = new ControlMaker("Registration", import.meta.url);
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
 
-
-const IMG = await mk.loadSvgAsCssUrl('./attention.svg');
-
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "ENTER_REG",
   "ADD_DEV",
