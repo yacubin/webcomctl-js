@@ -18,9 +18,14 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "DOCUMENT",
   "TITLE_DOCUMENT",
-  "DOC_VERSION",
-  "DOC_PROTOCOL",
+  "VERSION_CLASS",
+  "PROTOCOL_CLASS",
   "NEW_SYMBOLS",
+  "NEW_SYMBOLS_LIST",
+  "BAUDRATE",
+  "BTR1",
+  "BTR2",
+  "BIT_TIMING",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -30,24 +35,24 @@ mk.newHTML('ROOT_HTML', `
     <h4>Document:<u class="${clss.TITLE_DOCUMENT}"></u></h4>
     
       <b>
-        <h4>Version:<u id="${clss.DOC_VERSION}"></u></h4>
-        <h4>Protocol:<u id="${clss.DOC_PROTOCOL}"></u></h4>
+        <h4>Version:<u class="${clss.VERSION_CLASS}"></u></h4>
+        <h4>Protocol:<u class="${clss.PROTOCOL_CLASS}"></u></h4>
                             
-        <s id="dbc-bittiming">
+        <s class="${clss.BIT_TIMING}">
         <h6>Bit Timing</h6>
           <span>
-            <span>Baudrate:</span><span id="dbc-bs-baudrate"></span>
-            <span>BTR1:</span><span id="dbc-bs-btr1"></span>
-            <span>BTR2:</span><span id="dbc-bs-btr2"></span>
+            <span>Baudrate:</span><span class="${clss.BAUDRATE}"></span>
+            <span>BTR1:</span><span class="${clss.BTR1}"></span>
+            <span>BTR2:</span><span class="${clss.BTR2}"></span>
           </span>
         </s>
 
       </b>
 
-      <div id="dbc-new-symbols-root" class="${clss.NEW_SYMBOLS}">
+      <div class="${clss.NEW_SYMBOLS}">
         <s>
           <h5>New Symbols</h5>
-          <div id="dbc-doc-nsymlist">
+          <div class="${clss.NEW_SYMBOLS_LIST}">
             <div>BA_DEF_</div>
             <div>BA_</div>
             <div>VAL_</div>
