@@ -1,5 +1,6 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { CLICK } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { CLICK } from "uictmplt-loader!./template.ts";
 
 const CLICK_EVENT = "click";
 

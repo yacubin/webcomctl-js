@@ -1,10 +1,13 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import info1Svg from "./info1.svg";
+import info2Svg from "./info2.svg";
 
 const mk = new ControlMaker('VertButtonInfo', import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "ACTIVE",
   "BLOCKING",
@@ -19,8 +22,8 @@ const vars = mk.newCSSVariableMap({
   nav_but_bs: [ '-5px 0 5px -5px #cfcfcf', '-5px 0 5px -5px #cfcfcf' ],
   nav_but_hov: [ 'radial-gradient(#e1e1e1, white 70%)', 'radial-gradient(#3d3d3d, rgb(23, 23, 26) 70%)' ],
   infoImg: [
-    await mk.loadSvgAsCssUrl('./info1.svg'),
-    await mk.loadSvgAsCssUrl('./info2.svg'),
+    convertSvgToCssUrl(info1Svg),
+    convertSvgToCssUrl(info2Svg),
   ],
 });
 
