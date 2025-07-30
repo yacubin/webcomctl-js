@@ -1,21 +1,22 @@
 import { BaseControl } from 'webnetq-js';
+import { NQDOM } from "webnetq-js";
 import { VERSION_CLASS, PROTOCOL_CLASS, NEW_SYMBOLS_LIST, NEW_SYMBOLS, BAUDRATE, BTR1, BTR2, BIT_TIMING } from 'uictmplt-loader!./template.mjs';
 
 export class DBCDocument extends BaseControl {
-  _nsymElm;
+  _newSymbolsElm;
   _versionElm;
   _protocolElm;
-  _nsymListElm;
+  _newSymbolsListElm;
   _baudrateElm;
   _btr1Elm;
   _btr2Elm;
   _bttTiming;
 
   _init() {
-    this._nsymElm = NQDOM.getElementByClassName(this.element, NEW_SYMBOLS);
+    this._newSymbolsElm = NQDOM.getElementByClassName(this.element, NEW_SYMBOLS);
     this._versionElm = NQDOM.getElementByClassName(this.element, VERSION_CLASS);
     this._protocolElm = NQDOM.getElementByClassName(this.element, PROTOCOL_CLASS);
-    this._nsymListElm = NQDOM.getElementByClassName(this.element, NEW_SYMBOLS_LIST);
+    this._newSymbolsListElm = NQDOM.getElementByClassName(this.element, NEW_SYMBOLS_LIST);
     this._baudrateElm = NQDOM.getElementByClassName(this.element, BAUDRATE);
     this._btr1Elm = NQDOM.getElementByClassName(this.element, BTR1);
     this._btr2Elm = NQDOM.getElementByClassName(this.element, BTR2);
@@ -29,7 +30,7 @@ export class DBCDocument extends BaseControl {
     if (this._protocolElm) {
       this._protocolElm.innerHTML = params.protocol;
     }
-    if (this._nsymListElm) {
+    if (this._newSymbolsListElm) {
       nsymList.innerHTML = "";
       let isDisplay = (params.newSymbols && params.newSymbols.length != 0);
       if (isDisplay) {
@@ -39,7 +40,7 @@ export class DBCDocument extends BaseControl {
           nsymList.appendChild(element);
         });
       }
-      this._nsymElm.style.display = isDisplay ? "" : "none";
+      this._newSymbolsElm.style.display = isDisplay ? "" : "none";
     }
 
     if (params.bitTiming) {
