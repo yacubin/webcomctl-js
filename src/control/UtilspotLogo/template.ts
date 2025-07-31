@@ -1,11 +1,13 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import utilspotSvg from "./utilspot.svg";
 
 const mk = new ControlMaker('UtilspotLogo', import.meta.url);
-const USHEADER_IMG = await mk.loadSvgAsCssUrl('./utilspot.svg');
+const USHEADER_IMG = await convertSvgToCssUrl(utilspotSvg);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 

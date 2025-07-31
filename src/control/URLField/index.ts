@@ -1,27 +1,29 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { ADDRESSES_INPUT, ADDRESSES_LIST, ADDRESSES_DISABLED, ADDRESSES_SHOW, CONNECT_BTN_ON, CONNECT_BTN_OFF } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { ADDRESSES_INPUT, ADDRESSES_LIST, ADDRESSES_DISABLED, ADDRESSES_SHOW, CONNECT_BTN_ON, CONNECT_BTN_OFF } from "uictmplt-loader!./template.ts";
 
 const STATECHANGED_EVENT = 'stateChanged';
 const URLCHANGED_EVENT = 'urlChanged';
 
 export class URLField extends BaseControl {
-  _disableURL;
-  _isShowURLs;
-  _address = "";
-  _inputElement;
-  _listElement;
-  _buttonElm;
-  _state = false;
+  private _disableURL = false;
+  private _isShowURLs = false;
+  private _state = false;
+  private _address = "";
+  private _inputElement?: HTMLInputElement;
+  private _listElement?: HTMLElement;
+  private _buttonElm?: HTMLInputElement;
 
-  _init()
+  protected _init()
   {
     this._listElement = NQDOM.getElementByClassName(this.element, ADDRESSES_LIST);
 
-    this._inputElement = NQDOM.getElementByClassName(this.element, ADDRESSES_INPUT);
+    this._inputElement = NQDOM.getElementByClassName(this.element, ADDRESSES_INPUT) as HTMLInputElement;
     if (this._inputElement) {
       let isClick = false;
       this._inputElement.addEventListener('click', () => {
-        this._setShowURLs(!!this._listElement.childElementCount && !this._isShowURLs);
+        const flag = !!this._listElement && (this._listElement.childElementCount > 0) && !this._isShowURLs;
+        this.showURLsImpl(flag);
         isClick = true;
       });
       window.addEventListener('click', () => {
@@ -30,20 +32,21 @@ export class URLField extends BaseControl {
       });
       this._inputElement.value = this._address;
       this._inputElement.addEventListener("change", (event) => {
-        this._address = event.target.value;
+        this._address = (event.target as HTMLInputElement).value;
       });
     }
 
     this._isShowURLs = this.element.classList.contains(ADDRESSES_SHOW);
     this._disableURL = this.element.classList.contains(ADDRESSES_DISABLED);
 
-    this._buttonElm = NQDOM.getElementByClassName(this.element, CONNECT_BTN_ON);
+    this._buttonElm = NQDOM.getElementByClassName(this.element, CONNECT_BTN_ON) as HTMLInputElement;
     if (this._buttonElm) {
+      const buttonElm = this._buttonElm;
       this._buttonElm.addEventListener('click', (event) => {
         const state = !this._state;
-        this._buttonElm.classList.toggle(CONNECT_BTN_ON, !state);
-        this._buttonElm.classList.toggle(CONNECT_BTN_OFF, state);
-        this._buttonElm.value = state ? "Disconnect" : "Connect";
+        buttonElm.classList.toggle(CONNECT_BTN_ON, !state);
+        buttonElm.classList.toggle(CONNECT_BTN_OFF, state);
+        buttonElm.value = state ? "Disconnect" : "Connect";
         this._state = state;
         this.dispatchEvent(STATECHANGED_EVENT, {state});
       });
@@ -53,21 +56,21 @@ export class URLField extends BaseControl {
     this.registerEvent(URLCHANGED_EVENT);
   }
 
-  get currentURL() { return this._address; }
-  set currentURL(value)
+  public get currentURL() { return this._address; }
+  public set currentURL(value)
   {
     if (this._inputElement)
       this._inputElement.value = value;
     this._address = value;
   }
 
-  get disableURL() { return this._disableURL; }
-  set disableURL(value)
+  public get disableURL() { return this._disableURL; }
+  public set disableURL(value)
   {
     this._disableURL = this.element.classList.toggle(ADDRESSES_DISABLED, value);
   }
 
-  appendURL(url)
+  public appendURL(url: string)
   {
     if (this._listElement) {
       const item = document.createElement("li");
@@ -83,27 +86,27 @@ export class URLField extends BaseControl {
     }
   }
 
-  clearURLs()
+  public clearURLs()
   {
     if (this._listElement) {
       this._listElement.textContent = "";
     }
   }
 
-  _setShowURLs(value)
+  private showURLsImpl(value: boolean)
   {
     if (this._isShowURLs != value) {
       this._isShowURLs = this.element.classList.toggle(ADDRESSES_SHOW, value);
     }
   }
 
-  showURLs()
+  public showURLs()
   {
-    this._setShowURLs(true);
+    this.showURLsImpl(true);
   }
 
-  hideURLs()
+  public hideURLs()
   {
-    this._setShowURLs(false);
+    this.showURLsImpl(false);
   }
 };
