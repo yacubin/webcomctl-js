@@ -1,23 +1,28 @@
-import { BaseControl } from 'webnetq-js';
-import { NUMBERS, CONTENT, OFFSET } from 'uictmplt-loader!./template.mjs';
+import { BaseControl } from "webnetq-js";
+// @ts-ignore
+import { NUMBERS, CONTENT, OFFSET } from "uictmplt-loader!./template.ts";
 
-const toHexString = (value, numPad) => value.toString(16).toUpperCase().padStart(numPad, '0');
+const toHexString = (value: number, numPad: number) => value.toString(16).toUpperCase().padStart(numPad, '0');
+
+interface Item {
+  type: string;
+  text: string;
+};
 
 export class TextContent extends BaseControl {
-  _init() {
-    this._numbersElm = null;
-    this._contentElm = null;
-    this._content = null;
-    this._scrollTop = null;
+  private _numbersElm!: HTMLElement | null;
+  private _contentElm!: HTMLElement | null;
+  private _scrollTop?: number;
 
+  protected _init() {
     this._numbersElm = this.element.querySelector("." + NUMBERS);
     this._numbersElm && (this._numbersElm.addEventListener("scroll", (e) => this._onScroll(e)));
     this._contentElm = this.element.querySelector("." + CONTENT);
     this._contentElm && (this._contentElm.addEventListener("scroll", (e) => this._onScroll(e)));
   }
 
-  _onScroll(e) {
-    const value = e.target.scrollTop;
+  private _onScroll(e: Event) {
+    const value = (e.target as HTMLElement).scrollTop;
     if (this._scrollTop !== value) {
       for (const element of [ this._contentElm, this._numbersElm])
         element && (element !== e.target) && (element.scrollTop = value);
@@ -25,10 +30,10 @@ export class TextContent extends BaseControl {
     }
   }
 
-  appendItem(number, content) {
+  public appendItem(number: number, content: string | Array<string | Item>) {
     if (this._numbersElm) {
       const li = document.createElement('li');
-      li.textContent = number;
+      li.textContent = number.toString();
       this._numbersElm.appendChild(li);
     }
     if (this._contentElm) {
@@ -57,8 +62,7 @@ export class TextContent extends BaseControl {
     }
   }
 
-  setContent(content) {
-    this._content = content;
+  public setContent(content: string | ArrayBuffer) {
     this._numbersElm && (this._numbersElm.innerHTML = "");
     this._contentElm && (this._contentElm.innerHTML = "");
     if (this._numbersElm || this._contentElm) {
@@ -73,7 +77,7 @@ export class TextContent extends BaseControl {
         let count = 0;
         for (let i = 0; i < bytes.length;) {
           const sz = Math.min(bytes.length - i, 16);
-          let list = [{
+          let list: Array<string | Item> = [{
             type: OFFSET,
             text: toHexString(i, 8),
           }];
