@@ -10,7 +10,7 @@ export class DBCComment extends BaseControl {
     this._commentTextElement = NQDOM.getElementByClassName(this.element, dbc_comment_text);
   }
 
-  setComment(text) {
+  setValue(text) {
     if (this._commentRootElement) {
       this._commentRootElement.style.display = text ? "" : "none";
     }
