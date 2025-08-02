@@ -25,7 +25,7 @@ const clss = mk.newClassNameMap([
   "MINIMUM_CLASS",
   "MAXIMUM_CLASS",
   "UNIT_CLASS",
-  "START_VALUE_CLAS",
+  "START_VALUE_CLASS",
   "RECEIVERS_CLASS",
 ]);
 

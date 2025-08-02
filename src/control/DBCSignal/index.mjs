@@ -1,6 +1,6 @@
 import { BaseControl } from 'webnetq-js';
 import { NQDOM } from "webnetq-js";
-import { STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS, FACTOR_CLASS, OFFSET_CLASS, MINIMUM_CLASS, MAXIMUM_CLASS, UNIT_CLASS, START_VALUE_CLAS, RECEIVERS_CLASS } from 'uictmplt-loader!./template.mjs';
+import { STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS, FACTOR_CLASS, OFFSET_CLASS, MINIMUM_CLASS, MAXIMUM_CLASS, UNIT_CLASS, START_VALUE_CLASS, RECEIVERS_CLASS } from 'uictmplt-loader!./template.mjs';
 
 export class DBCSignal extends BaseControl {
   _startBitElm;
@@ -25,7 +25,7 @@ export class DBCSignal extends BaseControl {
     this._minimumElm = NQDOM.getElementByClassName(this.element, MINIMUM_CLASS);
     this._maximumElm = NQDOM.getElementByClassName(this.element, MAXIMUM_CLASS);
     this._unitElm = NQDOM.getElementByClassName(this.element, UNIT_CLASS);
-    this._startValueElm = NQDOM.getElementByClassName(this.element, START_VALUE_CLAS);
+    this._startValueElm = NQDOM.getElementByClassName(this.element, START_VALUE_CLASS);
     this._receiversElm = NQDOM.getElementByClassName(this.element, RECEIVERS_CLASS);
   }
 
