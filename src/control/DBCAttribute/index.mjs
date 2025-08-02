@@ -11,7 +11,7 @@ export class DBCAttribute extends BaseControl {
     this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
   }
 
-  setAttributes(attributes) {
+  setValue(attributes) {
     if (this._attrRootElement) {
       this._attrRootElement.style.display = attributes ? "" : "none";
     }

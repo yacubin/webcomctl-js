@@ -42,7 +42,7 @@ export class DBCContentBlock extends BaseControl {
     this.element.classList.remove(dbc_view_group);
   }
 
-  setViewType(type) {
+  setValue(type) {
     if (type !== this._type) {
       this._type && this.element.classList.remove(typeToClassName(this._type));
       const className = typeToClassName(type);

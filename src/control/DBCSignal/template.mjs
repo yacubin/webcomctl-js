@@ -15,71 +15,82 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "SIGNAL",
-  "dbc_title_signal",
+  "TITLE",
+  "STARTBIT_CLASS",
+  "SIZEINBITS_CLASS",
+  "BYTEORDER_CLASS",
+  "VALUETYPE_CLASS",
+  "FACTOR_CLASS",
+  "OFFSET_CLASS",
+  "MINIMUM_CLASS",
+  "MAXIMUM_CLASS",
+  "UNIT_CLASS",
+  "START_VALUE_CLASS",
+  "RECEIVERS_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
 <div class="${clss.ROOT_CLASS} ${clss.SIGNAL}">
 
-    <h4>Signal:<u class="${clss.dbc_title_signal}"></u></h4>
+    <h4>Signal:<u class="${clss.TITLE}"></u></h4>
 
     <div>
 
       <span>
         <div>
           <h5>Start Bit:</h5>
-          <u id="dbc-signal-startbit"></u>
+          <u class="${clss.STARTBIT_CLASS}"></u>
         </div>
 
         <div>
           <h5>Signal Size:</h5>
-          <u id="dbc-signal-sizeinbits"></u>
+          <u class="${clss.SIZEINBITS_CLASS}"></u>
         </div>
 
           <div>
             <h5>Byte Order:</h5>
-            <u id="dbc-signal-byteorder"></u>
+            <u class="${clss.BYTEORDER_CLASS}"></u>
           </div>
 
         <div>
           <h5>Value Type:</h5>
-          <u id="dbc-signal-valuetype"></u>
+          <u class="${clss.VALUETYPE_CLASS}"></u>
         </div>
 
         <div>
           <h5>Factor:</h5>
-          <u id="dbc-signal-factor"></u>
+          <u class="${clss.FACTOR_CLASS}"></u>
         </div>
 
         <div>
           <h5>Offset:</h5>
-          <u id="dbc-signal-offset"></u>
+          <u class="${clss.OFFSET_CLASS}"></u>
         </div>
 
         <div>
           <h5>Minimum:</h5>
-          <u id="dbc-signal-minimum"></u>
+          <u class="${clss.MINIMUM_CLASS}"></u>
         </div>
 
         <div>
           <h5>Maximum:</h5>
-          <u id="dbc-signal-maximum"></u>
+          <u class="${clss.MAXIMUM_CLASS}"></u>
         </div>
 
         <div>
           <h5>Unit:</h5>
-          <u id="dbc-signal-unit"></u>
+          <u class="${clss.UNIT_CLASS}"></u>
         </div>
                             
         <div>
           <h5>Receivers:</h5>
-          <u id="dbc-signal-receivers"></u>
+          <u class="${clss.RECEIVERS_CLASS}"></u>
         </div>
 
         <div>
           <h5>Start Value:</h5>
-          <u id="dbc-signal-start-value"></u>
+          <u class="${clss.START_VALUE_CLASS}"></u>
         </div>
       </span>
                     

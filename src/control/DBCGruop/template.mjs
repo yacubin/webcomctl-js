@@ -16,14 +16,14 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "GROUP",
   "dbc_title_group",
-  "dbc_group_signals",
+  "GROUP_SIGNALS_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
 <div class="${clss.ROOT_CLASS} ${clss.GROUP}">
   <h4>Group:<u class="${clss.dbc_title_group}"></u></h4>
-  <ul class="${clss.dbc_group_signals}"></ul>
+  <ul class="${clss.GROUP_SIGNALS_CLASS}"></ul>
 </div>
 
 `);
