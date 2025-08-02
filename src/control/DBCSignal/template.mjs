@@ -23,6 +23,7 @@ const clss = mk.newClassNameMap([
   "FACTOR_CLASS",
   "OFFSET_CLASS",
   "MINIMUM_CLASS",
+  "MAXIMUM_CLASS",
   "UNIT_CLASS",
   "START_VALUE_CLAS",
   "RECEIVERS_CLASS",
