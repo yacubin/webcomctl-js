@@ -1,23 +1,28 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { UIC_START_BACKGROUND_COLOR } from '../../lib/WickedTheme.mjs';
-import { UIC_START_BACKGROUND_COLOR_DARK } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_FONT_SYSTEM } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_FONT_MATH } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { UIC_START_BACKGROUND_COLOR } from "@/lib/WickedTheme.mjs";
+import { UIC_START_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_FONT_SYSTEM } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_FONT_MATH } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('StartupUpload', import.meta.url);
+import upFileSvg from "./up-file.svg";
+import upFileHoverSvg from "./up-file-hover.svg";
+import searchSvg from "./search.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("StartupUpload", import.meta.url);
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "FDROP_CLASS",
   "DSHOW_CLASS",
   "DHIDE_CLASS",
 ]);
 
-const UPLOAD1_IMG = await mk.loadSvgAsCssUrl('./up-file.svg');
-const UPLOAD2_IMG = await mk.loadSvgAsCssUrl('./up-file-hover.svg');
-const SEARCH_IMG = await mk.loadSvgAsCssUrl('./search.svg');
+const UPLOAD1_IMG = convertSvgToCssUrl(upFileSvg);
+const UPLOAD2_IMG = convertSvgToCssUrl(upFileHoverSvg);
+const SEARCH_IMG = convertSvgToCssUrl(searchSvg);
 
 const TABE_TEXT = '#afafaf';
 const uic_strupl_des ='#afafaf';

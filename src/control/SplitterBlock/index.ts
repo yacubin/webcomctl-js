@@ -1,15 +1,18 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS } from "uictmplt-loader!./template.ts";
 
-const SplitterType = {
-  NONE: 0,
-  TOP: 1,
-  RIGHT: 2,
-  BOTTOM: 3,
-  LEFT: 4,
+enum SplitterType {
+  NONE = 0,
+  TOP = 1,
+  RIGHT = 2,
+  BOTTOM = 3,
+  LEFT = 4,
 };
 
-SplitterType.toString = (sideType) => {
+namespace SplitterType {
+
+function toString(sideType: SplitterType) {
   switch (sideType) {
   case SplitterType.NONE:
     return 'none';
@@ -22,9 +25,9 @@ SplitterType.toString = (sideType) => {
   case SplitterType.LEFT:
     return 'left';
   }
-};
+}
 
-SplitterType.toClassName = (sideType) => {
+function toClassName(sideType: SplitterType) {
   switch (sideType) {
   case SplitterType.NONE:
     return NONE_CLASS;
@@ -37,12 +40,15 @@ SplitterType.toClassName = (sideType) => {
   case SplitterType.LEFT:
     return LEFT_CLASS;
   }
-};
+}
+
+} // namespace SplitterType
 
 export class SplitterBlock extends BaseControl {
-  _splitterType = SplitterType.NONE;
+  private _splitterType = SplitterType.NONE;
+  private _splitterElm?: HTMLElement;
 
-  _init() {
+  protected _init() {
     this._splitterElm = NQDOM.getElementByClassName(this.element, NONE_CLASS);
   }
 };

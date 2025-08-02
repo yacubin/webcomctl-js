@@ -1,10 +1,11 @@
-import { BaseControl } from 'webnetq-js';
-import { NTH1_CLASS, NTH2_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl } from "webnetq-js";
+// @ts-ignore
+import { NTH1_CLASS, NTH2_CLASS } from "uictmplt-loader!./template.ts";
 
 export class SwitchBlock  extends BaseControl {
-  _isSecond = false;
+  private _isSecond = false;
 
-  showFirst() {
+  public showFirst() {
     if (this._isSecond) {
       this.element.classList.add(NTH1_CLASS);
       this.element.classList.remove(NTH2_CLASS);
@@ -12,7 +13,7 @@ export class SwitchBlock  extends BaseControl {
     }
   }
 
-  showSecond() {
+  public showSecond() {
     if (!this._isSecond) {
       this.element.classList.add(NTH2_CLASS);
       this.element.classList.remove(NTH1_CLASS);
