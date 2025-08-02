@@ -1,4 +1,5 @@
 import { BaseControl } from 'webnetq-js';
+import { NQDOM } from "webnetq-js";
 import { STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS, FACTOR_CLASS, OFFSET_CLASS, MINIMUM_CLASS, UNIT_CLASS, START_VALUE_CLAS, RECEIVERS_CLASS } from 'uictmplt-loader!./template.mjs';
 
 export class DBCSignal extends BaseControl {
