@@ -1,10 +1,10 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('PropInfoPanel', import.meta.url);
+const mk = new ControlMaker("PropInfoPanel", import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "LIST_CLASS",
   "LIST_NAME",

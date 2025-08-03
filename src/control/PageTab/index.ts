@@ -1,31 +1,51 @@
-import { BaseControl, Random, NQDOM } from 'webnetq-js';
-import { ITEM_HTML, FOCUS_CLASS, CLOSE_CLASS, TEXT_CLASS, LOADING_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, Random, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { ITEM_HTML, FOCUS_CLASS, CLOSE_CLASS, TEXT_CLASS, LOADING_CLASS } from "uictmplt-loader!./template.ts";
+
+interface TabItemInfo {
+  name?: string;
+  focus: boolean;
+  text: string;
+};
+
+type TabItemEventListener = (event: TabItemInfo) => void;
+
+interface TabItemOptions {
+  name: string;
+  text: string;
+  focus: boolean;
+  onclose: TabItemEventListener;
+  onfocus: TabItemEventListener;
+};
 
 class TabItemControl {
-  _name;
-  _element;
+  private _name: string;
+  private _element: HTMLElement;
 
-  _focus = true;
-  _loading = false;
-  _text = '';
-  _onfocuscanceled = false;
+  private _focus = true;
+  private _loading = false;
+  private _text = '';
+  private _onfocuscanceled = false;
 
-  _focusElm;
-  _textElm;
-  _closeElm;
+  private _focusElm?: HTMLElement;
+  private _textElm?: HTMLElement;
+  private _closeElm?: HTMLElement;
 
-  _listeners = {
-    focus: [],
-    close: [],
+  private _onclose: TabItemEventListener;
+  private _onfocus: TabItemEventListener;
+
+  private _listeners = {
+    close: [] as TabItemEventListener[],
+    focus: [] as TabItemEventListener[],
   };
 
-  constructor({ name, text, focus, onclose, onfocus }) {
-    this._element = NQDOM.createElement(ITEM_HTML);
+  public constructor(options: TabItemOptions) {
+    this._element = NQDOM.createElement(ITEM_HTML) as HTMLElement;
     this._element.id = Random.nextElementId();
-    this._element.title = text;
+    this._element.title = options.text;
     this._element.addEventListener('dragstart', event => this.onOnDragStart(event));
 
-    this._name = name;
+    this._name = options.name;
     
     this._focusElm = NQDOM.getElementByClassName(this._element, FOCUS_CLASS);
     this._focusElm && this._focusElm.addEventListener('click', event => this.onOnFocusClick(event), false);
@@ -35,27 +55,31 @@ class TabItemControl {
 
     this._textElm = NQDOM.getElementByClassName(this._element, TEXT_CLASS);
 
-    this._onclose = onclose;
-    this._onfocus = onfocus;
+    this._onclose = options.onclose;
+    this._onfocus = options.onfocus;
 
-    this.text = text;
-    this.focus = focus;
+    this.text = options.text;
+    this.focus = options.focus;
   }
 
-  get element() {
+  public get name() {
+    return this._name;
+  }
+
+  public get element() {
     return this._element;
   }
 
-  get text() { return this._text; }
-  set text(value) {
+  public get text() { return this._text; }
+  public set text(value) {
     if (this._text != value) {
       this._textElm && (this._textElm.textContent = value);
       this._text = value;
     }
   }
 
-  get focus() { return this._focus; }
-  set focus(value) {
+  public get focus() { return this._focus; }
+  public set focus(value) {
     if (this._focus != value) {
       if (this._focusElm) {
         const cname = FOCUS_CLASS;
@@ -66,8 +90,8 @@ class TabItemControl {
     }
   }
   
-  get loading() { return this._loading; }
-  set loading(value) {
+  public get loading() { return this._loading; }
+  public set loading(value) {
     if (this._loading != value) {
       if (this._focusElm) {
         const cname = LOADING_CLASS;
@@ -78,12 +102,12 @@ class TabItemControl {
     }
   }
 
-  addEventListener(type, listener) {
+  public addEventListener(type: "focus" | "close", listener: TabItemEventListener) {
     this._listeners[type].push(listener);
   }
 
-  getInfo() {
-    const info = {
+  public getInfo() {
+    const info: TabItemInfo = {
       focus: this._focus,
       text: this._text,
     };
@@ -94,7 +118,7 @@ class TabItemControl {
     return info;
   }
 
-  onOnFocusClick(event) {
+  public onOnFocusClick(event: Event) {
     if (!this._onfocuscanceled) {
       const info = this.getInfo();
       this._listeners.focus.forEach(listener => listener(info));
@@ -102,60 +126,76 @@ class TabItemControl {
     this._onfocuscanceled = false;
   }
 
-  onOnCloseClick(event) {
+  public onOnCloseClick(event: Event) {
     const info = this.getInfo();
     this._listeners.close.forEach(listener => listener(info));
     this._onfocuscanceled = true;
   }
 
-  onOnDragStart(event) {
-    event.dataTransfer.setData("text/plain", this._name);
+  public onOnDragStart(event: DragEvent) {
+    (event.dataTransfer as DataTransfer).setData("text/plain", this._name);
   }
 
-  release() {
-    this._listeners = null;
-    this._focusElm = null;
-    this._textElm = null;
-    this._closeElm = null;
+  public emitClose(event: TabItemInfo) {
+    this._onclose(event);
+  }
+
+  public emitFocus(event: TabItemInfo) {
+    this._onfocus(event);
+  }
+
+  public release() {
+    this._listeners.close.length = 0;
+    this._listeners.focus.length = 0;
+    this._focusElm = undefined;
+    this._textElm = undefined;
+    this._closeElm = undefined;
   }
 };
 
 const EMPTY_EVENT = 'empty';
 
+interface PageTabItemParams {
+  focus: boolean;
+  text: string;
+  onclose: TabItemEventListener;
+  onfocus: TabItemEventListener;
+};
+
 export class PageTab extends BaseControl {
-  _items = [];
-  _focusIndex = 0;
-  _focusHistory = [];
+  private _items = [] as TabItemControl[];
+  private _focusIndex = 0;
+  private _focusHistory = [] as TabItemControl[];
 
-  _idCounter = 1;
+  private _idCounter = 1;
 
-  _init() {
+  protected _init() {
     this.registerEvent(EMPTY_EVENT);
   }
 
-  _unfocusAll() {
+  private _unfocusAll() {
     this._items.forEach(iter => iter.focus = false);
   }
 
-  _removeItem(item) {
+  private _removeItem(item: TabItemControl) {
     const index = this._items.indexOf(item);
     this._items.splice(index, 1);
-    this._element.removeChild(item.element);
+    this.element.removeChild(item.element);
     item.release();
   }
 
-  _setFocusItem(item) {
+  private _setFocusItem(item: TabItemControl) {
     this._removeFromHistory(item);
     this._focusHistory.push(item);
     item.focus = true;
   }
 
-  _removeFromHistory(item) {
+  private _removeFromHistory(item: TabItemControl) {
     const index = this._focusHistory.indexOf(item);
     (index !== -1) && (this._focusHistory.splice(index, 1));
   }
 
-  appendItem(params) {
+  public appendItem(params: PageTabItemParams) {
     this._idCounter = Math.max(this._idCounter + 1, 1);
     const name = "N" + this._idCounter.toString().padStart(3, '0');
 
@@ -180,7 +220,7 @@ export class PageTab extends BaseControl {
         this._items[this._focusIndex].focus = false;
         this._focusIndex = this._items.indexOf(item);
         this._setFocusItem(item);
-        item._onfocus(item.getInfo());
+        item.emitFocus(item.getInfo());
       }
     });
 
@@ -204,10 +244,10 @@ export class PageTab extends BaseControl {
       else if (index < this._focusIndex) {
         this._focusIndex--;
       }
-      item._onclose(event);
+      item.emitClose(event);
       if (newFocusItem) {
         this._setFocusItem(newFocusItem);
-        newFocusItem._onfocus(newFocusItem.getInfo());
+        newFocusItem.emitFocus(newFocusItem.getInfo());
       }
       else if (isLast) {
         this.dispatchEvent(EMPTY_EVENT, {});
@@ -215,24 +255,24 @@ export class PageTab extends BaseControl {
     });
 
     this._items.push(item);
-    this._element.appendChild(item.element);
+    this.element.appendChild(item.element);
 
     if (!params.focus && this._items.length == 1) {
-      item._onfocus(item.getInfo());
+      item.emitFocus(item.getInfo());
     }
 
     return name;
   }
 
-  setLoadingByName(name, value) {
-    const item = this._items.find((item) => item._name && item._name === name);
+  public setLoadingByName(name: string, value: boolean) {
+    const item = this._items.find((item) => item.name && item.name === name);
     if (item) {
       item.loading = value;
     }
   }
 
-  removeItemByName(name) {
-    const item = this._items.find((item) => item._name && item._name === name);
+  public removeItemByName(name: string) {
+    const item = this._items.find((item) => item.name && item.name === name);
     if (!item)
       return false;
     this._removeItem(item);
