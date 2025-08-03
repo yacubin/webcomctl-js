@@ -1,3 +1,4 @@
+import { GITHUB_WASMUX_URL } from "@/lib/Links";
 import ControlMaker from "@/lib/ControlMaker.mjs";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
@@ -17,7 +18,7 @@ mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
     <h2>Wasmux</h2>
     <ul>
-      <li><a href="https://github.com/yacubin/wasmux">Wasmux GitHub</a></li>
+      <li><a href="${GITHUB_WASMUX_URL}">Wasmux GitHub</a></li>
       <li>Our service makes it easy to convert various programming languages into code that browsers can understand. No matter which language you're working with, our tool automatically transforms your code so it displays and runs correctly in any modern web environment.</li>
     </ul>
   </div>
