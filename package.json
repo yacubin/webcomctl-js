@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ykbin/webcomctl-js.git"
+    "url": "git+https://github.com/yacubin/webcomctl-js.git"
   },
   "keywords": [
     "web",
@@ -39,15 +39,15 @@
   ],
   "author": "Yurii Yakubin",
   "bugs": {
-    "url": "https://github.com/ykbin/webcomctl-js/issues"
+    "url": "https://github.com/yacubin/webcomctl-js/issues"
   },
-  "homepage": "https://github.com/ykbin/webcomctl-js#readme",
+  "homepage": "https://github.com/yacubin/webcomctl-js#readme",
   "dependencies": {
     "svgo": "^3.3.2",
     "raw-loader": "^4.0.2",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
-    "webnetq-js": "github:ykbin/webnetq-js",
+    "webnetq-js": "github:yacubin/webnetq-js",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   },

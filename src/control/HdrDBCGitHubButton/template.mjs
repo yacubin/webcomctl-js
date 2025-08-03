@@ -4,7 +4,7 @@ import HdrGitHubButton from '../../comp/HdrGitHubButton/index.mjs';
 export async function buildComponent() {
   const mk = new ControlMaker("HdrDBCGitHubButton", import.meta.url);
   await HdrGitHubButton(mk, {
-    url: "https://github.com/ykbin/dbc",
+    url: "https://github.com/yacubin/dbc",
   });
   return mk.buildComponent();
 }
