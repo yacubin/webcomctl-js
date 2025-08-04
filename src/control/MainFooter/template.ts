@@ -6,7 +6,7 @@ import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
 
 const mk = new ControlMaker('MainFooter', import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "LIST_CLASS",
   "VERSION_CLASS",

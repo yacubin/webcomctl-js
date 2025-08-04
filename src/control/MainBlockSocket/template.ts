@@ -1,8 +1,8 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
 
-const mk = new ControlMaker('MainBlockSocket', import.meta.url);
+const mk = new ControlMaker("MainBlockSocket", import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
 ]);

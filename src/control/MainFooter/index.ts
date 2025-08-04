@@ -1,7 +1,8 @@
 import { BaseControl } from "webnetq-js";
-import { LINK_ON_CLASS, LINK_OFF_CLASS } from 'uictmplt-loader!./template.mjs';
+// @ts-ignore
+import { LINK_ON_CLASS, LINK_OFF_CLASS } from "uictmplt-loader!./template.ts";
 
-function isLocationEqual(href) {
+function isLocationEqual(href: string) {
   if (typeof document === 'object') {
     const currHref = document.location.href;
     if (currHref === href) {
@@ -16,7 +17,7 @@ function isLocationEqual(href) {
 
 export class MainFooter extends BaseControl {
   _init() {
-    const linkElm = this.element.querySelector(`a.${LINK_ON_CLASS}`);
+    const linkElm = this.element.querySelector(`a.${LINK_ON_CLASS}`) as HTMLAnchorElement;
     if (linkElm && isLocationEqual(linkElm.href)) {
       linkElm.classList.remove(LINK_ON_CLASS);
       linkElm.classList.add(LINK_OFF_CLASS);
