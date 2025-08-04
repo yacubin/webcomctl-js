@@ -1,12 +1,17 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_FONT_FAMALY } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_FONT_FAMALY } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('PagePanel', import.meta.url);
+import downloadSvg from "./download.svg";
+import propertiesSvg from "./properties.svg";
+import propSvg from "./Prop.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("PagePanel", import.meta.url);
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "DOWNLOAD_CLASS",
   "PROPERTIES_CLASS",
@@ -28,9 +33,9 @@ const clss = mk.newClassNameMap([
   "MENUARROW_CLASS",
 ]);
 
-const DOWNLOAD_IMG = await mk.loadSvgAsCssUrl('./download.svg');
-const PROPERTIES_IMG = await mk.loadSvgAsCssUrl('./properties.svg');
-const PROP_IMG = await mk.loadSvgAsCssUrl('./Prop.svg');
+const DOWNLOAD_IMG = convertSvgToCssUrl(downloadSvg);
+const PROPERTIES_IMG = convertSvgToCssUrl(propertiesSvg);
+const PROP_IMG = convertSvgToCssUrl(propSvg);
 
 const BS1_VAR = 'rgba(0,0,0,0.13)';
 const BS2_VAR = 'rgba(0,0,0,0.11)';
@@ -42,13 +47,12 @@ const MLIST_MARGIN = '3px';
 const PLIST_MARGIN = MLIST_MARGIN;
 const MSTYLE23_BOR = '#a1a1a145';
 
-const vars = mk.newCSSVariableMap({
+const vars: any = mk.newCSSVariableMap({
   col: [ '#f3f3f3', '#252525' ],
   hov: [ '#e0e3e7', '#444444' ],
   borCol: [ 'rgb(197 195 195)', '#5f5f5f4a' ],
   ctypeCol: [ '#696969', '#a7a7a7' ],
   plistAct: [ 'black', '#c8c8c8' ],
-  ctypeCol: [ '#696969', '#a7a7a7' ],
   plistHov: [ 'rgb(206 206 206)', 'rgb(116 115 115)' ],
 });
 
