@@ -1,15 +1,18 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+
+import fileUploadSvg from "./file-upload.svg";
 
 const mk = new ControlMaker('Loading', import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "SHOW_CLASS",
 ]);
 
-const MAIN_IMG = await mk.loadSvgAsCssUrl('./file-upload.svg');
+const MAIN_IMG = convertSvgToCssUrl(fileUploadSvg);
 const BGROUND_COLOR = '#1e1e1e91';
 
 mk.newHTML('ROOT_HTML', `
