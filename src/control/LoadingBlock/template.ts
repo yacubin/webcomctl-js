@@ -1,14 +1,17 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+
+import unloadingSvg from "./unloading.svg";
 
 const mk = new ControlMaker('LoadingBlock', import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
   "UNLOAD_CLASS",
 ]);
 
-const BG_IMG = await mk.loadSvgAsCssUrl('./unloading.svg');
+const BG_IMG = convertSvgToCssUrl(unloadingSvg);
 const BG_CLR = '#061b4366';
 
 mk.newHTML('ROOT_HTML', `

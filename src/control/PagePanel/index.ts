@@ -57,7 +57,7 @@ export class PagePanel extends BaseControl {
   private _filename = "";
   private _snap: PagePanelSnap = {};
 
-  _init() {
+  protected _init() {
     this._parentMenuElm = NQDOM.getElementByClassName(this.element, PERENTMENU_CLASS);
     this._downloadElm = NQDOM.getElementByClassName(this.element, DOWNLOAD_CLASS) as HTMLAnchorElement;
     this._psntlistElm = NQDOM.getElementByClassName(this.element, PSNTLIST_CLASS);
@@ -67,25 +67,25 @@ export class PagePanel extends BaseControl {
     this._updateDownloadData();
   }
 
-  get blob() {
+  public get blob() {
     return this._blob;
   }
 
-  set blob(value) {
+  public set blob(value) {
     this._blob = value;
     this._updateDownloadData();
   }
 
-  get filename() {
+  public get filename() {
     return this._filename;
   }
 
-  set filename(value) {
+  public set filename(value) {
     this._filename = value;
     this._updateDownloadData();
   }
 
-  _updateDownloadData() {
+  private _updateDownloadData() {
     if (this._blob !== this._snap.blob) {
       this._snap.url && URL.revokeObjectURL(this._snap.url);
       this._snap.url = this._blob && URL.createObjectURL(this._blob);
@@ -98,7 +98,7 @@ export class PagePanel extends BaseControl {
     }
   }
 
-  addMenuList(text: string, style: MenuStyle, items: MenuItem[]) {
+  public addMenuList(text: string, style: MenuStyle, items: MenuItem[]) {
     if (!this._parentMenuElm)
       return;
 
@@ -144,7 +144,7 @@ export class PagePanel extends BaseControl {
     this._parentMenuElm.appendChild(menuRootElm);
   }
 
-  addPresentationItem(params: PresentationItemParams) {
+  public addPresentationItem(params: PresentationItemParams) {
     if (this._psntlistElm) {
       const rootElm = NQDOM.createElement(PSNT_ITEM_HTML) as HTMLElement;
       const textElm = NQDOM.getElementByClassName(rootElm, PSNTTEXT_CLASS);
@@ -169,11 +169,11 @@ export class PagePanel extends BaseControl {
     }
   }
 
-  setPropertiesClick(func: (event: MouseEvent) => void) {
+  public setPropertiesClick(func: (event: MouseEvent) => void) {
     this.setButtonClick("info", func);
   }
 
-  setButtonClick(type: string, func: (event: MouseEvent) => void) {
+  public setButtonClick(type: string, func: (event: MouseEvent) => void) {
     if (type === "info") {
       if (this._infoButElm) {
         this._infoButElm.classList.add(PROPERTIES_SHOW_CLASS);

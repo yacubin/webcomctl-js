@@ -1,22 +1,23 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { UNLOAD_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { UNLOAD_CLASS } from "uictmplt-loader!./template.ts";
 
 export class LoadingBlock extends BaseControl {
-  _isLoad = false;
-  _loadElm;
+  private _isLoad = false;
+  private _loadElm?: HTMLElement;
 
-  _init() {
+  protected _init() {
     this._loadElm = NQDOM.getElementByClassName(this.element, UNLOAD_CLASS);
   }
 
-  show() {
+  public show() {
     if (this._loadElm && !this._isLoad) {
       this._loadElm.classList.remove(UNLOAD_CLASS);
       this._isLoad = true;
     }
   }
 
-  hide() {
+  public hide() {
     if (this._loadElm && this._isLoad) {
       this._loadElm.classList.add(UNLOAD_CLASS);
       this._isLoad = false;

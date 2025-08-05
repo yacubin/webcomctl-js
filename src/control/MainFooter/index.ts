@@ -16,7 +16,7 @@ function isLocationEqual(href: string) {
 }
 
 export class MainFooter extends BaseControl {
-  _init() {
+  protected _init() {
     const linkElm = this.element.querySelector(`a.${LINK_ON_CLASS}`) as HTMLAnchorElement;
     if (linkElm && isLocationEqual(linkElm.href)) {
       linkElm.classList.remove(LINK_ON_CLASS);

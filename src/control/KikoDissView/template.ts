@@ -1,12 +1,15 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-const mk = new ControlMaker('KikoDissView', import.meta.url);
+import arrowSvg from "./arrow.svg";
 
-const ARROW = await mk.loadSvgAsCssUrl('./Kikoarrow.svg');
+const mk = new ControlMaker("KikoDissView", import.meta.url);
 
-const clss = mk.newClassNameMap([
+const ARROW = convertSvgToCssUrl(arrowSvg);
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "IMAGE_CLASS",
   "SHOW_CLASS",
