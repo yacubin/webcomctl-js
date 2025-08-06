@@ -1,19 +1,25 @@
-import { BaseControl, Util, NQDOM } from 'webnetq-js';
-import { CONTENT_CLASS, BUTT_LEFT_CLASS, BUTT_RIGHT_CLASS, IMAGE_POSITION, IMAGE_NUMBERS, LEFT_CLICK, RIGHT_CLICK } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, Util, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { CONTENT_CLASS, BUTT_LEFT_CLASS, BUTT_RIGHT_CLASS, IMAGE_POSITION, IMAGE_NUMBERS, LEFT_CLICK, RIGHT_CLICK } from "uictmplt-loader!./template.ts";
 
-const IMAGECHANGED_EVENT = 'imageChanged';
+const IMAGECHANGED_EVENT = "imageChanged";
+
+interface ImageInfo {
+  url: string;
+  hasRef: boolean;
+};
 
 export class ImageContent extends BaseControl {
-  _imageElm;
-  _posElm;
-  _numsElm;
-  _images = [];
-  _currentIndex = -1;
+  private _imageElm?: HTMLImageElement;
+  private _posElm?: HTMLElement;
+  private _numsElm?: HTMLElement;
+  private _images: ImageInfo[] = [];
+  private _currentIndex = -1;
 
-  _init() {
-    this._imageElm = NQDOM.getElementByClassName(this.element, CONTENT_CLASS);
-    this._posElm = NQDOM.getElementByClassName(this.element, IMAGE_POSITION);
-    this._numsElm = NQDOM.getElementByClassName(this.element, IMAGE_NUMBERS);
+  protected _init() {
+    this._imageElm = NQDOM.getElementByClassName(this.element, CONTENT_CLASS) as HTMLImageElement;
+    this._posElm = NQDOM.getElementByClassName(this.element, IMAGE_POSITION) as HTMLElement;
+    this._numsElm = NQDOM.getElementByClassName(this.element, IMAGE_NUMBERS) as HTMLElement;
 
     const leftElm = NQDOM.getElementByClassName(this.element, LEFT_CLICK);
     leftElm && leftElm.addEventListener("click", event => this.onLeftClick(event));
@@ -23,12 +29,12 @@ export class ImageContent extends BaseControl {
     this.registerEvent(IMAGECHANGED_EVENT);
   }
 
-  setContent(params) {
+  public setContent(params: string) {
     this.clearImages();
     this.addImage(params);
   }
 
-  addImage(params) {
+  public addImage(params: string) {
     const item = {
       url: params,
       hasRef: false,
@@ -48,20 +54,20 @@ export class ImageContent extends BaseControl {
     this.updateButtons();
   }
 
-  loadImageByIndex(index) {
+  public loadImageByIndex(index: number) {
     this._imageElm && (this._imageElm.src = this._images[index].url);
     this._currentIndex = index;
     this.dispatchEvent(IMAGECHANGED_EVENT, {index});
   }
 
-  updateButtons() {
-    this._element.classList.toggle(BUTT_LEFT_CLASS, this._currentIndex !== 0);
-    this._element.classList.toggle(BUTT_RIGHT_CLASS, this._currentIndex !== (this._images.length - 1));
-    this._posElm && (this._posElm.textContent = this._currentIndex + 1);
-    this._numsElm && (this._numsElm.textContent = this._images.length);
+  public updateButtons() {
+    this.element.classList.toggle(BUTT_LEFT_CLASS, this._currentIndex !== 0);
+    this.element.classList.toggle(BUTT_RIGHT_CLASS, this._currentIndex !== (this._images.length - 1));
+    this._posElm && (this._posElm.textContent = (this._currentIndex + 1).toString());
+    this._numsElm && (this._numsElm.textContent = this._images.length.toString());
   }
 
-  clearImages() {
+  public clearImages() {
     for (const iter of this._images) {
       if (iter.hasRef)
         Util.revokeObjectURL(iter.url);
@@ -70,14 +76,14 @@ export class ImageContent extends BaseControl {
     this._currentIndex = -1;
   }
 
-  onLeftClick(event) {
+  private onLeftClick(event: MouseEvent) {
     if (this._currentIndex > 0) {
       this.loadImageByIndex(this._currentIndex - 1);
       this.updateButtons();
     }
   }
 
-  onRightClick(event) {
+  private onRightClick(event: MouseEvent) {
     if (this._currentIndex < (this._images.length - 1)) {
       this.loadImageByIndex(this._currentIndex + 1);
       this.updateButtons();

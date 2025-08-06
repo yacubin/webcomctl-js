@@ -1,8 +1,12 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-const mk = new ControlMaker('ImgFailContent', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-const DONOT_IMG = await mk.loadSvgAsCssUrl('./donot_load.svg');
+import donotLoadSvg from "./donot_load.svg";
+
+const mk = new ControlMaker("ImgFailContent", import.meta.url);
+
+const DONOT_IMG = convertSvgToCssUrl(donotLoadSvg);
 const vars = mk.newCSSVariableMap({
 });
 
@@ -12,7 +16,7 @@ const BGC = '#fbfbfb';
 const BS = '#89898945';
 const TEXT = '#8f8f8f';
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "text"
 ]);

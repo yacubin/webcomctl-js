@@ -1,12 +1,15 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { UIC_CONTENT_BACKGROUND_COLOR } from '../../lib/WickedTheme.mjs';
-import { UIC_CONTENT_BACKGROUND_COLOR_DARK } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { UIC_CONTENT_BACKGROUND_COLOR } from "@/lib/WickedTheme.mjs";
+import { UIC_CONTENT_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme.mjs";
+
+import playSvg from "./play.svg";
 
 const mk = new ControlMaker('ImageContent', import.meta.url);
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "CONTENT_CLASS",
   "BUTT_LEFT_CLASS",
@@ -21,7 +24,7 @@ const img_b_c = '#f3f3f3';
 
 const vars = mk.newCSSVariableMap({
   img: [
-    await mk.loadSvgAsCssUrl('./play.svg'),
+    convertSvgToCssUrl(playSvg),
   ],
   bg: [
     UIC_CONTENT_BACKGROUND_COLOR,
