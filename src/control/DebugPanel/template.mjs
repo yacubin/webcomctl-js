@@ -64,6 +64,7 @@ ${DARKMODE_SELECTOR_VALUE}
   bottom: 2px;
   width: auto;
   height: max-content;
+  max-height: 60%;
   padding: 0px 5px 0px 5px;
   font-family: ${TOOLBAR_FONT_SANS};
   user-select: none;
@@ -208,6 +209,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 5px 5px 0px 5px;
   border: 1px solid ${vars.bor.asVar()};
   background-color: ${vars.bg.asVar()};
+  overflow: auto;
 }
 
 .${clss.LIST_CLASS} > div

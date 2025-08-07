@@ -51,6 +51,7 @@ ${DARKMODE_SELECTOR_VALUE}
   min-width: 450px;
   padding: 0px 15px 15px 15px;
   box-sizing: border-box;
+  overflow: auto;
 }
 `);
 
