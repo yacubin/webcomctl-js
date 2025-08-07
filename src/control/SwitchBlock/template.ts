@@ -19,6 +19,7 @@ mk.newCSS('CSS', `
   flex-grow: 1;
   height: 100%;
   width: inherit;
+  overflow: auto;
 }
 
 .${clss.NTH1_CLASS} > *:nth-child(2),
