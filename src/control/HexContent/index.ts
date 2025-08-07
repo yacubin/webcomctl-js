@@ -1,38 +1,48 @@
-import { BaseControl, NQDOM, FileChunkLoader } from 'webnetq-js';
-import { CONTENT_CLASS, OFSLIST_CLASS, BINLIST_CLASS, TXTLIST_CLASS, SCROLL_MAIN_CLASS, SCROLL_BAR_CLASS, SCROLL_THUMB_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM, FileChunkLoader } from "webnetq-js";
+// @ts-ignore
+import { CONTENT_CLASS, OFSLIST_CLASS, BINLIST_CLASS, TXTLIST_CLASS, SCROLL_MAIN_CLASS, SCROLL_BAR_CLASS, SCROLL_THUMB_CLASS } from "uictmplt-loader!./template.ts";
 
 const kThumbSizeMin = 40;
 
+interface ThmbClickState {
+  dy: number;
+};
+
+interface ChangePositionEvent {
+  position: number;
+};
+
+type ChangePositionListener = (event: ChangePositionEvent) => void;
+
 class UIScrollControl {
-  _thmbSize = 0;
-  _thmbEnable = null;
-  _maxPosition = 0;
-  _viewSize = 0;
-  _thmbClickState = null;
-  _factor = 0.0;
+  private _thmbSize = 0;
+  private _thmbEnable?: boolean;
+  private _maxPosition = 0;
+  private _viewSize = 0;
+  private _thmbClickState?: ThmbClickState;
+  private _factor = 0.0;
 
-  _scrollElm;
-  _scrollBarElement;
-  _thmbElement;
+  private _scrollBarElement?: HTMLElement;
+  private _thmbElement: HTMLElement;
 
-  _listeners = {
-    changeposition: [],
+  private _listeners = {
+    changeposition: [] as ChangePositionListener[],
   };
 
-  constructor(element) {
-    this._thmbElement = NQDOM.getElementByClassName(element, SCROLL_THUMB_CLASS);
+  public constructor(element: HTMLElement) {
+    this._thmbElement = NQDOM.getElementByClassName(element, SCROLL_THUMB_CLASS) as HTMLElement;
     this._thmbElement && this._thmbElement.addEventListener("mousedown", event => {
       if (event.buttons === 1) {
         this._thmbClickState = { dy: event.offsetY };
         event.preventDefault();
       }
       else {
-        this._thmbClickState = null;
+        this._thmbClickState = undefined;
       }
     });
 
     this._scrollBarElement = NQDOM.getElementByClassName(element, SCROLL_BAR_CLASS);
-    this._scrollBarElement && this._scrollBarElement.addEventListener("mousedown", event => {
+    this._scrollBarElement && this._scrollBarElement.addEventListener("mousedown", (event: MouseEvent) => {
       const rect = this._thmbElement.getBoundingClientRect();
       const diff = (event.y < rect.top) ? -this._viewSize : ((event.y > rect.bottom) ? this._viewSize : 0);
       if (diff != 0) {
@@ -51,14 +61,14 @@ class UIScrollControl {
           this.setFactor(y / height, true);
         }
         else {
-          this._thmbClickState = null;
+          this._thmbClickState = undefined;
         }
       }
     });
     
     window.addEventListener("mouseup", event => {
       if (this._thmbClickState && event.button !== 1) {
-        this._thmbClickState = null;
+        this._thmbClickState = undefined;
       }
     });
 
@@ -69,7 +79,7 @@ class UIScrollControl {
     this.updateThumb(false);
   }
   
-  updateThumb(notify) {
+  public updateThumb(notify: boolean) {
     if (!this._scrollBarElement)
       return;
 
@@ -91,7 +101,7 @@ class UIScrollControl {
     }
   }
 
-  setFactor(value, notify) {
+  public setFactor(value: number, notify: boolean) {
     const claimFactor = Math.max(0.0, Math.min(1.0, value));
     if (this._factor !== claimFactor) {
       this._factor = claimFactor;
@@ -99,31 +109,31 @@ class UIScrollControl {
     }
   }
 
-  setPosition(value, notify) {
+  public setPosition(value: number, notify: boolean) {
     this.setFactor(value > 0 ? value / (this._maxPosition - this._viewSize) : 0.0, notify);
   }
 
   // public
-  get position() {
+  public get position() {
     return Math.round((this._maxPosition - this._viewSize) * this._factor);
   }
 
-  set position(value) {
+  public set position(value) {
     this.setPosition(value, false);
   }
 
-  get maxPosition() {
+  public get maxPosition() {
     return this._maxPosition;
   }
 
-  set maxPosition(value) {
+  public set maxPosition(value) {
     if (this._maxPosition != value) {
       this._maxPosition = value;
       this.updateThumb(false);
     }
   }
 
-  get viewSize() {
+  public get viewSize() {
     return this._viewSize;
   }
 
@@ -134,31 +144,26 @@ class UIScrollControl {
     }
   }
 
-  addEventListener(type, listener) {
+  public addEventListener(type: "changeposition", listener: ChangePositionListener) {
     this._listeners[type].push(listener);
   }
 };
 
-
-const createOffsetElement = offset => {
-  return NQDOM.createElement(`<li>${offset}</li>`);
-};
-
-const createBinaryElement = binary => {
-  return NQDOM.createElement(`<s>${binary}</s>`);
-};
-
-const createAsciiElement = ascii => {
-  const element = document.createElement("li");
-  element.textContent = ascii;
+function createBaseElement(tagName: string, text: string) {
+  const element = document.createElement(tagName);
+  element.textContent = text;
   return element;
 };
+
+const createOffsetElement = (offset: string) => createBaseElement("li", offset);
+const createBinaryElement = (binary: string) => createBaseElement("s", binary);
+const createAsciiElement = (ascii: string) => createBaseElement("li", ascii);
 
 const READYSTATECHANGE_EVENT = 'readystatechange';
 const LOAD_EVENT = 'load';
 const ERROR_EVENT = 'error';
 
-function isElementVisible(element) {
+function isElementVisible(element: HTMLElement) {
   const rect = element.getBoundingClientRect();
   return (
       rect.top >= 0 &&
@@ -168,52 +173,98 @@ function isElementVisible(element) {
   );
 }
 
+interface HexContentItem {
+  offset: HTMLElement;
+  binary: HTMLElement;
+  ascii: HTMLElement;
+};
+
+function makeElementList(offset: number, size: number, buffer: ArrayBuffer, padSize: number) {
+  const result: HexContentItem[] = [];
+  let sz = size;
+  let pos = offset;
+  let index = 0;
+  const bytes = new Uint8Array(buffer);
+
+  while (sz > 0) {
+    const n = Math.min(sz, 16);
+    const offset = pos.toString().padStart(padSize, '0');
+
+    let binary = "";
+    let ascii = "";
+
+    for (let i = 0; i < n; i++) {
+      const b = bytes[index++];
+      ascii += (31 < b && b < 127) ? String.fromCharCode(b) : ".";
+      const hex = b.toString(16).toUpperCase().padStart(2, '0');
+      if (i == 8)
+        binary += "  ";
+      else if (i != 0)
+        binary += " ";
+      binary += hex;
+    }
+    
+    result.push({
+      offset: createOffsetElement(offset),
+      binary: createBinaryElement(binary),
+      ascii: createAsciiElement(ascii),
+    });
+
+    pos += n;
+    sz -= n;
+  }
+
+  return result;
+}
+
 export class HexContent extends BaseControl {
-  _scroll;
-  _chunkLoader = null;
+  private _scroll?: UIScrollControl;
+  private _chunkLoader?: FileChunkLoader;
 
-  _offsetParent;
-  _binaryParent;
-  _asciiParent;
+  private _offsetParent!: HTMLElement;
+  private _binaryParent!: HTMLElement;
+  private _asciiParent!: HTMLElement;
 
-  _numberOfFileLines = 0;
-  _tailPosition = null;
-  _padSize = 0;
-  _data = [];
-  _itemHeight = null;
-  _offset = 0;
-  _headPosition = null;
-  _headGoal = null;
-  _tailGoal = null;
+  private _numberOfFileLines = 0;
+  private _tailPosition?: number;
+  private _padSize = 0;
+  private _data: HexContentItem[] = [];
+  private _itemHeight?: number;
+  private _offset = 0;
+  private _headPosition = 0;
+  private _headGoal = 0;
+  private _tailGoal = 0;
 
-  _readyState = 'idle';
-  _visible;
+  private _readyState = 'idle';
+  private _visible = false;
 
-  _init() {
+  protected _init() {
     const scrollElm = NQDOM.getElementByClassName(this.element, SCROLL_MAIN_CLASS);
     if (scrollElm) {
       this._scroll = new UIScrollControl(scrollElm);
-      this._scroll.addEventListener("changeposition", event => {
+      this._scroll.addEventListener("changeposition", (event: ChangePositionEvent) => {
         this.updateContent(false, event.position);
       });
     }
 
-    this._offsetParent = NQDOM.getElementByClassName(this.element, OFSLIST_CLASS);
-    this._binaryParent = NQDOM.getElementByClassName(this.element, BINLIST_CLASS);
-    this._asciiParent = NQDOM.getElementByClassName(this.element, TXTLIST_CLASS);
+    this._offsetParent = NQDOM.getElementByClassName(this.element, OFSLIST_CLASS) as HTMLElement;
+    this._binaryParent = NQDOM.getElementByClassName(this.element, BINLIST_CLASS) as HTMLElement;
+    this._asciiParent = NQDOM.getElementByClassName(this.element, TXTLIST_CLASS) as HTMLElement;
   
     const containerElm = NQDOM.getElementByClassName(this.element, CONTENT_CLASS);
     if (containerElm) {
       const observer = new MutationObserver(() => {
-        let rootParent = containerElm;
+        let rootParent: ParentNode = containerElm;
         while (rootParent.parentNode)
           rootParent = rootParent.parentNode;
         if (rootParent instanceof Document) {
           observer.disconnect();
           containerElm.addEventListener("wheel",  e => {
             e.preventDefault();
-            this._scroll.position = this._scroll.position + e.deltaY;
-            this.updateContent(false, this._scroll.position);
+            if (this._scroll) {
+              this._scroll.position = this._scroll.position + e.deltaY;
+              this.updateContent(false, this._scroll.position);
+            }
           });
         }
       });
@@ -237,101 +288,67 @@ export class HexContent extends BaseControl {
     this.registerEvent(READYSTATECHANGE_EVENT, LOAD_EVENT, ERROR_EVENT);
   }
 
-  _onResize() {
-    if (this._visible && this._itemHeight !== null)
+  private _onResize() {
+    if (this._visible && this._itemHeight !== undefined)
       this.updateContent(true, this._offset);
   }
 
-  get scroll() {
+  public get scroll() {
     return this._scroll;
   }
 
-  get numberOfFileLines() {
+  public get numberOfFileLines() {
     return this._numberOfFileLines;
   }
 
-  set numberOfFileLines(value) {
+  public set numberOfFileLines(value) {
     this._numberOfFileLines = value;
   }
 
-  clear() {
+  public clear() {
     this._offsetParent.innerHTML = "";
     this._binaryParent.innerHTML = "";
     this._asciiParent.innerHTML = "";
   }
 
-  resetContent() {
-    if (this._tailPosition !== null) {
+  public resetContent() {
+    if (this._tailPosition !== undefined) {
       this.clear();
       this._tailPosition = 0;
     }
   }
 
-  pushBack(item) {
+  public pushBack(item: HexContentItem) {
     this._offsetParent.appendChild(item.offset);
     this._binaryParent.appendChild(item.binary);
     this._asciiParent.appendChild(item.ascii);
   }
 
-  popBack() {
-    this._offsetParent.lastElementChild.remove();
-    this._binaryParent.lastElementChild.remove();
-    this._asciiParent.lastElementChild.remove();
+  public popBack() {
+    this._offsetParent.lastElementChild?.remove();
+    this._binaryParent.lastElementChild?.remove();
+    this._asciiParent.lastElementChild?.remove();
   }
 
-  pushFront(item) {
+  public pushFront(item: HexContentItem) {
     this._offsetParent.insertBefore(item.offset, this._offsetParent.firstElementChild);
     this._binaryParent.insertBefore(item.binary, this._binaryParent.firstElementChild);
     this._asciiParent.insertBefore(item.ascii, this._asciiParent.firstElementChild);
   }
 
-  popFront() {
-    this._offsetParent.firstElementChild.remove();
-    this._binaryParent.firstElementChild.remove();
-    this._asciiParent.firstElementChild.remove();
+  public popFront() {
+    this._offsetParent.firstElementChild?.remove();
+    this._binaryParent.firstElementChild?.remove();
+    this._asciiParent.firstElementChild?.remove();
   }
 
-  makeElementList(offset, size, buffer) {
-    const result = [];
-    let sz = size;
-    let pos = offset;
-    let index = 0;
-    const bytes = new Uint8Array(buffer);
-
-    while (sz > 0) {
-      const n = Math.min(sz, 16);
-      const offset = pos.toString().padStart(this._padSize, '0');
-  
-      let binary = "";
-      let ascii = "";
-  
-      for (let i = 0; i < n; i++) {
-        const b = bytes[index++];
-        ascii += (31 < b && b < 127) ? String.fromCharCode(b) : ".";
-        const hex = b.toString(16).toUpperCase().padStart(2, '0');
-        if (i == 8)
-          binary += "  ";
-        else if (i != 0)
-          binary += " ";
-        binary += hex;
-      }
-      
-      result.push({
-        offset: createOffsetElement(offset),
-        binary: createBinaryElement(binary),
-        ascii: createAsciiElement(ascii),
-      });
-  
-      pos += n;
-      sz -= n;
-    }
-
-    return result;
-  }
-
-  updateContent(updateHeight, newOffset) {
-    const isStartup = (this._tailPosition === null);
-    if (isStartup) {
+  public updateContent(updateHeight: boolean, newOffset: number) {
+    if (!this._scroll)
+      return;
+    /* is startup */
+    let isStartup = false;
+    if (this._tailPosition === undefined) {
+      isStartup = true;
       this._scroll.position = 0;
       this._headGoal = 0;
       this._headPosition = 0;
@@ -343,7 +360,7 @@ export class HexContent extends BaseControl {
         return;
 
       const testArray = new Uint8Array(16);
-      const testItem = this.makeElementList(0, testArray.length, testArray.buffer)[0];
+      const testItem = makeElementList(0, testArray.length, testArray.buffer, this._padSize)[0];
 
       this.pushBack(testItem);      
       this._offsetParent.style.width = testItem.offset.clientWidth + 'px';
@@ -357,6 +374,9 @@ export class HexContent extends BaseControl {
       this._itemHeight = item.offset.offsetHeight;
       updateHeight = true;
     }
+
+    if (this._itemHeight === undefined)
+      return;
 
     if (updateHeight || this._offset != newOffset) {
       const numberOfHtmlLines = Math.floor(this._offsetParent.clientHeight / this._itemHeight);
@@ -395,7 +415,8 @@ export class HexContent extends BaseControl {
         }
         if (newOffset != this._offset) {
           this._offset = newOffset;
-          this._chunkLoader.setPreferOffset(this._offset * 16);
+          if (this._chunkLoader)
+            this._chunkLoader.setPreferOffset(this._offset * 16);
         }
       }
     }
@@ -429,18 +450,21 @@ export class HexContent extends BaseControl {
     }
   }
   
-  setOffset(value) {
+  public setOffset(value: number) {
     this.updateContent(false, value);
   }
 
-  setContent(content) {
-    this.resetContent(true);
+  public setContent(content: File) {
+    if (!this._scroll)
+      return;
+
+    this.resetContent();
 
     if (this._chunkLoader) {
       this._chunkLoader.stop();
     }
 
-    this._tailPosition = null;
+    this._tailPosition = undefined;
     this._numberOfFileLines = Math.ceil(content.size / 16);
     this._data = new Array(this._numberOfFileLines);
 
@@ -455,11 +479,11 @@ export class HexContent extends BaseControl {
     this._chunkLoader.addEventListener("chunk", e => {
       // console.log(`Load chunk - offset: ${e.offset} size: ${e.size}`);
       let pos = e.offset / 16;
-      for (const item of this.makeElementList(e.offset, e.size, e.buffer)) {
+      for (const item of makeElementList(e.offset, e.size, e.buffer, this._padSize)) {
         this._data[pos++] = item;
       }
 
-      const isStartup = (this._tailPosition === null);
+      const isStartup = (this._tailPosition === undefined);
       if (isStartup) {
         this._readyState = 'loading';
         this.dispatchEvent(READYSTATECHANGE_EVENT, { readyState: this._readyState });

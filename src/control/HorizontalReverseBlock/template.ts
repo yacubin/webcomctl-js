@@ -1,8 +1,9 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-const mk = new ControlMaker('HorizontalReverseBlock', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("HorizontalReverseBlock", import.meta.url);
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
 ]);
