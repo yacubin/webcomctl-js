@@ -64,7 +64,7 @@ ${DARKMODE_SELECTOR_VALUE}
   bottom: 2px;
   width: auto;
   height: max-content;
-  max-height: 100%;
+  max-height: 60%;
   padding: 0px 5px 0px 5px;
   font-family: ${TOOLBAR_FONT_SANS};
   user-select: none;
