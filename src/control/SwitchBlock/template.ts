@@ -19,7 +19,7 @@ mk.newCSS('CSS', `
   flex-grow: 1;
   /*height: 100%;*/
   width: inherit;
-  min-height: 0;
+  box-sizing: border-box;
 }
 
 .${clss.NTH1_CLASS} > *:nth-child(2),
