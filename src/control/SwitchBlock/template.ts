@@ -17,8 +17,9 @@ mk.newCSS('CSS', `
 .${clss.ROOT_CLASS}
 {
   flex-grow: 1;
-  height: 100%;
+  /*height: 100%;*/
   width: inherit;
+  min-height: 0;
 }
 
 .${clss.NTH1_CLASS} > *:nth-child(2),
