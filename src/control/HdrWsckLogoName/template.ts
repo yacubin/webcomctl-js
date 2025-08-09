@@ -1,21 +1,25 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('HdrWsckLogoNane', import.meta.url);
+const mk = new ControlMaker("HdrWsckLogoNane");
+
+import header1Svg from "./header1.svg";
+import header2Svg from "./header2.svg";
 
 const width = 509.184;
 const height = 64.584;
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
 const vars = mk.newCSSVariableMap({
   header: [
-    await mk.loadSvgAsCssUrl('./header1.svg'),
-    await mk.loadSvgAsCssUrl('./header2.svg'),
+    convertSvgToCssUrl(header1Svg),
+    convertSvgToCssUrl(header2Svg),
   ],
 });
 

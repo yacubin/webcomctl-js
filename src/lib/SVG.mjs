@@ -29,8 +29,8 @@ const htmlPlugins = [
   { name: 'removeViewBox', active: false },
 ];
 
-export function convertSvgToCssUrl(data) {
-  const optimizeSvg = svgo.optimize(data, { plugins: xmlCssPlugins });
+export function convertSvgToCssUrl(bytes) {
+  const optimizeSvg = svgo.optimize(bytes, { plugins: xmlCssPlugins });
   
   const svgUriData1 = 'data:image/svg+xml,' +  encodeURIComponent(optimizeSvg.data);
   const svgUriData2 = 'data:image/svg+xml;base64,' +  Buffer.from(optimizeSvg.data).toString('base64');
@@ -49,13 +49,17 @@ export async function loadSvgAsCssUrlAsync(metaUrl, filename) {
   return convertSvgToCssUrl(bytes);
 }
 
+export function convertSvgToHtmlTag(bytes) {
+  const optimizeSvg = svgo.optimize(bytes, { plugins: htmlPlugins });
+  return optimizeSvg.data;
+}
+
 export async function loadSvgAsHtmlAsync(metaUrl, filename) {
   const currentFilename = fileURLToPath(metaUrl);
   const currentDirname = path.dirname(currentFilename);
   
   const fname = path.resolve(currentDirname, filename);
   const bytes = await readFile(fname, { encoding: 'utf8', flag: 'r' });
-  const optimizeSvg = svgo.optimize(bytes, { plugins: htmlPlugins });
 
-  return optimizeSvg.data;
+  return convertSvgToHtmlTag(bytes);
 }

@@ -1,22 +1,28 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from  "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('HdrWsckLogo', import.meta.url);
+import favicon1Svg from "./favicon1.svg";
+import favicon2Svg from "./favicon2.svg";
+import header1Svg from "./header1.svg";
+import header2Svg from "./header2.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("HdrWsckLogo");
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
 const vars = mk.newCSSVariableMap({
   favicon: [
-    await mk.loadSvgAsCssUrl('./favicon1.svg'),
-    await mk.loadSvgAsCssUrl('./favicon2.svg'),
+    convertSvgToCssUrl(favicon1Svg),
+    convertSvgToCssUrl(favicon2Svg),
   ],
   header: [
-    await mk.loadSvgAsCssUrl('./header1.svg'),
-    await mk.loadSvgAsCssUrl('./header2.svg'),
+    convertSvgToCssUrl(header1Svg),
+    convertSvgToCssUrl(header2Svg),
   ],
 });
 

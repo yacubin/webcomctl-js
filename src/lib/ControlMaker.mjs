@@ -93,10 +93,14 @@ export default class ControlMaker {
   }
 
   async loadSvgAsCssUrl(filepath) {
+    if (!this._currentUrl)
+      throw new Error(`Uknown reletive path`);
     return await loadSvgAsCssUrlAsync(this._currentUrl, filepath);
   }
 
   async loadSvgAsHtmlAsync(filepath) {
+    if (!this._currentUrl)
+      throw new Error(`Uknown reletive path`);
     return await loadSvgAsHtmlAsync(this._currentUrl, filepath);
   }
 
@@ -169,7 +173,7 @@ export default class ControlMaker {
   newCSS(name, css) {
     if (this._cssList.hasOwnProperty(name))
       throw `HTML '${name}' exist in ${this._name}`;
-    this._cssList[name] = css;
+    this._cssList[name] = Array.isArray(css) ? css.join("\n") : css;
     return css;
   }
 
