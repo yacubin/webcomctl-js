@@ -1,6 +1,6 @@
 import ControlMaker from "@/lib/ControlMaker.mjs";
 
-const mk = new ControlMaker("SwitchBlock", import.meta.url);
+const mk = new ControlMaker("Switch2Block", import.meta.url);
 
 const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
@@ -16,7 +16,7 @@ mk.newHTML('ROOT_HTML', `
 mk.newCSS('CSS', `
 .${clss.ROOT_CLASS}
 {
-  flex-grow: 1;
+  height: 100%;
   width: inherit;
   box-sizing: border-box;
 }
@@ -25,11 +25,6 @@ mk.newCSS('CSS', `
 .${clss.NTH2_CLASS} > *:first-child
 {
   display: none;
-}
-
-.${clss.NTH2_CLASS}
-{
-  overflow-x: hidden;
 }
 `);
 
