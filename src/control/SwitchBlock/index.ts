@@ -3,7 +3,7 @@ import { SwitchBlockControl } from "@/comp/SwitchBlock/control";
 import { NTH1_CLASS, NTH2_CLASS } from "uictmplt-loader!./template.ts";
 
 export class SwitchBlock  extends SwitchBlockControl {
-  public constructor() {
-    super(NTH1_CLASS, NTH2_CLASS);
+  protected _init() {
+    super._init(NTH1_CLASS, NTH2_CLASS);
   }
 };
