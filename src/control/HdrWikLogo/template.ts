@@ -1,27 +1,25 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl, convertSvgToHtmlTag } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-const mk = new ControlMaker('HdrWikLogo', import.meta.url);
+import faviconSvg from "./favicon.svg";
+import uitestHeadSvg from "./uitestHead.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("HdrWikLogo");
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 
 const vars = mk.newCSSVariableMap({
-  favicon: [
-    await mk.loadSvgAsCssUrl('./favicon.svg'),
-  ],
-  header: [
-    await mk.loadSvgAsCssUrl('./uitestHead.svg'),
-  ],
+  favicon: convertSvgToCssUrl(faviconSvg),
+  header: convertSvgToCssUrl(uitestHeadSvg),
 });
-
-const favicon = await mk.loadSvgAsHtmlAsync('./favicon.svg');
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
-  <h1>${favicon}</h1>
+  <h1>${convertSvgToHtmlTag(faviconSvg)}</h1>
   <h2></h2>
 </div>
 `);
