@@ -94,13 +94,13 @@ export default class ControlMaker {
 
   async loadSvgAsCssUrl(filepath) {
     if (!this._currentUrl)
-      throw new Error(`Uknown reletive path`);
+      throw new Error(`Uknown reletive path for ${this._name}`);
     return await loadSvgAsCssUrlAsync(this._currentUrl, filepath);
   }
 
   async loadSvgAsHtmlAsync(filepath) {
     if (!this._currentUrl)
-      throw new Error(`Uknown reletive path`);
+      throw new Error(`Uknown reletive path for ${this._name}`);
     return await loadSvgAsHtmlAsync(this._currentUrl, filepath);
   }
 
