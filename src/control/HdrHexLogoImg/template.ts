@@ -4,8 +4,8 @@ import favicon1Svg from "./favicon1.svg";
 import favicon2Svg from "./favicon2.svg";
 
 export async function buildComponent() {
-  return HdrLogoImg.build("HdrWsckLogoImg", {
+  return HdrLogoImg.build("HdrHexLogoImg", {
     favicon: [ favicon1Svg, favicon2Svg ],
-    width: 40,
+    width: 56,
   });
 }
