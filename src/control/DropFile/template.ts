@@ -1,18 +1,17 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-const mk = new ControlMaker('DropFile', import.meta.url);
+import upFileSvg from "./up-file.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("DropFile");
+
+const BG_COLOR = '#1e1e1ecf';
+const UPFILE_IMG = convertSvgToCssUrl(upFileSvg);
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "SHOW_CLASS",
 ]);
-
-const UPFILE_IMG = await mk.loadSvgAsCssUrl('./up-file.svg');
-
-const BG_COLOR = '#1e1e1ecf';
-
-const vars = mk.newCSSVariableMap({
-});
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
