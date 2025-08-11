@@ -1,23 +1,33 @@
-import { BaseControl } from "webnetq-js";
-import { NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS, INSET_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS, INSET_CLASS } from "uictmplt-loader!./template.ts";
+
+const DRAGENTER_EVENT = "dragenter";
+const DRAGOVER_EVENT = "dragover";
+const DRAGLEAVE_EVENT = "dragleave";
+const DRAG_EVENT = "drop";
 
 const MIN_CHUNK_WIDTH = 50;
 const MIN_CHUNK_HEIGHT = 50;
 
-const SideType = {
-  NONE: 0,
-  TOP: 1,
-  RIGHT: 2,
-  BOTTOM: 3,
-  LEFT: 4,
-  INSET: 5,
+enum SideType {
+  NONE = 0,
+  TOP = 1,
+  RIGHT = 2,
+  BOTTOM = 3,
+  LEFT = 4,
+  INSET = 5,
 };
 
-SideType.fromString = (str) => {
+type SideStrType = "none" | "top" | "right" | "bottom" | "left" | "inset";
+
+namespace SideType {
+
+export function fromString(str: SideStrType): SideType | undefined {
   switch (str) {
-  case 'none':
+  case "none":
     return SideType.NONE;
-  case 'top':
+  case "top":
     return SideType.TOP;
   case 'right':
     return SideType.RIGHT;
@@ -28,13 +38,13 @@ SideType.fromString = (str) => {
   case 'inset':
     return SideType.INSET;
   }
-  return null;
+  return undefined;
 };
 
-SideType.toString = (sideType) => {
+export function toString(sideType: SideType): SideStrType {
   switch (sideType) {
   case SideType.NONE:
-    return 'none';
+    return "none";
   case SideType.TOP:
     return 'top';
   case SideType.RIGHT:
@@ -48,7 +58,7 @@ SideType.toString = (sideType) => {
   }
 };
 
-SideType.toClassName = (sideType) => {
+export function toClassName(sideType: SideType) {
   switch (sideType) {
   case SideType.NONE:
     return NONE_CLASS;
@@ -65,53 +75,48 @@ SideType.toClassName = (sideType) => {
   }
 };
 
+} // namespace SideType
+
 export class DropBlock  extends BaseControl {
-  _sideSet = new Set();
-  _sideType = SideType.NONE;
-  _rectElm;
+  private _sideSet = new Set();
+  private _sideType = SideType.NONE;
+  private _rectElm?: HTMLElement;
 
-  _listeners = {
-    dragenter: [],
-    dragleave: [],
-    dragover: [],
-    drop: [],
-  };
-
-  _init() {
-    this._rectElm = this.element.querySelector('.' + NONE_CLASS);
+  protected _init() {
+    this._rectElm = NQDOM.getElementByClassName(this.element, NONE_CLASS);
     
     let count = 0;
-    this.element.addEventListener("dragenter", (event) => {
+    this.element.addEventListener(DRAGENTER_EVENT, (event) => {
       if (count++ == 0) {
         this._onDragEnter(event);
-        this.dispatchEvent("dragenter", {});
+        this.dispatchEvent(DRAGENTER_EVENT, {});
       }
     });
 
-    this.element.addEventListener("dragover", (event) => {
+    this.element.addEventListener(DRAGOVER_EVENT, (event) => {
       if (count) {
         this._onDragOver(event);
-        this.dispatchEvent("dragover", {});
+        this.dispatchEvent(DRAGOVER_EVENT, {});
       }
       event.preventDefault();
     });
 
-    this.element.addEventListener("dragleave", (event) => {
+    this.element.addEventListener(DRAGLEAVE_EVENT, (event) => {
       if (--count == 0) {
-        this._onDragLeave(event);
-        this.dispatchEvent("dragleave", {});
+        this._onDragLeave();
+        this.dispatchEvent(DRAGLEAVE_EVENT, {});
       }
     });
 
-    this.element.addEventListener("drop", (event) => {
+    this.element.addEventListener(DRAG_EVENT, (event) => {
       event.preventDefault();
       count = 0;
 
       if (this._sideType != SideType.NONE) {
-        const newEvent = {
+        const newEvent: any = {
           side: SideType.toString(this._sideType),
         };
-        if (event.dataTransfer.items) {
+        if (event.dataTransfer?.items) {
           newEvent.files = [];
           for (let i = 0; i < event.dataTransfer.items.length; i++) {
             if (event.dataTransfer.items[i].kind === 'file') {
@@ -121,12 +126,14 @@ export class DropBlock  extends BaseControl {
           }
         }
         this._onDragLeave();
-        this.dispatchEvent("drop", newEvent);
+        this.dispatchEvent(DRAG_EVENT, newEvent);
       }
     });
+
+    this.registerEvent(DRAGENTER_EVENT, DRAGOVER_EVENT, DRAGLEAVE_EVENT, DRAG_EVENT);
   }
 
-  initConfig(config) {
+  public initConfig(config: { allowSides: SideStrType }) {
     if (config && Array.isArray(config.allowSides)) {
       for (const sideStr of config.allowSides) {
         const sideType = SideType.fromString(sideStr);
@@ -140,7 +147,7 @@ export class DropBlock  extends BaseControl {
     }
   }
 
-  _setSideType(sideType) {
+  private _setSideType(sideType: SideType) {
     if (sideType != this._sideType) {
       if (this._rectElm) {
         const prevClass = SideType.toClassName(this._sideType);
@@ -152,7 +159,7 @@ export class DropBlock  extends BaseControl {
     }
   }
 
-  _detectSideType(event) {
+  private _detectSideType(event: any) {
     const rect = event.currentTarget.getBoundingClientRect();
 
     const chunkWidth = rect.width / 8;
@@ -177,25 +184,17 @@ export class DropBlock  extends BaseControl {
     return SideType.NONE;
   }
 
-  _onDragEnter(event) {
+  private _onDragEnter(event: DragEvent) {
     const sideType = this._detectSideType(event);
     this._setSideType(sideType);
   }
 
-  _onDragOver(event) {
+  private _onDragOver(event: DragEvent) {
     const sideType = this._detectSideType(event);
     this._setSideType(sideType);
   }
 
-  _onDragLeave(event) {
+  private _onDragLeave() {
     this._setSideType(SideType.NONE);
-  }
-
-  dispatchEvent(type, event) {
-    this._listeners[type].forEach(listener => listener(event));
-  }
-
-  addEventListener(type, listener) {
-    this._listeners[type].push(listener);
   }
 };
