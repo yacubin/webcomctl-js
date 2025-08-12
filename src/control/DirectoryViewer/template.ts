@@ -1,10 +1,16 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('DirectoryViewer', import.meta.url);
+import folderSvg from "./folder.svg";
+import folder2Svg from "./folder2.svg";
+import fileSvg from "./file.svg";
+import file2Svg from "./file2.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("DirectoryViewer");
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "ITEM_LIST",
   "FOLDER_CLASS",
@@ -16,17 +22,18 @@ const clss = mk.newClassNameMap([
   "DATE_CLASS",
 ]);
 
-const FOLDER = await mk.loadSvgAsCssUrl('./folder.svg');
-const FOLDER2 = await mk.loadSvgAsCssUrl('./folder2.svg');
-const FILE = await mk.loadSvgAsCssUrl('./file.svg');
-const FILE2 = await mk.loadSvgAsCssUrl('./file2.svg');
-
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
 
 const vars = mk.newCSSVariableMap({
-  walx_file_img: [FILE , FILE2],
-  walx_folder_img: [FOLDER , FOLDER2],
+  walx_file_img: [
+    convertSvgToCssUrl(fileSvg),
+    convertSvgToCssUrl(file2Svg),
+  ],
+  walx_folder_img: [
+    convertSvgToCssUrl(folderSvg),
+    convertSvgToCssUrl(folder2Svg),
+  ],
   walx_data_dev_col: ['#1f2328', '#9198a1'],
   walx_data_dev_pic_bor: ['#d8d7d7', '#3d444d'],
   walx_data_dev_pic_nth2_hov: ['#f2f2f2', '#282828'],

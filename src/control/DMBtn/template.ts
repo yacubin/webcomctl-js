@@ -1,18 +1,22 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { HEADER_FONT_COLOR } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { HEADER_FONT_COLOR } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('DMBtn', import.meta.url);
+import sunSvg from "./sun.svg";
+import moonSvg from "./moon.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("DMBtn");
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "TOGGLE_CLASS",
   ]);
   
-  const sun = await mk.loadSvgAsCssUrl('./sun.svg');
-  const moon = await mk.loadSvgAsCssUrl('./moon.svg');
+  const sun = convertSvgToCssUrl(sunSvg);
+  const moon = convertSvgToCssUrl(moonSvg);
 
   const vars = mk.newCSSVariableMap({
   IMG_VAR: [ sun, moon ],

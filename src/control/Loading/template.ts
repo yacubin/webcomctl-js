@@ -5,7 +5,7 @@ import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
 
 import fileUploadSvg from "./file-upload.svg";
 
-const mk = new ControlMaker('Loading', import.meta.url);
+const mk = new ControlMaker("Loading");
 
 const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",

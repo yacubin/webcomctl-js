@@ -1,4 +1,6 @@
-import { BaseControl, Setting } from 'webnetq-js';
+import { BaseControl, NQDOM, Setting } from "webnetq-js";
+// @ts-ignore
+import { TOGGLE_CLASS } from "uictmplt-loader!./template.ts";
 
 const kDarkModeTip = "Toggle dark mode";
 const kLightModeTip = "Toggle light mode";
@@ -9,9 +11,14 @@ if (hasDocument && document.documentElement) {
   document.documentElement.dataset.theme = setting.getTheme();
 }
 
-export class DMKikoBtn extends BaseControl {
-  _init() {
-    this.element.addEventListener("click", (event) => {
+const THEMCHANGE_EVENT = "themchange";
+
+export class DMBtn extends BaseControl {
+  private _toggleElm?: HTMLElement;
+
+  protected _init() {
+    this._toggleElm = NQDOM.getElementByClassName(this.element, TOGGLE_CLASS);
+    this._toggleElm && this._toggleElm.addEventListener("click", (event) => {
       const setting = Setting.getInstance();
       setting.toggleTheme();
       this._setTheme(setting.getTheme());
@@ -19,14 +26,14 @@ export class DMKikoBtn extends BaseControl {
 
     const setting = Setting.getInstance();
     this._setTheme(setting.getTheme());
-    setting.addEventListener('themchange', event => this._setTheme(event.theme));
+    setting.addEventListener(THEMCHANGE_EVENT, event => this._setTheme(event.theme));
   }
 
-  _setTheme(theme) {
+  private _setTheme(theme: string) {
     const isDarkMode = (theme == 'dark');
     if (hasDocument && document.documentElement) {
       document.documentElement.dataset.theme = theme;
     }
-    this.element.setAttribute("title", isDarkMode ? kDarkModeTip : kLightModeTip);
+    this._toggleElm && this._toggleElm.setAttribute("title", isDarkMode ? kDarkModeTip : kLightModeTip);
   }
 };
