@@ -112,6 +112,7 @@ export default class ControlMaker {
     return obj.toString();
   }
 
+  // func<K extends string>(params: K[]): { [P in K]: string }
   newClassNameMap(params) {
     const result = {};
     for (const iter of params) {
