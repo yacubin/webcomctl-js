@@ -1,13 +1,18 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('DebugPanel', import.meta.url);
-const ARROW_IMG = await mk.loadSvgAsCssUrl('./arrow.svg');
-const SH_IMG = await mk.loadSvgAsCssUrl('./SH.svg');
+import arrowSvg from "./arrow.svg";
+import shSvg from "./SH.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("DebugPanel");
+
+const ARROW_IMG = convertSvgToCssUrl(arrowSvg);
+const SH_IMG = convertSvgToCssUrl(shSvg);
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "LIST_CLASS",
   "TEXT_CLASS",

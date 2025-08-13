@@ -1,8 +1,13 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { ITEM_HTML, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { ITEM_HTML, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from "uictmplt-loader!./template.ts";
+
+interface ButtonParams {
+  onclick: (event: MouseEvent) => void;
+};
 
 export class DebugPanel extends BaseControl {
-  _init() {
+  protected _init() {
     const hideClickElm = NQDOM.getElementByClassName(this.element, HIDE_CLASS);
     hideClickElm && hideClickElm.addEventListener("click", (event) => {
       this.element.classList.toggle(DOWN_CLASS);
@@ -13,8 +18,8 @@ export class DebugPanel extends BaseControl {
     });
   }
 
-  setButton(name, { onclick }) {
-    const itemElm = NQDOM.createElement(ITEM_HTML);
+  public setButton(name: string, { onclick }: ButtonParams) {
+    const itemElm = NQDOM.createElement(ITEM_HTML) as HTMLElement;
     const textElm = NQDOM.getElementByClassName(itemElm, TEXT_CLASS);
     const listElm = NQDOM.getElementByClassName(this.element, LIST_CLASS);
     if (itemElm && textElm && listElm) {
