@@ -1,10 +1,10 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
-const mk = new ControlMaker('DBCMessage', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme.mjs";
 
-const rpanel_brate = '#aeaeae8f';
+const mk = new ControlMaker("DBCMessage");
+
 const rpanel_bor = '#aeaeae8f';
 
 const vars = mk.newCSSVariableMap({
@@ -14,7 +14,7 @@ const vars = mk.newCSSVariableMap({
   
 });
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "message",
   "title_message",
@@ -225,7 +225,7 @@ div.${clss.ROOT_CLASS} b h4 > u
   padding: 10px 20px 10px 20px;
   width: max-content;
   border-radius: 5px;
-  border: 1px solid ${rpanel_brate};
+  border: 1px solid ${rpanel_bor};
   overflow: hidden;
   box-shadow: none;
 }

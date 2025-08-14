@@ -1,6 +1,7 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-const mk = new ControlMaker('DBCTree', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+
+const mk = new ControlMaker("DBCTree");
 
 const vars = mk.newCSSVariableMap({
   dbc_doc_icon: ['url(/dbc-online/document.svg)','url(/dbc-online/document2.svg)'],
@@ -19,7 +20,7 @@ const vars = mk.newCSSVariableMap({
   tree_list_col: ['black','white'],
 });
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "NODE_SIGNAL",
   "TREE_ACTIVE",
