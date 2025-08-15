@@ -1,20 +1,20 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
-const mk = new ControlMaker('DBCDocument', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme.mjs";
+
+const mk = new ControlMaker("DBCDocument");
 
 const rpanel_brate = '#aeaeae8f';
 const rpanel_bor = '#aeaeae8f';
+const rpanel_bs = "0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)";
 
 const vars = mk.newCSSVariableMap({
   rpanel_col: ['black', '#eeeeee'],
-  rpanel_bg: ['white', 'rgb(23, 23, 26)'],
-  rpanel_bs: ['0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)', '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)'],
-  
+  rpanel_bg: ['white', 'rgb(23, 23, 26)'],  
 });
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "DOCUMENT",
   "TITLE_DOCUMENT",
@@ -146,7 +146,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.NEW_SYMBOLS} > s > div
 {
   border: 1px solid ${rpanel_bor};
-  box-shadow: ${vars.rpanel_bs.asVar()};
+  box-shadow: ${rpanel_bs};
   border-radius: 3px;
 }
 

@@ -1,21 +1,22 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { GROUP_SIGNALS_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { GROUP_SIGNALS_CLASS } from "uictmplt-loader!./template.ts";
 
 export class DBCGruop extends BaseControl {
-  _signalListElm;
+  private _signalListElm?: HTMLElement;
 
-  _init() {
+  protected _init() {
     this._signalListElm = NQDOM.getElementByClassName(this.element, GROUP_SIGNALS_CLASS);
   }
 
-  setValue(signals) {
+  public setValue(signals: string[]) {
     if (this._signalListElm) {
       this._signalListElm.textContent = "";
-      signals.forEach((signal) => {
+      for (const iter of signals) {
         const item = document.createElement('li');
-        item.textContent = signal;
+        item.textContent = iter;
         this._signalListElm.appendChild(item);
-      });
+      }
     }
-  };
+  }
 };

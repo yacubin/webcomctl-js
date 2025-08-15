@@ -1,48 +1,51 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group } from 'uictmplt-loader!./template.mjs';
+import { BaseControl } from "webnetq-js";
+// @ts-ignore
+import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group } from "uictmplt-loader!./template.ts";
 
-const DOCUMENT_TYPE = "document";
-const MESSAGE_TYPE = "message";
-const SIGNAL_TYPE = "signal";
-const GROUP_TYPE = "group";
+enum DBCContentType {
+  DOCUMENT_TYPE = "document",
+  MESSAGE_TYPE = "message",
+  SIGNAL_TYPE = "signal",
+  GROUP_TYPE = "group",
+};
 
-function typeToClassName(type) {
+function typeToClassName(type: DBCContentType) {
   switch (type) {
-  case DOCUMENT_TYPE:
+  case DBCContentType.DOCUMENT_TYPE:
     return dbc_view_document;
-  case MESSAGE_TYPE:
+  case DBCContentType.MESSAGE_TYPE:
     return dbc_view_message;
-  case SIGNAL_TYPE:
+  case DBCContentType.SIGNAL_TYPE:
     return dbc_view_signal;
-  case GROUP_TYPE:
+  case DBCContentType.GROUP_TYPE:
     return dbc_view_group;
   }
 }
 
-function classNameFromType(classname) {
+function classNameFromType(classname: string) {
   switch (classname) {
   case dbc_view_document:
-    return DOCUMENT_TYPE;
+    return DBCContentType.DOCUMENT_TYPE;
   case dbc_view_message:
-    return MESSAGE_TYPE;
+    return DBCContentType.MESSAGE_TYPE;
   case dbc_view_signal:
-    return SIGNAL_TYPE;
+    return DBCContentType.SIGNAL_TYPE;
   case dbc_view_group:
-    return GROUP_TYPE;
+    return DBCContentType.GROUP_TYPE;
   }
 }
 
 export class DBCContentBlock extends BaseControl {
-  _type;
+  private _type?: DBCContentType;
 
-  _init() {
+  protected _init() {
     this.element.classList.remove(dbc_view_document);
     this.element.classList.remove(dbc_view_message);
     this.element.classList.remove(dbc_view_signal);
     this.element.classList.remove(dbc_view_group);
   }
 
-  setValue(type) {
+  public setValue(type: DBCContentType) {
     if (type !== this._type) {
       this._type && this.element.classList.remove(typeToClassName(this._type));
       const className = typeToClassName(type);
