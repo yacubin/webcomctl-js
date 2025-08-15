@@ -1,8 +1,9 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
-const mk = new ControlMaker('DBCGruop', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme.mjs";
+
+const mk = new ControlMaker("DBCGruop");
 
 const rpanel_bor = '#aeaeae8f';
 
@@ -12,7 +13,7 @@ const vars = mk.newCSSVariableMap({
   
 });
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "GROUP",
   "dbc_title_group",

@@ -1,46 +1,51 @@
 import { BaseControl, NQDOM } from 'webnetq-js';
-import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root, dbc_comment_text, dbc_attributes_root, dbc_attributes_list, dbc_group_signals } from 'uictmplt-loader!./template.mjs';
+import { dbc_view_document, dbc_view_message, dbc_view_signal, dbc_view_group, dbc_comment_root,
+  dbc_comment_text, dbc_attributes_root, dbc_attributes_list, dbc_group_signals
+// @ts-ignore
+} from "uictmplt-loader!./template.ts";
 
-const DOCUMENT_TYPE = "document";
-const MESSAGE_TYPE = "message";
-const SIGNAL_TYPE = "signal";
-const GROUP_TYPE = "group";
+enum DBCContentType {
+  DOCUMENT_TYPE = "document",
+  MESSAGE_TYPE = "message",
+  SIGNAL_TYPE = "signal",
+  GROUP_TYPE = "group",
+};
 
-function typeToClassName(type) {
+function typeToClassName(type: DBCContentType) {
   switch (type) {
-  case DOCUMENT_TYPE:
+  case DBCContentType.DOCUMENT_TYPE:
     return dbc_view_document;
-  case MESSAGE_TYPE:
+  case DBCContentType.MESSAGE_TYPE:
     return dbc_view_message;
-  case SIGNAL_TYPE:
+  case DBCContentType.SIGNAL_TYPE:
     return dbc_view_signal;
-  case GROUP_TYPE:
+  case DBCContentType.GROUP_TYPE:
     return dbc_view_group;
   }
 }
 
-function classNameFromType(classname) {
+function classNameFromType(classname: string) {
   switch (classname) {
   case dbc_view_document:
-    return DOCUMENT_TYPE;
+    return DBCContentType.DOCUMENT_TYPE;
   case dbc_view_message:
-    return MESSAGE_TYPE;
+    return DBCContentType.MESSAGE_TYPE;
   case dbc_view_signal:
-    return SIGNAL_TYPE;
+    return DBCContentType.SIGNAL_TYPE;
   case dbc_view_group:
-    return GROUP_TYPE;
+    return DBCContentType.GROUP_TYPE;
   }
 }
 
 export class DBCContent extends BaseControl {
-  _type;
-  _commentRootElement;
-  _commentTextElement;
-  _attrRootElement;
-  _attrListElement;
-  _signalListElm;
+  private _type?: DBCContentType;
+  private _commentRootElement?: HTMLElement;
+  private _commentTextElement?: HTMLElement;
+  private _attrRootElement?: HTMLElement;
+  private _attrListElement?: HTMLElement;
+  private _signalListElm?: HTMLElement;
 
-  _init() {
+  protected _init() {
     this.element.classList.remove(dbc_view_document);
     this.element.classList.remove(dbc_view_message);
     this.element.classList.remove(dbc_view_signal);
@@ -55,7 +60,7 @@ export class DBCContent extends BaseControl {
     this._signalListElm = NQDOM.getElementByClassName(this.element, dbc_group_signals);
   }
 
-  setViewType(type) {
+  public setViewType(type: DBCContentType) {
     if (type !== this._type) {
       this._type && this.element.classList.remove(typeToClassName(this._type));
       const className = typeToClassName(type);
@@ -64,26 +69,26 @@ export class DBCContent extends BaseControl {
     }
   }
 
-  setComment(text) {
+  public setComment(text: string) {
     if (this._commentRootElement) {
       this._commentRootElement.style.display = text ? "" : "none";
     }
     if (this._commentTextElement) {
-      this._commentTextElement.innerHTML = "";
-      text && text.split("\n").forEach((iter) => {
+      this._commentTextElement.textContent = "";
+      for (const iter of (text || "").split("\n")) {
         const element = document.createElement('span');
         element.textContent = iter;
         this._commentTextElement.appendChild(element);
-      });
+      }
     }
   }
 
-  setAttributes(attributes) {
+  public setAttributes(attributes?: { [key: string]: string }) {
     if (this._attrRootElement) {
       this._attrRootElement.style.display = attributes ? "" : "none";
     }
     if (this._attrListElement) {
-      this._attrListElement.innerHTML = "";
+      this._attrListElement.textContent = "";
       if (attributes) {
         for (const key of Object.keys(attributes).sort()) {
           const element = document.createElement("div");
@@ -102,14 +107,14 @@ export class DBCContent extends BaseControl {
     }
   }
 
-  setSignals = (signals) => {
+  public setSignals(signals: string[]) {
     if (this._signalListElm) {
       this._signalListElm.textContent = "";
-      signals.forEach((signal) => {
+      for (const iter of signals) {
         const item = document.createElement('li');
-        item.textContent = signal;
+        item.textContent = iter;
         this._signalListElm.appendChild(item);
-      });
+      }
     }
   };
 };

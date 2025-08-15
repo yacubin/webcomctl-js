@@ -1,14 +1,20 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-const mk = new ControlMaker('DBCLeft', import.meta.url);
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-const mes_pseudo_hov_bg = '#f3e9e9';
+import splitterSvg from "./splitter.svg";
+import splitterHoverSvg from "./splitter-hover.svg";
+import leftButSvg from "./left-but.svg";
+import leftButHoverSvg from "./left-but-hover.svg";
+
+const mk = new ControlMaker("DBCLeft");
+
 const left_on_sc = 'transparent';
 const button_bg = '#dddddd40';
-const dbc_split_norm = await mk.loadSvgAsCssUrl('./splitter.svg');
-const dbc_split_hov = await mk.loadSvgAsCssUrl('./splitter-hover.svg');
-const left_but_img = await mk.loadSvgAsCssUrl('./left-but.svg');
-const left_but_hov_img = await mk.loadSvgAsCssUrl('./left-but-hover.svg');
+const dbc_split_norm = convertSvgToCssUrl(splitterSvg);
+const dbc_split_hov = convertSvgToCssUrl(splitterHoverSvg);
+const left_but_img = convertSvgToCssUrl(leftButSvg);
+const left_but_hov_img = convertSvgToCssUrl(leftButHoverSvg);
 
 const vars = mk.newCSSVariableMap({
   sep_bg: ['linear-gradient(to bottom,transparent 0%, #bcbcbc30 35% 85%, transparent 100%)'],
@@ -34,7 +40,7 @@ const vars = mk.newCSSVariableMap({
   left_name_hov: ['#e9e9e9', '#c1c1c126'],
 });
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
   "BN_NAV",
