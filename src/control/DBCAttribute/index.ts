@@ -1,22 +1,18 @@
-import { BaseControl, NQDOM } from 'webnetq-js';
-import { dbc_attributes_root, dbc_attributes_list } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { dbc_attributes_list } from "uictmplt-loader!./template.ts";
 
 export class DBCAttribute extends BaseControl {
-  _attrRootElement;
-  _attrListElement;
+  private _attrListElement?: HTMLElement;
 
 
-  _init() {
-    this._attrRootElement = NQDOM.getElementByClassName(this.element, dbc_attributes_root);
+  protected _init() {
     this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
   }
 
-  setValue(attributes) {
-    if (this._attrRootElement) {
-      this._attrRootElement.style.display = attributes ? "" : "none";
-    }
+  public setValue(attributes: { [key: string]: string }) {
     if (this._attrListElement) {
-      this._attrListElement.innerHTML = "";
+      this._attrListElement.textContent = "";
       if (attributes) {
         for (const key of Object.keys(attributes).sort()) {
           const element = document.createElement("div");
