@@ -1,12 +1,11 @@
-import { BaseControl, Random } from 'webnetq-js';
-import { LOAD_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, Random } from "webnetq-js";
+// @ts-ignore
+import { LOAD_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
 export class CntSmUploadButton extends BaseControl {
-  _loadEnable = false;
-
-  _init() {
+  protected _init() {
     const lableElm = this.element.querySelector('label');
     if (lableElm) {
       const inputId = Random.nextElementId();
@@ -15,10 +14,10 @@ export class CntSmUploadButton extends BaseControl {
       inputElm.id = inputId;
       inputElm.type = "file";
 
-      inputElm.addEventListener("input", (event) => {
-        const files = event.target.files;
+      inputElm.addEventListener("input", (event: Event) => {
+        const files = (event.target as HTMLInputElement).files;
         this.dispatchEvent(UPLOAD_EVENT, {files});
-        event.target.value = null;
+        (event.target as any).value = null;
       });
   
       lableElm.appendChild(inputElm);
@@ -28,12 +27,8 @@ export class CntSmUploadButton extends BaseControl {
     this.registerEvent(UPLOAD_EVENT);
   }
 
-  get loadEnable() { return this._loadEnable; }
-  set loadEnable(value) {
-    if (value != this._loadEnable) {
-      const method = value ? 'add' : 'remove';
-      this.element.classList[method](LOAD_CLASS);
-      this._loadEnable = value;
-    }
+  public get loadEnable() { return this.element.classList.contains(LOAD_CLASS); }
+  public set loadEnable(value) {
+    this.element.classList.toggle(LOAD_CLASS, value);
   }
 };

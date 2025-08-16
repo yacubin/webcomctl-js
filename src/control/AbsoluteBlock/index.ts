@@ -1,14 +1,17 @@
-import { BaseControl } from 'webnetq-js';
-import { RIGHT_CLASS, BOTTOM_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl } from "webnetq-js";
+// @ts-ignore
+import { RIGHT_CLASS, BOTTOM_CLASS } from "uictmplt-loader!./template.ts";
 
-const SideType = {
-  TOP_LEFT: 0,
-  TOP_RIGHT: 1,
-  BOTTOM_LEFT: 2,
-  BOTTOM_RIGHT: 3,
+enum SideType {
+  TOP_LEFT = 0,
+  TOP_RIGHT = 1,
+  BOTTOM_LEFT = 2,
+  BOTTOM_RIGHT = 3,
 };
 
-SideType.fromString = (str) => {
+namespace SideType {
+
+export function fromString(str: string): SideType | undefined {
   switch (str) {
   case "top-left":
     return SideType.TOP_LEFT;
@@ -19,10 +22,10 @@ SideType.fromString = (str) => {
   case "bottom-right":
     return SideType.BOTTOM_RIGHT;
   }
-  return null;
-};
+  return undefined;
+}
 
-SideType.toString = (sideType) => {
+export function toString(sideType: SideType): string | undefined {
   switch (sideType) {
   case SideType.TOP_LEFT:
     return "top-left";
@@ -33,14 +36,16 @@ SideType.toString = (sideType) => {
   case SideType.BOTTOM_RIGHT:
     return "bottom-right";
   }
-  return null;
-};
+  return undefined;
+}
+
+} // namespace SideType
 
 export class AbsoluteBlock extends BaseControl {
-  _sideType;
-  _visible;
+  private _sideType!: SideType;
+  private _visible!: boolean;
 
-  _init() {
+  protected _init() {
     const hasRight = this.element.classList.contains(RIGHT_CLASS);
     const hasBottom = this.element.classList.contains(BOTTOM_CLASS);
 
@@ -52,23 +57,25 @@ export class AbsoluteBlock extends BaseControl {
     this._visible = true;
   }
 
-  get visible() {
+  public get visible() {
     return this._visible;
   }
 
-  set visible(value) {
+  public set visible(value) {
     if (this._visible != value) {
       this._visible = value;
     }
   }
 
-  get sideType() {
+  public get sideType() {
     return this._sideType;
   }
 
-  set sideType(value) {
+  public set sideType(value: string | SideType | undefined) {
     if(typeof value === "string")
       value = SideType.fromString(value);
+    if (value === undefined)
+      return;
 
     let hasRight = false;
     let hasBottom = false;

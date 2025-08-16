@@ -1,12 +1,13 @@
-import { BaseControl, Random } from 'webnetq-js';
-import { ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from 'uictmplt-loader!./template.mjs';
+import { BaseControl, Random, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
 export class CntButtBRed extends BaseControl {
-  _heightElm;
+  private _heightElm?: HTMLElement;
 
-  _init() {
+  protected _init() {
     const lableElm = this.element.querySelector('label');
     if (lableElm) {
       const inputId = Random.nextElementId();
@@ -16,16 +17,16 @@ export class CntButtBRed extends BaseControl {
       inputElm.type = "file";
 
       inputElm.addEventListener("input", (event) => {
-        const files = event.target.files;
+        const files = (event.target as HTMLInputElement).files;
         this.dispatchEvent(UPLOAD_EVENT, {files});
-        event.target.value = null;
+        (event.target as any).value = null;
       });
 
       lableElm.appendChild(inputElm);
       lableElm.setAttribute('for', inputId);
     }
 
-    this._heightElm = this.element.querySelector('.' + HEIGHT_CLASS);
+    this._heightElm = NQDOM.getElementByClassName(this.element, HEIGHT_CLASS);
     if (this._heightElm) {
       this._heightElm.style.height = "0";
       this._heightElm.innerText = "";
@@ -34,7 +35,7 @@ export class CntButtBRed extends BaseControl {
     this.registerEvent(UPLOAD_EVENT);
   }
 
-  loadProcess(value) {
+  public loadProcess(value: number | null) {
     if (value === null) {
       this.element.classList.remove(LOAD_CLASS);
       this.element.classList.add(ROOT_CLASS);
