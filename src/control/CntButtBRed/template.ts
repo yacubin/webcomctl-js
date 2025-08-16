@@ -1,24 +1,26 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+const mk = new ControlMaker("CntButtBRed");
 
-const mk = new ControlMaker('CntButtBRed', import.meta.url);
+import waterSvg from "./water.svg";
 
-const WATER_IMG = await mk.loadSvgAsCssUrl('./water.svg');
-
-const clss = mk.newClassNameMap([
-"ROOT_CLASS",
-"LOAD_CLASS",
-"LABEL_CLASS",
-"HEIGHT_CLASS",
+const clss: any = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "LOAD_CLASS",
+  "LABEL_CLASS",
+  "HEIGHT_CLASS",
 ]);
 
 const DEF_COLOR = '#c50000';
 const DEF_BORDER_COLOR = '#c50000';
 const ACT_COLOR = '#a72f2f';
 const ACT_BORDER_COLOR = '#a72f2f';
+
+const WATER_IMG = convertSvgToCssUrl(waterSvg);
 
 const vars = mk.newCSSVariableMap({
   HOVBG_VAR: [ '#f5eaea', '#5841414f' ],

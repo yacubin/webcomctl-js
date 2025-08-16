@@ -1,16 +1,19 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
 
-const mk = new ControlMaker('CntSmUploadButton', import.meta.url);
+import loadSvg from "./load.svg";
 
-const clss = mk.newClassNameMap([
+const mk = new ControlMaker("CntSmUploadButton");
+
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "LOAD_CLASS",
 ]);
 
-const LOAD_IMG = await mk.loadSvgAsCssUrl('./load.svg');
+const LOAD_IMG = convertSvgToCssUrl(loadSvg);
 
 const COLOR = '#c50000';
 const BORDER_COLOR = '#c50000';
