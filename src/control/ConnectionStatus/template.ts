@@ -1,10 +1,18 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
+const mk = new ControlMaker("ConnectionStatus");
 
-const mk = new ControlMaker('ConnectionStatus', import.meta.url);
+const SIG_OFF = "radial-gradient(red 5% , #830000)";
 
-const clss = mk.newClassNameMap([
+const GRAD_COLOR = "#073d00";
+const GRAD_STEP1 = `radial-gradient(#00ba00 5% , ${GRAD_COLOR})`;
+const GRAD_STEP2 = `radial-gradient(#00ba00 7% , ${GRAD_COLOR})`;
+const GRAD_STEP3 = `radial-gradient(#00bd00 9% , ${GRAD_COLOR})`;
+const GRAD_STEP4 = `radial-gradient(#389f38 12% , ${GRAD_COLOR})`;
+
+const GRADIENT = mk.newAnimationName("GRADIENT");
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
   "SIGNAL_STATE_OFF",
   "SIGNAL_STATE_ON",
@@ -13,11 +21,6 @@ const clss = mk.newClassNameMap([
 
 const vars = mk.newCSSVariableMap({
   con_col: [ '#353535', '#dcdcdc' ],
-  wsock_sig_off: ['radial-gradient(red 5% , #830000)', 'radial-gradient(red 5% , #830000)'],
-  grad_gr5: [ 'radial-gradient(#00ba00 5% , #073d00)', 'radial-gradient(#00ba00 5% , #073d00)' ],
-  grad_gr7: [ 'radial-gradient(#00ba00 7% , #073d00)', 'radial-gradient(#00ba00 7% , #073d00)' ],
-  grad_gr9: [ 'radial-gradient(#00bd00 9% , #073d00)', 'radial-gradient(#00bd00 9% , #073d00)' ],
-  grad_gr12: [ 'radial-gradient(#389f38 12% , #073d00)', 'radial-gradient(#389f38 12% , #073d00)' ],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -63,48 +66,48 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.SIGNAL_STATE_OFF}
 {
-  background: ${vars.wsock_sig_off.asVar()};
+  background: ${SIG_OFF};
   background-size: 100%;
 }
 
 .${clss.SIGNAL_STATE_ON}
 {
-  animation-name: gradient-green;
+  animation-name: ${GRADIENT};
   animation-duration: 3s, 2s, 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   background-size: 100%;
 }
 
-@keyframes gradient-green
+@keyframes ${GRADIENT}
 {
   0%
   {
-    background: ${vars.grad_gr5.asVar()};
+    background: ${GRAD_STEP1};
   }
   16%
   {
-    background: ${vars.grad_gr7.asVar()};
+    background: ${GRAD_STEP2};
   }
   32%
   {
-    background: ${vars.grad_gr9.asVar()};
+    background: ${GRAD_STEP3};
   }
   50%
   {
-    background: ${vars.grad_gr12.asVar()};
+    background: ${GRAD_STEP4};
   }
   66%
   {
-    background: ${vars.grad_gr9.asVar()};
+    background: ${GRAD_STEP3};
   }
   82%
   {
-    background: ${vars.grad_gr7.asVar()};
+    background: ${GRAD_STEP2};
   }
   100%
   {
-    background: ${vars.grad_gr5.asVar()};
+    background: ${GRAD_STEP1};
   }
 }
 `);

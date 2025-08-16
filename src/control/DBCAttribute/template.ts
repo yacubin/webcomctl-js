@@ -2,7 +2,7 @@ import ControlMaker from '../../lib/ControlMaker.mjs';
 import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
 import { HEADER_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
 import { TOOLBAR_DBC_FONT_SANS } from '../../lib/WickedTheme.mjs';
-const mk = new ControlMaker('DBCComment', import.meta.url);
+const mk = new ControlMaker('DBCAttribute', import.meta.url);
 
 const rpanel_bor = '#aeaeae8f';
 
@@ -13,18 +13,20 @@ const vars = mk.newCSSVariableMap({
   
 });
 
-const clss = mk.newClassNameMap([
+const clss: any = mk.newClassNameMap([
   "ROOT_CLASS",
-  "dbc_comment_root",
-  "dbc_comment_text",
+  "attribute",
+  "dbc_attributes_list",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
-<b class="${clss.ROOT_CLASS} ${clss.dbc_comment_root}">
-  <h5>Comment</h5>
-  <div class="${clss.dbc_comment_text}"></div>
-</b>
+<div class="${clss.ROOT_CLASS} ${clss.attribute}">
+  <h5>Attributes</h5>
+  <div>
+    <span class="${clss.dbc_attributes_list}"></span>
+  </div>
+</div>
 
 `);
 
@@ -39,9 +41,22 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-.${clss.ROOT_CLASS} *
+.${clss.ROOT_CLASS} u
+{
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.${clss.ROOT_CLASS} * 
 {
   box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS}
+{
+  font-size: 0.94em;
+  font-family:${TOOLBAR_DBC_FONT_SANS};
+  color: ${vars.rpanel_col.asVar()};
 }
 
 .${clss.ROOT_CLASS} h5
@@ -49,17 +64,6 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 1em;
   margin: 0px;
   padding: 0px;
-}
-
-
-.${clss.ROOT_CLASS}
-{
-  display: block;
-  font-size: 0.94em;
-  font-family:${TOOLBAR_DBC_FONT_SANS};
-  color: ${vars.rpanel_col.asVar()};
-  text-decoration: none;
-  font-weight: 400;
 }
 
 .${clss.ROOT_CLASS} > h5
@@ -76,19 +80,39 @@ ${DARKMODE_SELECTOR_VALUE}
   background-color: ${vars.rpanel_bg.asVar()};
 }
 
-.${clss.ROOT_CLASS} > div
+.${clss.attribute} > div
 {
-  display: block;
-  padding: 20px 30px 20px 30px;
-  font-weight: 400;
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
 
-.${clss.ROOT_CLASS} > div > span
+.${clss.ROOT_CLASS} > div span 
 {
-    display: block;
+    display: table;
+    border-spacing: 0px 5px;
+    padding: 20px 30px 20px 30px;
+}
+
+.${clss.ROOT_CLASS} > div span > div
+{
+    display: table-row-group;
+}
+
+.${clss.ROOT_CLASS} > div span div h5, 
+.${clss.ROOT_CLASS} > div span div u 
+{
+  display: table-cell;
+}
+
+.${clss.ROOT_CLASS}> div span div h5 
+{
+    font-weight: 400;
+}
+
+.${clss.ROOT_CLASS} > div span div u  
+{
+    padding-left: 15px;
 }
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
