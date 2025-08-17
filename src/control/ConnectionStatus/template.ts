@@ -1,5 +1,5 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("ConnectionStatus");
 
@@ -12,7 +12,7 @@ const GRAD_STEP3 = `radial-gradient(#00bd00 9% , ${GRAD_COLOR})`;
 const GRAD_STEP4 = `radial-gradient(#389f38 12% , ${GRAD_COLOR})`;
 
 const GRADIENT = mk.newAnimationName("GRADIENT");
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "SIGNAL_STATE_OFF",
   "SIGNAL_STATE_ON",

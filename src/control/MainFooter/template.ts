@@ -1,12 +1,12 @@
-import ControlMaker from '../../lib/ControlMaker.mjs';
+import ControlMaker from "@/lib/ControlMaker";
 
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
-import { TOOLBAR_FONT_SANS } from '../../lib/WickedTheme.mjs';
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme";
 
-const mk = new ControlMaker('MainFooter', import.meta.url);
+const mk = new ControlMaker("MainFooter");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "LIST_CLASS",
   "VERSION_CLASS",

@@ -1,14 +1,14 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
+import ControlMaker from "@/lib/ControlMaker";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
-import { UIC_CONTENT_BACKGROUND_COLOR } from "@/lib/WickedTheme.mjs";
-import { UIC_CONTENT_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme.mjs";
-import { TOOLBAR_FONT_MONOSPACE } from "@/lib/WickedTheme.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { UIC_CONTENT_BACKGROUND_COLOR } from "@/lib/WickedTheme";
+import { UIC_CONTENT_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme";
+import { TOOLBAR_FONT_MONOSPACE } from "@/lib/WickedTheme";
 
-const mk = new ControlMaker("TextContent", import.meta.url);
+const mk = new ControlMaker("TextContent");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "NUMBERS",
   "CONTENT",

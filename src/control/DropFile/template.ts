@@ -1,5 +1,5 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
 import upFileSvg from "./up-file.svg";
 
@@ -8,7 +8,7 @@ const mk = new ControlMaker("DropFile");
 const BG_COLOR = '#1e1e1ecf';
 const UPFILE_IMG = convertSvgToCssUrl(upFileSvg);
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "SHOW_CLASS",
 ]);

@@ -1,10 +1,5 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import BaseHeader from "@/comp/BaseHeader/index.mjs";
+import { BaseHeader } from "@/comp/BaseHeader/builder";
 
 export function buildComponent() {
-  const mk = new ControlMaker("MainHeader", import.meta.url);
-  BaseHeader(mk, {
-    type: "main",
-  });
-  return mk.buildComponent();
+  return BaseHeader.build("MainHeader", { type: "main" });
 }

@@ -18,18 +18,18 @@ const plugins = [
   { name: 'collapseGroups', active: true },
 ];
 
-const xmlCssPlugins = [
+const xmlCssPlugins: any = [
   ...plugins,
 ];
 
-const htmlPlugins = [
+const htmlPlugins: any = [
   ...plugins,
   { name: 'removeXMLNS', active: true },
   { name: 'removeDimensions', active: true }, // Remove width and height
   { name: 'removeViewBox', active: false },
 ];
 
-export function convertSvgToCssUrl(bytes) {
+export function convertSvgToCssUrl(bytes: string) {
   const optimizeSvg = svgo.optimize(bytes, { plugins: xmlCssPlugins });
   
   const svgUriData1 = 'data:image/svg+xml,' +  encodeURIComponent(optimizeSvg.data);
@@ -39,7 +39,7 @@ export function convertSvgToCssUrl(bytes) {
   return `url("${svgUriData}")`;
 }
 
-export async function loadSvgAsCssUrlAsync(metaUrl, filename) {
+export async function loadSvgAsCssUrlAsync(metaUrl: string, filename: string) {
   const currentFilename = fileURLToPath(metaUrl);
   const currentDirname = path.dirname(currentFilename);
   
@@ -49,12 +49,12 @@ export async function loadSvgAsCssUrlAsync(metaUrl, filename) {
   return convertSvgToCssUrl(bytes);
 }
 
-export function convertSvgToHtmlTag(bytes) {
+export function convertSvgToHtmlTag(bytes: string) {
   const optimizeSvg = svgo.optimize(bytes, { plugins: htmlPlugins });
   return optimizeSvg.data;
 }
 
-export async function loadSvgAsHtmlAsync(metaUrl, filename) {
+export async function loadSvgAsHtmlAsync(metaUrl: string, filename: string) {
   const currentFilename = fileURLToPath(metaUrl);
   const currentDirname = path.dirname(currentFilename);
   

@@ -13,6 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "types": [
+      "node",
       "./src/global.d.ts"
     ],
     "paths": {

@@ -1,17 +1,17 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
-import { TOOLBAR_FONT_FAMALY } from "@/lib/WickedTheme.mjs";
-import { UIC_START_BACKGROUND_COLOR } from "@/lib/WickedTheme.mjs";
-import { UIC_START_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { TOOLBAR_FONT_FAMALY } from "@/lib/WickedTheme";
+import { UIC_START_BACKGROUND_COLOR } from "@/lib/WickedTheme";
+import { UIC_START_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme";
 
 import closeSvg from "./X.svg";
 
-const mk = new ControlMaker("PageTab", import.meta.url);
+const mk = new ControlMaker("PageTab");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "TEXT_CLASS",
   "CLOSE_CLASS",

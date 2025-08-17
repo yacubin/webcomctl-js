@@ -1,69 +1,70 @@
-import { representClassNames } from './CSSHelper.mjs';
-import { loadSvgAsCssUrlAsync, loadSvgAsHtmlAsync } from './SVG.mjs';
+import { representClassNames } from "@/lib/CSSHelper";
 
 export class CSSClassName {
-  _name;
+  private _name: string;
 
-  constructor(params) {
+  public constructor(params: CSSClassName | string) {
     if (params instanceof CSSClassName)
       this._name = params.name;
     else
       this._name = params;
   }
 
-  get name() {
+  public get name() {
     return this._name;
   }
 
-  toString() {
+  public toString() {
     return representClassNames(this._name);
   }
 };
 
 export class CSSVarName {
-  _name;
+  private _name: string;
 
-  constructor(name) {
+  public constructor(name: string) {
     this._name = name;
   }
 
-  get name() {
+  public get name() {
     return this._name;
   }
 
-  toString() {
+  public toString() {
     return "--" + representClassNames(this._name);
   }
 };
 
-export class CSSVariable {
-  _name;
-  _value;
+type CSSVariableValue = [ string, string ] | [ string ] | string;
 
-  constructor(name, value) {
+export class CSSVariable {
+  private _name: CSSVarName;
+  private _value: CSSVariableValue;
+
+  public constructor(name: CSSVarName | string, value: CSSVariableValue) {
     if (typeof name === 'string')
       name = new CSSVarName(name);
     this._name = name;
     this._value = value;
   }
 
-  get name() {
+  public get name() {
     return this._name;
   }
 
-  get value() {
+  public get value() {
     return this._value;
   }
 
-  asVar() {
+  public asVar() {
     return `var(${this._name})`;
   }
 
-  get valueCount() {
+  public get valueCount() {
     return Array.isArray(this._value) ? this._value.length : 1;
   }
 
-  toString(n) {
+  public toString(n?: number) {
     let value = this._value;
     if (Array.isArray(this._value) && typeof n === 'number')
       value = this._value[n];
@@ -76,35 +77,25 @@ export class CSSBlock {
 };
 
 export default class ControlMaker {
-  _name;
-  _currentUrl;
-  _cssClassNames = {};
-  _cssVarNames = {};
-  _cssList = {};
-  _htmlList = {};
+  private _name: string;
+  private _cssClassNames: { [name: string]: CSSClassName | CSSVariable };
+  private _cssVarNames: { [name: string]: CSSVarName };
+  private _cssList: { [name: string]: string };
+  private _htmlList: { [name: string]: string };
 
-  constructor(name, currentUrl) {
+  public constructor(name: string) {
     this._name = name;
-    this._currentUrl = currentUrl;
+    this._cssClassNames = {};
+    this._cssVarNames = {};
+    this._cssList = {};
+    this._htmlList = {};
   }
 
-  get name() {
+  public get name() {
     return this._name;
   }
 
-  async loadSvgAsCssUrl(filepath) {
-    if (!this._currentUrl)
-      throw new Error(`Uknown reletive path for ${this._name}`);
-    return await loadSvgAsCssUrlAsync(this._currentUrl, filepath);
-  }
-
-  async loadSvgAsHtmlAsync(filepath) {
-    if (!this._currentUrl)
-      throw new Error(`Uknown reletive path for ${this._name}`);
-    return await loadSvgAsHtmlAsync(this._currentUrl, filepath);
-  }
-
-  newClassName(classname) {
+  public newClassName(classname: string) {
     if (this._cssClassNames.hasOwnProperty(classname))
       throw `CSS class '${classname}' exist in ${this._name}`;
     const obj = new CSSClassName(`${this._name}-${classname}`);
@@ -112,16 +103,15 @@ export default class ControlMaker {
     return obj.toString();
   }
 
-  // func<K extends string>(params: K[]): { [P in K]: string }
-  newClassNameMap(params) {
-    const result = {};
+  public newClassNameMap<K extends string>(params: K[]): { [P in K]: string } {
+    const result: any = {};
     for (const iter of params) {
       result[iter] = this.newClassName(iter);
     }
     return Object.freeze(Object.seal(result));
   }
 
-  newVarName(varname) {
+  public newVarName(varname: string) {
     if (this._cssVarNames.hasOwnProperty(varname))
       throw `CSS var '${varname}' exist in ${this._name}`;
     const obj = new CSSVarName(`${this._name}-${varname}`);
@@ -129,7 +119,7 @@ export default class ControlMaker {
     return obj.toString();
   }
 
-  newCSSVariable(name, value) {
+  public newCSSVariable(name: string, value: string) {
     if (this._cssClassNames.hasOwnProperty(name))
       throw `CSS class '${name}' exist in ${this._name}`;
     const obj = new CSSVariable(`${this._name}-${name}`, value);
@@ -137,65 +127,65 @@ export default class ControlMaker {
     return obj;
   }
 
-  newCSSVariableMap(params) {
+  public newCSSVariableMap<T extends { [name: string]: CSSVariableValue  }>(params: T): { [K in keyof T]: CSSVariable } & { toString(n?: 0 | 1): string } {
     const result = Object.create({}, {
       toString: {
         writable: false,
         enumerable: false,
         configurable: false,
-        value: function(n) {
+        value: function(n?: number) {
           n = n || 0;
           let str = '';
           for (const val of Object.values(this)) {
-            if (n < val.valueCount)
-              str += val.toString(n) + ';';
+            if (n < (val as any).valueCount)
+              str += (val as any).toString(n) + ';';
           }
           return str;
         },
       }
     });
-    for (const [key,val] of Object.entries(params)) {
-      result[key] = this.newCSSVariable(key, val);
+    for (const [key, val] of Object.entries(params)) {
+      result[key] = this.newCSSVariable(key, val as any);
     }
     return Object.freeze(Object.seal(result));
   }
 
-  newAnimationName(animename) {
+  public newAnimationName(animename: string) {
     return representClassNames(`${this._name}-${animename}`);
   }
 
-  newHTML(name, html) {
+  public newHTML(name: string, html: string) {
     if (this._htmlList.hasOwnProperty(name))
       throw `HTML '${name}' exist in ${this._name}`;
     this._htmlList[name] = html;
     return html;
   }
 
-  newCSS(name, css) {
+  public newCSS(name: string, css: string[] | string) {
     if (this._cssList.hasOwnProperty(name))
       throw `HTML '${name}' exist in ${this._name}`;
     this._cssList[name] = Array.isArray(css) ? css.join("\n") : css;
     return css;
   }
 
-  get cssClassNames() {
+  public get cssClassNames() {
     return this._cssClassNames;
   }
 
-  get cssVarNames() {
+  public get cssVarNames() {
     return this._cssVarNames;
   }
 
-  get htmlList() {
+  public get htmlList() {
     return this._htmlList;
   }
 
-  get cssList() {
+  public get cssList() {
     return this._cssList;
   }
 
-  buildComponent() {
-    const component = {};
+  public buildComponent() {
+    const component = {} as any;
     for (const [key, val] of Object.entries(this._cssClassNames)) {
       component[key] = val.toString();
     }

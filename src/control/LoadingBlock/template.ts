@@ -1,11 +1,11 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
 import unloadingSvg from "./unloading.svg";
 
-const mk = new ControlMaker('LoadingBlock', import.meta.url);
+const mk = new ControlMaker("LoadingBlock");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
   "UNLOAD_CLASS",

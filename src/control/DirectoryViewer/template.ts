@@ -1,7 +1,7 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme";
 
 import folderSvg from "./folder.svg";
 import folder2Svg from "./folder2.svg";
@@ -10,7 +10,7 @@ import file2Svg from "./file2.svg";
 
 const mk = new ControlMaker("DirectoryViewer");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "ITEM_LIST",
   "FOLDER_CLASS",

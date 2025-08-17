@@ -1,8 +1,8 @@
-import ControlMaker from '@/lib/ControlMaker.mjs';
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from '@/lib/ControlMaker';
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { TOOLBAR_FONT_SANS } from '@/lib/WickedTheme.mjs';
-import { COMMON_MOBILE_DEVICE_WIDTH } from '@/lib/WickedTheme.mjs';
+import { TOOLBAR_FONT_SANS } from '@/lib/WickedTheme';
+import { COMMON_MOBILE_DEVICE_WIDTH } from '@/lib/WickedTheme';
 
 import levelErrorSvg from "./level-error.svg";
 import levelWarningSvg from "./level-warning.svg";
@@ -10,9 +10,9 @@ import levelSuccessSvg from "./level-success.svg";
 import levelInfoSvg from "./level-info.svg";
 import closeSvg from "./close.svg";
 
-const mk = new ControlMaker('Logger', import.meta.url);
+const mk = new ControlMaker("Logger");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "CLOSE_CLASS",
   "TITLE_CLASS",

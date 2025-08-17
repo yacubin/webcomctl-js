@@ -1,4 +1,4 @@
-import { Setting } from 'webnetq-js';
+import { Setting } from "webnetq-js";
 
 export const DARKMODE_ATTR_NAME = "data-" + Setting.DATA_KEY;
 export const DARKMODE_LIGHT_VALUE = Setting.LIGHT_VAL;
