@@ -1,9 +1,9 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker('UtilspotLftblk', import.meta.url);
+const mk = new ControlMaker("UtilspotLftblk");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
 ]);

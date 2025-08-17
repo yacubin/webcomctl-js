@@ -1,19 +1,19 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { UIC_START_BACKGROUND_COLOR } from "@/lib/WickedTheme.mjs";
-import { UIC_START_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme.mjs";
-import { TOOLBAR_FONT_SYSTEM } from "@/lib/WickedTheme.mjs";
-import { TOOLBAR_FONT_MATH } from "@/lib/WickedTheme.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { UIC_START_BACKGROUND_COLOR } from "@/lib/WickedTheme";
+import { UIC_START_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme";
+import { TOOLBAR_FONT_SYSTEM } from "@/lib/WickedTheme";
+import { TOOLBAR_FONT_MATH } from "@/lib/WickedTheme";
 
 import upFileSvg from "./up-file.svg";
 import upFileHoverSvg from "./up-file-hover.svg";
 import searchSvg from "./search.svg";
 
-const mk = new ControlMaker("StartupUpload", import.meta.url);
+const mk = new ControlMaker("StartupUpload");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "FDROP_CLASS",
   "DSHOW_CLASS",

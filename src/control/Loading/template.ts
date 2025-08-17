@@ -1,13 +1,13 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
 
 import fileUploadSvg from "./file-upload.svg";
 
 const mk = new ControlMaker("Loading");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "SHOW_CLASS",
 ]);

@@ -1,7 +1,7 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 import moonSvg from "./moon.svg";
 import sunSvg from "./sun.svg";
@@ -11,7 +11,7 @@ const mk = new ControlMaker("DMKikoBtn");
 const MOON_IMG = convertSvgToCssUrl(moonSvg);
 const SUN_IMG = convertSvgToCssUrl(sunSvg);
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 

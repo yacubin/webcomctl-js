@@ -1,9 +1,9 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker('URLField', import.meta.url);
+const mk = new ControlMaker("URLField");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "CONNECT_BTN_ON",
   "CONNECT_BTN_OFF",

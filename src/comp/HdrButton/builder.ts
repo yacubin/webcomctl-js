@@ -1,15 +1,15 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
-import { HEADER_FONT_SIZE } from "@/lib/WickedTheme.mjs";
-import { HEADER_FONT_COLOR } from "@/lib/WickedTheme.mjs";
-import { HEADER_FONT_FAMILY } from "@/lib/WickedTheme.mjs";
-import { HEADER_BACKGROUND_COLOR } from "@/lib/WickedTheme.mjs";
-import { HEADER_BORDER_RADIUS_HOVER } from "@/lib/WickedTheme.mjs";
-import { HEADER_COLOR_HOVER_DARK } from "@/lib/WickedTheme.mjs";
-import { HEADER_COLOR_HOVER } from "@/lib/WickedTheme.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { HEADER_FONT_SIZE } from "@/lib/WickedTheme";
+import { HEADER_FONT_COLOR } from "@/lib/WickedTheme";
+import { HEADER_FONT_FAMILY } from "@/lib/WickedTheme";
+import { HEADER_BACKGROUND_COLOR } from "@/lib/WickedTheme";
+import { HEADER_BORDER_RADIUS_HOVER } from "@/lib/WickedTheme";
+import { HEADER_COLOR_HOVER_DARK } from "@/lib/WickedTheme";
+import { HEADER_COLOR_HOVER } from "@/lib/WickedTheme";
 
 export namespace HdrButton {
 
@@ -33,7 +33,7 @@ export function build(name: string, {type, url, anchorTarget, text, mainImage, h
   const vars = mk.newCSSVariableMap({
     btnBg: [ HEADER_BACKGROUND_COLOR ],
     btnCol: [ HEADER_COLOR_HOVER, HEADER_COLOR_HOVER_DARK ],
-    image: [hoverImage].flat().map(i => convertSvgToCssUrl(i)),
+    image: [hoverImage].flat().map(i => convertSvgToCssUrl(i)) as any,
   });
 
   if (type === "Link") {

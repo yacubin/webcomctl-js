@@ -1,5 +1,5 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("DBCTree");
 
@@ -20,16 +20,18 @@ const vars = mk.newCSSVariableMap({
   tree_list_col: ['black','white'],
 });
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "NODE_SIGNAL",
   "TREE_ACTIVE",
   "PANEL_SEPARATOR",
   "STATE_COLLAPSE",
   "STATE_EXPAND",
   "STATE_NONE",
   "NODE_DOCUMENT",
+  "NODE_MESSAGE",
   "NODE_MESSAGE_PSEUDO",
+  "NODE_GROUP",
+  "NODE_SIGNAL",
   "STATE_CLICK",
   "SHOWCASE_CLICK",
 ]);
@@ -249,7 +251,7 @@ div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} > s b div
   border-color: ${vars.mes_pseudo_list_bor.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.dbc_dbc_node_message_pseudo} s b:hover div
+div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s b:hover div
 {
   border-color: ${vars.mes_pseudo_bor.asVar()};
   color: ${vars.mes_pseudo_bor.asVar()};

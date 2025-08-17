@@ -1,10 +1,10 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 import donotLoadSvg from "./donot_load.svg";
 
-const mk = new ControlMaker("ImgFailContent", import.meta.url);
+const mk = new ControlMaker("ImgFailContent");
 
 const DONOT_IMG = convertSvgToCssUrl(donotLoadSvg);
 const vars = mk.newCSSVariableMap({
@@ -16,7 +16,7 @@ const BGC = '#fbfbfb';
 const BS = '#89898945';
 const TEXT = '#8f8f8f';
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "text"
 ]);

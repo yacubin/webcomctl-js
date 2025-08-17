@@ -1,7 +1,7 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
-import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("DBCSignal");
 
@@ -12,7 +12,7 @@ const vars = mk.newCSSVariableMap({
   rpanel_bs: '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)',  
 });
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "SIGNAL",
   "TITLE",

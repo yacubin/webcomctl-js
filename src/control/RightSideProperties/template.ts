@@ -1,10 +1,10 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
+import ControlMaker from "@/lib/ControlMaker";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("RightSideProperties", import.meta.url);
+const mk = new ControlMaker("RightSideProperties");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
   "ANIME",
@@ -41,7 +41,6 @@ ${DARKMODE_SELECTOR_VALUE}
 }
 
 .${clss.ROOT_CLASS}.${clss.SHOW} > div  > span > div,
-.${clss.ROOT_CLASS}.${clss.HIDE} > div  > span > div,
 .${clss.ROOT_CLASS}.${clss.ANIME}.${clss.SHOW} > div  > span > div,
 .${clss.ROOT_CLASS}.${clss.ANIME} > div  > span > div
 {

@@ -1,11 +1,20 @@
-import { DARKMODE_SELECTOR_VALUE } from '../../lib/DarkMode.mjs';
-import { COMMON_MOBILE_DEVICE_WIDTH } from '../../lib/WickedTheme.mjs';
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { COMMON_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
 
-export default function(mk, {type}) {
+export namespace BaseHeader {
+
+interface Params {
+  type: "main" | "wiki";
+};
+
+export function build(name: string, {type}: Params) {
+  const mk = new ControlMaker(name);
+
   let height = "43px";
   let paddingTopBottom = "5px";
   let paddingRightLeft = "10px";
-  let borderColor = ['#c2c2c2', '#3c3c3c'];
+  let borderColor: [ string, string ] = ['#c2c2c2', '#3c3c3c'];
 
   if (type === "wiki") {
     height = "60px";
@@ -14,7 +23,7 @@ export default function(mk, {type}) {
     borderColor = [ '#eaedf1', '#3f3f3f' ];
   }
 
-  const clss = mk.newClassNameMap([
+  const clss: any = mk.newClassNameMap([
     "ROOT_CLASS",
     "PORT_CLASS",
   ]);
@@ -60,4 +69,8 @@ export default function(mk, {type}) {
     }
   }
   `);
+
+  return mk.buildComponent();
 }
+
+} // namespace BaseHeader

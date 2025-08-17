@@ -1,10 +1,10 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme";
 
-const mk = new ControlMaker("ImageInfoPanel", import.meta.url);
+const mk = new ControlMaker("ImageInfoPanel");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "DESCRIPTION_CLASS", // TODO: Remove
   "DESCRIPTION_FORMAT_CLASS", // TODO: Remove

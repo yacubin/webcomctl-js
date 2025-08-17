@@ -1,13 +1,13 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 import info1Svg from "./info1.svg";
 import info2Svg from "./info2.svg";
 
-const mk = new ControlMaker('VertButtonInfo', import.meta.url);
+const mk = new ControlMaker("VertButtonInfo");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "ACTIVE",
   "BLOCKING",

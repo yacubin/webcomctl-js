@@ -1,14 +1,14 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
 
 export namespace HdrLogoText {
 
 interface Params {
-  favicon: string | [string, string];
-  header: string | [string, string];
+  favicon: string | [string] | [string, string];
+  header: string | [string] | [string, string];
 };
 
 export function build(name: string, {favicon, header}: Params) {
@@ -19,8 +19,8 @@ export function build(name: string, {favicon, header}: Params) {
   ]);
 
   const vars = mk.newCSSVariableMap({
-    favicon: [favicon].flat().map(i => convertSvgToCssUrl(i)),
-    header: [header].flat().map(i => convertSvgToCssUrl(i)),
+    favicon: [favicon].flat().map(i => convertSvgToCssUrl(i)) as any,
+    header: [header].flat().map(i => convertSvgToCssUrl(i)) as any,
   });
 
   mk.newHTML('ROOT_HTML', `

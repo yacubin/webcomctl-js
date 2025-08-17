@@ -1,4 +1,4 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
+import ControlMaker from "@/lib/ControlMaker";
 
 export namespace SwitchBlock {
 export enum Style {

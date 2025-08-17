@@ -1,8 +1,8 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
+import ControlMaker from "@/lib/ControlMaker";
 
 const mk = new ControlMaker("ConsoleContent");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 

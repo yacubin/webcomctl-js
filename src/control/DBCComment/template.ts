@@ -1,7 +1,7 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
-import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme.mjs";
-import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("DBCComment");
 
@@ -13,7 +13,7 @@ const vars = mk.newCSSVariableMap({
   rpanel_col: ['black', '#eeeeee'],
 });
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "dbc_comment_text",
 ]);

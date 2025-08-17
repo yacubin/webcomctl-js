@@ -1,14 +1,14 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
-import { convertSvgToCssUrl, convertSvgToHtmlTag } from "@/lib/SVG.mjs";
+import ControlMaker from "@/lib/ControlMaker";
+import { convertSvgToCssUrl, convertSvgToHtmlTag } from "@/lib/SVG";
 
-import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode.mjs";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 import faviconSvg from "./favicon.svg";
 import uitestHeadSvg from "./uitestHead.svg";
 
 const mk = new ControlMaker("HdrWikLogo");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
 ]);
 

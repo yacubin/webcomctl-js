@@ -14,11 +14,11 @@ Starting Characters:
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
 console.assert(characters.length == 64, characters);
 
-export function representClassNames(params) {
+export function representClassNames(params: string | string[] | { [name: string]: string }): any {
   if (typeof params === 'string') {
     if (process.env.WEBMAKE_BUILD_TYPE === 'Debug')
       return params;
-    const hash = createHash('sha1', params, 'buffer');
+    const hash = createHash('sha1'); // , params, 'buffer');
     hash.update(params);
 
     const buffer = hash.digest();
@@ -39,7 +39,7 @@ export function representClassNames(params) {
     return result;
   }
 
-  const result = {};
+  const result: any = {};
   for (const name in params) {
     result[name] = representClassNames(params[name]);
   }

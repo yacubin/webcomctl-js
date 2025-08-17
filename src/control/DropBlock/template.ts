@@ -1,11 +1,11 @@
-import ControlMaker from "@/lib/ControlMaker.mjs";
+import ControlMaker from "@/lib/ControlMaker";
 
-import { UIC_BLUE_SQUARE_BACKGROUND } from "@/lib/WickedTheme.mjs";
-import { UIC_BLUE_SQUARE_BORDER } from "@/lib/WickedTheme.mjs";
+import { UIC_BLUE_SQUARE_BACKGROUND } from "@/lib/WickedTheme";
+import { UIC_BLUE_SQUARE_BORDER } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("DropBlock");
 
-const clss: any = mk.newClassNameMap([
+const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
   "NONE_CLASS",
