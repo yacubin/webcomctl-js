@@ -131,7 +131,6 @@ ${DARKMODE_SELECTOR_VALUE}
   margin-bottom: 10px;
 }
 
-.${clss.ROOT_CLASS},
 div.${clss.ROOT_CLASS} b
 {
   border: 1px solid ${rpanel_bor};
