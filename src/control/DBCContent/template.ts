@@ -236,6 +236,7 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${vars.rpanel_col.asVar()};
   font-family:${TOOLBAR_DBC_FONT_SANS};
   font-size: 0.94em;
+  background-color: ${vars.rpanel_bg.asVar()};
   box-sizing: border-box;
 }
 

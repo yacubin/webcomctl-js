@@ -59,6 +59,7 @@ ${DARKMODE_SELECTOR_VALUE}
   color: ${vars.rpanel_col.asVar()};
   text-decoration: none;
   font-weight: 400;
+  background-color: ${vars.rpanel_bg.asVar()};
 }
 
 .${clss.ROOT_CLASS} > h5
