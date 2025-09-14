@@ -92,6 +92,7 @@ div.${clss.GROUP} > ul
 div.${clss.GROUP} > ul
 {
   padding: 20px 30px 20px 30px;
+  margin: 0;
 }
 
 .${clss.GROUP} li
