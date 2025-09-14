@@ -118,6 +118,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding-top: 15px;
   font-family: ${TOOLBAR_DBC_FONT_SANS};
   color: ${vars.rpanel_col.asVar()};
+  background-color: ${vars.rpanel_bg.asVar()};
 }
 
 .${clss.ROOT_CLASS} > h4 
@@ -131,7 +132,6 @@ ${DARKMODE_SELECTOR_VALUE}
   margin-bottom: 10px;
 }
 
-.${clss.ROOT_CLASS},
 div.${clss.ROOT_CLASS} b
 {
   border: 1px solid ${rpanel_bor};

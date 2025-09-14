@@ -118,6 +118,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   font-size: 0.94em;
   color: ${vars.rpanel_col.asVar()};
+  background-color: ${vars.rpanel_bg.asVar()};
 }
 
 .${clss.ROOT_CLASS} > h4

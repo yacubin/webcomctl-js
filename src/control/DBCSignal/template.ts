@@ -8,6 +8,7 @@ const mk = new ControlMaker("DBCSignal");
 const rpanel_bor = '#aeaeae8f';
 
 const vars = mk.newCSSVariableMap({
+  rpanel_bg: ['white', 'rgb(23, 23, 26)'],
   rpanel_col: ['black', '#eeeeee'],
   rpanel_bs: '0px 1.6px 3.6px rgba(0,0,0,0.13), 0px 0px 2.9px rgba(0,0,0,0.11)',  
 });
@@ -121,6 +122,7 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 0.94em;
   font-family:${TOOLBAR_DBC_FONT_SANS};
   color: ${vars.rpanel_col.asVar()};
+  background-color: ${vars.rpanel_bg.asVar()};
 }
 
 .${clss.ROOT_CLASS} h4,

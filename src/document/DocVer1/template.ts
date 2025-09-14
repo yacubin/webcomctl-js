@@ -45,7 +45,7 @@ ${DARKMODE_SELECTOR_VALUE}
   bottom: 0;
   margin: 0;
   padding: 0;
-  background-color: var(${vars.rootBg.asVar()});
+  background-color: ${vars.rootBg.asVar()};
 }
 `);
 
