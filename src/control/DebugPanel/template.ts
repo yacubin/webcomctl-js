@@ -24,9 +24,11 @@ const clss = mk.newClassNameMap([
   "SIDE_CLASS",
 ]);
 
+const on_sc = 'transparent';
 const hovBut = '#417cc8';
 
 const vars = mk.newCSSVariableMap({
+  sc_th_bg: ['#3a3a3a', '#3e3e43'],
   bor: [ '#d0dbe9', '#35383c' ],
   bg:  [ '#fdfdfd', 'rgb(43 43 45)' ],
   control: [ '#efefef', '#2f2f2f' ],
@@ -215,6 +217,25 @@ ${DARKMODE_SELECTOR_VALUE}
   border: 1px solid ${vars.bor.asVar()};
   background-color: ${vars.bg.asVar()};
   overflow: auto;
+}
+
+.${clss.LIST_CLASS}::-webkit-scrollbar
+{
+  height:10px;
+  width:10px;
+  background-color: ${on_sc};
+}
+
+.${clss.LIST_CLASS}::-webkit-scrollbar-thumb
+{
+  background-color: ${on_sc};
+  border-radius: 10px;
+}
+
+.${clss.LIST_CLASS}::-webkit-scrollbar-thumb
+{
+  background-color: ${vars.sc_th_bg.asVar()};
+  border-radius: 10px;
 }
 
 .${clss.LIST_CLASS} > div
