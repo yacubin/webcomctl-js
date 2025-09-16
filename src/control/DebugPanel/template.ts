@@ -26,9 +26,9 @@ const clss = mk.newClassNameMap([
 
 const on_sc = 'transparent';
 const hovBut = '#417cc8';
+const sc_th_bg = '#b5b5b5c7';
 
 const vars = mk.newCSSVariableMap({
-  sc_th_bg: ['#3a3a3a', '#3e3e43'],
   bor: [ '#d0dbe9', '#35383c' ],
   bg:  [ '#fdfdfd', 'rgb(43 43 45)' ],
   control: [ '#efefef', '#2f2f2f' ],
@@ -234,7 +234,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.LIST_CLASS}::-webkit-scrollbar-thumb
 {
-  background-color: ${vars.sc_th_bg.asVar()};
+  background-color: ${sc_th_bg};
   border-radius: 10px;
 }
 
