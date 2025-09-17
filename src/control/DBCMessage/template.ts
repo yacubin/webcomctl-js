@@ -115,7 +115,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   font-size: 0.94em;
-  padding-top: 15px;
   font-family: ${TOOLBAR_DBC_FONT_SANS};
   color: ${vars.rpanel_col.asVar()};
   background-color: ${vars.rpanel_bg.asVar()};

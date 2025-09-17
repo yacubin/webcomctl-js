@@ -71,7 +71,6 @@ ${DARKMODE_SELECTOR_VALUE}
   top: 8px;
   left: 20px;
   width: max-content;
-  padding-top: 10px;
   color: ${vars.rpanel_col.asVar()};
   background-color: ${vars.rpanel_bg.asVar()};
 }

@@ -78,11 +78,6 @@ ${DARKMODE_SELECTOR_VALUE}
   font-weight: 400;
 }
 
-div.${clss.GROUP}
-{
-  padding-top: 15px;
-}
-
 div.${clss.GROUP} b,
 div.${clss.GROUP} > ul
 {
