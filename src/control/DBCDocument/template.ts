@@ -140,7 +140,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.DOCUMENT}
 {
   font-family:${TOOLBAR_DBC_FONT_SANS};
-  padding-top: 15px;
 }
 
 .${clss.DOCUMENT} b,

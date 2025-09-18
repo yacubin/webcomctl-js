@@ -150,11 +150,6 @@ ${DARKMODE_SELECTOR_VALUE}
   margin-bottom: 10px;
 }
 
-.${clss.SIGNAL}
-{
-  padding-top: 15px;
-}
-
 .${clss.SIGNAL} > div
 {
   border: 1px solid ${rpanel_bor};

@@ -52,6 +52,11 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0px 15px 15px 15px;
   box-sizing: border-box;
 }
+
+.${clss.ROOT_CLASS} > *
+{
+  padding-top: 15px;
+}
 `);
 
 export function buildComponent()
