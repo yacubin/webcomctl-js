@@ -1,5 +1,5 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-import { IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS,
+import { TITLE_CLASS, IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS,
   PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS, PDU_SA_CLASS, PDU_DA_CLASS, PDU_ROOT_CLASS
 // @ts-ignore
 } from "uictmplt-loader!./template.ts";
@@ -33,6 +33,7 @@ interface ValuePrams {
 };
 
 export class DBCMessage extends BaseControl {
+  private _titleElm?: HTMLElement;
   private _idxElm?: HTMLElement;
   private _sizeElm?: HTMLElement;
   private _pseudoElm?: HTMLElement;
@@ -46,6 +47,7 @@ export class DBCMessage extends BaseControl {
   private _pduDaElm?: HTMLElement;
 
   protected _init() {
+    this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
     this._sizeElm = NQDOM.getElementByClassName(this.element, SIZE_CLASS);
     this._pseudoElm = NQDOM.getElementByClassName(this.element, PSEUDO_CLASS);
@@ -57,6 +59,11 @@ export class DBCMessage extends BaseControl {
     this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
     this._pduSaElm = NQDOM.getElementByClassName(this.element, PDU_SA_CLASS);
     this._pduDaElm = NQDOM.getElementByClassName(this.element, PDU_DA_CLASS);
+  }
+
+  public setTitle(title: string) {
+    if (this._titleElm)
+      this._titleElm.textContent = title;
   }
 
   public setValue(params: ValuePrams) {

@@ -17,7 +17,7 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "message",
-  "title_message",
+  "TITLE_CLASS",
   "SIZE_CLASS",
   "PSEUDO_CLASS",
   "TRANSMITTERS_CLASS",
@@ -35,7 +35,7 @@ mk.newHTML('ROOT_HTML', `
 
 <div class="${clss.ROOT_CLASS} ${clss.message}">
 
-  <h4>Massage:<u class="${clss.title_message}"></u></h4>
+  <h4>Massage:<u class="${clss.TITLE_CLASS}"></u></h4>
 
     <b>
       <span>
