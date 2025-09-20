@@ -16,7 +16,7 @@ function toHexString(value: number, targetLength: number) {
   return "0x" + value.toString(16).toUpperCase().padStart(targetLength, '0');
 }
 
-interface ValuePrams {
+interface ValueParams {
   id: number;
   idBits: number;
   size: number;
@@ -66,7 +66,7 @@ export class DBCMessage extends BaseControl {
       this._titleElm.textContent = title;
   }
 
-  public setValue(params: ValuePrams) {
+  public setValue(params: ValueParams) {
     setTextContent(this._idxElm, toHexString(params.id, (params.idBits > 12) ? 8 : 3) + ` (${params.idBits}-bits)`);
     setTextContent(this._sizeElm, String(params.size));
     setTextContent(this._pseudoElm, params.isPseudo ? "Yes" : "No");
