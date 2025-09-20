@@ -3,7 +3,7 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
 import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
-const mk = new ControlMaker("DBCGruop");
+const mk = new ControlMaker("DBCGroup");
 
 const rpanel_bor = '#aeaeae8f';
 
@@ -17,15 +17,15 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "GROUP",
-  "dbc_title_group",
-  "GROUP_SIGNALS_CLASS",
+  "TITLE_CLASS",
+  "SIGNALS_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 
 <div class="${clss.ROOT_CLASS} ${clss.GROUP}">
-  <h4>Group:<u class="${clss.dbc_title_group}"></u></h4>
-  <ul class="${clss.GROUP_SIGNALS_CLASS}"></ul>
+  <h4>Group:<u class="${clss.TITLE_CLASS}"></u></h4>
+  <ul class="${clss.SIGNALS_CLASS}"></ul>
 </div>
 
 `);

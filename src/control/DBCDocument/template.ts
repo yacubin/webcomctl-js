@@ -17,7 +17,7 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "DOCUMENT",
-  "TITLE_DOCUMENT",
+  "TITLE_CLASS",
   "VERSION_CLASS",
   "PROTOCOL_CLASS",
   "NEW_SYMBOLS",
@@ -32,7 +32,7 @@ mk.newHTML('ROOT_HTML', `
 
   <div class="${clss.DOCUMENT} ${clss.ROOT_CLASS}">
 
-    <h4>Document:<u class="${clss.TITLE_DOCUMENT}"></u></h4>
+    <h4>Document:<u class="${clss.TITLE_CLASS}"></u></h4>
     
       <b>
         <h4>Version:<u class="${clss.VERSION_CLASS}"></u></h4>
@@ -52,34 +52,7 @@ mk.newHTML('ROOT_HTML', `
       <div class="${clss.NEW_SYMBOLS}">
         <s>
           <h5>New Symbols</h5>
-          <div class="${clss.NEW_SYMBOLS_LIST}">
-            <div>BA_DEF_</div>
-            <div>BA_</div>
-            <div>VAL_</div>
-            <div>CAT_DEF_</div>
-            <div>CAT_</div>
-            <div>FILTER</div>
-            <div>BA_DEF_DEF_</div>
-            <div>EV_DATA_</div>
-            <div>ENVVAR_DATA_</div>
-            <div>SGTYPE_</div>
-            <div>SGTYPE_VAL_</div>
-            <div>BA_DEF_SGTYPE_</div>
-            <div>BA_SGTYPE_</div>
-            <div>SIG_TYPE_REF_</div>
-            <div>VAL_TABLE_</div>
-            <div>SIG_GROUP_</div>
-            <div>SIG_VALTYPE_</div>
-            <div>SIGTYPE_VALTYPE_</div>
-            <div>BO_TX_BU_</div>
-            <div>BA_DEF_REL_</div>
-            <div>BA_REL_</div>
-            <div>BA_DEF_DEF_REL_</div>
-            <div>BU_SG_REL_</div>
-            <div>BU_EV_REL_</div>
-            <div>BU_BO_REL_</div>
-            <div>SG_MUL_VAL_</div>
-          </div>
+          <div class="${clss.NEW_SYMBOLS_LIST}"></div>
         </s>
       </div>
   </div>

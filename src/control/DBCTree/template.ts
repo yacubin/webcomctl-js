@@ -37,58 +37,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}">
-  <div class="${clss.NODE_DOCUMENT} ${clss.STATE_EXPAND} ${clss.TREE_ACTIVE}">
-    <s>
-      <b class="${clss.STATE_CLICK}">
-        <div></div>
-      </b>
-      <h2 class="${clss.SHOWCASE_CLICK}">
-        <s></s>
-        <div>20160525_RMS_PM_CAN_DB</div>
-      </h2>
-    </s>
-    <span>
-      <div class="${clss.NODE_MESSAGE_PSEUDO} ${clss.STATE_COLLAPSE}">
-          <s>
-            <b class="${clss.STATE_CLICK}">
-              <div></div>
-            </b>
-            <h2 class="${clss.SHOWCASE_CLICK}">
-              <s></s>
-              <div>20160525_RMS_PM_CAN_DB</div>
-            </h2>
-          </s>
-          <span>
-            <div class="${clss.STATE_NONE} ${clss.NODE_SIGNAL} ${clss.STATE_COLLAPSE}">
-              <s>
-                <b class="${clss.STATE_CLICK}">
-                  <div></div>
-                </b>
-                <h2 class="${clss.SHOWCASE_CLICK}">
-                  <s></s>
-                  <div>20160525_RMS_PM_CAN_DB</div>
-                </h2>
-              </s>
-              <span></span>
-            </div>
-          </span>
-      </div>
-    </span>
-    <div class="${clss.NODE_MESSAGE_PSEUDO} ${clss.STATE_COLLAPSE}">
-      <s>
-        <b class="${clss.STATE_CLICK}">
-          <div></div>
-        </b>
-        <h2 class="${clss.SHOWCASE_CLICK}">
-          <s></s>
-          <div>20160525_RMS_PM_CAN_DB</div>
-        </h2>
-      </s>
-      <span></span>
-    </div>
-  </div>
-</div>
+<div class="${clss.ROOT_CLASS}"></div>
 `);
 
 mk.newCSS('CSS', `
