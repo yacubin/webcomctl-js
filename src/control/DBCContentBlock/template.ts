@@ -12,9 +12,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 mk.newHTML('ROOT_HTML', `
-
 <div class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}"></div>
-
 `);
 
 mk.newCSS('CSS', `

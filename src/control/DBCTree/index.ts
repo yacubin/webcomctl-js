@@ -27,9 +27,9 @@ export class DBCTree extends BaseControl {
     if (node) {
       const root = this._createElementByNodeInfo(node);
       if (root) {
+        if (!this._selectedElm)
+          this._selectNode(root, node);
         this.element.appendChild(root);
-        this._selectedElm = this._selectedElm ?? root;
-        this._selectNode(root, node);
       }
     }
   }
@@ -131,7 +131,7 @@ export class DBCTree extends BaseControl {
     }
 
     if (node.selected) {
-      this._selectedElm = element;
+      this._selectNode(element, node);
     }
 
     return element;
