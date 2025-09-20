@@ -9,15 +9,6 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
-  "dbc_view_document",
-  "dbc_view_message",
-  "dbc_view_signal",
-  "dbc_view_group",
-  "dbc_comment_root",
-  "dbc_comment_text",
-  "dbc_attributes_root",
-  "dbc_attributes_list",
-  "dbc_group_signals", 
 ]);
 
 mk.newHTML('ROOT_HTML', `

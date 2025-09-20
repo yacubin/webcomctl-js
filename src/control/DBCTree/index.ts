@@ -1,4 +1,4 @@
-import { BaseControl, NQDOM } from "webnetq-js";
+import { BaseControl } from "webnetq-js";
 // @ts-ignore
 import { NODE_DOCUMENT, NODE_MESSAGE, NODE_MESSAGE_PSEUDO, NODE_GROUP, NODE_SIGNAL, STATE_CLICK, SHOWCASE_CLICK, STATE_COLLAPSE, STATE_EXPAND, STATE_NONE, TREE_ACTIVE } from "uictmplt-loader!./template.ts";
 
