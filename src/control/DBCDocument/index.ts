@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { VERSION_CLASS, PROTOCOL_CLASS, NEW_SYMBOLS_LIST, NEW_SYMBOLS, BAUDRATE, BTR1, BTR2, BIT_TIMING } from "uictmplt-loader!./template.ts";
+import { TITLE_CLASS, VERSION_CLASS, PROTOCOL_CLASS, NEW_SYMBOLS_LIST, NEW_SYMBOLS, BAUDRATE, BTR1, BTR2, BIT_TIMING } from "uictmplt-loader!./template.ts";
 
 function setTextContent(elm: HTMLElement | undefined, val: string | number) {
   elm && (elm.textContent = val as any);
@@ -22,6 +22,7 @@ interface ValueParams {
 };
 
 export class DBCDocument extends BaseControl {
+  private _titleElm?: HTMLElement;
   private _newSymbolsElm?: HTMLElement;
   private _versionElm?: HTMLElement;
   private _protocolElm?: HTMLElement;
@@ -32,6 +33,7 @@ export class DBCDocument extends BaseControl {
   private _bitTiming?: HTMLElement;
 
   protected _init() {
+    this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._newSymbolsElm = NQDOM.getElementByClassName(this.element, NEW_SYMBOLS);
     this._versionElm = NQDOM.getElementByClassName(this.element, VERSION_CLASS);
     this._protocolElm = NQDOM.getElementByClassName(this.element, PROTOCOL_CLASS);
@@ -40,6 +42,12 @@ export class DBCDocument extends BaseControl {
     this._btr1Elm = NQDOM.getElementByClassName(this.element, BTR1);
     this._btr2Elm = NQDOM.getElementByClassName(this.element, BTR2);
     this._bitTiming = NQDOM.getElementByClassName(this.element, BIT_TIMING);
+  }
+
+  public setTitle(title: string) {
+    if (this._titleElm) {
+      this._titleElm.textContent = title;
+    }
   }
 
   public setValue(params: ValueParams) {
