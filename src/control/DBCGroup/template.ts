@@ -3,7 +3,7 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
 import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
-const mk = new ControlMaker("DBCGruop");
+const mk = new ControlMaker("DBCGroup");
 
 const rpanel_bor = '#aeaeae8f';
 

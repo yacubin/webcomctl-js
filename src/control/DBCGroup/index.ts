@@ -2,7 +2,7 @@ import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
 import { GROUP_SIGNALS_CLASS } from "uictmplt-loader!./template.ts";
 
-export class DBCGruop extends BaseControl {
+export class DBCGroup extends BaseControl {
   private _signalListElm?: HTMLElement;
 
   protected _init() {
