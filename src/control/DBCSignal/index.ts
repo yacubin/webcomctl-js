@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 import { STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS,
   FACTOR_CLASS, OFFSET_CLASS, MINIMUM_CLASS, MAXIMUM_CLASS, UNIT_CLASS,
-  START_VALUE_CLASS, RECEIVERS_CLASS
+  START_VALUE_CLASS, RECEIVERS_CLASS, TITLE_CLASS
 // @ts-ignore
 } from "uictmplt-loader!./template.ts";
 
@@ -48,6 +48,7 @@ function receiversToText(value?: string[]) {
 }
 
 export class DBCSignal extends BaseControl {
+  private _titleElm?: HTMLElement;
   private _startBitElm?: HTMLElement;
   private _sizeInBitsElm?: HTMLElement;
   private _byteOrderElm?: HTMLElement;
@@ -61,6 +62,7 @@ export class DBCSignal extends BaseControl {
   private _receiversElm?: HTMLElement;
 
   protected _init() {
+    this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._startBitElm = NQDOM.getElementByClassName(this.element, STARTBIT_CLASS);
     this._sizeInBitsElm = NQDOM.getElementByClassName(this.element, SIZEINBITS_CLASS);
     this._byteOrderElm = NQDOM.getElementByClassName(this.element, BYTEORDER_CLASS);
@@ -72,6 +74,11 @@ export class DBCSignal extends BaseControl {
     this._unitElm = NQDOM.getElementByClassName(this.element, UNIT_CLASS);
     this._startValueElm = NQDOM.getElementByClassName(this.element, START_VALUE_CLASS);
     this._receiversElm = NQDOM.getElementByClassName(this.element, RECEIVERS_CLASS);
+  }
+
+  public setTitle(title: string) {
+    if (this._titleElm)
+      this._titleElm.textContent = title;
   }
 
   public setValue(params: ValueParams) {

@@ -16,7 +16,7 @@ const vars = mk.newCSSVariableMap({
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "SIGNAL",
-  "TITLE",
+  "TITLE_CLASS",
   "STARTBIT_CLASS",
   "SIZEINBITS_CLASS",
   "BYTEORDER_CLASS",
@@ -34,7 +34,7 @@ mk.newHTML('ROOT_HTML', `
 
 <div class="${clss.ROOT_CLASS} ${clss.SIGNAL}">
 
-    <h4>Signal:<u class="${clss.TITLE}"></u></h4>
+    <h4>Signal:<u class="${clss.TITLE_CLASS}"></u></h4>
 
     <div>
 
