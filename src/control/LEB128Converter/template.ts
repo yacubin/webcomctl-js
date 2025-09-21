@@ -1,4 +1,5 @@
 import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("LEB128Converter");
 
@@ -18,6 +19,9 @@ const clss = mk.newClassNameMap([
   "Config",
   "Hidden",
 ]);
+
+const vars = mk.newCSSVariableMap({
+});
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
@@ -52,6 +56,16 @@ mk.newHTML('ROOT_HTML', `
 `);
 
 mk.newCSS('CSS', `
+:root
+{
+  ${vars.toString(0)};
+}
+
+${DARKMODE_SELECTOR_VALUE}
+{
+  ${vars.toString(1)};
+}
+
 .${clss.ROOT_CLASS}
 {
   display: flex;
