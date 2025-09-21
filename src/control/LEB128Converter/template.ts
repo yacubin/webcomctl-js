@@ -22,6 +22,8 @@ const clss = mk.newClassNameMap([
 ]);
 
 const vars = mk.newCSSVariableMap({
+  imput_bg: ['white', 'rgb(23, 23, 26)'],
+  font_color: ['black', 'white'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -74,6 +76,7 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: center;
   font-size: 20px;
   font-family: ${MAIN_FONT};
+  color: ${vars.font_color.asVar()};
 }
 
 .${clss.ROOT_CLASS} > h1
@@ -117,6 +120,7 @@ ${DARKMODE_SELECTOR_VALUE}
   border-color: ${INPUT_BOR};
   border-radius: 4px;
   border-radius: 7px;
+  background-color: ${vars.imput_bg.asVar()};
   flex-grow: 1;
 }
 
