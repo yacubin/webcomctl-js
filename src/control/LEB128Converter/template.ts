@@ -164,11 +164,8 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0.5rem;
   font-family: ${SELECT_FONT};
   font-size: 1.1rem;
-}
-
-.${clss.Config} > select:focus-visible
-{
-
+  font-family: ${MAIN_FONT};
+  background-color: ${INPUT_BOR_FOCUS};
 }
 
 `);
