@@ -119,8 +119,9 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-grow: 1;
 }
 
-.${clss.Field_Imput} > input:focus-visible
+.${clss.Field_Imput} > input:focus
 {
+  outline: none;
   border: 2px solid #1877f2;
 }
 
