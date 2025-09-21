@@ -128,7 +128,8 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.Field_Imput} > input[type=number]::-webkit-inner-spin-button,
 .${clss.Field_Imput} > input[type=number]::-webkit-outer-spin-button
 {
-  background-color: ${vars.imput_bg.asVar()};
+  margin: 0;
+  appearance: none;
 }
 
 .${clss.Field_Imput} > input:focus
