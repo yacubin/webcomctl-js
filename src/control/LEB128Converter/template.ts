@@ -4,7 +4,6 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 const mk = new ControlMaker("LEB128Converter");
 
 const INPUT_BOR = "#dbdbdb";
-const INPUT_BOR_FOCUS = "#1b74e4";
 const INPUT_COLOR = "#88939a";
 const ERROR_COLOR = "red";
 const MAIN_FONT = "monospace;";
@@ -24,6 +23,7 @@ const clss = mk.newClassNameMap([
 const vars = mk.newCSSVariableMap({
   imput_bg: ['white', 'rgb(23, 23, 26)'],
   font_color: ['black', 'white'],
+  input_bor_focus: ['#1b74e4', '#a4cefe'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -135,7 +135,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.Field_Imput} > input:focus
 {
   outline: none;
-  border-color: ${INPUT_BOR_FOCUS};
+  border-color: ${vars.input_bor_focus.asVar()};
 }
 
 .${clss.Field_Imput} > a
