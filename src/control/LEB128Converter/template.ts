@@ -124,6 +124,12 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-grow: 1;
 }
 
+.${clss.Field_Imput} > input[number]::-webkit-inner-spin-button,
+.${clss.Field_Imput} > input[number]::-webkit-outer-spin-button
+{
+  background-color: ${vars.imput_bg.asVar()};
+}
+
 .${clss.Field_Imput} > input:focus
 {
   outline: none;
