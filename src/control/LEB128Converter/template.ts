@@ -3,8 +3,8 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("LEB128Converter");
 
-const INPUT_BOR = "#ccc";
-const INPUT_COLOR = "#435a6b";
+const INPUT_BOR = "#dedede";
+const INPUT_COLOR = "#88939a";
 const ERROR_COLOR = "red";
 const MAIN_FONT = "monospace;";
 const IMPUT_FONT = "monospace";
@@ -25,7 +25,7 @@ const vars = mk.newCSSVariableMap({
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
-  <h1>Decimal to LEB128 Converter</h1>
+  <h1>LEB128 Converter</h1>
   <div class="${clss.Field_Block}">
     <div class="${clss.Field_Imput_Group}">
       <label for="decimal-input">Decimal:</label>
@@ -114,7 +114,14 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0.5rem;
   border: 1px solid ${INPUT_BOR};
   border-radius: 4px;
+  border-radius: 7px;
+  box-shadow: inset 0px 0px 3px 0px #818181;
   flex-grow: 1;
+}
+
+.${clss.Field_Imput} > input:focus
+{
+  border: 2px solid #1877f2;
 }
 
 .${clss.Field_Imput} > a
