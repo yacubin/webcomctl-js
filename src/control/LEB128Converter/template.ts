@@ -113,7 +113,8 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${IMPUT_FONT};
   font-size: 1rem;
   padding: 0.5rem;
-  border: 1px solid ${INPUT_BOR};
+  border: 2px solid;
+  border-color: ${INPUT_BOR};
   border-radius: 4px;
   border-radius: 7px;
   flex-grow: 1;
@@ -122,7 +123,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.Field_Imput} > input:focus
 {
   outline: none;
-  border: 1px solid ${INPUT_BOR_FOCUS};
+  border-color: ${INPUT_BOR_FOCUS};
 }
 
 .${clss.Field_Imput} > a
