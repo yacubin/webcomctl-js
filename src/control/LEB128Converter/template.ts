@@ -164,8 +164,8 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 0.5rem;
   font-family: ${SELECT_FONT};
   font-size: 1.1rem;
-  font-family: ${MAIN_FONT};
-  background-color: ${INPUT_BOR_FOCUS};
+  color: ${vars.font_color.asVar()};
+  background-color: ${vars.imput_bg.asVar()};
 }
 
 `);
