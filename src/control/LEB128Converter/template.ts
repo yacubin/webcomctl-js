@@ -6,9 +6,9 @@ const mk = new ControlMaker("LEB128Converter");
 const INPUT_BOR = "#ccc";
 const INPUT_COLOR = "#435a6b";
 const ERROR_COLOR = "red";
-const MAIN_FONT = "font-family: monospace;";
-const IMPUT_FONT = "'PT Mono', monospace";
-const SELECT_FONT = "'Encode Sans Expanded', sans-serif";
+const MAIN_FONT = "monospace;";
+const IMPUT_FONT = "monospace";
+const SELECT_FONT = "sans-serif";
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
