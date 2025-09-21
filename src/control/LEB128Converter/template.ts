@@ -120,12 +120,13 @@ ${DARKMODE_SELECTOR_VALUE}
   border-color: ${INPUT_BOR};
   border-radius: 4px;
   border-radius: 7px;
+  color: ${vars.font_color.asVar()};
   background-color: ${vars.imput_bg.asVar()};
   flex-grow: 1;
 }
 
-.${clss.Field_Imput} > input[number]::-webkit-inner-spin-button,
-.${clss.Field_Imput} > input[number]::-webkit-outer-spin-button
+.${clss.Field_Imput} > input[type=number]::-webkit-inner-spin-button,
+.${clss.Field_Imput} > input[type=number]::-webkit-outer-spin-button
 {
   background-color: ${vars.imput_bg.asVar()};
 }
