@@ -3,7 +3,7 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("LEB128Converter");
 
-const INPUT_BOR = "#dedede";
+const INPUT_BOR = "#dbdbdb";
 const INPUT_COLOR = "#88939a";
 const ERROR_COLOR = "red";
 const MAIN_FONT = "monospace;";
@@ -115,7 +115,6 @@ ${DARKMODE_SELECTOR_VALUE}
   border: 2px solid ${INPUT_BOR};
   border-radius: 4px;
   border-radius: 7px;
-  box-shadow: inset 0px 0px 3px 0px #818181;
   flex-grow: 1;
 }
 
@@ -160,6 +159,12 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${SELECT_FONT};
   font-size: 1.1rem;
 }
+
+.${clss.Config} > select:focus-visible
+{
+
+}
+
 `);
 
 export function buildComponent()
