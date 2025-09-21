@@ -4,6 +4,7 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 const mk = new ControlMaker("LEB128Converter");
 
 const INPUT_BOR = "#dbdbdb";
+const INPUT_BOR_FOCUS = "#1b74e4";
 const INPUT_COLOR = "#88939a";
 const ERROR_COLOR = "red";
 const MAIN_FONT = "monospace;";
@@ -121,7 +122,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.Field_Imput} > input:focus
 {
   outline: none;
-  border: 2px solid #1877f2;
+  border: 2px solid ${INPUT_BOR_FOCUS};
 }
 
 .${clss.Field_Imput} > a
