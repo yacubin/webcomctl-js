@@ -1,7 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("LEB128Converter");
+const mk = new ControlMaker("Leb128Content");
 
 const INPUT_BOR = "#dbdbdb";
 const INPUT_COLOR = "#88939a";
