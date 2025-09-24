@@ -88,8 +88,7 @@ div.${clss.ROOT_CLASS} > a:hover
   background-color: ${but_hov_bg};
   border-color: ${vars.but_hov_bor.asVar()};
   border-radius: 15px;
-  transition: border-radius 0.500s;
-  transition: border-color 0.250s;
+  transition: border-color 0.250s, border-radius 0.500s;
 }
 
 @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
