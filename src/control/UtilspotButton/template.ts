@@ -25,12 +25,12 @@ const clss = mk.newClassNameMap([
 ]);
 
 mk.newHTML('ROOT_HTML', `
-<div id="table_of_contents" class="${clss.ROOT_CLASS}">
-  <a draggable="false" href="/">Home</a>
-  <a draggable="false" href="/statistics">statistics</a>
-  <a draggable="false" href="/journal/access">journal-access</a>
-  <a draggable="false" href="/journal/ssl_request">journal-ssl request</a>
-  <a draggable="false" href="/journal/error">journal-error</a>
+<div class="${clss.ROOT_CLASS}" draggable="false">
+  <a href="/">Home</a>
+  <a href="/statistics">Statistics</a>
+  <a href="/journal/access">Journal-access</a>
+  <a href="/journal/ssl_request">Journal-ssl request</a>
+  <a href="/journal/error">Journal-error</a>
 </div> 
 `);
 
@@ -58,7 +58,6 @@ ${DARKMODE_SELECTOR_VALUE}
   padding-bottom: 5px;
   border-bottom: 1px solid ${vars.sw_bor.asVar()};
   background-color: ${vars.sw_bg.asVar()};
-  z-index: 1;
 }
 
 div.${clss.ROOT_CLASS} a.${clss.BUTTON_ACTIVE}
