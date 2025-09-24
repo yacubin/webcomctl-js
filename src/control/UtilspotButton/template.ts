@@ -27,7 +27,7 @@ const clss = mk.newClassNameMap([
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}" draggable="false">
   <a href="/">Home</a>
-  <a href="/Statistics">statistics</a>
+  <a href="/statistics">Statistics</a>
   <a href="/journal/access">Journal-access</a>
   <a href="/journal/ssl_request">Journal-ssl request</a>
   <a href="/journal/error">Journal-error</a>
