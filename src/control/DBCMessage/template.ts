@@ -300,7 +300,7 @@ div.${clss.ROOT_CLASS} b h4 > u
 }
 
 .${clss.ROOT_CLASS} span span,
-..${clss.ROOT_CLASS} > b > span span
+.${clss.ROOT_CLASS} > b > span span
 {
   margin: 0px;
   border: none;

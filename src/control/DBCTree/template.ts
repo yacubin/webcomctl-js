@@ -3,6 +3,8 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("DBCTree");
 
+const dbc_group_icon_lock = 'url(/dbc-online/lock_group.svg)';
+
 const vars = mk.newCSSVariableMap({
   dbc_doc_icon: ['url(/dbc-online/document.svg)','url(/dbc-online/document2.svg)'],
   dbc_mes_icon: ['url(/dbc-online/message.svg)','url(/dbc-online/message2.svg)'],
@@ -120,6 +122,11 @@ div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s h2:hover
 .${clss.NODE_GROUP} > s > h2 > s
 {
   background-image: ${vars.dbc_group_icon.asVar()};
+}
+
+div.${clss.NODE_MESSAGE_PSEUDO} div.${clss.NODE_GROUP} > s > h2 > s
+{
+  background-image: ${dbc_group_icon_lock};
 }
 
 .${clss.NODE_SIGNAL} > s > h2 > s
