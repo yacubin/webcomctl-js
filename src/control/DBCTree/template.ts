@@ -8,9 +8,9 @@ const vars = mk.newCSSVariableMap({
   dbc_mes_icon: ['url(/dbc-online/message.svg)','url(/dbc-online/message2.svg)'],
   dbc_mes_pseudo_icon:  ['url(/dbc-online/lock_message.svg)','url(/dbc-online/lock_message_dark.svg)'],
   dbc_sig_pseudo_icon: ['url(/dbc-online/lock_signal.svg)','url(/dbc-online/lock_signal_dark.svg)'],
+  dbc_group_icon_lock: ['url(/dbc-online/lock_group.svg)','url(/dbc-online/lock_group_dark.svg)'],
   mes_pseudo_list_col: ['#684a4acc','#ffd5d570'],
   mes_pseudo_hov_bg: ['#f3e9e9','#2f2c2c'],
-  dbc_group_icon_lock: ['url(/dbc-online/lock_group.svg)','url(/dbc-online/lock_group_dark.svg)'],
   dbc_group_icon: ['url(/dbc-online/group.svg)','url(/dbc-online/group2.svg)'],
   dbc_sig_icon: ['url(/dbc-online/signal.svg)', 'url(/dbc-online/signal2.svg)'],
   tree_act_col: ['black','#eeeeee'],
@@ -196,7 +196,7 @@ div.${clss.ROOT_CLASS} div.${clss.STATE_EXPAND} > s b div
   transform: rotate(315deg);
 }
 
-div.${clss.ROOT_CLASS} div.${clss.STATE_COLLAPSE} > s b div
+div.${clss.ROOT_CLASS} div > s b div
 {
   transform: rotate(228deg);
 }
