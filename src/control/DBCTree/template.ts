@@ -127,7 +127,7 @@ div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s h2:hover
 
 div.${clss.NODE_MESSAGE_PSEUDO} div.${clss.NODE_GROUP} > s > h2 > s
 {
-  background-image: ${dbc_group_icon_lock};
+  background-image: ${vars.dbc_group_icon_lock.asVar()};
 }
 
 .${clss.NODE_SIGNAL} > s > h2 > s
