@@ -3,8 +3,6 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("DBCTree");
 
-const dbc_group_icon_lock = 'url(/dbc-online/lock_group.svg)';
-
 const vars = mk.newCSSVariableMap({
   dbc_doc_icon: ['url(/dbc-online/document.svg)','url(/dbc-online/document2.svg)'],
   dbc_mes_icon: ['url(/dbc-online/message.svg)','url(/dbc-online/message2.svg)'],
