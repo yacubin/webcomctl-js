@@ -12,6 +12,7 @@ const vars = mk.newCSSVariableMap({
   dbc_sig_pseudo_icon: ['url(/dbc-online/lock_signal.svg)','url(/dbc-online/lock_signal_dark.svg)'],
   mes_pseudo_list_col: ['#684a4acc','#ffd5d570'],
   mes_pseudo_hov_bg: ['#f3e9e9','#2f2c2c'],
+  dbc_group_icon_lock: ['url(/dbc-online/lock_group.svg)','url(/dbc-online/lock_group_dark.svg)'],
   dbc_group_icon: ['url(/dbc-online/group.svg)','url(/dbc-online/group2.svg)'],
   dbc_sig_icon: ['url(/dbc-online/signal.svg)', 'url(/dbc-online/signal2.svg)'],
   tree_act_col: ['black','#eeeeee'],
