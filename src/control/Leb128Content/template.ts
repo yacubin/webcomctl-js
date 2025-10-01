@@ -14,6 +14,7 @@ const ERROR_COLOR = "red";
 const MAIN_FONT = "monospace;";
 const IMPUT_FONT = "monospace";
 const SELECT_FONT = "sans-serif";
+const BOR_LINK = "transparent";
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
@@ -147,10 +148,12 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.Field_Imput} > a
 {
-  height: 35px;
-  width: 35px;
+  height: 33px;
+  width: 33px;
   margin-left: 0.5rem;
   border-radius: 5px;
+  border-top: 3px solid ${BOR_LINK};
+  border-bottom: 3px solid ${BOR_LINK};
   text-decoration: none;
   background-image: ${vars.Copy_icon.asVar()};
   background-repeat: no-repeat;
