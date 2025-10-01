@@ -1,34 +1,52 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { convertSvgToCssUrl } from "@/lib/SVG";
 
-import document from "./document.svg";
-import document2 from "./document2.svg";
+import Document from "./document.svg";
+import Document2 from "./document2.svg";
 
-import message from "./message.svg";
-import message2 from "./message2.svg";
-import pseudomessage from "./lock_message.svg";
-import pseudomessage2 from "./lock_message_dark.svg";
+import Message from "./message.svg";
+import Message2 from "./message2.svg";
+import PseudoMessage from "./lock_message.svg";
+import PseudoMessage2 from "./lock_message_dark.svg";
 
-import signal from "./signal.svg";
-import signal2 from "./signal2.svg";
-import pseudosignal from "./lock_signal.svg";
-import pseudosignal2 from "./lock_signal_dark.svg";
+import Signal from "./signal.svg";
+import Signal2 from "./signal2.svg";
+import PseudoSignal from "./lock_signal.svg";
+import PseudoSignal2 from "./lock_signal_dark.svg";
 
-import group from "./group.svg";
-import group2 from "./group2.svg";
-import pseudogroup from "./lock_group.svg";
-import pseudogroup2 from "./lock_group_dark.svg";
+import Group from "./group.svg";
+import Group2 from "./group2.svg";
+import PseuDogroup from "./lock_group.svg";
+import PseuDogroup2 from "./lock_group_dark.svg";
 
+const DOC_IMG = convertSvgToCssUrl(Document);
+const DOC_DARK_IMG = convertSvgToCssUrl(Document2);
+
+const MES_IMG = convertSvgToCssUrl(Message);
+const MES_DARK_IMG = convertSvgToCssUrl(Message2);
+const PSE_MES_IMG = convertSvgToCssUrl(PseudoMessage);
+const PSE_MES_DARK_IMG = convertSvgToCssUrl(PseudoMessage2);
+
+const SIG_IMG = convertSvgToCssUrl(Signal);
+const SIG_DARK_IMG = convertSvgToCssUrl(Signal2);
+const PSE_SIG_IMG = convertSvgToCssUrl(PseudoSignal);
+const PSE_SIG_DARK_IMG = convertSvgToCssUrl(PseudoSignal2);
+
+const GROUP_IMG = convertSvgToCssUrl(Group);
+const GROUP_DARK_IMG = convertSvgToCssUrl(Group2);
+const PSE_GROUP_IMG = convertSvgToCssUrl(PseuDogroup);
+const PSE_GROUP_DARK_IMG = convertSvgToCssUrl(PseuDogroup2);
 const mk = new ControlMaker("DBCTree");
 
 const vars = mk.newCSSVariableMap({
-  dbc_doc_icon: [document, document2],
-  dbc_mes_icon: [message, message2],
-  dbc_mes_pseudo_icon:  [pseudomessage, pseudomessage2],
-  dbc_sig_pseudo_icon: [pseudosignal, pseudosignal2],
-  dbc_group_icon_lock: [pseudogroup, pseudogroup2],
-  dbc_group_icon: [group, group2],
-  dbc_sig_icon: [signal, signal2],
+  dbc_doc_icon: [DOC_IMG, DOC_DARK_IMG],
+  dbc_mes_icon: [MES_IMG, MES_DARK_IMG],
+  dbc_mes_pseudo_icon:  [PSE_MES_IMG, PSE_MES_DARK_IMG],
+  dbc_sig_icon: [SIG_IMG, SIG_DARK_IMG],
+  dbc_sig_pseudo_icon: [PSE_SIG_IMG, PSE_SIG_DARK_IMG],
+  dbc_group_icon: [GROUP_IMG, GROUP_DARK_IMG],
+  dbc_group_icon_lock: [PSE_GROUP_IMG, PSE_GROUP_DARK_IMG],
   mes_pseudo_list_col: ['#684a4acc','#ffd5d570'],
   mes_pseudo_hov_bg: ['#f3e9e9','#2f2c2c'],
   tree_act_col: ['black','#eeeeee'],
