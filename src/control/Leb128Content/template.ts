@@ -149,6 +149,9 @@ ${DARKMODE_SELECTOR_VALUE}
   margin-left: 0.5rem;
   text-decoration: none;
   background-image: ${vars.Copy_icon.asVar()};
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   cursor: pointer;
 }
 
