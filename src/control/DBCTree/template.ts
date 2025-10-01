@@ -3,16 +3,34 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("DBCTree");
 
+import document from "./document.svg";
+import document2 from "./document2.svg";
+
+import message from "./message.svg";
+import message2 from "./message2.svg";
+import pseudo_message from "./lock_message.svg";
+import pseudo_message2 from "./lock_message_dark.svg";
+
+import signal from "./signal.svg";
+import signal2 from "./signal2.svg";
+import pseudo_signal from "./lock_signal.svg";
+import pseudo_signal2 from "./lock_signal_dark.svg";
+
+import group from "./group.svg";
+import group2 from "./group2.svg";
+import pseudo_group from "./lock_group.svg";
+import pseudo_group2 from "./lock_group_dark.svg";
+
 const vars = mk.newCSSVariableMap({
-  dbc_doc_icon: ['./document.svg)','./document2.svg)'],
-  dbc_mes_icon: ['./message.svg)','./message2.svg)'],
-  dbc_mes_pseudo_icon:  ['./lock_message.svg)','./lock_message_dark.svg)'],
-  dbc_sig_pseudo_icon: ['./lock_signal.svg)','./lock_signal_dark.svg)'],
-  dbc_group_icon_lock: ['./lock_group.svg)','./lock_group_dark.svg)'],
+  dbc_doc_icon: [document, document2],
+  dbc_mes_icon: [message, message2],
+  dbc_mes_pseudo_icon:  [pseudo_message, pseudo_message2],
+  dbc_sig_pseudo_icon: [pseudo_signal, pseudo_signal2],
+  dbc_group_icon_lock: [pseudo_group, pseudo_group2],
+  dbc_group_icon: [group, group2],
+  dbc_sig_icon: [signal, signal2],
   mes_pseudo_list_col: ['#684a4acc','#ffd5d570'],
   mes_pseudo_hov_bg: ['#f3e9e9','#2f2c2c'],
-  dbc_group_icon: ['./group.svg)','./group2.svg)'],
-  dbc_sig_icon: ['./signal.svg)', './signal2.svg)'],
   tree_act_col: ['black','#eeeeee'],
   left_name_hov: ['#e9e9e9', '#c1c1c126'],
   mes_pseudo_list_bor: ['#684a4acc','#ffd5d570'],
