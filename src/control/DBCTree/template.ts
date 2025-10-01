@@ -4,15 +4,15 @@ import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 const mk = new ControlMaker("DBCTree");
 
 const vars = mk.newCSSVariableMap({
-  dbc_doc_icon: ['url(/dbc-online/document.svg)','url(/dbc-online/document2.svg)'],
-  dbc_mes_icon: ['url(/dbc-online/message.svg)','url(/dbc-online/message2.svg)'],
-  dbc_mes_pseudo_icon:  ['url(/dbc-online/lock_message.svg)','url(/dbc-online/lock_message_dark.svg)'],
-  dbc_sig_pseudo_icon: ['url(/dbc-online/lock_signal.svg)','url(/dbc-online/lock_signal_dark.svg)'],
-  dbc_group_icon_lock: ['url(/dbc-online/lock_group.svg)','url(/dbc-online/lock_group_dark.svg)'],
+  dbc_doc_icon: ['./document.svg)','./document2.svg)'],
+  dbc_mes_icon: ['./message.svg)','./message2.svg)'],
+  dbc_mes_pseudo_icon:  ['./lock_message.svg)','./lock_message_dark.svg)'],
+  dbc_sig_pseudo_icon: ['./lock_signal.svg)','./lock_signal_dark.svg)'],
+  dbc_group_icon_lock: ['./lock_group.svg)','./lock_group_dark.svg)'],
   mes_pseudo_list_col: ['#684a4acc','#ffd5d570'],
   mes_pseudo_hov_bg: ['#f3e9e9','#2f2c2c'],
-  dbc_group_icon: ['url(/dbc-online/group.svg)','url(/dbc-online/group2.svg)'],
-  dbc_sig_icon: ['url(/dbc-online/signal.svg)', 'url(/dbc-online/signal2.svg)'],
+  dbc_group_icon: ['./group.svg)','./group2.svg)'],
+  dbc_sig_icon: ['./signal.svg)', './signal2.svg)'],
   tree_act_col: ['black','#eeeeee'],
   left_name_hov: ['#e9e9e9', '#c1c1c126'],
   mes_pseudo_list_bor: ['#684a4acc','#ffd5d570'],

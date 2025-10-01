@@ -1,0 +1,56 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="237pt"
+    height="225pt"
+    viewBox="0 0 237 225">
+<defs/>
+
+<path id="shape0"
+  transform="translate(7.0114167108411, 10.0000000094392)"
+  fill="none"
+  stroke="#520b0bc2"
+  stroke-width="12"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0 13.9532L0.0198334 190.906C1.65251 198.059 7.24677 201.567 12.9573 204.969L211.942 205C217.816 202.425 222.82 198.654 224.948 190.929L225.081 41.0885C222.707 33.234 218.781 28.9978 213.91 26.9688L113.933 26.9905C103.403 18.1774 97.3975 6.95561 82.8948 0L14.0537 0.0320773C8.09701 1.34336 3.41243 5.98375 0 13.9532Z"/>
+
+<path id="shape01"
+  transform="translate(12.8450456266571, 68.8125030114122)"
+  fill="none"
+  stroke="#520b0bc2"
+  stroke-width="10"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0 132.183C1.53685 135.592 4.31508 137.916 7.15946 140.182L206.298 140.16C210.189 137.695 212.389 134.931 213.186 132.219L213.03 8.1875C211.765 4.18624 209.152 1.36983 205.842 0L135.217 0.187497L108.055 26.2934L8.21746 26.3125C3.52567 28.2458 1.59448 31.022 0.0924596 34.75C0.0924596 34.75 0.0616398 67.2275 0 132.183Z"/>
+
+<path id="shape1"
+  transform="translate(25.9687503064221, 56.0000000793826)"
+  fill="none"
+  stroke="#520b0bc2"
+  stroke-width="10"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0.00196955 36.4542L0 0L187.094 0.0625031L187.094 12.375L187.094 12.375"/>
+
+<path id="shape2"
+  transform="translate(28.7194038691421, 65.3281263212361)"
+  fill="none"
+  stroke="#520b0bc2"
+  stroke-width="10"
+  stroke-linecap="round"
+  stroke-linejoin="bevel"
+  d="M10.3587 0L0 0.0903793"/>
+
+<path id="shape3"
+  transform="translate(59.0000070594521, 65.2500029713109)"
+  fill="none"
+  stroke="#520b0bc2"
+  stroke-width="10"
+  stroke-linecap="round"
+  stroke-linejoin="bevel"
+  d="M152 0L0 0"/>
+
+</svg>
