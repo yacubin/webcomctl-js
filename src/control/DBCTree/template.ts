@@ -17,8 +17,8 @@ import PseudoSignal2 from "./lock_signal_dark.svg";
 
 import Group from "./group.svg";
 import Group2 from "./group2.svg";
-import PseuDogroup from "./lock_group.svg";
-import PseuDogroup2 from "./lock_group_dark.svg";
+import PseudoGroup from "./lock_group.svg";
+import PseudoGroup2 from "./lock_group_dark.svg";
 
 const DOC_IMG = convertSvgToCssUrl(Document);
 const DOC_DARK_IMG = convertSvgToCssUrl(Document2);
@@ -35,8 +35,8 @@ const PSE_SIG_DARK_IMG = convertSvgToCssUrl(PseudoSignal2);
 
 const GROUP_IMG = convertSvgToCssUrl(Group);
 const GROUP_DARK_IMG = convertSvgToCssUrl(Group2);
-const PSE_GROUP_IMG = convertSvgToCssUrl(PseuDogroup);
-const PSE_GROUP_DARK_IMG = convertSvgToCssUrl(PseuDogroup2);
+const PSE_GROUP_IMG = convertSvgToCssUrl(PseudoGroup);
+const PSE_GROUP_DARK_IMG = convertSvgToCssUrl(PseudoGroup2);
 const mk = new ControlMaker("DBCTree");
 
 const vars = mk.newCSSVariableMap({
