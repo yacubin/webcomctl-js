@@ -149,12 +149,18 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 35px;
   width: 35px;
   margin-left: 0.5rem;
+  border-radius: 5px;
   text-decoration: none;
   background-image: ${vars.Copy_icon.asVar()};
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   cursor: pointer;
+}
+
+.${clss.Field_Imput} > a:hover
+{
+  background-color: #86868629;
 }
 
 .${clss.Error}
