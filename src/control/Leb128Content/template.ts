@@ -1,10 +1,15 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { convertSvgToCssUrl } from "@/lib/SVG";
+
+import CopySvg from "./Copy.svg";
+import CopyDarkSvg from "./CopyDark.svg";
 
 const mk = new ControlMaker("Leb128Content");
 
+const Copy_IMG = convertSvgToCssUrl(CopySvg);
+const Copy2_IMG = convertSvgToCssUrl(CopyDarkSvg);
 const INPUT_BOR = "#dbdbdb";
-const INPUT_COLOR = "#88939a";
 const ERROR_COLOR = "red";
 const MAIN_FONT = "monospace;";
 const IMPUT_FONT = "monospace";
@@ -24,6 +29,7 @@ const vars = mk.newCSSVariableMap({
   imput_bg: ['white', 'rgb(23, 23, 26)'],
   font_color: ['black', 'white'],
   input_bor_focus: ['#1b74e4', '#a4cefe'],
+  Copy_icon: [Copy_IMG, Copy2_IMG],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -34,14 +40,14 @@ mk.newHTML('ROOT_HTML', `
       <label for="decimal-input">Decimal:</label>
       <div class="${clss.Field_Imput}">
         <input type="number" id="decimal-input" min="0" step="1" placeholder="Enter decimal number" tabindex="1">
-        <a href="#" id="decimal-copy" class="copy-link" tabindex="-1" aria-label="Copy decimal value">Copy</a>
+        <a href="#" id="decimal-copy" class="copy-link" tabindex="-1" aria-label="Copy decimal value"></a>
       </div>
     </div>
     <div class="${clss.Field_Imput_Group}">
       <label for="leb128-input">LEB128:</label>
       <div class="${clss.Field_Imput}">
         <input type="text" id="leb128-input" placeholder="Enter LEB128 value" tabindex="2">
-        <a href="#" id="leb128-copy" class="copy-link" tabindex="-1" aria-label="Copy LEB128 value">Copy</a>
+        <a href="#" id="leb128-copy" class="copy-link" tabindex="-1" aria-label="Copy LEB128 value"></a>
       </div>
     </div>
     <div class="${clss.Error} ${clss.Hidden}">Invalid array length</div>
@@ -141,9 +147,8 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.Field_Imput} > a
 {
   margin-left: 0.5rem;
-  font-size: 1.2rem;
-  color: ${INPUT_COLOR};
   text-decoration: none;
+  background-image: ${vars.Copy_icon.asVar()};
   cursor: pointer;
 }
 
