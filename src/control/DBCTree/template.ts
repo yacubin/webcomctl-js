@@ -1,8 +1,6 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("DBCTree");
-
 import document from "./document.svg";
 import document2 from "./document2.svg";
 
@@ -20,6 +18,8 @@ import group from "./group.svg";
 import group2 from "./group2.svg";
 import pseudo_group from "./lock_group.svg";
 import pseudo_group2 from "./lock_group_dark.svg";
+
+const mk = new ControlMaker("DBCTree");
 
 const vars = mk.newCSSVariableMap({
   dbc_doc_icon: [document, document2],
