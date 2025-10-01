@@ -146,6 +146,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.Field_Imput} > a
 {
+  height: 35px;
+  width: 35px;
   margin-left: 0.5rem;
   text-decoration: none;
   background-image: ${vars.Copy_icon.asVar()};
