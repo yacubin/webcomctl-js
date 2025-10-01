@@ -30,6 +30,7 @@ const vars = mk.newCSSVariableMap({
   font_color: ['black', 'white'],
   input_bor_focus: ['#1b74e4', '#a4cefe'],
   Copy_icon: [Copy_IMG, Copy2_IMG],
+  link_hover:['#86868629', '#86868654'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -160,7 +161,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.Field_Imput} > a:hover
 {
-  background-color: #86868629;
+  background-color: ${vars.link_hover.asVar()};
 }
 
 .${clss.Error}
