@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="3.36pt"
+    height="3.12pt"
+    viewBox="0 0 3.36 3.12">
+<defs/>
+
+<path id="shape0"
+  transform="matrix(1.00000003122148 0 0 1.00000003122148 0.120012774069751 0.120008991522667)" 
+  fill="none"
+  stroke="#eeeeee"
+  stroke-width="0.2424"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0 0.72L0 0L1.65 0L1.695 2.88L3.135 2.895L3.12 2.145"/>
+
+<path id="shape01"
+  transform="matrix(1.00000003122148 0 0 1.00000003122148 0.105012772580136 0.600009039190553)" 
+  fill="none"
+  stroke="#eeeeee"
+  stroke-width="0.2424"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0 0.945L0.75 0L2.4 1.91999L3.135 0.99"/>
+</svg>

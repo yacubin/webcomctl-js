@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="3.6pt"
+    height="2.64pt"
+    viewBox="0 0 3.6 2.64">
+<defs/>
+
+<rect id="shape0"
+  transform="matrix(0.999999951748624 0 0 0.999999951748624 0.218787593476047 0.311953367652571)"
+  fill="none"
+  stroke="#000000"
+  stroke-width="0.2424"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  width="3.16501592463568"
+  height="1.99501066148388"/>
+
+<path id="shape1"
+  transform="matrix(0.999999951748624 0 0 0.999999951748624 0.233803310176519 0.431963900006088)"
+  fill="none"
+  stroke="#000000"
+  stroke-width="0.2424"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0 0L3.105 1.92"/>
+
+<path id="shape2"
+  transform="matrix(0.999999951748624 0 0 0.999999951748624 0.248803310439451 0.446963900269043)"
+  fill="none"
+  stroke="#000000"
+  stroke-width="0.2424"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M3.105 0L0 1.89"/>
+</svg>

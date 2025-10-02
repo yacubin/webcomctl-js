@@ -191,7 +191,7 @@ div.${clss.DOCUMENT} > b > h4 + h4
   justify-content: start;
   grid-gap: 5px 10px;
   margin: 0px 0px 30px 30px;
-  padding: 10px 20px 10px 20px;
+  padding: 12px 20px 10px 20px;
   width: max-content;
   border-radius: 5px;
   border: 1px solid ${rpanel_brate};

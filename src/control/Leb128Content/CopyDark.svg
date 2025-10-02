@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="21pt"
+    height="24pt"
+    viewBox="0 0 21 24">
+<defs/>
+<path id="shape0"
+  transform="matrix(-1 0 0 1.3355262737458 14.7251420047173 1.79534196748606)"
+  fill="none"
+  stroke="#dbdbdb"
+  stroke-width="1.5"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M0.0053467 2.19396L0.00227892 1.56077C-0.0382543 0.656994 0.466436 0.125548 1.15485 0L10.2015 0.0723734C10.9039 0.0944399 11.7199 0.375921 11.7134 1.57275L11.7134 10.6196C11.6199 11.3234 11.4647 11.9938 10.2369 12.0845L8.7017 12.0845"/>
+  
+<path id="shape01"
+  transform="matrix(-1 0 0 1.36184217112507 19.3890118978281 4.91169265851547)"
+  fill="none"
+  stroke="#dbdbdb"
+  stroke-width="1.5"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"
+  d="M1.15485 0L10.2015 0.0723734C10.9039 0.0944399 11.7199 0.375921 11.7134 1.57275L11.7134 10.6196C11.6199 11.3234 11.4647 11.9938 10.2369 12.0845L1.9517 12.0845C0.534005 12.0959 0.199885 11.8109 0.045885 10.5611L0.00227892 1.56077C-0.0382543 0.656994 0.466436 0.125548 1.15485 0Z"/>
+</svg>
