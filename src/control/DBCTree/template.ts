@@ -1,60 +1,58 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
-import { convertSvgToCssUrl } from "@/lib/SVG";
+import { createSvgOptimize, SvgOptimizeParams } from "@/lib/SVG";
 
-import Document from "./document.svg";
-import Document2 from "./document2.svg";
+import documentSvg from "./document.svg";
+import messageSvg from "./message.svg";
+import groupSvg from "./group.svg";
+import signalSvg from "./signal.svg";
 
-import Message from "./message.svg";
-import Message2 from "./message2.svg";
-import PseudoMessage from "./lock_message.svg";
-import PseudoMessage2 from "./lock_message_dark.svg";
+const NORMAL_LIGHT_COLOR = "#000000";
+const NORMAL_DARK_COLOR = "#eeeeee";
+const PSEUDO_LIGHT_COLOR = "#520b0bc2"; // #520b0bc2 #684a4acc
+const PSEUDO_DARK_COLOR = "#ffd5d570";
 
-import Signal from "./signal.svg";
-import Signal2 from "./signal2.svg";
-import PseudoSignal from "./lock_signal.svg";
-import PseudoSignal2 from "./lock_signal_dark.svg";
+const normalLightSvgParams: SvgOptimizeParams = { outputType: "CSS-URL",  stroke: NORMAL_LIGHT_COLOR };
+const normalDarkSvgParams: SvgOptimizeParams = { outputType: "CSS-URL",  stroke: NORMAL_DARK_COLOR };
+const pseudoLightSvgParams: SvgOptimizeParams = { outputType: "CSS-URL",  stroke: PSEUDO_LIGHT_COLOR };
+const pseudoDarkSvgParams: SvgOptimizeParams = { outputType: "CSS-URL",  stroke: PSEUDO_DARK_COLOR };
 
-import Group from "./group.svg";
-import Group2 from "./group2.svg";
-import PseudoGroup from "./lock_group.svg";
-import PseudoGroup2 from "./lock_group_dark.svg";
+const documentNormalLightSvg = createSvgOptimize(documentSvg, normalLightSvgParams);
+const documentNormalDarkSvg = createSvgOptimize(documentSvg, normalDarkSvgParams);
 
-const DOC_IMG = convertSvgToCssUrl(Document);
-const DOC_DARK_IMG = convertSvgToCssUrl(Document2);
+const messageNornalLightSvg = createSvgOptimize(messageSvg, normalLightSvgParams);
+const messageNormalDarkSvg = createSvgOptimize(messageSvg, normalDarkSvgParams);
+const messagePseudoLightSvg = createSvgOptimize(messageSvg, pseudoLightSvgParams);
+const messagePseudoDarkSvg = createSvgOptimize(messageSvg, pseudoDarkSvgParams);
 
-const MES_IMG = convertSvgToCssUrl(Message);
-const MES_DARK_IMG = convertSvgToCssUrl(Message2);
-const PSE_MES_IMG = convertSvgToCssUrl(PseudoMessage);
-const PSE_MES_DARK_IMG = convertSvgToCssUrl(PseudoMessage2);
+const groupNornalLightSvg = createSvgOptimize(groupSvg, normalLightSvgParams);
+const groupNormalDarkSvg = createSvgOptimize(groupSvg, normalDarkSvgParams);
+const groupPseudoLightSvg = createSvgOptimize(groupSvg, pseudoLightSvgParams);
+const groupPseudoDarkSvg = createSvgOptimize(groupSvg, pseudoDarkSvgParams);
 
-const SIG_IMG = convertSvgToCssUrl(Signal);
-const SIG_DARK_IMG = convertSvgToCssUrl(Signal2);
-const PSE_SIG_IMG = convertSvgToCssUrl(PseudoSignal);
-const PSE_SIG_DARK_IMG = convertSvgToCssUrl(PseudoSignal2);
+const signalNornalLightSvg = createSvgOptimize(signalSvg, normalLightSvgParams);
+const signalNormalDarkSvg = createSvgOptimize(signalSvg, normalDarkSvgParams);
+const signalPseudoLightSvg = createSvgOptimize(signalSvg, pseudoLightSvgParams);
+const signalPseudoDarkSvg = createSvgOptimize(signalSvg, pseudoDarkSvgParams);
 
-const GROUP_IMG = convertSvgToCssUrl(Group);
-const GROUP_DARK_IMG = convertSvgToCssUrl(Group2);
-const PSE_GROUP_IMG = convertSvgToCssUrl(PseudoGroup);
-const PSE_GROUP_DARK_IMG = convertSvgToCssUrl(PseudoGroup2);
 const mk = new ControlMaker("DBCTree");
 
 const vars = mk.newCSSVariableMap({
-  dbc_doc_icon: [DOC_IMG, DOC_DARK_IMG],
-  dbc_mes_icon: [MES_IMG, MES_DARK_IMG],
-  dbc_mes_pseudo_icon:  [PSE_MES_IMG, PSE_MES_DARK_IMG],
-  dbc_sig_icon: [SIG_IMG, SIG_DARK_IMG],
-  dbc_sig_pseudo_icon: [PSE_SIG_IMG, PSE_SIG_DARK_IMG],
-  dbc_group_icon: [GROUP_IMG, GROUP_DARK_IMG],
-  dbc_group_icon_lock: [PSE_GROUP_IMG, PSE_GROUP_DARK_IMG],
-  mes_pseudo_list_col: ['#684a4acc','#ffd5d570'],
+  dbc_doc_icon: [ documentNormalLightSvg, documentNormalDarkSvg ],
+  dbc_mes_icon: [ messageNornalLightSvg, messageNormalDarkSvg ],
+  dbc_mes_pseudo_icon: [ messagePseudoLightSvg, messagePseudoDarkSvg ],
+  dbc_sig_icon: [ signalNornalLightSvg, signalNormalDarkSvg ],
+  dbc_sig_pseudo_icon: [ signalPseudoLightSvg, signalPseudoDarkSvg ],
+  dbc_group_icon: [ groupNornalLightSvg, groupNormalDarkSvg ],
+  dbc_group_icon_lock: [ groupPseudoLightSvg, groupPseudoDarkSvg ],
+  mes_pseudo_list_col: [ PSEUDO_LIGHT_COLOR, PSEUDO_DARK_COLOR ],
   mes_pseudo_hov_bg: ['#f3e9e9','#2f2c2c'],
-  tree_act_col: ['black','#eeeeee'],
+  tree_act_col: [ NORMAL_LIGHT_COLOR, NORMAL_DARK_COLOR ],
   left_name_hov: ['#e9e9e9', '#c1c1c126'],
-  mes_pseudo_list_bor: ['#684a4acc','#ffd5d570'],
+  mes_pseudo_list_bor: [ PSEUDO_LIGHT_COLOR, PSEUDO_DARK_COLOR ],
   mes_pseudo_bor: ['#470000e3','#a77d7de0'],
-  tree_list_bor: ['black','white'],
-  tree_list_col: ['black','white'],
+  tree_list_bor: [ 'black', 'white' ],
+  tree_list_col: [ 'black', 'white' ],
 });
 
 const clss = mk.newClassNameMap([
