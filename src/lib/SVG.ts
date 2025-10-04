@@ -18,6 +18,8 @@ export function createSvgOptimize(input: string, params: SvgOptimizeParams): str
     { name: 'removeEditorsNSData', active: true },
     { name: 'removeUnusedNS', active: true },
     { name: 'removeNonInheritableGroupAttrs', active: true },
+    { name: 'removeUselessDefs', active: true },
+    { name: 'cleanupIds', active: true },
     { name: 'collapseGroups', active: true },
   ];
 
