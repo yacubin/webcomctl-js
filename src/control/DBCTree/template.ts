@@ -63,12 +63,31 @@ const clss = mk.newClassNameMap([
   "GROUP_CLASS",
   "SIGNAL_CLASS",
   "ACTIVE_CLASS",
-  "CHILDFREE_CLASS",
+  "CHILDFREE_CLASS", // Do we need this?
   "EXPAND_CLASS",
+  "TITLE_CLASS",
+  "CHILDS_CLASS",
+  "DO_EXPAND_CLASS",
+  "DO_ACTIVE_CLASS",
 ]);
 
-mk.newHTML('ROOT_HTML', `
+mk.newHTML("ROOT_HTML", `
 <div class="${clss.ROOT_CLASS}"></div>
+`);
+
+mk.newHTML("ITEM_HTML", `
+<div>
+  <s>
+    <b class="${clss.DO_EXPAND_CLASS}">
+      <div></div>
+    </b>
+    <h2 class="${clss.DO_ACTIVE_CLASS}">
+      <s></s>
+      <div class="${clss.TITLE_CLASS}"></div>
+    </h2>
+  </s>
+  <span class="${clss.CHILDS_CLASS}"></span>
+</div>
 `);
 
 mk.newCSS('CSS', `
