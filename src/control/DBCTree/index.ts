@@ -1,14 +1,21 @@
-import { BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { NODE_DOCUMENT, NODE_MESSAGE, NODE_MESSAGE_PSEUDO, NODE_GROUP, NODE_SIGNAL, STATE_CLICK, SHOWCASE_CLICK, STATE_COLLAPSE, STATE_EXPAND, STATE_NONE, TREE_ACTIVE } from "uictmplt-loader!./template.ts";
+import { ITEM_HTML, DOCUMENT_CLASS, MESSAGE_CLASS, GROUP_CLASS, SIGNAL_CLASS, PSEUDO_CLASS, EXPAND_CLASS, CHILDFREE_CLASS, ACTIVE_CLASS, TITLE_CLASS, CHILDS_CLASS, DO_EXPAND_CLASS, DO_ACTIVE_CLASS } from "uictmplt-loader!./template.ts";
 
-interface DBCNodeInfo {
+const typeToClass = {
+  document: DOCUMENT_CLASS,
+  message: MESSAGE_CLASS,
+  group: GROUP_CLASS,
+  signal: SIGNAL_CLASS,
+};
+
+interface DBCNodeParams {
   name: string;
-  type: "document" | "message" | "group" | "signal";
+  type: keyof typeof typeToClass;
   selected?: boolean;
-  collapse?: boolean;
+  expand?: boolean;
   pseudo?: boolean;
-  childs?: DBCNodeInfo[];
+  childs?: DBCNodeParams[];
   data?: any;
 };
 
@@ -16,124 +23,81 @@ const SELECTEDCHANGED_EVENT = "selectedchanged";
 
 export class DBCTree extends BaseControl {
   private _selectedElm?: HTMLElement;
+  private _itemTemplate?: HTMLElement;
 
   protected _init() {
+    this._itemTemplate = NQDOM.createElement(ITEM_HTML);
     this.registerEvent(SELECTEDCHANGED_EVENT);
   }
 
-  public setRootNode(node: DBCNodeInfo | null | undefined) {
+  public setRootNode(params: DBCNodeParams | null | undefined) {
     this._selectedElm = undefined;
     this.element.textContent = "";
-    if (node) {
-      const root = this._createElementByNodeInfo(node);
+    if (params) {
+      const root = this._createDbcNode(params);
       if (root) {
         if (!this._selectedElm)
-          this._selectNode(root, node);
+          this._selectNode(root, params);
         this.element.appendChild(root);
       }
     }
   }
 
-  private _selectNode(element?: HTMLElement, node?: DBCNodeInfo) {
-    this._selectedElm && this._selectedElm.classList.remove(TREE_ACTIVE);
-    element && element.classList.add(TREE_ACTIVE);
+  private _selectNode(element?: HTMLElement, params?: DBCNodeParams) {
+    this._selectedElm && this._selectedElm.classList.remove(ACTIVE_CLASS);
+    element && element.classList.add(ACTIVE_CLASS);
     this._selectedElm = element;
-    this.dispatchEvent(SELECTEDCHANGED_EVENT, node);
+    this.dispatchEvent(SELECTEDCHANGED_EVENT, params);
   }
 
-  private _createElementByNodeInfo(node: DBCNodeInfo): HTMLElement | undefined {
-    const element = document.createElement("div");
-    switch (node.type) {
-    case "document":
-      element.classList.add(NODE_DOCUMENT);
-      break;
-
-    case "message":
-      element.classList.add(node.pseudo ? NODE_MESSAGE_PSEUDO : NODE_MESSAGE);
-      break;
-
-    case "group":
-      element.classList.add(NODE_GROUP);
-      break;
-
-    case "signal":
-      element.classList.add(NODE_SIGNAL);
-      break;
-
-    default:
+  private _createDbcNode(params: DBCNodeParams): HTMLElement | undefined {
+    const typeClass = typeToClass[params.type];
+    if (!typeClass || !this._itemTemplate)
       return;
+
+    const itemElm = this._itemTemplate.cloneNode(true) as HTMLElement;
+    itemElm.classList.add(typeClass);    
+    itemElm.classList.toggle(PSEUDO_CLASS, !!params.pseudo);
+
+    const titleElm = NQDOM.getElementByClassName(itemElm, TITLE_CLASS);
+    if (titleElm) {
+      titleElm.textContent = params.name;
     }
 
-    {
-      const s = document.createElement('s');
-
-      {
-        const b = document.createElement('b');
-        b.classList.add(STATE_CLICK);
-        if (node.childs?.length) {
-          let collapse = !!node.collapse;
-          b.addEventListener("click", () => {
-            element.classList.add(collapse ? STATE_EXPAND : STATE_COLLAPSE);
-            element.classList.remove(collapse ? STATE_COLLAPSE : STATE_EXPAND);
-            collapse = !collapse;
-          });
-        }
-      
-        {
-          const div = document.createElement('div');
-          b.appendChild(div);
-        }
-
-        s.appendChild(b);
-      }
-
-      {
-        const h2 = document.createElement('h2');
-        h2.classList.add(SHOWCASE_CLICK);
-
-        h2.addEventListener("click", () => {
-          if (this._selectedElm !== element)
-            this._selectNode(element, node)
-        });
-
-        {
-          const s = document.createElement('s');
-          h2.appendChild(s);
-        }
-
-        {
-          const div = document.createElement('div');
-          div.textContent = node.name;
-          h2.appendChild(div);
-        }
-
-        s.appendChild(h2);
-      }
-
-      element.appendChild(s);
+    let expand = !!params.expand;
+    const doExpandElm = NQDOM.getElementByClassName(itemElm, DO_EXPAND_CLASS);
+    if (doExpandElm) {
+      doExpandElm.addEventListener("click", () => {
+        expand = !expand;
+        itemElm.classList.toggle(EXPAND_CLASS, expand);
+      });
     }
 
-    
-    {
-      const span = document.createElement('span');
+    const doActiveElm = NQDOM.getElementByClassName(itemElm, DO_ACTIVE_CLASS);
+    if (doActiveElm) {
+      doActiveElm.addEventListener("click", () => {
+        if (this._selectedElm !== itemElm)
+          this._selectNode(itemElm, params)
+      });
+    }
 
-      if (!node.childs?.length)
-        element.classList.add(STATE_NONE);
-      else {
-        element.classList.add(node.collapse ? STATE_COLLAPSE : STATE_EXPAND);
-        for (const iter of node.childs) {
-          const child = this._createElementByNodeInfo(iter);
-          child && span.appendChild(child);
+    if (!params.childs?.length)
+      itemElm.classList.add(CHILDFREE_CLASS);
+    else {
+      itemElm.classList.toggle(EXPAND_CLASS, expand);
+      const childsElm = NQDOM.getElementByClassName(itemElm, CHILDS_CLASS);
+      if (childsElm) {
+        for (const iter of params.childs) {
+          const child = this._createDbcNode(iter);
+          child && childsElm.appendChild(child);
         }
       }
-
-      element.appendChild(span);
     }
 
-    if (node.selected) {
-      this._selectNode(element, node);
+    if (params.selected) {
+      this._selectNode(itemElm, params);
     }
 
-    return element;
+    return itemElm;
   }
 };
