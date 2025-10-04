@@ -9,7 +9,7 @@ import signalSvg from "./signal.svg";
 
 const NORMAL_LIGHT_COLOR = "#000000";
 const NORMAL_DARK_COLOR = "#eeeeee";
-const PSEUDO_LIGHT_COLOR = "#520b0bc2"; // #520b0bc2 #684a4acc
+const PSEUDO_LIGHT_COLOR = "#520b0bc2";
 const PSEUDO_DARK_COLOR = "#ffd5d570";
 
 const normalLightSvgParams: SvgOptimizeParams = { outputType: "CSS-URL",  stroke: NORMAL_LIGHT_COLOR };
@@ -57,18 +57,14 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "TREE_ACTIVE",
-  "PANEL_SEPARATOR",
-  "STATE_COLLAPSE",
-  "STATE_EXPAND",
-  "STATE_NONE",
-  "NODE_DOCUMENT",
-  "NODE_MESSAGE",
-  "NODE_MESSAGE_PSEUDO",
-  "NODE_GROUP",
-  "NODE_SIGNAL",
-  "STATE_CLICK",
-  "SHOWCASE_CLICK",
+  "DOCUMENT_CLASS",
+  "MESSAGE_CLASS",
+  "PSEUDO_CLASS",
+  "GROUP_CLASS",
+  "SIGNAL_CLASS",
+  "ACTIVE_CLASS",
+  "CHILDFREE_CLASS",
+  "EXPAND_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
@@ -127,42 +123,42 @@ div.${clss.ROOT_CLASS} div > s > h2 > s
   flex-shrink: 0;
 }
 
-.${clss.NODE_DOCUMENT}  > s > h2 > s
+.${clss.DOCUMENT_CLASS}  > s > h2 > s
 {
   background-image: ${vars.dbc_doc_icon.asVar()};
 }
 
-.${clss.NODE_MESSAGE} > s > h2 > s
+.${clss.MESSAGE_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_mes_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} > s > h2 > s
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} div.${clss.NODE_SIGNAL} > s > h2 > s
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s h2:hover 
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s h2:hover 
 {
   background-color: ${vars.mes_pseudo_hov_bg.asVar()};
 }
 
-.${clss.NODE_GROUP} > s > h2 > s
+.${clss.GROUP_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_group_icon.asVar()};
 }
 
-div.${clss.NODE_MESSAGE_PSEUDO} div.${clss.NODE_GROUP} > s > h2 > s
+div.${clss.PSEUDO_CLASS} div.${clss.GROUP_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_group_icon_lock.asVar()};
 }
 
-.${clss.NODE_SIGNAL} > s > h2 > s
+.${clss.SIGNAL_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_sig_icon.asVar()};
 }
@@ -174,14 +170,14 @@ div.${clss.ROOT_CLASS} div > s > h2 > div
   padding-right: 5px;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.TREE_ACTIVE} > s > h2 > div
+div.${clss.ROOT_CLASS} div.${clss.ACTIVE_CLASS} > s > h2 > div
 {
   color: ${vars.tree_act_col.asVar()};
   font-weight: 600;
   padding: 0px;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s > h2 > div
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s > h2 > div
 {
   color: ${vars.mes_pseudo_list_col.asVar()};
 }
@@ -210,7 +206,7 @@ div.${clss.ROOT_CLASS} div s b
   flex-shrink: 0;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.STATE_NONE} > s b
+div.${clss.ROOT_CLASS} div.${clss.CHILDFREE_CLASS} > s b
 {
   pointer-events: none;
   visibility: hidden;
@@ -225,7 +221,7 @@ div.${clss.ROOT_CLASS} div s b div
   border-left: 1px solid;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.STATE_EXPAND} > s b div
+div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > s b div
 {
   transform: rotate(315deg);
 }
@@ -235,12 +231,12 @@ div.${clss.ROOT_CLASS} div > s b div
   transform: rotate(228deg);
 }
 
-div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} > s b div
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s b div
 {
   border-color: ${vars.mes_pseudo_list_bor.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.NODE_MESSAGE_PSEUDO} s b:hover div
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s b:hover div
 {
   border-color: ${vars.mes_pseudo_bor.asVar()};
   color: ${vars.mes_pseudo_bor.asVar()};

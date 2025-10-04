@@ -1,12 +1,12 @@
 import { BaseControl } from "webnetq-js";
 // @ts-ignore
-import { NODE_DOCUMENT, NODE_MESSAGE, NODE_MESSAGE_PSEUDO, NODE_GROUP, NODE_SIGNAL, STATE_CLICK, SHOWCASE_CLICK, STATE_COLLAPSE, STATE_EXPAND, STATE_NONE, TREE_ACTIVE } from "uictmplt-loader!./template.ts";
+import { DOCUMENT_CLASS, MESSAGE_CLASS, GROUP_CLASS, SIGNAL_CLASS, PSEUDO_CLASS, EXPAND_CLASS, CHILDFREE_CLASS, ACTIVE_CLASS } from "uictmplt-loader!./template.ts";
 
 interface DBCNodeInfo {
   name: string;
   type: "document" | "message" | "group" | "signal";
   selected?: boolean;
-  collapse?: boolean;
+  expand?: boolean;
   pseudo?: boolean;
   childs?: DBCNodeInfo[];
   data?: any;
@@ -35,8 +35,8 @@ export class DBCTree extends BaseControl {
   }
 
   private _selectNode(element?: HTMLElement, node?: DBCNodeInfo) {
-    this._selectedElm && this._selectedElm.classList.remove(TREE_ACTIVE);
-    element && element.classList.add(TREE_ACTIVE);
+    this._selectedElm && this._selectedElm.classList.remove(ACTIVE_CLASS);
+    element && element.classList.add(ACTIVE_CLASS);
     this._selectedElm = element;
     this.dispatchEvent(SELECTEDCHANGED_EVENT, node);
   }
@@ -45,37 +45,37 @@ export class DBCTree extends BaseControl {
     const element = document.createElement("div");
     switch (node.type) {
     case "document":
-      element.classList.add(NODE_DOCUMENT);
+      element.classList.add(DOCUMENT_CLASS);
       break;
 
     case "message":
-      element.classList.add(node.pseudo ? NODE_MESSAGE_PSEUDO : NODE_MESSAGE);
+      element.classList.add(MESSAGE_CLASS);
       break;
 
     case "group":
-      element.classList.add(NODE_GROUP);
+      element.classList.add(GROUP_CLASS);
       break;
 
     case "signal":
-      element.classList.add(NODE_SIGNAL);
+      element.classList.add(SIGNAL_CLASS);
       break;
 
     default:
       return;
     }
+    
+    element.classList.toggle(PSEUDO_CLASS, !!node.pseudo);
 
     {
       const s = document.createElement('s');
 
       {
         const b = document.createElement('b');
-        b.classList.add(STATE_CLICK);
         if (node.childs?.length) {
-          let collapse = !!node.collapse;
+          let expand = !!node.expand;
           b.addEventListener("click", () => {
-            element.classList.add(collapse ? STATE_EXPAND : STATE_COLLAPSE);
-            element.classList.remove(collapse ? STATE_COLLAPSE : STATE_EXPAND);
-            collapse = !collapse;
+            expand = !expand;
+            element.classList.toggle(EXPAND_CLASS, expand);
           });
         }
       
@@ -89,7 +89,6 @@ export class DBCTree extends BaseControl {
 
       {
         const h2 = document.createElement('h2');
-        h2.classList.add(SHOWCASE_CLICK);
 
         h2.addEventListener("click", () => {
           if (this._selectedElm !== element)
@@ -118,9 +117,9 @@ export class DBCTree extends BaseControl {
       const span = document.createElement('span');
 
       if (!node.childs?.length)
-        element.classList.add(STATE_NONE);
+        element.classList.add(CHILDFREE_CLASS);
       else {
-        element.classList.add(node.collapse ? STATE_COLLAPSE : STATE_EXPAND);
+        element.classList.toggle(EXPAND_CLASS, !!node.expand);
         for (const iter of node.childs) {
           const child = this._createElementByNodeInfo(iter);
           child && span.appendChild(child);
