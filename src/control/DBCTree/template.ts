@@ -101,6 +101,12 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} span div
+{
+  display: none;
+}
+
+
 .${clss.ROOT_CLASS} s
 {
   text-decoration: none;
