@@ -101,7 +101,7 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-div.${clss.ROOT_CLASS} > div > span > div
+div.${clss.ROOT_CLASS} div > span > div
 {
   display: none;
 }
