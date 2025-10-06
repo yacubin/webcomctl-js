@@ -106,7 +106,7 @@ div.${clss.ROOT_CLASS} > div > span > div
   display: none;
 }
 
-div.${clss.ROOT_CLASS} > div.${clss.EXPAND_CLASS} > span > div
+div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > span > div
 {
   display: block;
 }
