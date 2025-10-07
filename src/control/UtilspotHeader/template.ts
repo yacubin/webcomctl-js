@@ -50,6 +50,7 @@ ${DARKMODE_SELECTOR_VALUE}
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .${clss.ROOT_CLASS} *

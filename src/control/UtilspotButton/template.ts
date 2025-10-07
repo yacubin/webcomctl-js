@@ -58,6 +58,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding-bottom: 5px;
   border-bottom: 1px solid ${vars.sw_bor.asVar()};
   background-color: ${vars.sw_bg.asVar()};
+  flex-shrink: 0;
 }
 
 div.${clss.ROOT_CLASS} a.${clss.BUTTON_ACTIVE}
