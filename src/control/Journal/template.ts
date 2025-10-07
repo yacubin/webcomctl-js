@@ -76,6 +76,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 10px;
   border: 1px solid ${vars.jour_tit_bor.asVar()};
   background-color: ${vars.jour_tit_bg.asVar()};
+  ord-break: break-all;
   font-family: monospace;
 }
 
