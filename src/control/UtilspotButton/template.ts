@@ -79,8 +79,10 @@ div.${clss.ROOT_CLASS} > a
   color: ${vars.but_col.asVar()};
   border: 1px solid ${vars.but_bor.asVar()};
   border-radius: 10px;
+  white-space: nowrap;
   background: ${vars.but_bg.asVar()};
   user-select: none;
+  text-decoration: none;
 }
 
 div.${clss.ROOT_CLASS} > a:hover
