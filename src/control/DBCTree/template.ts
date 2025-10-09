@@ -162,29 +162,45 @@ div.${clss.ROOT_CLASS} div > s > h2 > s
   background-image: ${vars.dbc_mes_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s > h2 > s
-{
-  background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
-{
-  background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
-}
-
 div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s h2:hover 
 {
   background-color: ${vars.mes_pseudo_hov_bg.asVar()};
 }
 
-.${clss.GROUP_CLASS} > s > h2 > s
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s > h2 > s
 {
-  background-image: ${vars.dbc_group_icon.asVar()};
+  background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
 }
 
 div.${clss.PSEUDO_CLASS} div.${clss.GROUP_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_group_icon_lock.asVar()};
+}
+
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s > h2 > div
+{
+  color: ${vars.mes_pseudo_list_col.asVar()};
+}
+
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s b div
+{
+  border-color: ${vars.mes_pseudo_list_bor.asVar()};
+}
+
+div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s b:hover div
+{
+  border-color: ${vars.mes_pseudo_bor.asVar()};
+  color: ${vars.mes_pseudo_bor.asVar()};
+}
+
+div.${clss.ROOT_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
+{
+  background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
+}
+
+.${clss.GROUP_CLASS} > s > h2 > s
+{
+  background-image: ${vars.dbc_group_icon.asVar()};
 }
 
 .${clss.SIGNAL_CLASS} > s > h2 > s
@@ -204,11 +220,6 @@ div.${clss.ROOT_CLASS} div.${clss.ACTIVE_CLASS} > s > h2 > div
   color: ${vars.tree_act_col.asVar()};
   font-weight: 600;
   padding: 0px;
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s > h2 > div
-{
-  color: ${vars.mes_pseudo_list_col.asVar()};
 }
 
 div.${clss.ROOT_CLASS} div s h2
@@ -258,17 +269,6 @@ div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > s b div
 div.${clss.ROOT_CLASS} div > s b div
 {
   transform: rotate(228deg);
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s b div
-{
-  border-color: ${vars.mes_pseudo_list_bor.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s b:hover div
-{
-  border-color: ${vars.mes_pseudo_bor.asVar()};
-  color: ${vars.mes_pseudo_bor.asVar()};
 }
 
 div.${clss.ROOT_CLASS} div s b:hover div

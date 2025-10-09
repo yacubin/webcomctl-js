@@ -82,6 +82,7 @@ div.${clss.ROOT_CLASS} > a
   white-space: nowrap;
   background: ${vars.but_bg.asVar()};
   user-select: none;
+  text-decoration: none;
 }
 
 div.${clss.ROOT_CLASS} > a:hover
