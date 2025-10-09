@@ -1,8 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
-import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
 
-const mk = new ControlMaker("UtilspotMain");
+const mk = new ControlMaker("UtilspotMainBlock");
 
 const sc_th_bg = '#b5b5b5c7';
 const sc_tr_bg = "transparent";
@@ -12,12 +11,13 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
+  "PORT_CLASS",
   "SCROLL_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
-    <div class="${clss.SCROLL_CLASS}"></div>
+    <div class="${clss.SCROLL_CLASS} ${clss.PORT_CLASS}"></div>
   </div>
 `);
 
