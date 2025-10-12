@@ -37,6 +37,7 @@ const signalPseudoDarkSvg = createSvgOptimize(signalSvg, pseudoDarkSvgParams);
 
 const mk = new ControlMaker("DBCTree");
 
+const left_on_sc = 'transparent';
 const vars = mk.newCSSVariableMap({
   dbc_doc_icon: [ documentNormalLightSvg, documentNormalDarkSvg ],
   dbc_mes_icon: [ messageNornalLightSvg, messageNormalDarkSvg ],
@@ -53,6 +54,7 @@ const vars = mk.newCSSVariableMap({
   mes_pseudo_bor: ['#470000e3','#a77d7de0'],
   tree_list_bor: [ 'black', 'white' ],
   tree_list_col: [ 'black', 'white' ],
+  left_sc_th_bg: ['#3a3a3a', '#3e3e43']
 });
 
 const clss = mk.newClassNameMap([
@@ -101,12 +103,40 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-div.${clss.ROOT_CLASS} div > span > div
+.${clss.ROOT_CLASS}::-webkit-scrollbar
+{
+  height:10px;
+  width:10px;
+  background-color: ${left_on_sc};
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
+{
+  background-color: ${left_on_sc};
+  border-radius: 10px;
+}
+
+.${clss.ROOT_CLASS}:hover::-webkit-scrollbar-thumb
+{
+  background-color: ${vars.left_sc_th_bg.asVar()};
+  border-radius: 10px;
+}
+
+.${clss.ROOT_CLASS}
+{
+  grid-area: content;
+  padding: 30px 10px 20px 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+.${clss.ROOT_CLASS} div > span > div
 {
   display: none;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > span > div
+.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > span > div
 {
   display: block;
 }
@@ -134,13 +164,13 @@ div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > span > div
   user-select: none;
 }
 
-div.${clss.ROOT_CLASS} div > s + span
+.${clss.ROOT_CLASS} div > s + span
 {
   padding-left: 10px;
   display: block;
 }
 
-div.${clss.ROOT_CLASS} div > s > h2 > s
+.${clss.ROOT_CLASS} div > s > h2 > s
 {
   display: block;
   background-repeat: no-repeat;
@@ -162,38 +192,7 @@ div.${clss.ROOT_CLASS} div > s > h2 > s
   background-image: ${vars.dbc_mes_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s h2:hover 
-{
-  background-color: ${vars.mes_pseudo_hov_bg.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s > h2 > s
-{
-  background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
-}
-
-div.${clss.PSEUDO_CLASS} div.${clss.GROUP_CLASS} > s > h2 > s
-{
-  background-image: ${vars.dbc_group_icon_lock.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s > h2 > div
-{
-  color: ${vars.mes_pseudo_list_col.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s b div
-{
-  border-color: ${vars.mes_pseudo_list_bor.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s b:hover div
-{
-  border-color: ${vars.mes_pseudo_bor.asVar()};
-  color: ${vars.mes_pseudo_bor.asVar()};
-}
-
-div.${clss.ROOT_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
+.${clss.ROOT_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
 }
@@ -208,21 +207,21 @@ div.${clss.ROOT_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
   background-image: ${vars.dbc_sig_icon.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div > s > h2 > div
+.${clss.ROOT_CLASS} div > s > h2 > div
 {
   flex-shrink: 0;
   text-overflow: ellipsis;
   padding-right: 5px;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.ACTIVE_CLASS} > s > h2 > div
+.${clss.ROOT_CLASS} div.${clss.ACTIVE_CLASS} > s > h2 > div
 {
   color: ${vars.tree_act_col.asVar()};
   font-weight: 600;
   padding: 0px;
 }
 
-div.${clss.ROOT_CLASS} div s h2
+.${clss.ROOT_CLASS} div s h2
 {
   display: flex;
   align-items: center;
@@ -231,12 +230,12 @@ div.${clss.ROOT_CLASS} div s h2
   margin-left: 7px;
 }
 
-div.${clss.ROOT_CLASS} div s h2:hover
+.${clss.ROOT_CLASS} div s h2:hover
 {
   background-color: ${vars.left_name_hov.asVar()};
 }
 
-div.${clss.ROOT_CLASS} div s b
+.${clss.ROOT_CLASS} div s b
 {
   display: flex;
   width: 15px;
@@ -246,13 +245,13 @@ div.${clss.ROOT_CLASS} div s b
   flex-shrink: 0;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.CHILDFREE_CLASS} > s b
+.${clss.ROOT_CLASS} div.${clss.CHILDFREE_CLASS} > s b
 {
   pointer-events: none;
   visibility: hidden;
 }
 
-div.${clss.ROOT_CLASS} div s b div
+.${clss.ROOT_CLASS} div s b div
 {
   display: block;
   width: 7px;
@@ -261,21 +260,53 @@ div.${clss.ROOT_CLASS} div s b div
   border-left: 1px solid;
 }
 
-div.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > s b div
+.${clss.ROOT_CLASS} div.${clss.EXPAND_CLASS} > s b div
 {
   transform: rotate(315deg);
 }
 
-div.${clss.ROOT_CLASS} div > s b div
+.${clss.ROOT_CLASS} div > s b div
 {
   transform: rotate(228deg);
 }
 
-div.${clss.ROOT_CLASS} div s b:hover div
+.${clss.ROOT_CLASS} div s b:hover div
 {
   border-color: ${vars.tree_list_bor.asVar()};
   color: ${vars.tree_list_col.asVar()};
 }
+
+.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s h2:hover 
+{
+  background-color: ${vars.mes_pseudo_hov_bg.asVar()};
+}
+
+.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s > h2 > s
+{
+  background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
+}
+
+.${clss.PSEUDO_CLASS} div.${clss.GROUP_CLASS} > s > h2 > s
+{
+  background-image: ${vars.dbc_group_icon_lock.asVar()};
+}
+
+.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s > h2 > div
+{
+  color: ${vars.mes_pseudo_list_col.asVar()};
+}
+
+.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s b div
+{
+  border-color: ${vars.mes_pseudo_list_bor.asVar()};
+}
+
+.${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} s b:hover div
+{
+  border-color: ${vars.mes_pseudo_bor.asVar()};
+  color: ${vars.mes_pseudo_bor.asVar()};
+}
+
 `);
 
 export function buildComponent()
