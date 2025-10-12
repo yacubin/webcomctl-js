@@ -101,6 +101,15 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+.${clss.ROOT_CLASS}
+{
+  grid-area: content;
+  padding: 30px 10px 20px 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
 div.${clss.ROOT_CLASS} div > span > div
 {
   display: none;
