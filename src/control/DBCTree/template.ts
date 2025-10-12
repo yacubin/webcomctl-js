@@ -37,6 +37,7 @@ const signalPseudoDarkSvg = createSvgOptimize(signalSvg, pseudoDarkSvgParams);
 
 const mk = new ControlMaker("DBCTree");
 
+const left_on_sc = 'transparent';
 const vars = mk.newCSSVariableMap({
   dbc_doc_icon: [ documentNormalLightSvg, documentNormalDarkSvg ],
   dbc_mes_icon: [ messageNornalLightSvg, messageNormalDarkSvg ],
@@ -53,6 +54,7 @@ const vars = mk.newCSSVariableMap({
   mes_pseudo_bor: ['#470000e3','#a77d7de0'],
   tree_list_bor: [ 'black', 'white' ],
   tree_list_col: [ 'black', 'white' ],
+  left_sc_th_bg: ['#3a3a3a', '#3e3e43']
 });
 
 const clss = mk.newClassNameMap([
@@ -99,6 +101,25 @@ mk.newCSS('CSS', `
 ${DARKMODE_SELECTOR_VALUE}
 {
   ${vars.toString(1)};
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar
+{
+  height:10px;
+  width:10px;
+  background-color: ${left_on_sc};
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
+{
+  background-color: ${left_on_sc};
+  border-radius: 10px;
+}
+
+.${clss.ROOT_CLASS}:hover::-webkit-scrollbar-thumb
+{
+  background-color: ${vars.left_sc_th_bg.asVar()};
+  border-radius: 10px;
 }
 
 .${clss.ROOT_CLASS}
