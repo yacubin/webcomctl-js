@@ -1,7 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("Statistics");
+const mk = new ControlMaker("UtilspotStatistics");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
