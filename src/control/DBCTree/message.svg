@@ -1,37 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-
+<!-- Created using Krita: https://krita.org -->
 <svg xmlns="http://www.w3.org/2000/svg" 
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="201.6pt"
-    height="151.2pt"
-    viewBox="0 0 201.6 151.2">
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="184.32pt"
+    height="184.32pt"
+    viewBox="0 0 184.32 184.32">
 <defs/>
-<rect id="shape0"
-  transform="matrix(56.850849685644 0 0 60.9153995183621 9.18898064578688 14.777437192629)"
-  fill="none"
-  stroke="#000000"
-  stroke-width="0.2424"
-  stroke-linecap="square"
-  stroke-linejoin="bevel"
-  width="3.16501592463568"
-  height="1.99501066148388"/>
-  
-<path id="shape1"
-  transform="matrix(56.850849685644 0 0 60.9153995183621 10.0426369400377 22.087927070096)"
-  fill="none"
-  stroke="#000000"
-  stroke-width="0.2424"
-  stroke-linecap="round"
-  stroke-linejoin="bevel"
-  d="M0 0L3.1033 1.85056"/>
-  
-<path id="shape2"
-  transform="matrix(56.850849685644 0 0 60.9153995183621 13.1170710535047 23.0016581229782)"
-  fill="none"
-  stroke="#000000"
-  stroke-width="0.2424"
-  stroke-linecap="round"
-  stroke-linejoin="bevel"
-  d="M3.06592 0L0 1.84737"/>
+<rect id="shape0" transform="matrix(52.2311919744295 0 0 77.4266746562361 9.87715200365832 15.0313175144843)" fill="none" stroke="#000000" stroke-width="0.2424" stroke-linecap="square" stroke-linejoin="bevel" width="3.16501592463568" height="1.99501066148388"/><path id="shape1" transform="matrix(52.2311919744295 0 0 77.4266746562361 10.6614408231173 24.3233344066944)" fill="none" stroke="#000000" stroke-width="0.2424" stroke-linecap="round" stroke-linejoin="bevel" d="M0 0L3.1033 1.85056" sodipodi:nodetypes="cc"/><path id="shape2" transform="matrix(52.2311919744295 0 0 77.4266746562361 13.4860487099152 25.4847346029368)" fill="none" stroke="#000000" stroke-width="0.2424" stroke-linecap="round" stroke-linejoin="bevel" d="M3.06592 0L0 1.84737" sodipodi:nodetypes="cc"/>
 </svg>
