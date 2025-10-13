@@ -40,6 +40,7 @@ ${DARKMODE_SELECTOR_VALUE}
   position: fixed;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .${clss.SCROLL}
@@ -49,6 +50,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   width: 100%;
   overflow: auto;
+  box-sizing: border-box;
 }
 
 .${clss.SCROLL}::-webkit-scrollbar

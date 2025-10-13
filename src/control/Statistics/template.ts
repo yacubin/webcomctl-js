@@ -1,7 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("UtilspotStatistics");
+const mk = new ControlMaker("Statistics");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
@@ -53,6 +53,12 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 15px;
   text-align: left;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
 }
 
 .${clss.ROOT_CLASS} > span
