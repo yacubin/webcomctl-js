@@ -280,7 +280,7 @@ ${DARKMODE_SELECTOR_VALUE}
   background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
 }
 
-.${clss.PSEUDO_CLASS}} div.${clss.SIGNAL_CLASS} > s > h2 > s
+.${clss.PSEUDO_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
 }
