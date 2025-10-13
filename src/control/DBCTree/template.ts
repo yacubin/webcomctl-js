@@ -125,7 +125,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   grid-area: content;
-  padding: 30px 10px 20px 15px;
   overflow-y: scroll;
   overflow-x: hidden;
   flex-shrink: 0;
@@ -190,11 +189,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.MESSAGE_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_mes_icon.asVar()};
-}
-
-.${clss.ROOT_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
-{
-  background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
 }
 
 .${clss.GROUP_CLASS} > s > h2 > s
@@ -284,6 +278,11 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} div.${clss.PSEUDO_CLASS} > s > h2 > s
 {
   background-image: ${vars.dbc_mes_pseudo_icon.asVar()};
+}
+
+.${clss.PSEUDO_CLASS} div.${clss.SIGNAL_CLASS} > s > h2 > s
+{
+  background-image: ${vars.dbc_sig_pseudo_icon.asVar()};
 }
 
 .${clss.PSEUDO_CLASS} div.${clss.GROUP_CLASS} > s > h2 > s

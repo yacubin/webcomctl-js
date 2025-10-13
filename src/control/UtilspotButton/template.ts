@@ -57,6 +57,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 1px solid ${vars.sw_bor.asVar()};
+  font-size: 16px;
   background-color: ${vars.sw_bg.asVar()};
   flex-shrink: 0;
 }
@@ -98,7 +99,8 @@ div.${clss.ROOT_CLASS} > a:hover
 {
   .${clss.ROOT_CLASS}
   {
-    height: 130px;
+    height: 90px;
+    font-size: 26px;
   }
   .${clss.ROOT_CLASS} > h3
   {

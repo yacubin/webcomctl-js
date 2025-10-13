@@ -3,12 +3,12 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" 
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="201.6pt"
-    height="151.2pt"
-    viewBox="0 0 201.6 151.2">
+    width="184.32pt"
+    height="184.32pt"
+    viewBox="0 0 184.32 184.32">
 <defs/>
 <rect id="shape0"
-  transform="matrix(56.850849685644 0 0 60.9153995183621 9.18898064578688 14.777437192629)"
+  transform="matrix(52.2311919744295 0 0 55.5619734111271 8.79715292305632 36.5311889931006)"
   fill="none"
   stroke="#000000"
   stroke-width="0.2424"
@@ -18,7 +18,7 @@
   height="1.99501066148388"/>
   
 <path id="shape1"
-  transform="matrix(56.850849685644 0 0 60.9153995183621 10.0426369400377 22.087927070096)"
+  transform="matrix(52.2311919744295 0 0 55.5619734111271 9.5814417425153 43.1992113225232)"
   fill="none"
   stroke="#000000"
   stroke-width="0.2424"
@@ -27,7 +27,7 @@
   d="M0 0L3.1033 1.85056"/>
   
 <path id="shape2"
-  transform="matrix(56.850849685644 0 0 60.9153995183621 13.1170710535047 23.0016581229782)"
+  transform="matrix(52.2311919744295 0 0 55.5619734111271 12.4060496293132 44.0326409785146)"
   fill="none"
   stroke="#000000"
   stroke-width="0.2424"

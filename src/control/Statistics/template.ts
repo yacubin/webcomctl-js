@@ -53,6 +53,12 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 15px;
   text-align: left;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
 }
 
 .${clss.ROOT_CLASS} > span
