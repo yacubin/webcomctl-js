@@ -99,7 +99,7 @@ div.${clss.ROOT_CLASS} > a:hover
 {
   .${clss.ROOT_CLASS}
   {
-    height: 130px;
+    height: 90px;
     font-size: 26px;
   }
   .${clss.ROOT_CLASS} > h3
