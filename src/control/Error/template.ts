@@ -1,7 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { convertSvgToCssUrl } from "@/lib/SVG";
-import {TOOLBAR_FONT_SANS} from "@/lib/WickedTheme";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("Error");
 

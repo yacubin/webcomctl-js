@@ -61,7 +61,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > span
 {
   display: block;
-  width: width: 100%;
+  width: 100%;
   max-width: 1200px;
 }
 
