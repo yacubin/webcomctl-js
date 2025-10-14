@@ -61,7 +61,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > span
 {
   display: block;
-  width: inherit;
+  width: width: 100%;
   max-width: 1200px;
 }
 
@@ -69,6 +69,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   display: block;
   text-decoration: none;
+  margin-left: 10%;
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: 600;
@@ -82,7 +83,7 @@ ${DARKMODE_SELECTOR_VALUE}
   padding: 10px;
   border: 1px solid ${vars.jour_tit_bor.asVar()};
   background-color: ${vars.jour_tit_bg.asVar()};
-  ord-break: break-all;
+  word-break: break-all;
   font-family: monospace;
 }
 

@@ -1,6 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { convertSvgToCssUrl } from "@/lib/SVG";
+import { TOOLBAR_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("Notfound");
 
@@ -47,7 +48,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   height: 100%;
   width: 100%;
-  font-family: Open Sans,Arial,sans-serif;
+  font-family: ${TOOLBAR_FONT_SANS};
 }
 
 .${clss.NOT_IMG}
