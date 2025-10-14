@@ -2,11 +2,11 @@ import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { convertSvgToCssUrl } from "@/lib/SVG";
 
-const mk = new ControlMaker("Error");
+const mk = new ControlMaker("Notfound");
 
-import errorSvg from "./error.svg";
+import notfoundSvg from "./notfound.svg";
 
-const error = convertSvgToCssUrl(errorSvg);
+const notfound = convertSvgToCssUrl(notfoundSvg);
 const button = '#007e11';
 const button_hover = '#00660e';
 const button_color = 'white';
@@ -16,16 +16,15 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
+  "NOT_IMG",
 ]);
 
 mk.newHTML('ROOT_HTML', `
 <div class="${clss.ROOT_CLASS}">
-  <div>
-    <div> 
-      <span>404</span>
+    <div class="${clss.NOT_IMG}">
+      <span><a href="/">Homepage</a></span>
     </div>
-    <s><a href="/">Homepage</a></s>
-  </div>
+</div>
 `);
 
 mk.newCSS('CSS', `
@@ -51,51 +50,31 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: Open Sans,Arial,sans-serif;
 }
 
-.${clss.ROOT_CLASS} > div 
+.${clss.NOT_IMG}
 {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  height: 100%;
   width: 100%;
-  overflow: auto;
-}
-
-.${clss.ROOT_CLASS} > div > div
-{
-  display: flex;
-  justify-content: center;
-  flex-shrink: 0;
-  height: 400px;
-  width: 400px;
-  background-image: ${error};
+  height: 100%;
+  min-width: 500px;
+  min-height: 365px;
+  background-image: ${notfound};
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  background-size: contain;
+  background-size: 500px;
 }
-
-.${clss.ROOT_CLASS} > div > div > span
-{
-  display: flex;
-  font-size: 170px;
-  font-weight: 700;
-  color: ${button_color};
-  align-items: center;
-  height: 360px;
-}
-
-.${clss.ROOT_CLASS} > div > s
+.${clss.ROOT_CLASS} div span
 {
   display: flex;
   justify-content: flex-start;
+  width: 520px;
+  height: 250px;
   font-size: 40px;
   align-items: flex-end;
-  text-decoration: none;
 }
-
-.${clss.ROOT_CLASS} > div > s > a
+.${clss.ROOT_CLASS} div span a
 {
   text-decoration: none;
   cursor: pointer;
@@ -107,16 +86,15 @@ ${DARKMODE_SELECTOR_VALUE}
   background-color: ${button};
   text-align: center;
 }
-
-.${clss.ROOT_CLASS} > div > s a:hover
+.${clss.ROOT_CLASS} div span a:hover
 {
   background-color: ${button_hover};
 }
-
-.${clss.ROOT_CLASS}> div > s a:visited
+.${clss.ROOT_CLASS} div span a:visited
 {
   color: ${button_color};
 }
+
 `);
 
 export function buildComponent()
