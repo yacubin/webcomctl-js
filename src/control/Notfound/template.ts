@@ -66,6 +66,7 @@ ${DARKMODE_SELECTOR_VALUE}
   background-position-y: center;
   background-size: 500px;
 }
+
 .${clss.ROOT_CLASS} div span
 {
   display: flex;
@@ -75,6 +76,7 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 40px;
   align-items: flex-end;
 }
+
 .${clss.ROOT_CLASS} div span a
 {
   text-decoration: none;
@@ -87,10 +89,12 @@ ${DARKMODE_SELECTOR_VALUE}
   background-color: ${button};
   text-align: center;
 }
+
 .${clss.ROOT_CLASS} div span a:hover
 {
   background-color: ${button_hover};
 }
+
 .${clss.ROOT_CLASS} div span a:visited
 {
   color: ${button_color};
