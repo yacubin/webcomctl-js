@@ -1,12 +1,12 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("Statistics");
+const mk = new ControlMaker("RequestStatistics");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "LIST_CLASS",
-  "STAT_URL_DISABLED",
+  "URL_OFF_CLASS",
   "URL_CLASS",
   "METHOD_CLASS",
   "COUNTER_CLASS",
@@ -129,7 +129,7 @@ div.${clss.ROOT_CLASS} a
   overflow: hidden;
 }
 
-div.${clss.ROOT_CLASS} a.STAT_URL_DISABLED
+${clss.URL_OFF_CLASS}
 {
   pointer-events: none;
 }
