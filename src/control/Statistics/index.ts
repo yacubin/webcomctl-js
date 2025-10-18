@@ -1,8 +1,11 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import {  } from "uictmplt-loader!./template.ts";
+import { LIST_CLASS, URL_CLASS, METHOD_CLASS, COUNTER_CLASS, } from "uictmplt-loader!./template.ts";
 
 export class Statistics extends BaseControl {
-   _init() {
+private _listElm?: HTMLElement;
+
+  _init() {
+    this._listElm = NQDOM.getElementByClassName(this.element, LIST_CLASS);
   }
-};
+}

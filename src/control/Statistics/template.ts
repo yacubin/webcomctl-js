@@ -5,8 +5,11 @@ const mk = new ControlMaker("Statistics");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "LIST",
-  "STAT_URL_DISABLED"
+  "LIST_CLASS",
+  "STAT_URL_DISABLED",
+  "URL_CLASS",
+  "METHOD_CLASS",
+  "COUNTER_CLASS",
 ]);
 
 const vars = mk.newCSSVariableMap({
@@ -21,12 +24,20 @@ const vars = mk.newCSSVariableMap({
 
 
 mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}">
+<div class="${clss.ROOT_CLASS} notranslate" translate="no">
   <span>
     <u>Statistics</u>
-    <div id="${clss.LIST}"></div>
+    <div class="${clss.LIST_CLASS}"></div>
   </span>
 </div>
+`);
+
+mk.newHTML('ITEM_HTML', `
+<span>
+  <div><a class="${clss.URL_CLASS}"></a></div>
+  <div class="${clss.METHOD_CLASS}"></div>
+  <div class="${clss.COUNTER_CLASS}"></div>
+</span>
 `);
 
 mk.newCSS('CSS', `
