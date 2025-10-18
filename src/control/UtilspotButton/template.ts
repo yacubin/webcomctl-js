@@ -60,6 +60,12 @@ ${DARKMODE_SELECTOR_VALUE}
   font-size: 16px;
   background-color: ${vars.sw_bg.asVar()};
   flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
 }
 
 div.${clss.ROOT_CLASS} a.${clss.BUTTON_ACTIVE}
