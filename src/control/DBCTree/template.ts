@@ -175,8 +175,8 @@ ${DARKMODE_SELECTOR_VALUE}
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   margin-right: 5px;
   flex-shrink: 0;
 }
@@ -232,8 +232,8 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} div s b
 {
   display: flex;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
