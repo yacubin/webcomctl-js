@@ -68,6 +68,19 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
+  flex-grow: 1;
+  padding: 15px;
+  line-height: 25px;
+  overflow: auto;
+}
+
+.${clss.ROOT_CLASS} > *
+{
+  min-width: 600px;
+}
+
+.${clss.TABLE}
+{
   display: grid;
   grid-template-columns: minmax(100px, max-content) auto;
   grid-gap: 5px 5px;
