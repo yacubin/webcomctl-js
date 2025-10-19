@@ -87,7 +87,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: max-content;
   min-width: auto;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   background-color: #bab9b9;
 }
 
