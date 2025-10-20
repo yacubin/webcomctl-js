@@ -122,6 +122,7 @@ div.${clss.ROOT_CLASS} a
   display: block;
   width: 100%;
   padding: 0px 10px;
+  text-decoration: none;
   color: ${vars.stat_link.asVar()};
   overflow-wrap: normal;
   text-overflow: ellipsis;

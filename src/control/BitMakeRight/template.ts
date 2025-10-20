@@ -1,0 +1,109 @@
+import ControlMaker from "@/lib/ControlMaker";
+import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { HEADER_MOBILE_DEVICE_WIDTH } from "@/lib/WickedTheme";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
+
+const mk = new ControlMaker("BitMakeRight");
+
+const vars = mk.newCSSVariableMap({
+});
+
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+  "TABLE",
+]);
+
+mk.newHTML('ROOT_HTML', `
+<div class="${clss.ROOT_CLASS}">
+  <h2>Introduction</h2>
+  <div>MCP is an open protocol that standardizes how applications provide context to large language models (LLMs).
+      Think of MCP like a USB-C port for AI applications.
+      Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories,
+      MCP provides a standardized way to connect AI models to different data sources and tools.
+      MCP enables you build agents and complex workflows on top of LLMs and connects your models with the world.
+  </div>
+
+  <h4>Introduction</h4>
+  <div>MCP is an open protocol that standardizes how applications provide context to large language models (LLMs).
+      Think of MCP like a USB-C port for AI applications.
+      Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories,
+      MCP provides a standardized way to connect AI models to different data sources and tools.
+      MCP enables you build agents and complex workflows on top of LLMs and connects your models with the world.
+  </div>
+
+  <h4>Introduction</h4>
+  <div>MCP is an open protocol that standardizes how applications provide context to large language models (LLMs).
+      Think of MCP like a USB-C port for AI applications.
+      Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories,
+      MCP provides a standardized way to connect AI models to different data sources and tools.
+      MCP enables you build agents and complex workflows on top of LLMs and connects your models with the world.
+  </div>
+  <div class="${clss.TABLE}">
+    <div><span>100</span></div><span><span>Continue</span></span>
+    <div><span>101</span></div><span><span>Switching Protocols</span></span>
+    <div><span>102</span></div><span><span>Processing</span></span>
+    <div><span>103</span></div><span><span>Early Hints</span></span>
+    <div><span>200</span></div><span><span>OK</span></span>
+    <div><span>201</span></div><span><span>Created</span></span>
+    <div><span>301</span></div><span><span>Moved Permanently</span></span>
+    <div><span>307</span></div><span><span>Temporary Redirect</span></span>
+    <div><span>404</span></div><span><span>Not Found</span></span>
+    <div><span>412</span></div><span><span>Precondition Failed</span></span>
+    <div><span>426</span></div><span><span>Upgrade Required</span></span>
+    <div><span>500</span></div><span><span>Internal Server Error</span></span>
+  </div>
+</div>
+`);
+
+mk.newCSS('CSS', `
+:root
+{
+  ${vars.toString(0)};
+}
+
+${DARKMODE_SELECTOR_VALUE}
+{
+  ${vars.toString(1)};
+}
+
+.${clss.ROOT_CLASS}
+{
+  flex-grow: 1;
+  padding: 15px;
+  line-height: 25px;
+  overflow: auto;
+}
+
+.${clss.ROOT_CLASS} > *
+{
+  min-width: 600px;
+}
+
+.${clss.TABLE}
+{
+  display: grid;
+  grid-template-columns: minmax(100px, max-content) auto;
+  grid-gap: 5px 5px;
+  width: max-content;
+  min-width: auto;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #bab9b9;
+}
+
+.${clss.TABLE} > div,
+.${clss.TABLE} > span
+{
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: white;
+}
+`);
+
+export function buildComponent()
+{
+  return mk.buildComponent();
+}
