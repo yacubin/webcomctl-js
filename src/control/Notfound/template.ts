@@ -49,6 +49,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   width: 100%;
   font-family: ${TOOLBAR_FONT_SANS};
+  overflow: auto;
 }
 
 .${clss.NOT_IMG}

@@ -50,6 +50,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 100%;
   width: 100%;
   font-family: ${TOOLBAR_FONT_SANS};
+  overflow: auto;
 }
 
 .${clss.ROOT_CLASS} > div 
@@ -60,7 +61,8 @@ ${DARKMODE_SELECTOR_VALUE}
   justify-content: center;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  min-width: 480px;
+  min-height: 480px;
 }
 
 .${clss.ROOT_CLASS} > div > div
