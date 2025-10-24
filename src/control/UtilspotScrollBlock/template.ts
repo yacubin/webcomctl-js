@@ -6,7 +6,6 @@ const mk = new ControlMaker("UtilspotScrollBlock");
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
-  "LIST",
 ]);
 
 const sc_th_bg = '#b5b5b5c7';
