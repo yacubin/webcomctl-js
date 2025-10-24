@@ -72,6 +72,29 @@ ${DARKMODE_SELECTOR_VALUE}
   background-color: ${sc_tr_bg};
 }
 
+@media (width < 1040px)
+{
+  .${clss.PORT_CLASS}
+  {
+    min-width: 855px;
+  }
+}
+
+@media (width <= 900px)
+{
+  div.${clss.PORT_CLASS}
+  {
+    min-width: 670px;
+  } 
+}
+
+@media (device-width <= 550px)
+{
+  div.${clss.PORT_CLASS}
+  {
+    min-width: auto;
+  }
+}
 `);
 
 export function buildComponent()
