@@ -7,7 +7,6 @@ const clss = mk.newClassNameMap([
   "ROOT_CLASS",
   "PORT_CLASS",
   "LIST",
-  "SCROLL",
 ]);
 
 const sc_th_bg = '#b5b5b5c7';
@@ -19,7 +18,7 @@ const vars = mk.newCSSVariableMap({
 
 mk.newHTML('ROOT_HTML', `
   <div class="${clss.ROOT_CLASS}">
-    <div class="${clss.SCROLL} ${clss.PORT_CLASS}">
+    <div class="${clss.PORT_CLASS}">
     </div>
   </div>
 `);
@@ -40,33 +39,35 @@ ${DARKMODE_SELECTOR_VALUE}
   position: fixed;
   width: 100%;
   height: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: auto;
   box-sizing: border-box;
 }
 
-.${clss.SCROLL}
+.${clss.PORT_CLASS}
 {   
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  min-width: 1040px;
   box-sizing: border-box;
 }
 
-.${clss.SCROLL}::-webkit-scrollbar
+.${clss.ROOT_CLASS}::-webkit-scrollbar
 {
   width: 10px;
   height: 10px;
 }
 
-.${clss.SCROLL}::-webkit-scrollbar-thumb
+.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
 {
   background-color: ${sc_th_bg};
   border-radius: 10px;
 }
 
-.${clss.SCROLL}::-webkit-scrollbar-corner,
-.${clss.SCROLL}::-webkit-scrollbar-track
+.${clss.ROOT_CLASS}::-webkit-scrollbar-corner,
+.${clss.ROOT_CLASS}::-webkit-scrollbar-track
 {
   background-color: ${sc_tr_bg};
 }
