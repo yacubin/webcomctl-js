@@ -1,7 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 
-const mk = new ControlMaker("UtilspotList");
+const mk = new ControlMaker("UtilspotApps");
 
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
@@ -20,8 +20,8 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}">
-  <div id="apps-list" draggable="false" class="${clss.CENT_CLASS}"></div>
+<div class="${clss.ROOT_CLASS}" draggable="false">
+  <div class="${clss.CENT_CLASS}"></div>
 </div>
 `);
 
