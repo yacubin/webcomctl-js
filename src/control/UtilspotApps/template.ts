@@ -19,8 +19,9 @@ const clss = mk.newClassNameMap([
 const cent_nth2_mob = '#d6d6d6';
 
 const vars = mk.newCSSVariableMap({
-  cent_nth2: ['#d6d6d6', '78787826'],
+  cent_nth2: ['#f3f3f3', '78787826'],
   link_col_hov: ['#555555', '#c1c1c1c2'],
+  link: ['#2d2d2d', '#ffffffab'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -55,6 +56,14 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+[data-theme="light"] div.${clss.CENT_CLASS} a > span > img:nth-child(2),
+[data-theme="dark"] div.${clss.CENT_CLASS} a > span > img:nth-child(1),
+[data-theme="dark"] div.${clss.CENT_CLASS} a > div > div > div > img:nth-child(1),
+[data-theme="light"] div.${clss.CENT_CLASS} a > div > div > div > img:nth-child(2)
+{
+  display: none;
+}
+
 .${clss.ROOT_CLASS}
 {
   display: flex;
@@ -86,6 +95,13 @@ ${DARKMODE_SELECTOR_VALUE}
   max-width: 1500px;
   padding: 75px 0;
   margin: 0px 20px;
+}
+
+.cent a
+{
+  color: ${vars.link.asVar()};
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .${clss.CENT_CLASS} a:hover
