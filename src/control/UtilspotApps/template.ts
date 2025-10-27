@@ -97,7 +97,7 @@ ${DARKMODE_SELECTOR_VALUE}
   margin: 0px 20px;
 }
 
-.cent a
+.${clss.CENT_CLASS} a
 {
   color: ${vars.link.asVar()};
   cursor: pointer;
