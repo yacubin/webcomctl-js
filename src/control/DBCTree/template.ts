@@ -112,12 +112,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
 {
-  background-color: ${left_on_sc};
-  border-radius: 10px;
-}
-
-.${clss.ROOT_CLASS}:hover::-webkit-scrollbar-thumb
-{
   background-color: ${vars.left_sc_th_bg.asVar()};
   border-radius: 10px;
 }
