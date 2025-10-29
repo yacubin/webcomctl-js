@@ -1,5 +1,6 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
+import { TOOLBAR_FONT_FAMALY } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("UtilspotApps");
 
@@ -86,6 +87,7 @@ ${DARKMODE_SELECTOR_VALUE}
   width: inherit;
   line-height: 1.5em;
   text-align: left;
+  font-family: ${TOOLBAR_FONT_FAMALY};
   overflow: hidden;
 }
 
