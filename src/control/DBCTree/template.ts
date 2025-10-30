@@ -1,6 +1,7 @@
 import ControlMaker from "@/lib/ControlMaker";
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { createSvgOptimize, SvgOptimizeParams } from "@/lib/SVG";
+import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
 import documentSvg from "./document.svg";
 import messageSvg from "./message.svg";
@@ -39,6 +40,7 @@ const mk = new ControlMaker("DBCTree");
 
 const left_on_sc = 'transparent';
 const vars = mk.newCSSVariableMap({
+  left_col: ['#3d3d3d','#ffffff9e'],
   dbc_doc_icon: [ documentNormalLightSvg, documentNormalDarkSvg ],
   dbc_mes_icon: [ messageNornalLightSvg, messageNormalDarkSvg ],
   dbc_mes_pseudo_icon: [ messagePseudoLightSvg, messagePseudoDarkSvg ],
@@ -120,9 +122,17 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   grid-area: content;
   padding: 30px 10px 20px 15px;
+  color: ${vars.left_col.asVar()};
+  font-family: ${TOOLBAR_DBC_FONT_SANS};
   overflow-y: scroll;
   overflow-x: hidden;
   flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.${clss.ROOT_CLASS} *
+{
+  box-sizing: border-box;
 }
 
 .${clss.ROOT_CLASS} div > span > div

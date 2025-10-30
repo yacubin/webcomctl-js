@@ -20,7 +20,6 @@ const vars = mk.newCSSVariableMap({
   sep_bg: ['linear-gradient(to bottom,transparent 0%, #bcbcbc30 35% 85%, transparent 100%)'],
   sep_hov_bg: ['linear-gradient(to bottom,transparent 0%, #7d7d7d30 35% 85%, transparent 100%)'],
   left_sc_th_bg: ['#3a3a3a', '#3e3e43'],
-  left_col: ['#494949','#ffffff9e'],
   left_bg: ['#ffffff','rgb(23, 23, 26)'],
   left_grad: ['linear-gradient(white 0% 69%, #ff000000 100%)','linear-gradient(rgb(23, 23, 26) 0% 69%, #ff000000 100%)'],
   left_fog_grad: ['linear-gradient(#ffffff00, white)','linear-gradient(#ffffff00, rgb(23, 23, 26))'],
@@ -115,8 +114,6 @@ ${DARKMODE_SELECTOR_VALUE}
   min-height: 400px;
   overflow-y: hidden;
   overflow-x: hidden;
-  font-family: "Roboto","Arial","monospace";
-  color: ${vars.left_col.asVar()};
   background-color: ${vars.left_bg.asVar()};
   box-sizing: border-box;
 }
