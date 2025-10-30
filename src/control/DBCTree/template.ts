@@ -40,7 +40,7 @@ const mk = new ControlMaker("DBCTree");
 
 const left_on_sc = 'transparent';
 const vars = mk.newCSSVariableMap({
-  left_col: ['#3d3d3d','#ffffff9e'],
+  left_col: ['#3d3d3d','#e8e8e8'],
   dbc_doc_icon: [ documentNormalLightSvg, documentNormalDarkSvg ],
   dbc_mes_icon: [ messageNornalLightSvg, messageNormalDarkSvg ],
   dbc_mes_pseudo_icon: [ messagePseudoLightSvg, messagePseudoDarkSvg ],
