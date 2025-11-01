@@ -29,7 +29,6 @@ const clss = mk.newClassNameMap([
 ]);
 
 mk.newHTML('ROOT_HTML', `
-
   <div class="${clss.DOCUMENT} ${clss.ROOT_CLASS}">
 
     <h4>Document:<u class="${clss.TITLE_CLASS}"></u></h4>

@@ -16,18 +16,16 @@ const vars = mk.newCSSVariableMap({
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "GROUP",
+  "GROUP_CLASS",
   "TITLE_CLASS",
   "SIGNALS_CLASS",
 ]);
 
 mk.newHTML('ROOT_HTML', `
-
-<div class="${clss.ROOT_CLASS} ${clss.GROUP}">
+<div class="${clss.ROOT_CLASS} ${clss.GROUP_CLASS}">
   <h4>Group:<u class="${clss.TITLE_CLASS}"></u></h4>
   <ul class="${clss.SIGNALS_CLASS}"></ul>
 </div>
-
 `);
 
 mk.newCSS('CSS', `
@@ -78,31 +76,31 @@ ${DARKMODE_SELECTOR_VALUE}
   font-weight: 400;
 }
 
-div.${clss.GROUP} b,
-div.${clss.GROUP} > ul
+div.${clss.GROUP_CLASS} b,
+div.${clss.GROUP_CLASS} > ul
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
 
-div.${clss.GROUP} > ul
+div.${clss.GROUP_CLASS} > ul
 {
   padding: 20px 30px 20px 30px;
   margin: 0;
 }
 
-.${clss.GROUP} li
+.${clss.GROUP_CLASS} li
 {
     list-style-type: none;
 }
 
-div.${clss.GROUP} > ul > li
+div.${clss.GROUP_CLASS} > ul > li
 {
   margin-bottom: 5px;
 }
 
-div.${clss.GROUP} > ul > li:last-child
+div.${clss.GROUP_CLASS} > ul > li:last-child
 {
   margin-bottom: 0px;
 }
