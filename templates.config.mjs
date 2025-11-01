@@ -68,10 +68,10 @@ export default async (env, argv) => {
     },
   };
 
-  for (const iter of Object.keys(pkg.dependencies))
+  for (const iter of Object.keys(pkg.dependencies || {}))
     config.externals[iter] = iter;
 
-  for (const iter of Object.keys(pkg.devDependencies))
+  for (const iter of Object.keys(pkg.devDependencies || {}))
     config.externals[iter] = iter;
 
   if (isDevelopment) {

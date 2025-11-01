@@ -52,6 +52,6 @@ export class Logger extends BaseControl {
   }
 
   public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document);
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 };
