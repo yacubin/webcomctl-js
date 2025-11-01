@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { TITLE_CLASS, VERSION_CLASS, PROTOCOL_CLASS, NEW_SYMBOLS_LIST, NEW_SYMBOLS, BAUDRATE, BTR1, BTR2, BIT_TIMING } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, TITLE_CLASS, VERSION_CLASS, PROTOCOL_CLASS, NEW_SYMBOLS_LIST, NEW_SYMBOLS, BAUDRATE, BTR1, BTR2, BIT_TIMING } from "uictmplt-loader!./template.ts";
 
 function setTextContent(elm: HTMLElement | undefined, val: string | number) {
   elm && (elm.textContent = val as any);
@@ -42,6 +42,10 @@ export class DBCDocument extends BaseControl {
     this._btr1Elm = NQDOM.getElementByClassName(this.element, BTR1);
     this._btr2Elm = NQDOM.getElementByClassName(this.element, BTR2);
     this._bitTiming = NQDOM.getElementByClassName(this.element, BIT_TIMING);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {

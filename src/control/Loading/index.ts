@@ -1,9 +1,13 @@
-import { BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { SHOW_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, SHOW_CLASS } from "uictmplt-loader!./template.ts";
 
 export class Loading extends BaseControl {
   private _visible = false;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._visible = this.element.classList.contains(SHOW_CLASS);

@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { CLOSE_CLASS, PULL_OUT_ON, PULL_OUT_RIGHT, PULL_OUT_LEFT } from 'uictmplt-loader!./template.ts';
+import { ROOT_HTML, CLOSE_CLASS, PULL_OUT_ON, PULL_OUT_RIGHT, PULL_OUT_LEFT } from 'uictmplt-loader!./template.ts';
 
 enum SideType {
   NONE_SIDE = 'node',
@@ -22,6 +22,10 @@ export class TipInfoBlock extends BaseControl {
   private _closeElm?: HTMLElement;
   private _visible = false;
   private _sideType = SideType.NONE_SIDE;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     const element = (this as any).element as HTMLElement; // FIXME

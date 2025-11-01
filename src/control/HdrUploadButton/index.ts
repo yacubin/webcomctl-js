@@ -1,12 +1,16 @@
-import { BaseControl, Random } from "webnetq-js";
+import { BaseControl, Random, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { HIDDEN_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, HIDDEN_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
 export class HdrUploadButton extends BaseControl {
   private _inputElm?: HTMLInputElement;
   private _uploadVisible = false;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     const inputId = Random.nextElementId();

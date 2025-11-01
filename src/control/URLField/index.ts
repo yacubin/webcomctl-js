@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ADDRESSES_INPUT, ADDRESSES_LIST, ADDRESSES_DISABLED, ADDRESSES_SHOW, CONNECT_BTN_ON, CONNECT_BTN_OFF } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ADDRESSES_INPUT, ADDRESSES_LIST, ADDRESSES_DISABLED, ADDRESSES_SHOW, CONNECT_BTN_ON, CONNECT_BTN_OFF } from "uictmplt-loader!./template.ts";
 
 const STATECHANGED_EVENT = 'stateChanged';
 const URLCHANGED_EVENT = 'urlChanged';
@@ -13,6 +13,10 @@ export class URLField extends BaseControl {
   private _inputElement?: HTMLInputElement;
   private _listElement?: HTMLElement;
   private _buttonElm?: HTMLInputElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init()
   {

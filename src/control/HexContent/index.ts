@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM, FileChunkLoader } from "webnetq-js";
 // @ts-ignore
-import { CONTENT_CLASS, OFSLIST_CLASS, BINLIST_CLASS, TXTLIST_CLASS, SCROLL_MAIN_CLASS, SCROLL_BAR_CLASS, SCROLL_THUMB_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, CONTENT_CLASS, OFSLIST_CLASS, BINLIST_CLASS, TXTLIST_CLASS, SCROLL_MAIN_CLASS, SCROLL_BAR_CLASS, SCROLL_THUMB_CLASS } from "uictmplt-loader!./template.ts";
 
 const kThumbSizeMin = 40;
 
@@ -237,6 +237,10 @@ export class HexContent extends BaseControl {
 
   private _readyState = 'idle';
   private _visible = false;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     const scrollElm = NQDOM.getElementByClassName(this.element, SCROLL_MAIN_CLASS);

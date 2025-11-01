@@ -1,11 +1,15 @@
 import { BaseControl, NQDOM, Random } from "webnetq-js";
 // @ts-ignore
-import { LIST_CLASS, URL_CLASS, URL_OFF_CLASS, METHOD_CLASS, COUNTER_CLASS, ITEM_HTML } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, LIST_CLASS, URL_CLASS, URL_OFF_CLASS, METHOD_CLASS, COUNTER_CLASS, ITEM_HTML } from "uictmplt-loader!./template.ts";
 
 export class RequestStatistics extends BaseControl {
   private _umToIdMap = new Map<string,string>;
   private _listElm?: HTMLElement;
   private _itemTemplate?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._listElm = NQDOM.getElementByClassName(this.element, LIST_CLASS);

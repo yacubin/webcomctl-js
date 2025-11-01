@@ -1,9 +1,12 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { dbc_attributes_list } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML } from "uictmplt-loader!./template.ts";
 
 export class BitMakeControlBlock extends BaseControl {
-
   protected _init() {
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 };

@@ -1,6 +1,6 @@
-import { BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { LINK_ON_CLASS, LINK_OFF_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, LINK_ON_CLASS, LINK_OFF_CLASS } from "uictmplt-loader!./template.ts";
 
 function isLocationEqual(href: string) {
   if (typeof document === 'object') {
@@ -16,6 +16,10 @@ function isLocationEqual(href: string) {
 }
 
 export class MainFooter extends BaseControl {
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     const linkElm = this.element.querySelector(`a.${LINK_ON_CLASS}`) as HTMLAnchorElement;
     if (linkElm && isLocationEqual(linkElm.href)) {

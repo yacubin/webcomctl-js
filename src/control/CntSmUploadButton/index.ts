@@ -1,6 +1,6 @@
-import { BaseControl, Random } from "webnetq-js";
+import { BaseControl, Random, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { LOAD_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, LOAD_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
@@ -25,6 +25,10 @@ export class CntSmUploadButton extends BaseControl {
     }
 
     this.registerEvent(UPLOAD_EVENT);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public get loadEnable() { return this.element.classList.contains(LOAD_CLASS); }

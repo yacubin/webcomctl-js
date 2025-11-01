@@ -35,6 +35,10 @@ export class Logger extends BaseControl {
   public warning!: (...args: any[]) => void;
   public error!: (...args: any[]) => void;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init(this: any) {
     const log = (title: string, level: string, logFunc: Function, ...args: any) => {
       logFunc.apply(null, [ title, "-", ...args ]);
@@ -49,9 +53,5 @@ export class Logger extends BaseControl {
     this.success = log.bind(this, LOGGER_SUCCESS_TITLE, SUCCESS_CLASS, console.log);
     this.warning = log.bind(this, LOGGER_WARNING_TITLE, WARNING_CLASS, console.warn);
     this.error = log.bind(this, LOGGER_ERROR_TITLE, ERROR_CLASS, console.error);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 };

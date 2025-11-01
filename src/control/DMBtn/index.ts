@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM, Setting } from "webnetq-js";
 // @ts-ignore
-import { TOGGLE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, TOGGLE_CLASS } from "uictmplt-loader!./template.ts";
 
 const kDarkModeTip = "Toggle dark mode";
 const kLightModeTip = "Toggle light mode";
@@ -15,6 +15,10 @@ const THEMCHANGE_EVENT = "themchange";
 
 export class DMBtn extends BaseControl {
   private _toggleElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._toggleElm = NQDOM.getElementByClassName(this.element, TOGGLE_CLASS);

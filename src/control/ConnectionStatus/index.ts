@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { SIGNAL_STATE_TEXT, SIGNAL_STATE_ON, SIGNAL_STATE_OFF } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, SIGNAL_STATE_TEXT, SIGNAL_STATE_ON, SIGNAL_STATE_OFF } from "uictmplt-loader!./template.ts";
 
 export class ConnectionStatus extends BaseControl {
   private _valueElm?: HTMLElement;
@@ -9,6 +9,10 @@ export class ConnectionStatus extends BaseControl {
   protected _init() {
     this._valueElm = NQDOM.getElementByClassName(this.element, SIGNAL_STATE_OFF);
     this._textElm = NQDOM.getElementByClassName(this.element, SIGNAL_STATE_TEXT);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public get value(): boolean {

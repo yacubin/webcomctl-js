@@ -1,4 +1,6 @@
-import { BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
+// @ts-ignore
+import { ROOT_HTML } from "uictmplt-loader!./template.ts";
 
 const DRAGENTER_EVENT = "dragenter";
 const DRAGOVER_EVENT = "dragover";
@@ -6,6 +8,9 @@ const DRAGLEAVE_EVENT = "dragleave";
 const DRAG_EVENT = "drop";
 
 export class DragDropToView extends BaseControl {
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
   protected _init() {
     this.registerEvent(DRAGENTER_EVENT, DRAGLEAVE_EVENT, DRAG_EVENT);
 

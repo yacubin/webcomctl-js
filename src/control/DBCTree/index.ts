@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, DOCUMENT_CLASS, MESSAGE_CLASS, GROUP_CLASS, SIGNAL_CLASS, PSEUDO_CLASS, EXPAND_CLASS, CHILDFREE_CLASS, ACTIVE_CLASS, TITLE_CLASS, CHILDS_CLASS, DO_EXPAND_CLASS, DO_ACTIVE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ITEM_HTML, DOCUMENT_CLASS, MESSAGE_CLASS, GROUP_CLASS, SIGNAL_CLASS, PSEUDO_CLASS, EXPAND_CLASS, CHILDFREE_CLASS, ACTIVE_CLASS, TITLE_CLASS, CHILDS_CLASS, DO_EXPAND_CLASS, DO_ACTIVE_CLASS } from "uictmplt-loader!./template.ts";
 
 const typeToClass = {
   document: DOCUMENT_CLASS,
@@ -28,6 +28,10 @@ export class DBCTree extends BaseControl {
   protected _init() {
     this._itemTemplate = NQDOM.createElement(ITEM_HTML);
     this.registerEvent(SELECTEDCHANGED_EVENT);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setRootNode(params: DBCNodeParams | null | undefined) {

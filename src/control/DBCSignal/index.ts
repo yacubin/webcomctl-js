@@ -1,7 +1,7 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 import { STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS,
   FACTOR_CLASS, OFFSET_CLASS, MINIMUM_CLASS, MAXIMUM_CLASS, UNIT_CLASS,
-  START_VALUE_CLASS, RECEIVERS_CLASS, TITLE_CLASS
+  START_VALUE_CLASS, RECEIVERS_CLASS, TITLE_CLASS, ROOT_HTML
 // @ts-ignore
 } from "uictmplt-loader!./template.ts";
 
@@ -74,6 +74,10 @@ export class DBCSignal extends BaseControl {
     this._unitElm = NQDOM.getElementByClassName(this.element, UNIT_CLASS);
     this._startValueElm = NQDOM.getElementByClassName(this.element, START_VALUE_CLASS);
     this._receiversElm = NQDOM.getElementByClassName(this.element, RECEIVERS_CLASS);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {

@@ -1,6 +1,6 @@
-import { BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { NUMBERS, CONTENT, OFFSET } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, NUMBERS, CONTENT, OFFSET } from "uictmplt-loader!./template.ts";
 
 const toHexString = (value: number, numPad: number) => value.toString(16).toUpperCase().padStart(numPad, '0');
 
@@ -13,6 +13,10 @@ export class TextContent extends BaseControl {
   private _numbersElm!: HTMLElement | null;
   private _contentElm!: HTMLElement | null;
   private _scrollTop?: number;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._numbersElm = this.element.querySelector("." + NUMBERS);

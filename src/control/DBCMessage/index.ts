@@ -1,5 +1,5 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-import { TITLE_CLASS, IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS,
+import { ROOT_HTML, TITLE_CLASS, IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS,
   PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS, PDU_SA_CLASS, PDU_DA_CLASS, PDU_ROOT_CLASS
 // @ts-ignore
 } from "uictmplt-loader!./template.ts";
@@ -59,6 +59,10 @@ export class DBCMessage extends BaseControl {
     this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
     this._pduSaElm = NQDOM.getElementByClassName(this.element, PDU_SA_CLASS);
     this._pduDaElm = NQDOM.getElementByClassName(this.element, PDU_DA_CLASS);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {

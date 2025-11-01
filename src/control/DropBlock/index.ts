@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS, INSET_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS, INSET_CLASS } from "uictmplt-loader!./template.ts";
 
 const DRAGENTER_EVENT = "dragenter";
 const DRAGOVER_EVENT = "dragover";
@@ -81,6 +81,10 @@ export class DropBlock  extends BaseControl {
   private _sideSet = new Set();
   private _sideType = SideType.NONE;
   private _rectElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._rectElm = NQDOM.getElementByClassName(this.element, NONE_CLASS);
