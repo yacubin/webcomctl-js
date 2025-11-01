@@ -16,7 +16,12 @@ const clss = mk.newClassNameMap([
   "DESC_CLASS",
 ]);
 
+const cent_nth2_mob = '#d6d6d6';
+
 const vars = mk.newCSSVariableMap({
+  cent_nth2: ['#f3f3f3', '78787826'],
+  link_col_hov: ['#555555', '#c1c1c1c2'],
+  link: ['#2d2d2d', '#ffffffab'],
 });
 
 mk.newHTML('ROOT_HTML', `
@@ -49,6 +54,14 @@ mk.newCSS('CSS', `
 ${DARKMODE_SELECTOR_VALUE}
 {
   ${vars.toString(1)};
+}
+
+[data-theme="light"] div.${clss.CENT_CLASS} a > span > img:nth-child(2),
+[data-theme="dark"] div.${clss.CENT_CLASS} a > span > img:nth-child(1),
+[data-theme="dark"] div.${clss.CENT_CLASS} a > div > div > div > img:nth-child(1),
+[data-theme="light"] div.${clss.CENT_CLASS} a > div > div > div > img:nth-child(2)
+{
+  display: none;
 }
 
 .${clss.ROOT_CLASS}
@@ -84,9 +97,16 @@ ${DARKMODE_SELECTOR_VALUE}
   margin: 0px 20px;
 }
 
+.${clss.CENT_CLASS} a
+{
+  color: ${vars.link.asVar()};
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .${clss.CENT_CLASS} a:hover
 {
-  color: var(--link-col-hov);
+  color: ${vars.link_col_hov.asVar()};
 }
 
 .${clss.CENT_CLASS} > div
@@ -104,7 +124,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.CENT_CLASS} > div:nth-child(1n + 2)
 {
-  border-top: 1px solid var(--cent-nth2);
+  border-top: 1px solid ${vars.cent_nth2.asVar()};
 }
 
 .${clss.CENT_CLASS} a > span
@@ -228,7 +248,7 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   .${clss.ROOT_CLASS} div.${clss.CENT_CLASS} > div:nth-child(1n + 2) 
   {
-    border-top: 1px solid var(--cent-nth2-mob);
+    border-top: 1px solid ${cent_nth2_mob};
   }
   .${clss.ROOT_CLASS} div.${clss.CENT_CLASS} a
   {

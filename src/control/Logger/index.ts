@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, TITLE_CLASS, TEXT_CLASS, CLOSE_CLASS, INFO_CLASS, WARNING_CLASS, SUCCESS_CLASS, ERROR_CLASS } from 'uictmplt-loader!./template.ts';
+import { ROOT_HTML, ITEM_HTML, TITLE_CLASS, TEXT_CLASS, CLOSE_CLASS, INFO_CLASS, WARNING_CLASS, SUCCESS_CLASS, ERROR_CLASS } from 'uictmplt-loader!./template.ts';
 
 import { LOGGER_INFO_TITLE } from "@/lib/Logger";
 import { LOGGER_SUCCESS_TITLE } from "@/lib/Logger";
@@ -49,5 +49,9 @@ export class Logger extends BaseControl {
     this.success = log.bind(this, LOGGER_SUCCESS_TITLE, SUCCESS_CLASS, console.log);
     this.warning = log.bind(this, LOGGER_WARNING_TITLE, WARNING_CLASS, console.warn);
     this.error = log.bind(this, LOGGER_ERROR_TITLE, ERROR_CLASS, console.error);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document);
   }
 };

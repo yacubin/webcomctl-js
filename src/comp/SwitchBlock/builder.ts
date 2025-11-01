@@ -6,7 +6,7 @@ export enum Style {
   Flex = 1,
 };
 
-export function build(name: string, style: Style) {
+export function build(name: string, style: Style, overflowX: boolean) {
   const mk = new ControlMaker(name);
 
   const clss: any = mk.newClassNameMap([
@@ -39,11 +39,15 @@ export function build(name: string, style: Style) {
       flex-grow: 1;
       width: inherit;
       box-sizing: border-box;
-    }
+    }`);
+  }
+
+  if (overflowX) {
+    css.push(`
     .${clss.NTH2_CLASS}
     {
       overflow-x: hidden;
-    }`);
+    }`)
   }
 
   css.push(`

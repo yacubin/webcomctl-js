@@ -22,7 +22,7 @@ const clss = mk.newClassNameMap([
 ]);
 
 mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS} ${clss.GROUP_CLASS}">
+<div class="${clss.ROOT_CLASS}">
   <h4>Group:<u class="${clss.TITLE_CLASS}"></u></h4>
   <ul class="${clss.SIGNALS_CLASS}"></ul>
 </div>
@@ -76,31 +76,31 @@ ${DARKMODE_SELECTOR_VALUE}
   font-weight: 400;
 }
 
-div.${clss.GROUP_CLASS} b,
-div.${clss.GROUP_CLASS} > ul
+div.${clss.ROOT_CLASS} b,
+div.${clss.ROOT_CLASS} > ul
 {
   border: 1px solid ${rpanel_bor};
   box-shadow: ${vars.rpanel_bs.asVar()};
   border-radius: 3px;
 }
 
-div.${clss.GROUP_CLASS} > ul
+div.${clss.ROOT_CLASS} > ul
 {
   padding: 20px 30px 20px 30px;
   margin: 0;
 }
 
-.${clss.GROUP_CLASS} li
+.${clss.ROOT_CLASS} li
 {
     list-style-type: none;
 }
 
-div.${clss.GROUP_CLASS} > ul > li
+div.${clss.ROOT_CLASS} > ul > li
 {
   margin-bottom: 5px;
 }
 
-div.${clss.GROUP_CLASS} > ul > li:last-child
+div.${clss.ROOT_CLASS} > ul > li:last-child
 {
   margin-bottom: 0px;
 }

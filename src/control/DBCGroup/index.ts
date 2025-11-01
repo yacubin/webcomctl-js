@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { TITLE_CLASS, SIGNALS_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, TITLE_CLASS, SIGNALS_CLASS } from "uictmplt-loader!./template.ts";
 
 export class DBCGroup extends BaseControl {
   private _titleElm?: HTMLElement;
@@ -9,6 +9,10 @@ export class DBCGroup extends BaseControl {
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._signalListElm = NQDOM.getElementByClassName(this.element, SIGNALS_CLASS);
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document);
   }
 
   public setTitle(title: string) {
