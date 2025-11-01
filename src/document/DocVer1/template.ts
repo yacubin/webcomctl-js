@@ -16,14 +16,6 @@ const vars = mk.newCSSVariableMap({
   rootBg: [ UIC_START_BACKGROUND_COLOR, UIC_START_BACKGROUND_COLOR_DARK ],
 });
 
-mk.newHTML('ROOT_HTML', `
-<!DOCTYPE html>
-<html ${DARKMODE_ATTR_NAME}="${DARKMODE_DEFAULT_VALUE}">
-  <head></head>
-  <body class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}"></body>
-</html>
-`);
-
 mk.newCSS('CSS', `
 root:
 {

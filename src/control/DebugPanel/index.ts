@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ITEM_HTML, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from "uictmplt-loader!./template.ts";
 
 interface ButtonParams {
   onclick: (event: MouseEvent) => void;
@@ -16,6 +16,10 @@ export class DebugPanel extends BaseControl {
     sideClickElm && sideClickElm.addEventListener("click", (event) => {
       this.element.classList.toggle(RIGHT_CLASS);
     });
+  }
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setButton(name: string, { onclick }: ButtonParams) {

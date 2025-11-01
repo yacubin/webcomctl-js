@@ -1,10 +1,14 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { TITLE, LIST } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, TITLE, LIST } from "uictmplt-loader!./template.ts";
 
 export class Journal extends BaseControl {
   private _titleElm?: HTMLElement;
   private _dataElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, TITLE) as HTMLElement;

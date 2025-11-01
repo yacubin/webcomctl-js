@@ -1,6 +1,6 @@
-import { BaseControl } from "webnetq-js";
+import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { RIGHT_CLASS, BOTTOM_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, RIGHT_CLASS, BOTTOM_CLASS } from "uictmplt-loader!./template.ts";
 
 enum SideType {
   TOP_LEFT = 0,
@@ -44,6 +44,10 @@ export function toString(sideType: SideType): string | undefined {
 export class AbsoluteBlock extends BaseControl {
   private _sideType!: SideType;
   private _visible!: boolean;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     const hasRight = this.element.classList.contains(RIGHT_CLASS);

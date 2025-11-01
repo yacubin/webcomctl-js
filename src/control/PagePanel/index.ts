@@ -1,5 +1,5 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-import { MENU_ITEM_HTML, PSNT_ITEM_HTML, CODETYPE_CLASS, DOWNLOAD_CLASS, MENULIST_CLASS, PSNTLIST_CLASS,
+import { ROOT_HTML, MENU_ITEM_HTML, PSNT_ITEM_HTML, CODETYPE_CLASS, DOWNLOAD_CLASS, MENULIST_CLASS, PSNTLIST_CLASS,
   CTSHOW_CLASS, PSNTACTV_CLASS, MENUTEXT_CLASS, PSNTTEXT_CLASS, PERENTMENU_CLASS, MENUNAME_CLASS, MENU_LIST_HTML,
   MENUSTYLE1_CLASS, MENUSTYLE2_CLASS, MENUSTYLE3_CLASS, MENUSTYLE4_CLASS, PROPERTIES_CLASS, PROPERTIES2_CLASS,
   PROPERTIES_SHOW_CLASS
@@ -56,6 +56,10 @@ export class PagePanel extends BaseControl {
   private _blob?: Blob;
   private _filename = "";
   private _snap: PagePanelSnap = {};
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._parentMenuElm = NQDOM.getElementByClassName(this.element, PERENTMENU_CLASS);

@@ -1,12 +1,16 @@
 import { NQDOM, BaseControl, Random } from "webnetq-js";
 // @ts-ignore
-import { DHIDE_CLASS, DSHOW_CLASS, FDROP_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, DHIDE_CLASS, DSHOW_CLASS, FDROP_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
 export class StartupUpload extends BaseControl {
   private _fdropElm?: HTMLElement;
   private _inputElm?: HTMLInputElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._fdropElm = NQDOM.getElementByClassName(this.element, FDROP_CLASS);

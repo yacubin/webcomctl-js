@@ -1,6 +1,6 @@
 import { BaseControl, Util, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { CONTENT_CLASS, BUTT_LEFT_CLASS, BUTT_RIGHT_CLASS, IMAGE_POSITION, IMAGE_NUMBERS, LEFT_CLICK, RIGHT_CLICK } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, CONTENT_CLASS, BUTT_LEFT_CLASS, BUTT_RIGHT_CLASS, IMAGE_POSITION, IMAGE_NUMBERS, LEFT_CLICK, RIGHT_CLICK } from "uictmplt-loader!./template.ts";
 
 const IMAGECHANGED_EVENT = "imageChanged";
 
@@ -15,6 +15,10 @@ export class ImageContent extends BaseControl {
   private _numsElm?: HTMLElement;
   private _images: ImageInfo[] = [];
   private _currentIndex = -1;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._imageElm = NQDOM.getElementByClassName(this.element, CONTENT_CLASS) as HTMLImageElement;

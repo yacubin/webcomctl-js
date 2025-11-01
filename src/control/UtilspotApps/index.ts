@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, CENT_CLASS, MAIN_CLASS, LOGO_CLASS, ICON_CLASS, TITLE_CLASS, DESC_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ITEM_HTML, CENT_CLASS, MAIN_CLASS, LOGO_CLASS, ICON_CLASS, TITLE_CLASS, DESC_CLASS } from "uictmplt-loader!./template.ts";
 
 interface AppParams {
   title?: string;
@@ -13,6 +13,10 @@ interface AppParams {
 export class UtilspotApps extends BaseControl {
   private _listElm?: HTMLElement;
   private _itemTemplate?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._listElm = NQDOM.getElementByClassName(this.element, CENT_CLASS);

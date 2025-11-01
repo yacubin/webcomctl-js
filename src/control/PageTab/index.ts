@@ -1,6 +1,6 @@
 import { BaseControl, Random, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, FOCUS_CLASS, CLOSE_CLASS, TEXT_CLASS, LOADING_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ITEM_HTML, FOCUS_CLASS, CLOSE_CLASS, TEXT_CLASS, LOADING_CLASS } from "uictmplt-loader!./template.ts";
 
 interface TabItemInfo {
   name?: string;
@@ -168,6 +168,10 @@ export class PageTab extends BaseControl {
   private _focusHistory = [] as TabItemControl[];
 
   private _idCounter = 1;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this.registerEvent(EMPTY_EVENT);

@@ -6,14 +6,6 @@ const clss = mk.newClassNameMap([
   "PORT_CLASS",
 ]);
 
-mk.newHTML('ROOT_HTML', `
-<!DOCTYPE html>
-<html>
-  <head></head>
-  <body class="${clss.PORT_CLASS}"></body>
-</html>
-`);
-
 mk.newCSS('CSS', `
 `);
 

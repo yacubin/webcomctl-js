@@ -1,11 +1,15 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { TITLE, ITEM_HTML, LIST_CLASS, LIST_NAME, LIST_VALUE } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, TITLE, ITEM_HTML, LIST_CLASS, LIST_NAME, LIST_VALUE } from "uictmplt-loader!./template.ts";
 
 export class PropInfoPanel extends BaseControl {
   private _titleElm?: HTMLElement;
   private _listElm?: HTMLElement;
   private _valueElmMap: { [name: string]: any } = {};
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
       this._titleElm = NQDOM.getElementByClassName(this.element, TITLE);

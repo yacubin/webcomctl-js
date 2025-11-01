@@ -14,7 +14,7 @@ async function makeStaticRegisterScript(module, templates)
 
   for (const name in CTLS) {
     const ctlModule = templates[PKG][name];
-    for (const iter of ['ROOT_HTML', 'CSS', 'ROOT_CLASS']) {
+    for (const iter of ['CSS', 'ROOT_CLASS']) {
       if (!(iter in ctlModule)) {
         throw `Can't find ${iter} for '${name}' control`;
       }
@@ -24,8 +24,6 @@ async function makeStaticRegisterScript(module, templates)
       }
     }
     const ctlParams = {
-      name,
-      rootHTML: ctlModule.ROOT_HTML,
       rootClass: ctlModule.ROOT_CLASS,
     };
     if (typeof ctlModule.PORT_CLASS === 'string') {

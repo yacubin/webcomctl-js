@@ -1,10 +1,14 @@
-import { BaseControl, Random } from "webnetq-js";
+import { BaseControl, Random, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { LOAD_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, LOAD_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
 export class CntSmUploadButton extends BaseControl {
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     const lableElm = this.element.querySelector('label');
     if (lableElm) {

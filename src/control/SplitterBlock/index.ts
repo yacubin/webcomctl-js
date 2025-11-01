@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS } from "uictmplt-loader!./template.ts";
 
 enum SplitterType {
   NONE = 0,
@@ -47,6 +47,10 @@ function toClassName(sideType: SplitterType) {
 export class SplitterBlock extends BaseControl {
   private _splitterType = SplitterType.NONE;
   private _splitterElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._splitterElm = NQDOM.getElementByClassName(this.element, NONE_CLASS);

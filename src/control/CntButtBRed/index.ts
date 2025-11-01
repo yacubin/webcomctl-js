@@ -1,11 +1,15 @@
 import { BaseControl, Random, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from "uictmplt-loader!./template.ts";
 
 const UPLOAD_EVENT = 'upload';
 
 export class CntButtBRed extends BaseControl {
   private _heightElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     const lableElm = this.element.querySelector('label');

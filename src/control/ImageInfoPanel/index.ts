@@ -1,11 +1,15 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { DESCRIPTION_TITLE, DESCRIPTION_HISTORY, LIST_CLASS, ITEM_HTML, LIST_NAME, LIST_VALUE } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, DESCRIPTION_TITLE, DESCRIPTION_HISTORY, LIST_CLASS, ITEM_HTML, LIST_NAME, LIST_VALUE } from "uictmplt-loader!./template.ts";
 
 export class ImageInfoPanel extends BaseControl {
   private _titleElm?: HTMLElement;
   private _descriptionElm?: HTMLElement;
   private _listElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, DESCRIPTION_TITLE);
