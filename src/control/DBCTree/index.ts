@@ -25,13 +25,13 @@ export class DBCTree extends BaseControl {
   private _selectedElm?: HTMLElement;
   private _itemTemplate?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     this._itemTemplate = NQDOM.createElement(ITEM_HTML);
     this.registerEvent(SELECTEDCHANGED_EVENT);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setRootNode(params: DBCNodeParams | null | undefined) {

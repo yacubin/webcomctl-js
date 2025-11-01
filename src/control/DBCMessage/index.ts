@@ -46,6 +46,10 @@ export class DBCMessage extends BaseControl {
   private _pduSaElm?: HTMLElement;
   private _pduDaElm?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
@@ -59,10 +63,6 @@ export class DBCMessage extends BaseControl {
     this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
     this._pduSaElm = NQDOM.getElementByClassName(this.element, PDU_SA_CLASS);
     this._pduDaElm = NQDOM.getElementByClassName(this.element, PDU_DA_CLASS);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {

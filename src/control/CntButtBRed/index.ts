@@ -7,6 +7,10 @@ const UPLOAD_EVENT = 'upload';
 export class CntButtBRed extends BaseControl {
   private _heightElm?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     const lableElm = this.element.querySelector('label');
     if (lableElm) {
@@ -33,10 +37,6 @@ export class CntButtBRed extends BaseControl {
     }
 
     this.registerEvent(UPLOAD_EVENT);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public loadProcess(value: number | null) {

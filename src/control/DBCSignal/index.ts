@@ -61,6 +61,10 @@ export class DBCSignal extends BaseControl {
   private _startValueElm?: HTMLElement;
   private _receiversElm?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._startBitElm = NQDOM.getElementByClassName(this.element, STARTBIT_CLASS);
@@ -74,10 +78,6 @@ export class DBCSignal extends BaseControl {
     this._unitElm = NQDOM.getElementByClassName(this.element, UNIT_CLASS);
     this._startValueElm = NQDOM.getElementByClassName(this.element, START_VALUE_CLASS);
     this._receiversElm = NQDOM.getElementByClassName(this.element, RECEIVERS_CLASS);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {

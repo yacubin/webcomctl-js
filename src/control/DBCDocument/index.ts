@@ -32,6 +32,10 @@ export class DBCDocument extends BaseControl {
   private _btr2Elm?: HTMLElement;
   private _bitTiming?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._newSymbolsElm = NQDOM.getElementByClassName(this.element, NEW_SYMBOLS);
@@ -42,10 +46,6 @@ export class DBCDocument extends BaseControl {
     this._btr1Elm = NQDOM.getElementByClassName(this.element, BTR1);
     this._btr2Elm = NQDOM.getElementByClassName(this.element, BTR2);
     this._bitTiming = NQDOM.getElementByClassName(this.element, BIT_TIMING);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {

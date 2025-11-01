@@ -45,6 +45,10 @@ export class AbsoluteBlock extends BaseControl {
   private _sideType!: SideType;
   private _visible!: boolean;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     const hasRight = this.element.classList.contains(RIGHT_CLASS);
     const hasBottom = this.element.classList.contains(BOTTOM_CLASS);
@@ -55,10 +59,6 @@ export class AbsoluteBlock extends BaseControl {
       this._sideType = hasBottom ? SideType.BOTTOM_LEFT : SideType.TOP_LEFT;
 
     this._visible = true;
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public get visible() {

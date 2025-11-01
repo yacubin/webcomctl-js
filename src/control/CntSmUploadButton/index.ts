@@ -5,6 +5,10 @@ import { ROOT_HTML, LOAD_CLASS } from "uictmplt-loader!./template.ts";
 const UPLOAD_EVENT = 'upload';
 
 export class CntSmUploadButton extends BaseControl {
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     const lableElm = this.element.querySelector('label');
     if (lableElm) {
@@ -25,10 +29,6 @@ export class CntSmUploadButton extends BaseControl {
     }
 
     this.registerEvent(UPLOAD_EVENT);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public get loadEnable() { return this.element.classList.contains(LOAD_CLASS); }

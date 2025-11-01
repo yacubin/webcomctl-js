@@ -23,10 +23,6 @@ const vars = mk.newCSSVariableMap({
   ],
 });
 
-mk.newHTML('ROOT_HTML', `
-  <h3 class="${clss.ROOT_CLASS}"></h3>
-`);
-
 mk.newHTML('CSS', `
 :root
 {

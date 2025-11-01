@@ -1,6 +1,6 @@
 import { BaseControl, NQDOM } from "webnetq-js";
 // @ts-ignore
-import { ITEM_HTML, ITEM_LIST, FOLDER_CLASS, FILE_CLASS, LINK_CLASS, TYPE_CLASS, SIZE_CLASS, DATE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ITEM_HTML, ITEM_LIST, FOLDER_CLASS, FILE_CLASS, LINK_CLASS, TYPE_CLASS, SIZE_CLASS, DATE_CLASS } from "uictmplt-loader!./template.ts";
 
 interface ItemParams {
   name: string;
@@ -13,6 +13,10 @@ interface ItemParams {
 export class DirectoryViewer extends BaseControl {
   private _nameCounter = 0;
   private _itemlistElm?: HTMLElement;
+
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._itemlistElm = NQDOM.getElementByClassName(this.element, ITEM_LIST);

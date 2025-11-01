@@ -5,13 +5,12 @@ import { ROOT_HTML, dbc_attributes_list } from "uictmplt-loader!./template.ts";
 export class DBCAttribute extends BaseControl {
   private _attrListElement?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
 
   protected _init() {
     this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setValue(attributes: { [key: string]: string }) {

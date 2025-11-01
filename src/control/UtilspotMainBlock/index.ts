@@ -12,5 +12,5 @@ export class UtilspotMainBlock extends BaseControl {
   }
 
   protected _init() {
-    }
   }
+};

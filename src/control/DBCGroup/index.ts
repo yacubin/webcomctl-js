@@ -6,13 +6,13 @@ export class DBCGroup extends BaseControl {
   private _titleElm?: HTMLElement;
   private _signalListElm?: HTMLElement;
 
+  public static createElement(document: HTMLDocument): HTMLElement {
+    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+  }
+
   protected _init() {
     this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
     this._signalListElm = NQDOM.getElementByClassName(this.element, SIGNALS_CLASS);
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setTitle(title: string) {
