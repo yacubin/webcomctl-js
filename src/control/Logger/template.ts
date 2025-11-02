@@ -49,10 +49,6 @@ const SUCCESS_MAIN_COLOR = '#005200';
 const INFO_FILL_COLOR = '#c8fffae6';
 const INFO_MAIN_COLOR = '#001e62';
 
-mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}"></div>
-`);
-
 mk.newHTML('ITEM_HTML', `
 <div>
   <div></div>
