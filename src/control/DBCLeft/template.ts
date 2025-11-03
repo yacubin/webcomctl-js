@@ -11,6 +11,7 @@ const mk = new ControlMaker("DBCLeft");
 
 const left_on_sc = 'transparent';
 const button_bg = '#dddddd40';
+const left_sc_th_bg = 'transparent';
 const dbc_split_norm = convertSvgToCssUrl(splitterSvg);
 const dbc_split_hov = convertSvgToCssUrl(splitterHoverSvg);
 const left_but_img = convertSvgToCssUrl(leftButSvg);
@@ -19,7 +20,7 @@ const left_but_hov_img = convertSvgToCssUrl(leftButHoverSvg);
 const vars = mk.newCSSVariableMap({
   sep_bg: ['linear-gradient(to bottom,transparent 0%, #bcbcbc30 35% 85%, transparent 100%)'],
   sep_hov_bg: ['linear-gradient(to bottom,transparent 0%, #7d7d7d30 35% 85%, transparent 100%)'],
-  left_sc_th_bg: ['#3a3a3a', '#3e3e43'],
+  left_sc_th_bg_hov: ['#3a3a3a', '#3e3e43'],
   left_bg: ['#ffffff','rgb(23, 23, 26)'],
   left_grad: ['linear-gradient(white 0% 69%, #ff000000 100%)','linear-gradient(rgb(23, 23, 26) 0% 69%, #ff000000 100%)'],
   left_fog_grad: ['linear-gradient(#ffffff00, white)','linear-gradient(#ffffff00, rgb(23, 23, 26))'],
@@ -83,16 +84,15 @@ ${DARKMODE_SELECTOR_VALUE}
   background-color: ${left_on_sc};
 }
 
-.${clss.ROOT_CLASS} > nav::-webkit-scrollbar-thumb
+.${clss.ROOT_CLASS} > nav:hover::-webkit-scrollbar-thumb
 {
-  background-color: ${left_on_sc};
+  background-color: ${left_sc_th_bg};
   border-radius: 10px;
 }
 
 .${clss.ROOT_CLASS} > nav:hover::-webkit-scrollbar-thumb
 {
-  background-color: ${vars.left_sc_th_bg.asVar()};
-  border-radius: 10px;
+  background-color: ${vars.left_sc_th_bg_hov.asVar()};
 }
 
 .${clss.ROOT_CLASS}
