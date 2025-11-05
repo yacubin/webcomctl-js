@@ -8,12 +8,12 @@ const mk = new ControlMaker("BitMakeLeft");
 const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
 const SC1 = 'linear-gradient(to bottom, white 0%, #f8f8f8 5% 95%, white';
-const SC2 = 'linear-gradient(to bottom, rgb(23, 23, 26) 0%, #1c1c1c 5% 95%, rgb(23, 23, 26) 100%)';
+
 
 const vars = mk.newCSSVariableMap({
   list_hover: ['#50505026', '#202020'],
   col: ['black', 'white'],
-  SC_col: [SC1, SC2],
+
 });
 
 const clss = mk.newClassNameMap([
