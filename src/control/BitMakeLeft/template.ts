@@ -11,6 +11,7 @@ const SCTRBG_CLR = 'transparent';
 const vars = mk.newCSSVariableMap({
   list_hover: ['#50505026', '#202020'],
   col: ['black', 'white'],
+  SC_col: ['linear-gradient(to bottom, white 0%, #f8f8f8 5% 95%, white', 'linear-gradient(to bottom, rgb(23, 23, 26) 0%, #1c1c1c 5% 95%, rgb(23, 23, 26) 100%)'],
 });
 
 const clss = mk.newClassNameMap([
@@ -95,10 +96,14 @@ ${DARKMODE_SELECTOR_VALUE}
   border-radius: 10px;
 }
 
-.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-track,
 .${clss.ROOT_CLASS} > ul::-webkit-scrollbar-corner
 {
   background-color: ${SCTRBG_CLR};
+}
+
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-track
+{
+  ackground-color: ${vars.SC_col.asVar()};
 }
 
 .${clss.ROOT_CLASS}
