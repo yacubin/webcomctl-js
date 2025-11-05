@@ -9,7 +9,7 @@ const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
 
 const vars = mk.newCSSVariableMap({
-  list_hover: ['#50505026', 'white'],
+  list_hover: ['#50505026', '#202020'],
   col: ['black', 'white'],
 });
 
