@@ -83,20 +83,20 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
-.${clss.ROOT_CLASS}::-webkit-scrollbar
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar
 {
   width: 10px;
   height: 10px;
 }
 
-.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-thumb
 {
   background-color: ${SCTHBG_CLR};
   border-radius: 10px;
 }
 
-.${clss.ROOT_CLASS}::-webkit-scrollbar-track,
-.${clss.ROOT_CLASS}::-webkit-scrollbar-corner
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-track,
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-corner
 {
   background-color: ${SCTRBG_CLR};
 }
