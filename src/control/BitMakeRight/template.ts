@@ -108,11 +108,11 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   display: grid;
   grid-template-columns: minmax(100px, max-content) auto;
-  grid-gap: 5px 5px;
+  grid-gap: 2px 2px;
   width: max-content;
   min-width: auto;
   border-radius: 5px;
-  padding: 5px;
+  padding: 2px;
   background-color: ${vars.TAB_BG.asVar()};
 }
 
