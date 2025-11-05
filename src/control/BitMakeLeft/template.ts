@@ -5,6 +5,9 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("BitMakeLeft");
 
+const SCTHBG_CLR = '#b5b5b5c7';
+const SCTRBG_CLR = 'transparent';
+
 const vars = mk.newCSSVariableMap({
   list_hover: ['#50505026', 'wihte'],
   col: ['black', 'wihte'],
@@ -78,6 +81,24 @@ mk.newCSS('CSS', `
 ${DARKMODE_SELECTOR_VALUE}
 {
   ${vars.toString(1)};
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar
+{
+  width: 10px;
+  height: 10px;
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
+{
+  background-color: ${SCTHBG_CLR};
+  border-radius: 10px;
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar-track,
+.${clss.ROOT_CLASS}::-webkit-scrollbar-corner
+{
+  background-color: ${SCTRBG_CLR};
 }
 
 .${clss.ROOT_CLASS}
