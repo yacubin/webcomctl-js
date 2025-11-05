@@ -6,6 +6,8 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 const mk = new ControlMaker("BitMakeLeft");
 
 const vars = mk.newCSSVariableMap({
+  list_hover: ['#50505026', 'wihte'],
+  col: ['black', 'wihte'],
 });
 
 const clss = mk.newClassNameMap([
@@ -85,6 +87,7 @@ ${DARKMODE_SELECTOR_VALUE}
   max-width: 300px;
   min-width: 240px;
   padding: 40px 15px 30px 15px;
+  color: ${vars.col.asVar()};
   overflow: hidden;
 }
 
@@ -110,7 +113,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} ul li:hover
 {
-  background-color: #50505026;
+  background-color: ${vars.list_hover.asVar()};
 }
 
 .${clss.ROOT_CLASS} * 

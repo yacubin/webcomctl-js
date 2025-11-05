@@ -6,6 +6,9 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 const mk = new ControlMaker("BitMakeRight");
 
 const vars = mk.newCSSVariableMap({
+  col: ['black', 'wihte'],
+  BG: ['wihte', 'rgb(23, 23, 26)'],
+  TAB_BG: ['#bab9b9', 'rgb(23, 23, 26)'],
 });
 
 const clss = mk.newClassNameMap([
@@ -71,6 +74,7 @@ ${DARKMODE_SELECTOR_VALUE}
   flex-grow: 1;
   padding: 15px;
   line-height: 25px;
+  color: ${vars.col.asVar()};
   overflow: auto;
 }
 
@@ -88,7 +92,7 @@ ${DARKMODE_SELECTOR_VALUE}
   min-width: auto;
   border-radius: 5px;
   padding: 5px;
-  background-color: #bab9b9;
+  background-color: ${vars.TAB_BG.asVar()};
 }
 
 .${clss.TABLE} > div,
@@ -99,7 +103,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 30px;
   padding: 5px 10px;
   border-radius: 3px;
-  background-color: white;
+  background-color: ${vars.BG.asVar()};
 }
 `);
 
