@@ -103,7 +103,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > ul::-webkit-scrollbar-track
 {
-  ackground-color: ${vars.SC_col.asVar()};
+  background: ${vars.SC_col.asVar()};
 }
 
 .${clss.ROOT_CLASS}
