@@ -9,8 +9,8 @@ const SCTHBG_CLR = '#b5b5b5c7';
 const SCTRBG_CLR = 'transparent';
 
 const vars = mk.newCSSVariableMap({
-  R_col: ['black', 'wihte'],
-  R_BG: ['wihte', 'rgb(23, 23, 26)'],
+  R_col: ['black', 'white'],
+  R_BG: ['white', 'rgb(23, 23, 26)'],
   TAB_BG: ['#bab9b9', 'rgb(23, 23, 26)'],
 });
 
