@@ -11,7 +11,7 @@ const SCTRBG_CLR = 'transparent';
 const vars = mk.newCSSVariableMap({
   list_hover: ['#50505026', '#202020'],
   col: ['black', 'white'],
-  SC_col: ['linear-gradient(to bottom, white 0%, #f8f8f8 5% 95%, white', 'linear-gradient(to bottom, rgb(23, 23, 26) 0%, #1c1c1c 5% 95%, rgb(23, 23, 26) 100%)'],
+  SC_col: ['#f8f8f8', '#202020'],
 });
 
 const clss = mk.newClassNameMap([
