@@ -11,7 +11,7 @@ const SCTRBG_CLR = 'transparent';
 const vars = mk.newCSSVariableMap({
   R_col: ['black', 'white'],
   R_BG: ['white', 'rgb(23, 23, 26)'],
-  TAB_BG: ['#bab9b9', 'rgb(23, 23, 26)'],
+  TAB_BG: ['#bab9b9', '#2a2a2d'],
 });
 
 const clss = mk.newClassNameMap([
