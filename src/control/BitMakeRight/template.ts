@@ -5,7 +5,13 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("BitMakeRight");
 
+const SCTHBG_CLR = '#b5b5b5c7';
+const SCTRBG_CLR = 'transparent';
+
 const vars = mk.newCSSVariableMap({
+  R_col: ['black', 'white'],
+  R_BG: ['white', 'rgb(23, 23, 26)'],
+  TAB_BG: ['#bab9b9', '#2a2a2d'],
 });
 
 const clss = mk.newClassNameMap([
@@ -66,11 +72,30 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+.${clss.ROOT_CLASS}::-webkit-scrollbar
+{
+  width: 10px;
+  height: 10px;
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar-thumb
+{
+  background-color: ${SCTHBG_CLR};
+  border-radius: 10px;
+}
+
+.${clss.ROOT_CLASS}::-webkit-scrollbar-track,
+.${clss.ROOT_CLASS}::-webkit-scrollbar-corner
+{
+  background-color: ${SCTRBG_CLR};
+}
+
 .${clss.ROOT_CLASS}
 {
   flex-grow: 1;
   padding: 15px;
   line-height: 25px;
+  color: ${vars.R_col.asVar()};
   overflow: auto;
 }
 
@@ -83,12 +108,12 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   display: grid;
   grid-template-columns: minmax(100px, max-content) auto;
-  grid-gap: 5px 5px;
-  width: max-content;
+  grid-gap: 2px 2px;
   min-width: auto;
   border-radius: 5px;
-  padding: 5px;
-  background-color: #bab9b9;
+  padding: 2px;
+  margin-top: 10px;
+  background-color: ${vars.TAB_BG.asVar()};
 }
 
 .${clss.TABLE} > div,
@@ -99,7 +124,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 30px;
   padding: 5px 10px;
   border-radius: 3px;
-  background-color: white;
+  background-color: ${vars.R_BG.asVar()};
 }
 `);
 

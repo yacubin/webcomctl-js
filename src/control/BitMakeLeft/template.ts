@@ -5,7 +5,15 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 
 const mk = new ControlMaker("BitMakeLeft");
 
+const SCTHBG_CLR = '#b5b5b5c7';
+const SCTRBG_CLR = 'transparent';
+const SC1 = 'linear-gradient(to bottom, white 0%, #f8f8f8 5% 95%, white)';
+const SC2 = 'linear-gradient(to bottom, rgb(23, 23, 26) 0%, #1c1c1c 5% 95%, rgb(23, 23, 26) 100%)';
+
 const vars = mk.newCSSVariableMap({
+  list_hover: ['#50505026', '#202020'],
+  col: ['black', 'white'],
+  SC_col: [SC1, SC2],
 });
 
 const clss = mk.newClassNameMap([
@@ -78,6 +86,28 @@ ${DARKMODE_SELECTOR_VALUE}
   ${vars.toString(1)};
 }
 
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar
+{
+  width: 10px;
+  height: 10px;
+}
+
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-thumb
+{
+  background-color: ${SCTHBG_CLR};
+  border-radius: 10px;
+}
+
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-corner
+{
+  background-color: ${SCTRBG_CLR};
+}
+
+.${clss.ROOT_CLASS} > ul::-webkit-scrollbar-track
+{
+  background: ${vars.SC_col.asVar()};
+}
+
 .${clss.ROOT_CLASS}
 {
   height: 100%;
@@ -85,6 +115,7 @@ ${DARKMODE_SELECTOR_VALUE}
   max-width: 300px;
   min-width: 240px;
   padding: 40px 15px 30px 15px;
+  color: ${vars.col.asVar()};
   overflow: hidden;
 }
 
@@ -110,7 +141,7 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} ul li:hover
 {
-  background-color: #50505026;
+  background-color: ${vars.list_hover.asVar()};
 }
 
 .${clss.ROOT_CLASS} * 
