@@ -53,13 +53,13 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
+  flex-grow: 1;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px 30px 20px 30px;
-  height: initial;
-  width: inherit;
   line-height: 24px;
   font-size: 15px;
   text-align: left;
