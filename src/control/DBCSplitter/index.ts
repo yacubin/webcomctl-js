@@ -3,6 +3,4 @@ import { BaseControl, NQDOM } from "webnetq-js";
 import {  } from "uictmplt-loader!./template.ts";
 
 export class DBCSplitter extends BaseControl {
-  protected _init() {
-  }
 };
