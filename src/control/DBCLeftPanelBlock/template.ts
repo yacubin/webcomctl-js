@@ -8,6 +8,11 @@ import leftButHoverSvg from "./left-but-hover.svg";
 
 const mk = new ControlMaker("DBCLeftPanelBlock");
 
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+   "PORT_CLASS",
+]);
+
 const left_but_img = convertSvgToCssUrl(leftButSvg);
 const left_but_hov_img = convertSvgToCssUrl(leftButHoverSvg);
 
@@ -19,11 +24,6 @@ const vars = mk.newCSSVariableMap({
   left_grad: ['linear-gradient(white 0% 69%, #ff000000 100%)', 'linear-gradient(rgb(23, 23, 26) 0% 69%, #ff000000 100%)'],
   left_fog_grad: ['linear-gradient(#ffffff00, white)','linear-gradient(#ffffff00, rgb(23, 23, 26))']
 });
-
-const clss = mk.newClassNameMap([
-  "ROOT_CLASS",
-   "PORT_CLASS",
-]);
 
 mk.newHTML("ROOT_HTML", `
 <div class="${clss.ROOT_CLASS}">

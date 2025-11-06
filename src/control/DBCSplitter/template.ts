@@ -7,6 +7,10 @@ import splitterHoverSvg from "./splitter-hover.svg";
 
 const mk = new ControlMaker("DBCSplitter");
 
+const clss = mk.newClassNameMap([
+  "ROOT_CLASS",
+]);
+
 const splitter = convertSvgToCssUrl(splitterSvg);
 const splitterHover = convertSvgToCssUrl(splitterHoverSvg);
 
@@ -15,10 +19,6 @@ const sep_hov_bg = 'linear-gradient(to bottom,transparent 0%, #7d7d7d30 35% 85%,
 
 const vars = mk.newCSSVariableMap({
 });
-
-const clss = mk.newClassNameMap([
-  "ROOT_CLASS",
-]);
 
 mk.newHTML("ROOT_HTML", `
 <div class="${clss.ROOT_CLASS}">
