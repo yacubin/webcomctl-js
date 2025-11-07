@@ -120,7 +120,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  grid-area: content;
   padding: 30px 10px 20px 15px;
   color: ${vars.left_col.asVar()};
   font-family: ${TOOLBAR_DBC_FONT_SANS};

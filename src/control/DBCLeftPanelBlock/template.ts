@@ -117,6 +117,14 @@ ${DARKMODE_SELECTOR_VALUE}
   transition: background-image 0.5s;
 }
 
+.${clss.PORT_CLASS}
+{
+  grid-area: content;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
 .${clss.ROOT_CLASS} > span 
 {
   grid-area: footer;
