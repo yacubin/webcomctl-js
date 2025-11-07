@@ -120,6 +120,8 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
+  width: 100%;
+  height: 100%;
   padding: 30px 10px 20px 15px;
   color: ${vars.left_col.asVar()};
   font-family: ${TOOLBAR_DBC_FONT_SANS};
