@@ -44,12 +44,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   display: grid;
-  grid-template-rows: 35px auto min-content;
   grid-template-columns: auto 10px;
-  grid-template-areas:
-  'header header'
-  'content stick'
-  'footer footer';
   width: inherit;
   grid-area: left;
   align-self: start;
