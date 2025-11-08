@@ -47,7 +47,6 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   display: grid;
-  grid-template-columns: auto 10px;
   align-self: start;
   position: sticky;
   top: 0px;
