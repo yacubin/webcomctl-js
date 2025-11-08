@@ -48,7 +48,6 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   display: grid;
   grid-template-columns: auto 10px;
-  grid-area: left;
   align-self: start;
   position: sticky;
   top: 0px;
@@ -64,7 +63,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.PORT_CLASS}
 {
-  grid-area: content;
   display: flex;
   width: 100%;
   height: 100%;

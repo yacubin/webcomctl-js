@@ -39,7 +39,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  grid-area: stick;
   width: 10px;
   height: 100%;
   background: ${sep_bg};
