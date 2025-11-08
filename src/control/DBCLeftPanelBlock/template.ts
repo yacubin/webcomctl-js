@@ -70,7 +70,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS} > span 
 {
-  grid-area: footer;
   display: flex;
   height: 0px;
   align-items: flex-end;
@@ -96,7 +95,6 @@ ${DARKMODE_SELECTOR_VALUE}
 {
   div.${clss.ROOT_CLASS}
   {
-    grid-area: right;
     border-right: none;
     background-color: transparent;
     width: 45px;
