@@ -6,7 +6,7 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 import leftButSvg from "./left-but.svg";
 import leftButHoverSvg from "./left-but-hover.svg";
 
-const mk = new ControlMaker("DBCLeftPanelBlock");
+const mk = new ControlMaker("DBCLeftPanelBlock2");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
@@ -26,10 +26,7 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML("ROOT_HTML", `
-<div class="${clss.ROOT_CLASS}">
- <span><div></div></span>
-  <div class="${clss.PORT_CLASS}"></div>
-  <span><div></div></span>
+<div class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}">
 </div>
 `);
 
@@ -66,51 +63,6 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${TOOLBAR_DBC_FONT_SANS};
   color: ${vars.left_col.asVar()};
   background-color: ${vars.left_bg.asVar()};
-}
-
-.${clss.PORT_CLASS}
-{
-  grid-area: content;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.${clss.ROOT_CLASS} > span 
-{
-  grid-area: footer;
-  display: flex;
-  height: 0px;
-  align-items: flex-end;
-}
-
-.${clss.ROOT_CLASS} > span > div 
-{
-  height: 25px;
-  width: 100%;
-  background: ${vars.left_fog_grad.asVar()};
-}
-
-@media (device-width <= 700px)
-{
-
-  div.${clss.ROOT_CLASS}
-  {
-    max-height: calc(100vh - 180px);
-  }
-}
-
-@media (device-width <= 550px)
-{
-  div.${clss.ROOT_CLASS}
-  {
-    grid-area: right;
-    border-right: none;
-    background-color: transparent;
-    width: 45px;
-    height: 50px;
-    margin-left: 15px;
-  }
 }
 
 `);
