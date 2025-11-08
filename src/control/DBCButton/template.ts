@@ -6,7 +6,7 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 import leftButSvg from "./left-but.svg";
 import leftButHoverSvg from "./left-but-hover.svg";
 
-const mk = new ControlMaker("DBCLeftPanelBlock");
+const mk = new ControlMaker("DBCButton");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
