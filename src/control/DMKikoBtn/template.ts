@@ -22,12 +22,6 @@ const vars = mk.newCSSVariableMap({
   img: [ MOON_IMG,  SUN_IMG ],
 });
 
-mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}">
-  <div></div>
-</div>
-`);
-
 mk.newCSS('CSS', `
 :root 
 {

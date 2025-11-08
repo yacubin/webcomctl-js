@@ -15,19 +15,13 @@ const clss = mk.newClassNameMap([
   "TOGGLE_CLASS",
   ]);
   
-  const sun = convertSvgToCssUrl(sunSvg);
-  const moon = convertSvgToCssUrl(moonSvg);
+const sun = convertSvgToCssUrl(sunSvg);
+const moon = convertSvgToCssUrl(moonSvg);
 
-  const vars = mk.newCSSVariableMap({
+const vars = mk.newCSSVariableMap({
   IMG_VAR: [ sun, moon ],
   BG_VAR: [ '#7b7b7b21', '#ffffff21' ],
-  });
-
-mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}">
-  <span class="${clss.TOGGLE_CLASS}"></span>
-</div>
-`);
+});
 
 mk.newCSS('CSS', `
 :root
