@@ -9,7 +9,6 @@ const mk = new ControlMaker("DBCButton");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-   "PORT_CLASS",
 ]);
 
 const left_but_img = convertSvgToCssUrl(leftButSvg);
