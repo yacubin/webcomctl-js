@@ -44,6 +44,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS}
 {
   display: grid;
+  grid-auto-rows: 50px 1fr;
   width: inherit;
   align-self: start;
   position: sticky;

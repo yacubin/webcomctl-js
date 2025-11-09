@@ -46,6 +46,11 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: center;
 }
 
+.${clss.ROOT_CLASS} > div
+{
+  padding-left: 10px;
+}
+
 .${clss.ROOT_CLASS} > div > div
 {
   width: 20px;

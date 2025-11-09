@@ -46,10 +46,6 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  display: grid;
-  align-self: start;
-  position: sticky;
-  top: 0px;
   height: inherit;
   max-height: calc(100vh - 143px);
   min-height: 400px;
