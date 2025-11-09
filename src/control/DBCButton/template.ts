@@ -9,6 +9,7 @@ const mk = new ControlMaker("DBCButton");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
+   "PORT_CLASS",
 ]);
 
 const left_but_img = convertSvgToCssUrl(leftButSvg);
@@ -20,9 +21,10 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML("ROOT_HTML", `
-  <div class="${clss.ROOT_CLASS}>
+
+   <div class="${clss.ROOT_CLASS}>
     <div>
-      <div></div>
+      <div class="dbc_bn_nav"></div>
     </div>
   </div>
 `);
