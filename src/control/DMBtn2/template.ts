@@ -23,10 +23,6 @@ const vars = mk.newCSSVariableMap({
   bs:    [ '#c8c8c8', '#373737' ],
 });
 
-mk.newHTML('ROOT_HTML', `
-<div class="${clss.ROOT_CLASS}"></div>
-`);
-
 mk.newCSS('CSS', `
 :root
 {
