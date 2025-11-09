@@ -14,7 +14,7 @@ async function makeStaticRegisterScript(module, templates)
 
   for (const name in CTLS) {
     const ctlModule = templates[PKG][name];
-    for (const iter of ['CSS', 'ROOT_CLASS']) {
+    for (const iter of ['ROOT_CLASS']) {
       if (!(iter in ctlModule)) {
         throw `Can't find ${iter} for '${name}' control`;
       }
@@ -32,14 +32,14 @@ async function makeStaticRegisterScript(module, templates)
     else if (typeof ctlModule.PORT_CLASS !== 'undefined') {
       throw `Wrong type of 'PORT_CLASS' for '${name}' control`;
     }
-    scriptContent += `manager.register(${name}, ${JSON.stringify(ctlParams)});\n`;
+    scriptContent += `manager.register("${name}", ${name}.Control || ${name}, ${name}.createElement, ${JSON.stringify(ctlParams)});\n`;
   };
   scriptContent += `\n`;
 
   scriptContent += `export const PKG = '${PKG}';\n`;
   scriptContent += `export const CTLS = {\n`;
   for (const name in CTLS) {
-    scriptContent += `  ${name},\n`;
+    scriptContent += `  ${name}: ${name}.Control || ${name},\n`;
   };
   scriptContent += `};\n`;
 

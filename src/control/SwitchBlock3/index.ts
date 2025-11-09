@@ -12,32 +12,31 @@ export namespace SwitchBlock3 {
 export interface InitParams {
   type?: "normal" | "flex";
   overflowX?: string;
-  showNth2?: boolean;
+  show?: "first" | "second";
 };
 
-export function createElement(document: HTMLDocument, params?: InitParams): HTMLElement {
+export function createElement(document: HTMLDocument, params: InitParams): HTMLElement {
   // <div class="${ROOT_CLASS} ${PORT_CLASS}"></div>
   const element = document.createElement("div");
 
   element.classList.add(ROOT_CLASS, PORT_CLASS);
-  element.style.width = "inherit";
-  element.style.boxSizing = "border-box";
 
-  if (params?.type == "flex")
+  if (params.type === "flex")
     element.style.flexGrow = "1";
   else
     element.style.height = "100%";
 
-  if (params?.overflowX)
+  if (params.overflowX)
     element.style.overflowX = params.overflowX;
 
-  if (params?.showNth2)
+  if (params.show === "second")
     element.classList.add(NTH2_CLASS);
 
   return element;
 }
 
 export function initRules(styleSheet: CSSStyleSheet): void {
+  styleSheet.insertRule(`.${ROOT_CLASS} {width:inherit;box-sizing:border-box;}`, styleSheet.cssRules.length);
   styleSheet.insertRule(`.${ROOT_CLASS}.${NTH2_CLASS} > :first-child {display:none;}`, styleSheet.cssRules.length);
   styleSheet.insertRule(`.${ROOT_CLASS}:not(.${NTH2_CLASS}) > :nth-child(2) {display:none;}`, styleSheet.cssRules.length);
 }
