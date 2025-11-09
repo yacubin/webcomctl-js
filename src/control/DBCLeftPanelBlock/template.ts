@@ -10,7 +10,7 @@ const mk = new ControlMaker("DBCLeftPanelBlock");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-   "PORT_CLASS",
+  "PORT_CLASS",
 ]);
 
 const left_but_img = convertSvgToCssUrl(leftButSvg);
