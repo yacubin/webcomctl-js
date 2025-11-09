@@ -20,7 +20,7 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML("ROOT_HTML", `
-<div class="${clss.ROOT_CLASS}>
+<div class="${clss.ROOT_CLASS}">
   <div>
     <div></div>
   </div>
@@ -40,13 +40,10 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
-  grid-area: header;
   display: flex;
   height: 50px;
   width: calc(100% - 20px);
   align-items: center;
-  background: var(--left-grad);
-  z-index: 2;
 }
 
 .${clss.ROOT_CLASS} > div > div
