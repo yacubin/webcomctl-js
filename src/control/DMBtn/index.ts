@@ -1,43 +1,19 @@
-import { BaseControl, NQDOM, Setting } from "webnetq-js";
 // @ts-ignore
-import { ROOT_HTML, TOGGLE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, TOGGLE_CLASS } from "uictmplt-loader!./template.ts";
+import { DarkModeButton } from "@/comp/DarkModeButton/control";
 
-const kDarkModeTip = "Toggle dark mode";
-const kLightModeTip = "Toggle light mode";
-
-const hasDocument = (typeof document === 'object' && document !== null);
-if (hasDocument && document.documentElement) {
-  const setting = Setting.getInstance();
-  document.documentElement.dataset.theme = setting.getTheme();
-}
-
-const THEMCHANGE_EVENT = "themchange";
-
-export class DMBtn extends BaseControl {
-  private _toggleElm?: HTMLElement;
-
+export class DMBtn extends DarkModeButton {
   public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
+    // <div class="${ROOT_CLASS}">
+    //   <span class="${TOGGLE_CLASS}"></span>
+    // </div>
+    const element = document.createElement("div");
+    element.classList.add(ROOT_CLASS);
 
-  protected _init() {
-    this._toggleElm = NQDOM.getElementByClassName(this.element, TOGGLE_CLASS);
-    this._toggleElm && this._toggleElm.addEventListener("click", (event) => {
-      const setting = Setting.getInstance();
-      setting.toggleTheme();
-      this._setTheme(setting.getTheme());
-    });
+    const toggleElm  = document.createElement("span");
+    toggleElm.classList.add(TOGGLE_CLASS);
 
-    const setting = Setting.getInstance();
-    this._setTheme(setting.getTheme());
-    setting.addEventListener(THEMCHANGE_EVENT, event => this._setTheme(event.theme));
-  }
-
-  private _setTheme(theme: string) {
-    const isDarkMode = (theme == 'dark');
-    if (hasDocument && document.documentElement) {
-      document.documentElement.dataset.theme = theme;
-    }
-    this._toggleElm && this._toggleElm.setAttribute("title", isDarkMode ? kDarkModeTip : kLightModeTip);
+    element.appendChild(toggleElm);
+    return element;
   }
 };
