@@ -20,12 +20,11 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML("ROOT_HTML", `
-
-   <div class="${clss.ROOT_CLASS}>
-    <div>
-      <div class="dbc_bn_nav"></div>
-    </div>
+<div class="${clss.ROOT_CLASS}>
+  <div>
+    <div></div>
   </div>
+</div>
 `);
 
 mk.newCSS('CSS', `
