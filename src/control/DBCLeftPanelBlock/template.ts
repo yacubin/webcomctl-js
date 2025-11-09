@@ -88,7 +88,7 @@ ${DARKMODE_SELECTOR_VALUE}
 .${clss.ROOT_CLASS} > span > div 
 {
   height: 25px;
-  width: 100%;
+  width: calc(100% - 20px);
   background: ${vars.left_fog_grad.asVar()};
   z-index: 1;
 }
