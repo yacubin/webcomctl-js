@@ -27,7 +27,7 @@ const vars = mk.newCSSVariableMap({
 
 mk.newHTML("ROOT_HTML", `
 <div class="${clss.ROOT_CLASS}">
- <span><s></s></span>
+ <s><div></div></s>
   <div class="${clss.PORT_CLASS}"></div>
   <span><div></div></span>
 </div>
@@ -70,11 +70,19 @@ ${DARKMODE_SELECTOR_VALUE}
   align-items: flex-end;
 }
 
-.${clss.ROOT_CLASS} > span > s 
+.${clss.ROOT_CLASS} > s
+{
+  display: flex;
+  height: 0px;
+  align-items: flex-start;
+}
+
+.${clss.ROOT_CLASS} > s > div
 {
   height: 25px;
   width: calc(100% - 20px);
   background: ${vars.leftgrad.asVar()};
+  z-index: 1;
 }
 
 .${clss.ROOT_CLASS} > span > div 
@@ -82,6 +90,7 @@ ${DARKMODE_SELECTOR_VALUE}
   height: 25px;
   width: 100%;
   background: ${vars.left_fog_grad.asVar()};
+  z-index: 1;
 }
 
 @media (device-width <= 700px)
