@@ -6,11 +6,11 @@ import { TOOLBAR_DBC_FONT_SANS } from "@/lib/WickedTheme";
 import leftButSvg from "./left-but.svg";
 import leftButHoverSvg from "./left-but-hover.svg";
 
-const mk = new ControlMaker("DBCLeftPanelBlock");
+const mk = new ControlMaker("DBCLeftPanelBlock2");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
-  "PORT_CLASS",
+   "PORT_CLASS",
 ]);
 
 const left_but_img = convertSvgToCssUrl(leftButSvg);
@@ -26,10 +26,7 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newHTML("ROOT_HTML", `
-<div class="${clss.ROOT_CLASS}">
- <s><div></div></s>
-  <div class="${clss.PORT_CLASS}"></div>
-  <span><div></div></span>
+<div class="${clss.ROOT_CLASS} ${clss.PORT_CLASS}">
 </div>
 `);
 
@@ -46,6 +43,12 @@ ${DARKMODE_SELECTOR_VALUE}
 
 .${clss.ROOT_CLASS}
 {
+  display: grid;
+  grid-auto-rows: 50px 1fr;
+  width: inherit;
+  align-self: start;
+  position: sticky;
+  top: 0px;
   height: inherit;
   max-height: calc(100vh - 143px);
   min-height: 400px;
@@ -54,64 +57,6 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${TOOLBAR_DBC_FONT_SANS};
   color: ${vars.left_col.asVar()};
   background-color: ${vars.left_bg.asVar()};
-}
-
-.${clss.PORT_CLASS}
-{
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.${clss.ROOT_CLASS} > span 
-{
-  display: flex;
-  height: 0px;
-  align-items: flex-end;
-}
-
-.${clss.ROOT_CLASS} > s
-{
-  display: flex;
-  height: 0px;
-  align-items: flex-start;
-}
-
-.${clss.ROOT_CLASS} > s > div
-{
-  height: 25px;
-  width: calc(100% - 20px);
-  background: ${vars.leftgrad.asVar()};
-  z-index: 1;
-}
-
-.${clss.ROOT_CLASS} > span > div 
-{
-  height: 25px;
-  width: calc(100% - 20px);
-  background: ${vars.left_fog_grad.asVar()};
-  z-index: 1;
-}
-
-@media (device-width <= 700px)
-{
-
-  div.${clss.ROOT_CLASS}
-  {
-    max-height: calc(100vh - 180px);
-  }
-}
-
-@media (device-width <= 550px)
-{
-  div.${clss.ROOT_CLASS}
-  {
-    border-right: none;
-    background-color: transparent;
-    width: 45px;
-    height: 50px;
-    margin-left: 15px;
-  }
 }
 
 `);

@@ -127,7 +127,6 @@ ${DARKMODE_SELECTOR_VALUE}
   font-family: ${TOOLBAR_DBC_FONT_SANS};
   overflow-y: scroll;
   overflow-x: hidden;
-  flex-shrink: 0;
   box-sizing: border-box;
 }
 

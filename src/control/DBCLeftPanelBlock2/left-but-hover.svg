@@ -1,0 +1,76 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="88.704pt"
+    height="61.488pt"
+    viewBox="0 0 88.704 61.488">
+<defs/>
+
+<circle id="shape0"
+  transform="matrix(0.999999952991489 0 0 0.999999952991489 1.87199990970334 1.63200806435927)"
+  r="8.4"
+  cx="8.4"
+  cy="8.4"
+  fill="black"
+  fill-rule="evenodd"
+  stroke-opacity="0"
+  stroke="#000000"
+  stroke-width="0"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"/>
+
+<circle id="shape1"
+  transform="matrix(0.999999952991489 0 0 0.999999952991489 1.99199991215853 22.9920055760817)"
+  r="8.4"
+  cx="8.4"
+  cy="8.4"
+  fill="black"
+  fill-rule="evenodd"
+  stroke-opacity="0"
+  stroke="#000000"
+  stroke-width="0"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"/>
+
+<circle id="shape2"
+  transform="matrix(0.999999952991489 0 0 0.999999952991489 2.0622942618293 43.9752000178443)"
+  r="8.4"
+  cx="8.4"
+  cy="8.4"
+  fill="black"
+  fill-rule="evenodd"
+  stroke-opacity="0"
+  stroke="#0000b8"
+  stroke-width="0"
+  stroke-linecap="square"
+  stroke-linejoin="bevel"/>
+
+<path id="shape3"
+  transform="matrix(0.999999952991489 0 0 0.999999952991489 26.7119911029091 10.4381741892831)" 
+  fill="none"
+  stroke="black"
+  stroke-width="9.6"
+  stroke-linecap="round"
+  stroke-linejoin="bevel"
+  d="M0 0L56.6042 0.00439597"/>
+
+<path id="shape4"
+  transform="matrix(0.999999952991489 0 0 0.999999952991489 27.4319911145662 31.1466535533993)"
+  fill="none"
+  stroke="black"
+  stroke-width="9.6"
+  stroke-linecap="round"
+  stroke-linejoin="bevel"
+  d="M0 0.0509117L56.1388 0"/>
+
+<path id="shape5"
+  transform="matrix(0.999999952687479 -2.46580548891712e-05 2.46580548891712e-05 0.999999952687479 28.3919883794999 52.8434536288915)"
+  fill="none"
+  stroke="black"
+  stroke-width="9.6"
+  stroke-linecap="round"
+  stroke-linejoin="bevel"
+  d="M0 0L55.1279 0.0983158"/>
+</svg>

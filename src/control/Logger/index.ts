@@ -36,7 +36,7 @@ export class Logger extends BaseControl {
   public error!: (...args: any[]) => void;
 
   public static createElement(document: HTMLDocument): HTMLElement {
-    // <div class="$ROOT_CLASS"></div>
+    // <div class="${ROOT_CLASS}"></div>
     const element = document.createElement("div");
     element.classList.add(ROOT_CLASS);
     return element;
