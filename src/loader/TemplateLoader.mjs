@@ -15,7 +15,8 @@ async function buildEntry(name, templatesUrl) {
 
 export default function(source) {
   const name = path.basename(path.dirname(this.resourcePath));
-  const { templates } = this.getOptions();
+  // const { templates } = this.getOptions();
+  const templates = process.env.UICTMPLT_TEMPLATES;
   const callback = this.async();
 	(async () => {
 		return await buildEntry(name, templates);
