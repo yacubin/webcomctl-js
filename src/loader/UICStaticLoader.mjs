@@ -13,26 +13,30 @@ async function makeStaticRegisterScript(module, templates)
   scriptContent += `const manager = ControlManager.getInstance();\n\n`;
 
   for (const name in CTLS) {
+    let params = `{rootClass: ${name}.classList.ROOT_CLASS, portClass: ${name}.classList.PORT_CLASS }`;
     const ctlModule = templates[PKG][name];
-    for (const iter of ['ROOT_CLASS']) {
-      if (!(iter in ctlModule)) {
-        throw `Can't find ${iter} for '${name}' control`;
+    if (ctlModule) {
+      for (const iter of ['ROOT_CLASS']) {
+        if (!(iter in ctlModule)) {
+          throw `Can't find ${iter} for '${name}' control`;
+        }
+        if (typeof ctlModule[iter] !== 'string') {
+          console.info(`${iter}:`, ctlModule[iter]);
+          throw `Class ${iter} isn't string of '${name}' control`;
+        }
       }
-      if (typeof ctlModule[iter] !== 'string') {
-        console.info(`${iter}:`, ctlModule[iter]);
-        throw `Class ${iter} isn't string of '${name}' control`;
+      const ctlParams = {
+        rootClass: ctlModule.ROOT_CLASS,
+      };
+      if (typeof ctlModule.PORT_CLASS === 'string') {
+        ctlParams.portClass = ctlModule.PORT_CLASS;
       }
+      else if (typeof ctlModule.PORT_CLASS !== 'undefined') {
+        throw `Wrong type of 'PORT_CLASS' for '${name}' control`;
+      }
+      params = JSON.stringify(ctlParams);
     }
-    const ctlParams = {
-      rootClass: ctlModule.ROOT_CLASS,
-    };
-    if (typeof ctlModule.PORT_CLASS === 'string') {
-      ctlParams.portClass = ctlModule.PORT_CLASS;
-    }
-    else if (typeof ctlModule.PORT_CLASS !== 'undefined') {
-      throw `Wrong type of 'PORT_CLASS' for '${name}' control`;
-    }
-    scriptContent += `manager.register("${name}", ${name}.Control || ${name}, ${name}.createElement, ${JSON.stringify(ctlParams)});\n`;
+    scriptContent += `manager.register("${name}", ${name}.Control || ${name}, ${name}.createElement, ${params});\n`;
   };
   scriptContent += `\n`;
 
