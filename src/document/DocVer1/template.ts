@@ -1,5 +1,4 @@
 import ControlMaker from "@/lib/ControlMaker";
-import { DARKMODE_ATTR_NAME, DARKMODE_DEFAULT_VALUE } from "@/lib/DarkMode";
 
 const mk = new ControlMaker("DocVer1");
 
