@@ -28,6 +28,7 @@ export default async (env, argv) => {
         'controls-entry-loader': path.join(__dirname, 'src/loader/ControlsEntryLoader.mjs'),
         'template-loader': templateLoaderScript,
         'uictmplt-loader': templateLoaderScript, // templates=${url.pathToFileURL(templates)}
+        "node-loader": path.join(__dirname, "src/loader/NodeLoader.mjs"),
       },
     },
     resolve: {
@@ -47,6 +48,17 @@ export default async (env, argv) => {
               options: {
                 configFile: path.join(__dirname, tsconfig),
               }
+            }
+          ],
+        },
+        {
+          test: /\.node\.ts$/,
+          exclude: path.join(__dirname, "node_modules"),
+          use: [
+            {
+              loader: "node-loader",
+              options: {
+              },
             }
           ],
         },

@@ -1,6 +1,5 @@
 import { BaseControl } from "webnetq-js";
-// @ts-ignore
-import { ROOT_CLASS, PORT_CLASS, NTH2_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, PORT_CLASS, NTH2_CLASS } from "./maker.node";
 
 export abstract class SwitchBlock3 extends BaseControl {
   abstract showFirst(): void;
@@ -8,6 +7,11 @@ export abstract class SwitchBlock3 extends BaseControl {
 };
 
 export namespace SwitchBlock3 {
+
+export const classList = {
+  ROOT_CLASS,
+  PORT_CLASS,
+};
 
 export interface InitParams {
   type?: "normal" | "flex";
