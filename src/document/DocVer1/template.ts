@@ -1,10 +1,10 @@
 import ControlMaker from "@/lib/ControlMaker";
 
-const mk = new ControlMaker("DocVer1");
-
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
 import { UIC_START_BACKGROUND_COLOR } from "@/lib/WickedTheme";
 import { UIC_START_BACKGROUND_COLOR_DARK } from "@/lib/WickedTheme";
+
+const mk = new ControlMaker("DocVer1");
 
 const clss = mk.newClassNameMap([
   "ROOT_CLASS",
@@ -16,7 +16,7 @@ const vars = mk.newCSSVariableMap({
 });
 
 mk.newCSS('CSS', `
-root:
+:root
 {
   ${vars.toString(0)};
 }
