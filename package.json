@@ -48,7 +48,7 @@
     "svgo": "^3.3.2",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
-    "webnetq-js": "github:yacubin/webnetq-js",
+    "webnetq-js": "github:yacubin/webnetq-js#20260627_prepare",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   }
