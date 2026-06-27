@@ -72,10 +72,6 @@ export class CSSVariable {
   }
 };
 
-export class CSSBlock {
-
-};
-
 export default class ControlMaker {
   private _name: string;
   private _cssClassNames: { [name: string]: CSSClassName | CSSVariable };
@@ -163,7 +159,7 @@ export default class ControlMaker {
 
   public newCSS(name: string, css: string[] | string) {
     if (this._cssList.hasOwnProperty(name))
-      throw `HTML '${name}' exist in ${this._name}`;
+      throw `CSS '${name}' exist in ${this._name}`;
     this._cssList[name] = Array.isArray(css) ? css.join("\n") : css;
     return css;
   }

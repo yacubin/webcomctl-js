@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 async function detectScriptFile(filepath) {
   for (const ext of [ ".ts", ".tsx", ".mjs", ".js" ]) {
     try {
-      if ((await fs.promises.stat(filepath + ext)).isFile());
+      if ((await fs.promises.stat(filepath + ext)).isFile())
         return path.basename(filepath) + ext;
     } catch { }
   }
