@@ -27,7 +27,9 @@
     "build-controls-debug": "webpack --config controls.config.mjs --mode=development --output-path=dist",
     "build-controls-release": "webpack --config controls.config.mjs --mode=production --output-path=dist",
     "build:debug": "npm run build-builders-debug && npm run build-templates-debug && npm run build-controls-debug",
-    "build:release": "npm run build-builders-release && npm run build-templates-release && npm run build-controls-release"
+    "build:release": "npm run build-builders-release && npm run build-templates-release && npm run build-controls-release",
+    "build:base:dbg": "webpack --config webpack.config.mjs --mode development",
+    "build:dbg": "npm run build:base:dbg"
   },
   "repository": {
     "type": "git",

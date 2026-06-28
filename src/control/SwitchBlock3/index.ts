@@ -1,5 +1,5 @@
 import { BaseControl } from "webnetq-js";
-import { ROOT_CLASS, PORT_CLASS, NTH2_CLASS } from "./maker.node";
+import { ROOT_CLASS, PORT_CLASS, NTH2_CLASS } from "./template.node";
 
 export abstract class SwitchBlock3 extends BaseControl {
   abstract showFirst(): void;

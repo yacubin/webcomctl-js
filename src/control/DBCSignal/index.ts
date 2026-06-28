@@ -1,9 +1,8 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-import { STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS,
+import { ROOT_CLASS, STARTBIT_CLASS, SIZEINBITS_CLASS, BYTEORDER_CLASS, VALUETYPE_CLASS,
   FACTOR_CLASS, OFFSET_CLASS, MINIMUM_CLASS, MAXIMUM_CLASS, UNIT_CLASS,
-  START_VALUE_CLASS, RECEIVERS_CLASS, TITLE_CLASS, ROOT_HTML
-// @ts-ignore
-} from "uictmplt-loader!./template.ts";
+  START_VALUE_CLASS, RECEIVERS_CLASS, TITLE_CLASS, ROOT_HTML, CSS
+} from "./template.node";
 
 function setTextContent(elm: HTMLElement | undefined, val: string | undefined, defVal?: string) {
   if (elm) {
@@ -47,7 +46,22 @@ function receiversToText(value?: string[]) {
     return value.join(',');
 }
 
-export class DBCSignal extends BaseControl {
+export namespace DBCSignal {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _titleElm?: HTMLElement;
   private _startBitElm?: HTMLElement;
   private _sizeInBitsElm?: HTMLElement;
@@ -61,23 +75,19 @@ export class DBCSignal extends BaseControl {
   private _startValueElm?: HTMLElement;
   private _receiversElm?: HTMLElement;
 
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
-
   protected _init() {
-    this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
-    this._startBitElm = NQDOM.getElementByClassName(this.element, STARTBIT_CLASS);
-    this._sizeInBitsElm = NQDOM.getElementByClassName(this.element, SIZEINBITS_CLASS);
-    this._byteOrderElm = NQDOM.getElementByClassName(this.element, BYTEORDER_CLASS);
-    this._isUnsignedElm = NQDOM.getElementByClassName(this.element, VALUETYPE_CLASS);
-    this._factorElm = NQDOM.getElementByClassName(this.element, FACTOR_CLASS);
-    this._offsetElm = NQDOM.getElementByClassName(this.element,  OFFSET_CLASS);
-    this._minimumElm = NQDOM.getElementByClassName(this.element, MINIMUM_CLASS);
-    this._maximumElm = NQDOM.getElementByClassName(this.element, MAXIMUM_CLASS);
-    this._unitElm = NQDOM.getElementByClassName(this.element, UNIT_CLASS);
-    this._startValueElm = NQDOM.getElementByClassName(this.element, START_VALUE_CLASS);
-    this._receiversElm = NQDOM.getElementByClassName(this.element, RECEIVERS_CLASS);
+    this._titleElm = NQDOM.getElementByClassName(super.element, TITLE_CLASS);
+    this._startBitElm = NQDOM.getElementByClassName(super.element, STARTBIT_CLASS);
+    this._sizeInBitsElm = NQDOM.getElementByClassName(super.element, SIZEINBITS_CLASS);
+    this._byteOrderElm = NQDOM.getElementByClassName(super.element, BYTEORDER_CLASS);
+    this._isUnsignedElm = NQDOM.getElementByClassName(super.element, VALUETYPE_CLASS);
+    this._factorElm = NQDOM.getElementByClassName(super.element, FACTOR_CLASS);
+    this._offsetElm = NQDOM.getElementByClassName(super.element,  OFFSET_CLASS);
+    this._minimumElm = NQDOM.getElementByClassName(super.element, MINIMUM_CLASS);
+    this._maximumElm = NQDOM.getElementByClassName(super.element, MAXIMUM_CLASS);
+    this._unitElm = NQDOM.getElementByClassName(super.element, UNIT_CLASS);
+    this._startValueElm = NQDOM.getElementByClassName(super.element, START_VALUE_CLASS);
+    this._receiversElm = NQDOM.getElementByClassName(super.element, RECEIVERS_CLASS);
   }
 
   public setTitle(title: string) {
@@ -99,3 +109,5 @@ export class DBCSignal extends BaseControl {
     setTextContent(this._receiversElm, receiversToText(params.receivers));
   }
 };
+
+} // namespace DBCSignal

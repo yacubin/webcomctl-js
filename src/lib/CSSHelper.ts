@@ -46,3 +46,25 @@ export function representClassNames(params: string | string[] | { [name: string]
 
   return result;
 }
+
+export function splitCSS(css: string): string[] {
+  const rules: string[] = [];
+  let depth = 0;
+  let current = '';
+
+  for (const char of css) {
+    current += char;
+
+    if (char === '{') depth++;
+    if (char === '}') {
+      depth--;
+      if (depth === 0) {
+        const rule = current.trim();
+        if (rule) rules.push(rule);
+        current = '';
+      }
+    }
+  }
+
+  return rules;
+}

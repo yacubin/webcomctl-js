@@ -1,6 +1,5 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS, INSET_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, PORT_CLASS, ROOT_HTML, CSS, NONE_CLASS, TOP_CLASS, RIGHT_CLASS, BOTTOM_CLASS, LEFT_CLASS, INSET_CLASS } from "./template.node";
 
 const DRAGENTER_EVENT = "dragenter";
 const DRAGOVER_EVENT = "dragover";
@@ -77,14 +76,26 @@ export function toClassName(sideType: SideType) {
 
 } // namespace SideType
 
-export class DropBlock  extends BaseControl {
+export namespace DropBlock {
+
+export const classList = {
+  ROOT_CLASS,
+  PORT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _sideSet = new Set();
   private _sideType = SideType.NONE;
   private _rectElm?: HTMLElement;
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
 
   protected _init() {
     this._rectElm = NQDOM.getElementByClassName(this.element, NONE_CLASS);
@@ -202,3 +213,5 @@ export class DropBlock  extends BaseControl {
     this._setSideType(SideType.NONE);
   }
 };
+
+} // namespace DropBlock

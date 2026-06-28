@@ -1,6 +1,5 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, RIGHT_CLASS, BOTTOM_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, PORT_CLASS, ROOT_HTML, CSS, RIGHT_CLASS, BOTTOM_CLASS } from "./template.node";
 
 enum SideType {
   TOP_LEFT = 0,
@@ -41,17 +40,32 @@ export function toString(sideType: SideType): string | undefined {
 
 } // namespace SideType
 
-export class AbsoluteBlock extends BaseControl {
+export namespace AbsoluteBlock {
+
+export const classList = {
+  ROOT_CLASS,
+  PORT_CLASS,
+};
+
+export interface InitParams {
+};
+
+export function createElement(document: HTMLDocument, params: InitParams): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _sideType!: SideType;
   private _visible!: boolean;
 
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
-
   protected _init() {
-    const hasRight = this.element.classList.contains(RIGHT_CLASS);
-    const hasBottom = this.element.classList.contains(BOTTOM_CLASS);
+    const hasRight = super.element.classList.contains(RIGHT_CLASS);
+    const hasBottom = super.element.classList.contains(BOTTOM_CLASS);
 
     if (hasRight)
       this._sideType = hasBottom ? SideType.BOTTOM_RIGHT : SideType.TOP_RIGHT;
@@ -105,7 +119,9 @@ export class AbsoluteBlock extends BaseControl {
       return;
     }
 
-    this.element.classList.toggle(RIGHT_CLASS, hasRight);
-    this.element.classList.toggle(BOTTOM_CLASS, hasBottom);
+    super.element.classList.toggle(RIGHT_CLASS, hasRight);
+    super.element.classList.toggle(BOTTOM_CLASS, hasBottom);
   }
 };
+
+} // namespace AbsoluteBlock

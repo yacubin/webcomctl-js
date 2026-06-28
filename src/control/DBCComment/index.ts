@@ -1,16 +1,26 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, dbc_comment_text } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, ROOT_HTML, CSS, COMMENT_CLASS } from "./template.node";
 
-export class DBCComment extends BaseControl {
+export namespace DBCComment {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _commentTextElement?: HTMLElement;
 
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
-
   protected _init() {
-    this._commentTextElement = NQDOM.getElementByClassName(this.element, dbc_comment_text);
+    this._commentTextElement = NQDOM.getElementByClassName(super.element, COMMENT_CLASS);
   }
 
   public setValue(text: string) {
@@ -24,3 +34,5 @@ export class DBCComment extends BaseControl {
     }
   }
 };
+
+} // namespace DBCComment

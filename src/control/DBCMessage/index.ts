@@ -1,8 +1,7 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-import { ROOT_HTML, TITLE_CLASS, IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS,
+import { ROOT_CLASS, ROOT_HTML, CSS, TITLE_CLASS, IDX_CLASS, SIZE_CLASS, PSEUDO_CLASS, TRANSMITTERS_CLASS, CYCLETIME_CLASS,
   PDU_FORMAT_CLASS, PDU_PGN_CLASS, PDU_PRIORITY_CLASS, PDU_SA_CLASS, PDU_DA_CLASS, PDU_ROOT_CLASS
-// @ts-ignore
-} from "uictmplt-loader!./template.ts";
+} from "./template.node";
 
 function setTextContent(elm: HTMLElement | undefined, val: string) {
   elm && (elm.textContent = val);
@@ -32,7 +31,22 @@ interface ValueParams {
   };
 };
 
-export class DBCMessage extends BaseControl {
+export namespace DBCMessage {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _titleElm?: HTMLElement;
   private _idxElm?: HTMLElement;
   private _sizeElm?: HTMLElement;
@@ -46,23 +60,19 @@ export class DBCMessage extends BaseControl {
   private _pduSaElm?: HTMLElement;
   private _pduDaElm?: HTMLElement;
 
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
-
   protected _init() {
-    this._titleElm = NQDOM.getElementByClassName(this.element, TITLE_CLASS);
-    this._idxElm = NQDOM.getElementByClassName(this.element, IDX_CLASS);
-    this._sizeElm = NQDOM.getElementByClassName(this.element, SIZE_CLASS);
-    this._pseudoElm = NQDOM.getElementByClassName(this.element, PSEUDO_CLASS);
-    this._transmittersElm = NQDOM.getElementByClassName(this.element, TRANSMITTERS_CLASS);
-    this._cycletimeElm = NQDOM.getElementByClassName(this.element, CYCLETIME_CLASS);
-    this._pduRootElm = NQDOM.getElementByClassName(this.element, PDU_ROOT_CLASS);
-    this._pduFormatElm = NQDOM.getElementByClassName(this.element, PDU_FORMAT_CLASS);
-    this._pduPgnElm = NQDOM.getElementByClassName(this.element, PDU_PGN_CLASS);
-    this._pduPriorityElm = NQDOM.getElementByClassName(this.element, PDU_PRIORITY_CLASS);
-    this._pduSaElm = NQDOM.getElementByClassName(this.element, PDU_SA_CLASS);
-    this._pduDaElm = NQDOM.getElementByClassName(this.element, PDU_DA_CLASS);
+    this._titleElm = NQDOM.getElementByClassName(super.element, TITLE_CLASS);
+    this._idxElm = NQDOM.getElementByClassName(super.element, IDX_CLASS);
+    this._sizeElm = NQDOM.getElementByClassName(super.element, SIZE_CLASS);
+    this._pseudoElm = NQDOM.getElementByClassName(super.element, PSEUDO_CLASS);
+    this._transmittersElm = NQDOM.getElementByClassName(super.element, TRANSMITTERS_CLASS);
+    this._cycletimeElm = NQDOM.getElementByClassName(super.element, CYCLETIME_CLASS);
+    this._pduRootElm = NQDOM.getElementByClassName(super.element, PDU_ROOT_CLASS);
+    this._pduFormatElm = NQDOM.getElementByClassName(super.element, PDU_FORMAT_CLASS);
+    this._pduPgnElm = NQDOM.getElementByClassName(super.element, PDU_PGN_CLASS);
+    this._pduPriorityElm = NQDOM.getElementByClassName(super.element, PDU_PRIORITY_CLASS);
+    this._pduSaElm = NQDOM.getElementByClassName(super.element, PDU_SA_CLASS);
+    this._pduDaElm = NQDOM.getElementByClassName(super.element, PDU_DA_CLASS);
   }
 
   public setTitle(title: string) {
@@ -90,3 +100,5 @@ export class DBCMessage extends BaseControl {
     }
   }
 };
+
+} // namespace DBCMessage

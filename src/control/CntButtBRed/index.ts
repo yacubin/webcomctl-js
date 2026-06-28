@@ -1,18 +1,27 @@
 import { BaseControl, Random, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, CSS, ROOT_CLASS, LOAD_CLASS, HEIGHT_CLASS } from "./template.node";
 
 const UPLOAD_EVENT = 'upload';
 
-export class CntButtBRed extends BaseControl {
+export namespace CntButtBRed {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _heightElm?: HTMLElement;
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
-
   protected _init() {
-    const lableElm = this.element.querySelector('label');
+    const lableElm = super.element.querySelector('label');
     if (lableElm) {
       const inputId = Random.nextElementId();
     
@@ -22,7 +31,7 @@ export class CntButtBRed extends BaseControl {
 
       inputElm.addEventListener("input", (event) => {
         const files = (event.target as HTMLInputElement).files;
-        this.dispatchEvent(UPLOAD_EVENT, {files});
+        super.dispatchEvent(UPLOAD_EVENT, {files});
         (event.target as any).value = null;
       });
 
@@ -30,26 +39,28 @@ export class CntButtBRed extends BaseControl {
       lableElm.setAttribute('for', inputId);
     }
 
-    this._heightElm = NQDOM.getElementByClassName(this.element, HEIGHT_CLASS);
+    this._heightElm = NQDOM.getElementByClassName(super.element, HEIGHT_CLASS);
     if (this._heightElm) {
       this._heightElm.style.height = "0";
       this._heightElm.innerText = "";
     }
 
-    this.registerEvent(UPLOAD_EVENT);
+    super.registerEvent(UPLOAD_EVENT);
   }
 
   public loadProcess(value: number | null) {
     if (value === null) {
-      this.element.classList.remove(LOAD_CLASS);
-      this.element.classList.add(ROOT_CLASS);
+      super.element.classList.remove(LOAD_CLASS);
+      super.element.classList.add(ROOT_CLASS);
     }
     else if (Number.isNaN(value)) {
-      this.element.classList.remove(ROOT_CLASS);
-      this.element.classList.add(LOAD_CLASS);
+      super.element.classList.remove(ROOT_CLASS);
+      super.element.classList.add(LOAD_CLASS);
     }
     else if (this._heightElm) {
       this._heightElm.style.height = value + "%";
     }
   }
 };
+
+} // namespace CntButtBRed

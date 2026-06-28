@@ -1,6 +1,7 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, ITEM_HTML, DOCUMENT_CLASS, MESSAGE_CLASS, GROUP_CLASS, SIGNAL_CLASS, PSEUDO_CLASS, EXPAND_CLASS, CHILDFREE_CLASS, ACTIVE_CLASS, TITLE_CLASS, CHILDS_CLASS, DO_EXPAND_CLASS, DO_ACTIVE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, ITEM_HTML, CSS, ROOT_CLASS, DOCUMENT_CLASS, MESSAGE_CLASS,
+  GROUP_CLASS, SIGNAL_CLASS, PSEUDO_CLASS, EXPAND_CLASS, CHILDFREE_CLASS,
+  ACTIVE_CLASS, TITLE_CLASS, CHILDS_CLASS, DO_EXPAND_CLASS, DO_ACTIVE_CLASS } from "./template.node";
 
 const typeToClass = {
   document: DOCUMENT_CLASS,
@@ -21,13 +22,24 @@ interface DBCNodeParams {
 
 const SELECTEDCHANGED_EVENT = "selectedchanged";
 
-export class DBCTree extends BaseControl {
+export namespace DBCTree {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _selectedElm?: HTMLElement;
   private _itemTemplate?: HTMLElement;
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
 
   protected _init() {
     this._itemTemplate = NQDOM.createElement(ITEM_HTML);
@@ -105,3 +117,5 @@ export class DBCTree extends BaseControl {
     return itemElm;
   }
 };
+
+} // namespace DBCTree

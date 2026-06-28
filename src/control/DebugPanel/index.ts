@@ -1,12 +1,26 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, ITEM_HTML, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, ROOT_HTML, ITEM_HTML, CSS, TEXT_CLASS, LIST_CLASS, DOWN_CLASS, HIDE_CLASS, RIGHT_CLASS, SIDE_CLASS } from "./template.node";
 
 interface ButtonParams {
   onclick: (event: MouseEvent) => void;
 };
 
-export class DebugPanel extends BaseControl {
+export namespace DebugPanel {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   protected _init() {
     const hideClickElm = NQDOM.getElementByClassName(this.element, HIDE_CLASS);
     hideClickElm && hideClickElm.addEventListener("click", (event) => {
@@ -16,10 +30,6 @@ export class DebugPanel extends BaseControl {
     sideClickElm && sideClickElm.addEventListener("click", (event) => {
       this.element.classList.toggle(RIGHT_CLASS);
     });
-  }
-
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
   }
 
   public setButton(name: string, { onclick }: ButtonParams) {
@@ -33,3 +43,5 @@ export class DebugPanel extends BaseControl {
     }
   }
 };
+
+} // namespace DebugPanel

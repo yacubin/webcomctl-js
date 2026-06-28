@@ -1,16 +1,26 @@
 import { BaseControl, Random, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, LOAD_CLASS } from "uictmplt-loader!./template.ts";
+import { ROOT_HTML, CSS, ROOT_CLASS, LOAD_CLASS } from "./template.node";
 
 const UPLOAD_EVENT = 'upload';
 
-export class CntSmUploadButton extends BaseControl {
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
+export namespace CntSmUploadButton {
 
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   protected _init() {
-    const lableElm = this.element.querySelector('label');
+    const lableElm = super.element.querySelector('label');
     if (lableElm) {
       const inputId = Random.nextElementId();
     
@@ -20,7 +30,7 @@ export class CntSmUploadButton extends BaseControl {
 
       inputElm.addEventListener("input", (event: Event) => {
         const files = (event.target as HTMLInputElement).files;
-        this.dispatchEvent(UPLOAD_EVENT, {files});
+        super.dispatchEvent(UPLOAD_EVENT, {files});
         (event.target as any).value = null;
       });
   
@@ -28,11 +38,13 @@ export class CntSmUploadButton extends BaseControl {
       lableElm.setAttribute('for', inputId);
     }
 
-    this.registerEvent(UPLOAD_EVENT);
+    super.registerEvent(UPLOAD_EVENT);
   }
 
-  public get loadEnable() { return this.element.classList.contains(LOAD_CLASS); }
+  public get loadEnable() { return super.element.classList.contains(LOAD_CLASS); }
   public set loadEnable(value) {
-    this.element.classList.toggle(LOAD_CLASS, value);
+    super.element.classList.toggle(LOAD_CLASS, value);
   }
 };
+
+} // namespace CntSmUploadButton

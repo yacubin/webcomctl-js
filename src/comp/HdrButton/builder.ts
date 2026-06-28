@@ -1,4 +1,5 @@
 import ControlMaker from "@/lib/ControlMaker";
+import { representClassNames, splitCSS } from "@/lib/CSSHelper";
 import { convertSvgToCssUrl } from "@/lib/SVG";
 
 import { DARKMODE_SELECTOR_VALUE } from "@/lib/DarkMode";
@@ -21,6 +22,119 @@ interface Params {
   mainImage: string;
   hoverImage: string | [string, string];
 };
+
+export function template(name: string, {type, url, anchorTarget, text, mainImage, hoverImage}: Params) {
+  const mk = new ControlMaker(name);
+
+  const ROOT_CLASS: string = representClassNames(name + "-ROOT_CLASS");
+  const HIDDEN_CLASS: string = representClassNames(name + "-HIDDEN_CLASS");
+
+  const vars = mk.newCSSVariableMap({
+    btnBg: [ HEADER_BACKGROUND_COLOR ],
+    btnCol: [ HEADER_COLOR_HOVER, HEADER_COLOR_HOVER_DARK ],
+    image: [hoverImage].flat().map(i => convertSvgToCssUrl(i)) as any,
+  });
+
+  let ROOT_HTML!: string;
+  if (type === "Link") {
+    ROOT_HTML = `
+      <a href="${url}" target="${anchorTarget}" class="${ROOT_CLASS} notranslate" translate="no" draggable="false">
+        <div></div>
+        <span>${text}</span>
+      </a>
+    `;
+  }
+  else if (type === "FileUpload") {
+    ROOT_HTML = `
+    <label class="${ROOT_CLASS} ${HIDDEN_CLASS} notranslate" translate="no" draggable="false">
+      <div></div>
+      <span>${text}</span>
+      <!--<input type="file">-->
+    </label>
+    `;
+  }
+
+  const CSS = splitCSS(`
+  :root
+  {
+    ${vars.toString(0)};
+  }
+
+  ${DARKMODE_SELECTOR_VALUE}
+  {
+    ${vars.toString(1)};
+  }
+
+  .${ROOT_CLASS} > input
+  {
+    display: none;
+  }
+
+  .${HIDDEN_CLASS}
+  {
+    visibility: hidden;
+  }
+
+  .${ROOT_CLASS}
+  {
+    display: flex;
+    width: min-content;
+    height: min-content;
+    margin: 0px 5px;
+    padding-right: 5px;
+    color: ${HEADER_FONT_COLOR};
+    font-family: ${HEADER_FONT_FAMILY};
+    font-size: ${HEADER_FONT_SIZE};
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  .${ROOT_CLASS}:hover
+  {
+    color: ${vars.btnCol.asVar()};
+    background-color: ${vars.btnBg.asVar()};
+    border-radius: ${HEADER_BORDER_RADIUS_HOVER};
+    transition: background-color 0.2s;
+  }
+
+  .${ROOT_CLASS}:hover > div
+  {
+    background-image: ${vars.image.asVar()};
+  }
+
+  .${ROOT_CLASS} > div
+  {
+    display: block;
+    width: 40px;
+    height: 30px;
+    border: 4px solid transparent;
+    background-image: ${convertSvgToCssUrl(mainImage)};
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  @media (device-width < ${HEADER_MOBILE_DEVICE_WIDTH})
+  {
+    .${ROOT_CLASS} > div
+    {
+      width: 60px;
+      height: 55px;
+    }
+    .${ROOT_CLASS}
+    {
+      font-size: 60px;
+    }
+  }
+  `);
+
+  return { ROOT_CLASS, ROOT_HTML, CSS };
+}
 
 export function build(name: string, {type, url, anchorTarget, text, mainImage, hoverImage}: Params) {
   const mk = new ControlMaker(name);

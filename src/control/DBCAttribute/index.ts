@@ -1,16 +1,26 @@
 import { BaseControl, NQDOM } from "webnetq-js";
-// @ts-ignore
-import { ROOT_HTML, dbc_attributes_list } from "uictmplt-loader!./template.ts";
+import { ROOT_CLASS, ROOT_HTML, CSS, ATTRIBUTES_LIST } from "./template.node";
 
-export class DBCAttribute extends BaseControl {
+export namespace DBCAttribute {
+
+export const classList = {
+  ROOT_CLASS,
+};
+
+export function createElement(document: HTMLDocument): HTMLElement {
+  return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
+}
+
+export function initRules(styleSheet: CSSStyleSheet): void {
+  for (const iter of CSS)
+    styleSheet.insertRule(iter, styleSheet.cssRules.length);
+}
+
+export class Control extends BaseControl {
   private _attrListElement?: HTMLElement;
 
-  public static createElement(document: HTMLDocument): HTMLElement {
-    return NQDOM.createElement(ROOT_HTML, document) as HTMLElement;
-  }
-
   protected _init() {
-    this._attrListElement = NQDOM.getElementByClassName(this.element, dbc_attributes_list);
+    this._attrListElement = NQDOM.getElementByClassName(super.element, ATTRIBUTES_LIST);
   }
 
   public setValue(attributes: { [key: string]: string }) {
@@ -34,3 +44,5 @@ export class DBCAttribute extends BaseControl {
     }
   }
 };
+
+} // namespace DBCAttribute
